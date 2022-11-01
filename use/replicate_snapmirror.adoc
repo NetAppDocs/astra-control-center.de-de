@@ -1,0 +1,271 @@
+---
+sidebar: sidebar 
+permalink: use/replicate_snapmirror.html 
+keywords: replicate, replication, disaster, recovery 
+summary: Astra kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt. 
+---
+= Replizieren von Applikationen auf einem Remote-System mit SnapMirror Technologie
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Mithilfe von Astra Control können Sie mit den asynchronen Replizierungsfunktionen der NetApp SnapMirror Technologie Business Continuity für Ihre Applikationen erzielen: Mit Low-RPO (Recovery Point Objective) und Low-RTO (Recovery Time Objective). Sobald Ihre Applikationen konfiguriert sind, können sie Daten und Applikationsänderungen von einem Cluster auf ein anderes replizieren.
+
+Einen Vergleich zwischen Backups/Wiederherstellungen und der Replizierung finden Sie unter link:../concepts/data-protection.html["Konzepte zur Datensicherung"].
+
+Applikationen lassen sich in unterschiedlichen Szenarien replizieren, z. B. nur on-Premises, in Hybrid- und Multi-Cloud-Szenarien:
+
+* On-Premises-Standort A auf On-Premises-Standort B
+* On-Premises- und Cloud-Umgebungen mit Cloud Volumes ONTAP
+* Cloud mit Cloud Volumes ONTAP auf On-Premises-Umgebungen
+* Cloud mit Cloud Volumes ONTAP in die Cloud (zwischen verschiedenen Regionen desselben Cloud-Providers oder verschiedener Cloud-Provider)
+
+
+Astra Control kann Applikationen über On-Premises-Cluster, On-Premises-Cluster und Cloud (mithilfe von Cloud Volumes ONTAP) oder zwischen Clouds (Cloud Volumes ONTAP auf Cloud Volumes ONTAP) replizieren.
+
+
+NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster oder Standort ausgeführt) in die entgegengesetzte Richtung replizieren. So können beispielsweise Applikationen A, B und C von Datacenter 1 nach Datacenter 2 repliziert werden. Applikationen X, Y und Z können von Datacenter 2 zu Datacenter 1 repliziert werden.
+
+Mit Astra Control können Sie die folgenden Aufgaben für die Replikation von Anwendungen ausführen:
+
+*  up a replication relationship
+*  a replicated app online on the destination cluster (fail over)
+*  a failed over replication
+*  application replication
+*  back applications to the original source cluster
+*  an application replication relationship
+
+
+
+
+== Replikationsvoraussetzungen
+
+Siehe link:../get-started/requirements.html#replication-prerequisites["Replikationsvoraussetzungen"] Bevor Sie beginnen.
+
+
+
+== Richten Sie eine Replikationsbeziehung ein
+
+Die Einrichtung einer Replikationsbeziehung umfasst Folgendes, die die Replikationsrichtlinie enthält;
+
+* Wählen Sie, wie häufig Astra Control einen App Snapshot erstellen soll (einschließlich der Kubernetes-Ressourcen der Applikation und der Volume-Snapshots für die einzelnen Applikations-Volumes).
+* Auswahl des Replizierungszeitplans (einschließlich Kubernetes-Ressourcen und persistente Volume-Daten)
+* Einstellen der Zeit, die für die Erstellung des Snapshots verwendet werden soll
+
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Data Protection > Replication die Option *Configure Replication Policy* aus. Oder wählen Sie im Feld Anwendungsschutz die Option Aktionen aus, und wählen Sie *Replikationsrichtlinie konfigurieren* aus.
+. Geben Sie die folgenden Informationen ein, oder wählen Sie sie aus:
++
+** Ziel-Cluster
+** *Zielspeicherklasse*: Wählen Sie die Speicherklasse aus, die die gekoppelte SVM auf dem Ziel-ONTAP-Cluster verwendet.
+** *Replikationstyp*: "Asynchron" ist derzeit der einzige verfügbare Replikationstyp. 
+** *Ziel-Namespace*: Geben Sie einen neuen oder bestehenden Ziel-Namespace für das Ziel-Cluster ein.
++
+
+NOTE: Alle in Konflikt stehenden Ressourcen im ausgewählten Namespace werden überschrieben. 
+
+** *Frequenz der Replikation*: Legen Sie fest, wie oft Astra Control einen Snapshot machen und ihn an sein Ziel replizieren soll.
+** *Offset*: Stellen Sie die Anzahl der Minuten von der Stunde her, die Sie möchten, dass Astra Control einen Schnappschuss machen soll. Möglicherweise möchten Sie einen Offset verwenden, sodass er nicht mit anderen geplanten Vorgängen übereinstimmt. Wenn Sie beispielsweise den Snapshot alle 5 Minuten ab 10:02 Uhr aufnehmen möchten, geben Sie als Offset-Minuten „02“ ein. Das Ergebnis sind 10:02, 10:07, 10:12 usw.
+
+
+. Wählen Sie *Weiter*, lesen Sie die Zusammenfassung und wählen Sie *Speichern*.
++
+
+NOTE: Zunächst wird der Status „App-Mirror“ angezeigt, bevor der erste Zeitplan stattfindet.
+
++
+Astra Control erstellt einen Applikations-Snapshot, der für die Replizierung verwendet wird.
+
+. Um den Snapshot-Status der Anwendung anzuzeigen, wählen Sie die Registerkarte *Anwendungen* > *Snapshots*.
++
+Der Snapshot-Name verwendet das Format „Replication-Schedule-<string>“. Astra Control behält den letzten Snapshot, der für die Replizierung verwendet wurde. Alle älteren Replizierungs-Snapshots werden nach Abschluss der Replikation gelöscht.
+
+
+
+Dadurch wird die Replikationsbeziehung erstellt.
+
+Astra Control führt die folgenden Maßnahmen durch, die auf dem Aufbau der Beziehung resultieren:
+
+* Erstellt einen Namespace auf dem Ziel (wenn er nicht vorhanden ist)
+* Erstellt eine PVC auf dem Ziel-Namespace, der den PVCs der Quell-App entspricht.
+* Ersten applikationskonsistenten Snapshot
+* Legt mithilfe des ersten Snapshots die SnapMirror Beziehung für persistente Volumes fest
+
+
+Auf der Seite Datensicherung werden der Status und der Status der Replikationsbeziehung angezeigt: <Status> <Lebenszyklus der Beziehung>
+
+Zum Beispiel: Normal
+
+Weitere Informationen zu Replikationsstatus und -Status finden Sie unten.
+
+
+
+== Online-Betrieb einer replizierten App auf dem Ziel-Cluster (Failover)
+
+Mit Astra Control können Sie ein „Failover“ Ihrer replizierten Applikationen auf ein Ziel-Cluster ausführen. Durch dieses Verfahren wird die Replikationsbeziehung angehalten und die App wird auf dem Ziel-Cluster online geschaltet. Durch dieses Verfahren wird die App nicht auf dem Quell-Cluster angehalten, wenn sie betriebsbereit war.
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Datenschutz > Replikation im Menü Aktionen die Option *Failover* aus.
+. Überprüfen Sie auf der Seite Failover die Informationen, und wählen Sie *Failover*.
+
+
+Die folgenden Aktionen ergeben sich aus dem Failover-Verfahren:
+
+* Auf dem Ziel-Cluster wird die Applikation basierend auf dem zuletzt replizierten Snapshot gestartet.
+* Das Quellcluster und die App (falls betriebsbereit) werden nicht angehalten und werden weiterhin ausgeführt.
+* Der Replikationsstatus ändert sich zu „Failover“ und dann zu „Failover“, wenn er abgeschlossen ist.
+* Die Schutzrichtlinie der Quell-App wird basierend auf den Zeitplänen in der Quell-App zum Zeitpunkt des Failover in die Ziel-App kopiert.
+* Astra Control zeigt die App sowohl auf den Quell- und Ziel-Clustern und deren jeweiligen Zustand.
+
+
+
+
+== Resynchronisierung einer fehlgeschlagenen Überreplikation
+
+Durch den Neusynchronisierung wird die Replikationsbeziehung wiederhergestellt. Sie können die Quelle der Beziehung auswählen, um die Daten im Quell- oder Ziel-Cluster aufzubewahren. Durch diesen Vorgang werden die SnapMirror Beziehungen neu erstellt, um die Volume-Replizierung in Richtung ihrer Wahl zu starten.
+
+Dabei wird die App auf dem neuen Ziel-Cluster angehalten, bevor die Replizierung neu erstellt wird.
+
+
+NOTE: Während der Resynchronisierung wird der Lebenszyklusstatus als „Einrichten“ angezeigt.
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Datenschutz > Replikation im Menü Aktionen die Option *Resync* aus.
+. Wählen Sie auf der Seite Resync entweder die Quell- oder Ziel-App-Instanz aus, die die zu bewahrenden Daten enthält.
++
+
+CAUTION: Wählen Sie die Quelle sorgfältig neu synchronisieren, da die Daten auf dem Ziel überschrieben werden.
+
+. Wählen Sie *Resync*, um fortzufahren.
+. Geben Sie zur Bestätigung „Resynchronisieren“ ein.
+. Wählen Sie *Ja, Resynchronisierung*, um den Vorgang abzuschließen.
+
+
+.Ergebnis
+* Die Seite „Replikation“ zeigt den Replikationsstatus „Einrichten“ an.
+* Astra Control stoppt die Applikation auf dem neuen Ziel-Cluster.
+* Astra Control stellt mithilfe der SnapMirror-Resynchronisierung die persistente Volume-Replikation in die ausgewählte Richtung wieder her.
+* Auf der Seite Replikation wird die aktualisierte Beziehung angezeigt.
+
+
+
+
+== Replizierung der Applikation wird rückgängig gemacht
+
+Dies ist ein geplanter Vorgang, bei dem die Applikation zum Ziel-Cluster verschoben und anschließend wieder zurück auf das ursprüngliche Quell-Cluster repliziert wird. Astra Control stoppt die Applikation auf dem Quell-Cluster und repliziert die Daten zum Ziel, bevor ein Failover der App zum Ziel-Cluster erfolgt.
+
+In dieser Situation tauschen Sie Quelle und Ziel aus. Der ursprüngliche Quellcluster wird zum neuen Ziel-Cluster, und das ursprüngliche Ziel-Cluster wird zum neuen Quellcluster.
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Datenschutz > Replikation im Menü Aktionen die Option *Replikation umkehren* aus.
+. Überprüfen Sie auf der Seite „Replikation umkehren“ die Informationen und wählen Sie zum Fortfahren *Replikation umkehren* aus.
+
+
+Die folgenden Aktionen sind auf das Ergebnis der umgekehrten Replikation zurückzuführen:
+
+* Es wird ein Snapshot der Kubernetes-Ressourcen der ursprünglichen Quell-Applikation erstellt.
+* Die PODs der ursprünglichen Quell-App werden mit sanfter Weise gestoppt, indem die Kubernetes-Ressourcen der App gelöscht werden (wodurch PVCs und PVS aktiviert bleiben).
+* Nach dem Herunterfahren der Pods werden Snapshots der Volumes der Applikation erstellt und repliziert.
+* Die SnapMirror Beziehungen sind beschädigt, wodurch die Zieldatenträger für Lese-/Schreibvorgänge bereit sind.
+* Die Kubernetes-Ressourcen der Applikation werden aus dem vor dem Herunterfahren-Snapshot wiederhergestellt. Dabei werden die Volume-Daten repliziert, nachdem die ursprüngliche Quell-App heruntergefahren wurde.
+* Die Replizierung wird in umgekehrter Richtung wieder hergestellt.
+
+
+
+
+== Führen Sie ein Failback von Anwendungen auf das ursprüngliche Quellcluster durch
+
+Mit Astra Control können Sie nach einem „Failover“-Vorgang „Failback“ erreichen, indem Sie die folgende Reihenfolge der Vorgänge verwenden. In diesem Workflow repliziert (neu synchronisiert) Astra Control alle Anwendungen, die in die ursprüngliche Replikationsrichtung geändert werden, zurück zum ursprünglichen Quell-Cluster, bevor die Replikationsrichtung umkehrt.
+
+Dieser Prozess beginnt mit einer Beziehung, die ein Failover zu einem Ziel abgeschlossen hat und die folgenden Schritte umfasst:
+
+* Starten Sie mit einem Failover-Status fehlgeschlagen.
+* Beziehung neu synchronisieren.
+* Die Replikation wird rückgängig gemacht.
+
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Datenschutz > Replikation im Menü Aktionen die Option *Resync* aus.
+. Für einen Fail-Back-Vorgang wählen Sie die Failover-App als Quelle für den Resynchronisierungsvorgang aus (wobei Daten nach dem Failover beim Schreiben beibehalten werden).
+. Geben Sie zur Bestätigung „Resynchronisieren“ ein.
+. Wählen Sie *Ja, Resynchronisierung*, um den Vorgang abzuschließen.
+. Nach Abschluss der Resynchronisierung wählen Sie im Menü Aktionen auf der Registerkarte Data Protection > Replication die Option *Replikation umkehren* aus.
+. Überprüfen Sie auf der Seite „Replikation umkehren“ die Informationen und wählen Sie *Replikation umkehren*.
+
+
+Dies kombiniert die Ergebnisse aus den „Resync“- und „umgekehrten Beziehungs“-Vorgängen, um die Applikation auf dem ursprünglichen Quell-Cluster online zu schalten und die Replizierung wieder auf das ursprüngliche Ziel-Cluster zu übertragen.
+
+
+
+== Löschen einer Replikationsbeziehung für Anwendungen
+
+Das Löschen der Beziehung führt zu zwei separaten Apps ohne Beziehung zwischen ihnen.
+
+.Schritte
+. Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
+. Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
+. Wählen Sie auf der Registerkarte Datenschutz > Replikation im Feld Anwendungsschutz oder im Beziehungsdiagramm die Option *Replikationsbeziehung löschen* aus.
+
+
+Die folgenden Aktionen treten beim Löschen einer Replikationsbeziehung auf:
+
+* Wenn die Beziehung aufgebaut ist, aber die App noch nicht auf dem Ziel-Cluster online gestellt wurde (Failover fehlgeschlagen), behält Astra Control während der Initialisierung erstellte PVCs bei, hinterlässt eine „leere“ gemanagte App auf dem Ziel-Cluster und behält die Ziel-App bei, alle Backups zu behalten, die möglicherweise erstellt wurden.
+* Wenn die App auf dem Ziel-Cluster online geschaltet wurde (Failover), behält Astra Control PVCs und Ziel-Applikationen bei. Quell- und Zielapplikationen werden jetzt als unabhängige Apps behandelt. Die Backup-Zeitpläne bleiben auf beiden Applikationen, sind jedoch nicht miteinander verknüpft. 
+
+
+
+
+== Status des Integritätsstatus der Replikationsbeziehung und Lebenszyklusstatus der Beziehungen
+
+Astra Control zeigt den Zustand der Beziehung und die Zustände des Lebenszyklus der Replikationsbeziehung an.
+
+
+
+=== Integritätsstatus von Replikationsbeziehungen
+
+Die folgenden Status geben den Zustand der Replikationsbeziehung an:
+
+* *Normal*: Die Beziehung wird entweder hergestellt oder hat sich etabliert, und der jüngste Snapshot wurde erfolgreich übertragen.
+* *Warnung*: Die Beziehung wird entweder überschlagen oder ist gescheitert (und somit schützt die Quell-App nicht mehr).
+* * Kritisch*
++
+** Die Beziehung wird erstellt oder fehlgeschlagen, und der letzte Versuch der Abstimmung ist fehlgeschlagen.
+** Die Beziehung wird hergestellt, und der letzte Versuch, die Hinzufügung eines neuen PVC zu vereinbaren, ist gescheitert.
+** Die Beziehung steht fest (also, ein erfolgreicher Snapshot wurde repliziert, und ein Failover ist möglich), aber der neueste Snapshot ist ausgefallen oder zur Replizierung fehlgeschlagen.
+
+
+
+
+
+
+=== Lebenszyklusstatus der Replikation
+
+Die folgenden Zustände spiegeln die verschiedenen Phasen des Replikationslebenszyklus wider:
+
+* *Aufbau*: Es wird eine neue Replikationsbeziehung erstellt. Astra Control erstellt bei Bedarf einen Namespace, erstellt PVCs (persistente Volume Claims) auf neuen Volumes im Ziel-Cluster und erstellt SnapMirror Beziehungen. Dieser Status kann auch darauf hinweisen, dass die Replikation neu synchronisiert wird oder die Replikation rückgängig gemacht wird.
+* *Etabliert*: Es besteht eine Replikationsbeziehung. Astra Control überprüft regelmäßig, ob die PVCs verfügbar sind, überprüft die Replikationsbeziehung, erstellt regelmäßig Snapshots der App und identifiziert alle neuen Quell-VES in der App. Wenn ja, erstellt Astra Control die Ressourcen, die sie in die Replikation aufnehmen.
+* *Failover*: Astra Control durchbricht die SnapMirror Beziehungen und stellt die Kubernetes-Ressourcen der App aus dem letzten erfolgreich replizierten App-Snapshot wieder her.
+* *Failover*: Astra Control stoppt die Replizierung vom Quell-Cluster, verwendet den neuesten (erfolgreichen) replizierten App-Snapshot auf dem Ziel und stellt die Kubernetes-Ressourcen wieder her.
+* *Resyncing*: Astra Control resynchronisiert die neuen Daten auf der Resynchronisierungsquelle mit SnapMirror Resynchronisierung auf das Resynchronisierungsziel. Bei diesem Vorgang werden möglicherweise einige Daten auf dem Ziel basierend auf der Synchronisationsrichtung überschrieben. Astra Control stoppt die Ausführung der Applikation auf dem Ziel-Namespace und entfernt die Kubernetes App. Während der Resynchronisierung wird der Status als „Einrichten“ angezeigt.
+* *Umkehrung*: Der ist der geplante Vorgang, um die Anwendung auf das Ziel-Cluster zu verschieben, während die Replikation zurück zum ursprünglichen Quellcluster fortgesetzt wird. Astra Control stoppt die Anwendung auf dem Quell-Cluster, repliziert die Daten auf dem Ziel, bevor ein Failover über die App zum Ziel-Cluster erfolgt. Während der umgekehrten Replikation wird der Status als „Einrichten“ angezeigt.
+* *Löschen*:
++
+** Wenn die Replikationsbeziehung hergestellt wurde, aber noch nicht Failover durchgeführt wurde, entfernt Astra Control PVCs, die während der Replikation erstellt wurden, und löscht die Ziel-verwaltete App.
+** Wenn die Replikation bereits gescheitert ist, behält Astra Control die PVCs und die Ziel-App bei.
+
+
+

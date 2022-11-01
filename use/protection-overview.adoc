@@ -1,0 +1,57 @@
+---
+sidebar: sidebar 
+permalink: use/protection-overview.html 
+keywords: backup, back up, backup apps, back up apps, snapshots, snapshot an app, take a snapshot, take a backup, view backups, view snapshots, set policy, set schedule, schedule backups, schedule snapshots 
+summary: Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Center kennen und erfahren Sie, wie Sie diese am besten für den Schutz Ihrer Applikationen nutzen. 
+---
+= Sicherungsübersicht
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Mit Astra Control Center können Sie Backups, Klone, Snapshots und Sicherungsrichtlinien für Ihre Applikationen erstellen. Durch das Backup Ihrer Applikationen sind Ihre Services und zugehörigen Daten so verfügbar wie möglich. Bei einem Disaster-Szenario ist durch die Wiederherstellung aus einem Backup die vollständige Recovery einer Applikation und der zugehörigen Daten bei minimalen Unterbrechungen sichergestellt. Backups, Klone und Snapshots schützen vor gängigen Bedrohungen wie Ransomware, versehentlichen Datenverlusten und Umweltnotfällen. link:../concepts/data-protection.html["Informieren Sie sich über die verfügbaren Arten von Datensicherung im Astra Control Center und wann Sie diese einsetzen können"].
+
+Darüber hinaus können Sie Applikationen zur Vorbereitung auf das Disaster Recovery auf ein Remote-Cluster replizieren.
+
+
+
+== Workflow für Applikationssicherung
+
+Anhand des folgenden Beispielworkflows können Sie Ihre Apps schützen.
+
+
+
+=== Sicherung aller Applikationen
+
+[role="quick-margin-para"]
+Um sicherzustellen, dass Ihre Apps sofort geschützt sind, link:protect-apps.html#create-a-backup["Erstellen Sie ein manuelles Backup aller Apps"].
+
+
+
+=== Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie
+
+[role="quick-margin-para"]
+Zur Automatisierung zukünftiger Backups und Snapshots link:protect-apps.html#configure-a-protection-policy["Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie"]. Sie können beispielsweise mit wöchentlichen Backups und täglichen Snapshots beginnen und jeweils mit einer Monatsaufbewahrung beginnen. Für manuelle Backups und Snapshots wird dringend die Automatisierung von Backups und Snapshots mit einer Schutzrichtlinie empfohlen.
+
+
+
+=== Passen Sie die Sicherungsrichtlinien an
+
+[role="quick-margin-para"]
+Wenn Applikationen und ihre Nutzungsmuster sich ändern, passen Sie die Sicherungsrichtlinien nach Bedarf an, um einen bestmöglichen Schutz zu gewährleisten.
+
+
+
+=== Replizieren von Applikationen in einem Remote-Cluster
+
+[role="quick-margin-para"]
+link:replicate_snapmirror.html["Replizierung von Applikationen"] Zu einem Remote-Cluster mit NetApp SnapMirror Technologie Astra Control repliziert Snapshots in einen Remote-Cluster und bietet damit asynchrone Disaster Recovery-Funktion.
+
+
+
+=== Stellen Sie im Notfall Ihre Applikationen mit dem neuesten Backup oder der neuesten Replizierung auf ein Remote-System wieder her
+
+[role="quick-margin-para"]
+Im Falle eines Datenverlustes sind Recoverys bis möglich link:restore-apps.html["Wiederherstellung des aktuellen Backups"] Zuerst für jede Anwendung. Sie können dann den letzten Snapshot wiederherstellen (falls verfügbar). Sie können die Replikation zu einem Remote-System verwenden.

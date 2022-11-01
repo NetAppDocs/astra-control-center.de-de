@@ -1,0 +1,94 @@
+---
+sidebar: sidebar 
+permalink: use/manage-connections.html 
+keywords: manage package, packages, install 
+summary: Sie können Pakete auf Astra Control Center hochladen und installieren. 
+---
+= Repository-Verbindungen verwalten
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Repositories können mit Astra Control verbunden werden, um als Referenz für Installationsabbilder und Artefakte für Softwarepakete zu verwenden. Beim Importieren von Softwarepaketen verweist Astra Control auf Installationsabbilder im Image Repository sowie auf Binärdateien und andere Artefakte im Artefakt-Repository.
+
+.Was Sie und#8217;ll benötigen
+* Kubernetes-Cluster mit installiertem Astra Control Center
+* Ein ausgelaufes Docker Repository, auf das Sie zugreifen können
+* Ein ausgeführten Artefakt-Repository (z. B. Artifactory), auf das Sie zugreifen können
+
+
+
+
+== Verbinden eines Docker Image-Repositorys
+
+Sie können ein Docker-Image-Repository anschließen, um Installations-Images für Pakete wie die für Astra Data Store zu speichern. Bei der Installation von Paketen importiert Astra Control die Paket-Image-Dateien aus dem Image-Repository.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Connections*.
+. Wählen Sie im Abschnitt * Docker Image Repository* das Menü oben rechts aus.
+. Wählen Sie *Verbinden*.
+. Fügen Sie die URL und den Port für das Repository hinzu.
+. Geben Sie die Anmeldeinformationen für das Repository ein.
+. Wählen Sie *Verbinden*.
+
+
+Das Repository ist verbunden. Im Abschnitt * Docker Image Repository* sollte im Repository ein verbundener Status angezeigt werden.
+
+
+
+== Trennen Sie ein Docker Image-Repository
+
+Sie können die Verbindung zu einem Docker-Image-Repository entfernen, wenn sie nicht mehr benötigt wird.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Connections*.
+. Wählen Sie im Abschnitt * Docker Image Repository* das Menü oben rechts aus.
+. Wählen Sie *Trennen*.
+. Wählen Sie *Ja, Docker Image Repository trennen*.
+
+
+Das Repository ist getrennt. Im Abschnitt * Docker Image Repository* sollte der Status „nicht verbunden“ angezeigt werden.
+
+
+
+== Verbinden eines Artefakt-Repository
+
+Ein Artefakt-Repository kann mit Host-Artefakten wie Binärdateien verbunden werden. Bei der Installation von Paketen importiert Astra Control die Artefakte für die Softwarepakete aus dem Image-Repository.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Connections*.
+. Wählen Sie im Abschnitt *Artefakt-Repository* das Menü oben rechts aus.
+. Wählen Sie *Verbinden*.
+. Fügen Sie die URL und den Port für das Repository hinzu.
+. Wenn eine Authentifizierung erforderlich ist, aktivieren Sie das Kontrollkästchen *Authentifizierung verwenden* und geben Sie die Anmeldeinformationen für das Repository ein.
+. Wählen Sie *Verbinden*.
+
+
+Das Repository ist verbunden. Im Abschnitt *Artefakt-Repository* sollte im Repository ein verbundener Status angezeigt werden.
+
+
+
+== Trennen Sie ein Artefakt-Repository
+
+Sie können die Verbindung zu einem Artefakt-Repository entfernen, wenn es nicht mehr benötigt wird.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Connections*.
+. Wählen Sie im Abschnitt *Artefakt-Repository* das Menü oben rechts aus.
+. Wählen Sie *Trennen*.
+. Wählen Sie *Ja, trennen Sie das Artefakt-Repository*.
+
+
+Das Repository ist getrennt. Im Abschnitt *Artefakt-Repository* sollte im Repository ein verbundener Status angezeigt werden.
+
+[discrete]
+== Weitere Informationen
+
+* link:manage-packages-acc.html["Managen von Softwarepaketen"]
+

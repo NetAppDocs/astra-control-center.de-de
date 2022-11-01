@@ -1,0 +1,61 @@
+---
+section: use
+title: Nutzen Sie Astra
+entries:
+- title: Starten Sie das Anwendungsmanagement
+  url: "/use/manage-apps.html"
+- title: Schützen von Applikationen
+  entries:
+  - title: Sicherungsübersicht
+    url: "/use/protection-overview.html"
+  - title: Schützen von Applikationen
+    url: "/use/protect-apps.html"
+  - title: Wiederherstellung von Applikationen
+    url: "/use/restore-apps.html"
+  - title: Replizieren von Apps auf einem Remote-System
+    url: "/use/replicate_snapmirror.html"
+  - title: Klonen und Migrieren von Applikationen
+    url: "/use/clone-apps.html"
+  - title: Anwendungsausführungshaken verwalten
+    url: "/use/execution-hooks.html"
+    entries:
+    - title: Beispiele für Testausführungshaken
+      url: "/use/execution-hook-examples.html"
+- title: Monitoring des Applikations- und Cluster-Systemzustands
+  entries:
+  - title: Dashboard-Übersicht
+    url: "/use/view-dashboard.html"
+  - title: Systemzustand und Details des Clusters
+    url: "/use/view-clusters.html"
+  - title: Systemzustand und Details von Anwendungen
+    url: "/use/view-apps.html"
+- title: Konto verwalten
+  entries:
+  - title: Benutzer managen
+    url: "/use/manage-users.html"
+  - title: Rollen managen
+    url: "/use/manage-roles.html"
+  - title: Benachrichtigungen verwalten
+    url: "/use/manage-notifications.html"
+  - title: Anmeldeinformationen verwalten
+    url: "/use/manage-credentials.html"
+  - title: Überwachen der Kontoaktivität
+    url: "/use/view-account-activity.html"
+  - title: Aktualisieren einer vorhandenen Lizenz
+    url: "/use/update-licenses.html"
+  - title: Repository-Verbindungen verwalten
+    url: "/use/manage-connections.html"
+  - title: Managen von Softwarepaketen
+    url: "/use/manage-packages-acc.html"
+- title: Buckets verwalten
+  url: "/use/manage-buckets.html"
+- title: Management des Storage-Backends
+  url: "/use/manage-backend.html"
+- title: Infrastruktur mit Cloud Insights und Fluentd überwachen
+  url: "/use/monitor-protect.html"
+- title: Heben Sie das Management von Applikationen und Clustern auf
+  url: "/use/unmanage.html"
+- title: Upgrade Astra Control Center
+  url: "/use/upgrade-acc.html"
+- title: Deinstallieren Sie Astra Control Center
+  url: "/use/uninstall_acc.html"

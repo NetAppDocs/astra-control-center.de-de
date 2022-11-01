@@ -1,0 +1,23 @@
+---
+sidebar: sidebar 
+permalink: support/troubleshooting-acc.html 
+keywords: how to get help with astra control, astra control knowledgebase 
+summary: 'NetApp bietet Unterstützung für Astra Control auf verschiedene Weise. Umfassende kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, z. B. Knowledge Base-Artikel (KB) und ein Slack-Channel. Ihr Astra Control-Konto umfasst technischen Remote-Support über eine Web-Ticketausstellung.' 
+---
+= Fehlerbehebung
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/support/
+
+
+Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["NetApp Knowledge Base für Astra"^]
+
+[discrete]
+== Weitere Informationen
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["Hochladen einer Datei an NetApp (Anmeldung erforderlich)"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["Wie kann ich Dateien manuell auf NetApp hochladen? (Anmeldung erforderlich)"^]
+

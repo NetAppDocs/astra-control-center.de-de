@@ -1,0 +1,33 @@
+---
+sidebar: sidebar 
+permalink: use/update-licenses.html 
+keywords: manage, licenses, licensing, Astra Control Center, add license, update license 
+summary: Sie können eine Evaluierungslizenz in eine vollständige Lizenz umwandeln oder eine bestehende Evaluierung oder Volllizenz mit einer neuen Lizenz aktualisieren. 
+---
+= Aktualisieren einer vorhandenen Lizenz
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Sie können eine Evaluierungslizenz in eine vollständige Lizenz umwandeln oder eine bestehende Evaluierung oder Volllizenz mit einer neuen Lizenz aktualisieren. Wenn Sie keine vollständige Lizenz besitzen, wenden Sie sich an Ihren NetApp Ansprechpartner, um eine vollständige Lizenz und eine Seriennummer zu erhalten. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um eine vorhandene Lizenz zu aktualisieren.
+
+.Schritte
+. Melden Sie sich bei an https://mysupport.netapp.com/site/["NetApp Support Website"^].
+. Rufen Sie die Download-Seite des Astra Control Center auf, geben Sie die Seriennummer ein und laden Sie die vollständige NetApp Lizenzdatei (NLF) herunter.
+. Melden Sie sich in der UI des Astra Control Center an.
+. Wählen Sie in der linken Navigationsleiste *Konto* > *Lizenz*.
+. Wählen Sie auf der Seite *Konto* > *Lizenz* das Dropdown-Menü Status der vorhandenen Lizenz aus und wählen Sie *Replace*.
+. Navigieren Sie zu der Lizenzdatei, die Sie heruntergeladen haben.
+. Wählen Sie *Hinzufügen*.
+
+
+Auf der Seite *Konto* > *Lizenzen* werden Lizenzinformationen, Ablaufdatum, Lizenzseriennummer, Konto-ID und verwendete CPU-Einheiten angezeigt.
+
+
+
+== Finden Sie weitere Informationen
+
+* link:../concepts/licensing.html["Astra Control Center-Lizenzierung"]
+

@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: get-started/faq.html 
+keywords: astra faq, astra frequently asked questions, what is astra, astra control, kubernetes, persistent volumes 
+summary: Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine Frage suchen. 
+---
+= Häufig gestellte Fragen zum Astra Control Center
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/
+
+
+Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine Frage suchen.
+
+
+
+== Überblick
+
+In den folgenden Abschnitten finden Sie Antworten auf einige zusätzliche Fragen, die Sie bei der Verwendung von Astra Control Center interessieren könnten. Weitere Erläuterungen erhalten Sie von astra.feedback@netapp.com
+
+
+
+== Zugang zum Astra Control Center
+
+*Was ist die Astra Control URL?*
+
+Astra Control Center verwendet lokale Authentifizierung und eine spezifische URL für jede Umgebung.
+
+Geben Sie für die URL in einem Browser den vollständig qualifizierten Domänennamen (FQDN) ein, den Sie im Feld spec.astraAddress in der Datei astra_control_Center_min.yaml Custom Resource Definition (CRD) festgelegt haben, wenn Sie Astra Control Center installiert haben. Die E-Mail ist der Wert, den Sie im Feld Spec.email im astra_Control_Center_min.yaml CRD festgelegt haben.
+
+
+
+== Lizenzierung
+
+*Ich verwende die Evaluierungslizenz. Wie ändere ich die Volllizenz?*
+
+Sie können die vollständige Lizenz ganz einfach von der NetApp Lizenzdatei (NetApp License File, NLF) erhalten.
+
+*Schritte*
+
+* Wählen Sie in der linken Navigationsleiste *Konto* > *Lizenz*.
+* Wählen Sie *Lizenz hinzufügen*.
+* Navigieren Sie zu der Lizenzdatei, die Sie heruntergeladen haben, und wählen Sie *Hinzufügen*.
+
+
+*Ich verwende die Evaluierungslizenz. Kann ich trotzdem Apps verwalten?*
+
+Ja, Sie können die Funktionalität Apps verwalten mit der Evaluierungslizenz testen.
+
+
+
+== Kubernetes Cluster werden registriert
+
+*Nach dem Hinzufügen von Astra Control müssen ich die Worker-Nodes zu meinem Kubernetes Cluster hinzufügen. Was soll ich tun?*
+
+Vorhandenen Pools können neue Worker Nodes hinzugefügt werden. Diese werden automatisch von Astra Control entdeckt. Wenn die neuen Knoten in Astra Control nicht sichtbar sind, prüfen Sie, ob auf den neuen Worker Nodes der unterstützte Bildtyp ausgeführt wird. Sie können den Zustand der neuen Worker-Nodes auch mit überprüfen `kubectl get nodes` Befehl.
+
+*Wie entnehme ich einen Cluster richtig?*
+
+. link:../use/unmanage.html["Lösen Sie die Anwendungen von Astra Control"].
+. link:../use/unmanage.html#stop-managing-compute["Lösen Sie das Cluster über Astra Control"].
+
+
+*Was passiert mit meinen Anwendungen und Daten, nachdem ich den Kubernetes Cluster aus Astra Control entfernt habe?*
+
+Das Entfernen eines Clusters aus Astra Control führt keine Änderungen an der Cluster-Konfiguration (Applikationen und persistenter Storage) durch. Astra Control Snapshots oder Backups, die von Applikationen auf diesem Cluster erstellt werden, sind zur Wiederherstellung nicht verfügbar. Die von Astra Control erstellten persistenten Storage Backups bleiben innerhalb des Astra Control, sind aber nicht für die Wiederherstellung verfügbar.
+
+
+WARNING: Entfernen Sie immer einen Cluster aus Astra Control, bevor Sie ihn mit anderen Methoden löschen. Das Löschen eines Clusters mithilfe eines anderen Tools, während es noch von Astra Control gemanagt wird, kann zu Problemen mit Ihrem Astra Control Konto führen.
+
+*Wird NetApp Trident bei Unmanagement automatisch von einem Cluster deinstalliert?* Wenn Sie das Management eines Clusters aus dem Astra Control Center aufheben, wird Trident nicht automatisch aus dem Cluster deinstalliert. Um Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Befolgen Sie die folgenden Schritte in der Trident-Dokumentation"^].
+
+
+
+== Management von Applikationen
+
+*Kann Astra Control eine Anwendung bereitstellen?*
+
+Astra Control implementiert keine Applikationen. Applikationen müssen außerhalb von Astra Control bereitgestellt werden.
+
+*Was passiert mit Anwendungen, nachdem ich sie von Astra Control aus verwaltet habe?*
+
+Alle bestehenden Backups oder Snapshots werden gelöscht. Applikationen und Daten sind weiterhin verfügbar. Datenmanagement-Vorgänge stehen nicht für nicht verwaltete Anwendungen oder für Backups oder Snapshots zur Verfügung, die dazu gehören.
+
+*Kann Astra Control eine Applikation managen, die sich auf Storage anderer Anbieter befindet?*
+
+Nein Astra Control kann zwar Applikationen erkennen, die Storage anderer Anbieter nutzen, aber keine Applikation managen, die Storage von anderen Anbietern verwendet.
+
+*Sollte ich Astra Control selbst verwalten?* Nein, Sie sollten Astra Control nicht selbst verwalten, weil es sich um eine "System-App" handelt.
+
+*Beeinträchtigen ungesunde Pods das App-Management?* Wenn eine verwaltete App Pods in einem ungesunden Zustand hat, kann Astra Control keine neuen Backups und Klone erstellen.
+
+
+
+== Datenmanagement-Vorgänge
+
+*Es gibt Schnappschüsse in meinem Konto, die ich nicht erstellt habe. Woher kamen sie?*
+
+In manchen Situationen erstellt Astra Control automatisch einen Snapshot im Rahmen eines Backup-, Klon- oder Wiederherstellungsprozesses.
+
+*Meine Anwendung verwendet mehrere PVS. Wird Astra Control Snapshots und Backups all dieser VES machen?*
+
+Ja. Ein Snapshot-Vorgang auf einer Anwendung von Astra Control umfasst die Momentaufnahme aller VES, die an die VES der Anwendung gebunden sind.
+
+*Kann ich die von Astra Control erstellten Snapshots direkt über eine andere Schnittstelle oder Objekt-Storage managen?*
+
+Nein Snapshots und Backups von Astra Control können nur mit Astra Control verwaltet werden.

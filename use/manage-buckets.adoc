@@ -1,0 +1,139 @@
+---
+sidebar: sidebar 
+permalink: use/manage-buckets.html 
+keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, astra control center, kubernetes 
+summary: Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. 
+---
+= Buckets verwalten
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Ein Objektspeicher-Bucket-Provider ist äußerst wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. Fügen Sie mithilfe des Astra Control Center einen Objektspeicher-Provider als externes Backup-Ziel für Ihre Applikationen hinzu.
+
+Sie brauchen keinen Eimer, wenn Sie Ihre Anwendungskonfiguration und Ihren persistenten Storage im selben Cluster klonen.
+
+Verwenden Sie einen der folgenden Amazon Simple Storage Service (S3) Bucket-Provider:
+
+* NetApp ONTAP S3
+* NetApp StorageGRID S3
+* Microsoft Azure
+* Allgemein S3
++
+
+NOTE: Amazon Web Services (AWS) und Google Cloud Platform (GCP) verwenden den Bucket-Typ Generic S3.
+
++
+
+NOTE: Obwohl Astra Control Center Amazon S3 als Generic S3 Bucket-Provider unterstützt, unterstützt Astra Control Center möglicherweise nicht alle Objektspeicher-Anbieter, die die S3-Unterstützung von Amazon beanspruchen.
+
+
+
+Ein Bucket kann sich in einem dieser Zustände befinden:
+
+* Ausstehend: Der Bucket ist für die Erkennung geplant.
+* Verfügbar: Der Bucket ist zur Verwendung verfügbar.
+* Entfernt: Auf den Bucket ist derzeit nicht zugegriffen werden können.
+
+
+Anweisungen zum Verwalten von Buckets mithilfe der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
+
+Sie können die folgenden Aufgaben zum Verwalten von Buckets ausführen:
+
+* link:../get-started/setup_overview.html#add-a-bucket["Fügen Sie einen Bucket hinzu"]
+*  a bucket
+*  or remove bucket credentials
+*  a bucket
+
+
+
+NOTE: S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität. Bevor Sie Backups oder Klonanwendungen durchführen, die von Astra Control Center gemanagt werden, sollten Sie die Bucket-Informationen im ONTAP oder StorageGRID Managementsystem prüfen.
+
+
+
+== Bearbeiten eines Buckets
+
+Sie können die Zugangsdaten für einen Bucket ändern und ändern, ob ein ausgewählter Bucket der Standard-Bucket ist.
+
+
+NOTE: Wenn Sie einen Bucket hinzufügen, wählen Sie den richtigen Bucket-Provider aus und geben die richtigen Anmeldedaten für diesen Provider an. Beispielsweise akzeptiert die UI NetApp ONTAP S3 als Typ und akzeptiert StorageGRID-Anmeldedaten. Dies führt jedoch dazu, dass alle künftigen Applikations-Backups und -Wiederherstellungen, die diesen Bucket verwenden, fehlschlagen. Siehe link:../release-notes/known-issues.html#selecting-a-bucket-provider-type-with-credentials-for-another-type-causes-data-protection-failures["Versionshinweise"].
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste *Buckets* aus.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Bearbeiten* aus.
+. Ändern Sie alle Informationen außer dem Bucket-Typ.
++
+
+TIP: Sie können den Bucket-Typ nicht ändern.
+
+. Wählen Sie *Aktualisieren*.
+
+
+
+
+== Bucket-Anmeldedaten drehen oder entfernen
+
+Astra Control verwendet Bucket-Zugangsdaten, um Zugriff zu erhalten und geheime Schlüssel für einen S3-Bucket bereitzustellen, damit Astra Control Center mit dem Bucket kommunizieren kann.
+
+
+
+=== Bucket-Anmeldedaten rotieren
+
+Wenn Sie die Anmeldeinformationen drehen, drehen Sie sie während eines Wartungsfensters, wenn keine Backups ausgeführt werden (geplant oder auf Anforderung).
+
+.Schritte zum Bearbeiten und Drehen von Anmeldeinformationen
+. Wählen Sie in der linken Navigationsleiste *Buckets* aus.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Bearbeiten* aus.
+. Erstellen Sie die neuen Anmeldedaten.
+. Wählen Sie *Aktualisieren*.
+
+
+
+
+=== Bucket-Anmeldedaten entfernen
+
+Sie sollten die Bucket-Anmeldedaten nur entfernen, wenn auf einen Bucket neue Zugangsdaten angewendet wurden oder der Bucket nicht mehr aktiv verwendet wird.
+
+
+TIP: Der erste Satz von Anmeldeinformationen, die Sie Astra Control hinzufügen, wird immer verwendet, da Astra Control zur Authentifizierung des Backup-Buckets die Zugangsdaten verwendet. Entfernen Sie diese Anmeldedaten nicht, wenn der Bucket aktiv ist, da dies zu Backup-Ausfällen und Nichtverfügbarkeit von Backups führen kann.
+
+
+NOTE: Wenn Sie die aktiven Bucket-Anmeldedaten entfernen, finden Sie unter https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["Fehlerbehebung beim Entfernen der Bucket-Anmeldeinformationen"].
+
+Anweisungen zum Entfernen von S3-Anmeldeinformationen mithilfe der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
+
+
+
+== Entfernen Sie einen Bucket
+
+Sie können einen Eimer entfernen, der nicht mehr verwendet wird oder nicht ordnungsgemäß ist. Dies könnte Sie nutzen, um die Konfiguration Ihres Objektspeicher einfach und aktuell zu halten.
+
+
+NOTE: Sie können keinen Standard-Bucket entfernen. Wenn Sie diesen Bucket entfernen möchten, wählen Sie zuerst einen anderen Bucket als Standard aus.
+
+.Was Sie und#8217;ll benötigen
+* Sie sollten vor Beginn sicherstellen, dass keine Backups für diesen Bucket ausgeführt oder abgeschlossen wurden.
+* Sie sollten prüfen, ob der Bucket nicht in einer aktiven Schutzrichtlinie verwendet wird.
+
+
+Wenn dies der Fall ist, können Sie nicht fortfahren.
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste *Buckets* aus.
+. Wählen Sie im Menü *Aktionen* die Option *Entfernen*.
++
+
+NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien gibt, die den Bucket für Backups verwenden und dass keine aktiven Backups im Bucket vorhanden sind, den Sie entfernen möchten.
+
+. Geben Sie „Entfernen“ ein, um die Aktion zu bestätigen.
+. Wählen Sie *Ja, entfernen Sie den Eimer*.
+
+
+
+
+== Weitere Informationen
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+

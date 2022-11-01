@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: get-started/acc-create-podsecuritypolicy.html 
+keywords: Create podsecurity policy, pod, security, policy, Astra Control, kubernetes 
+summary: Sie müssen eine weniger restriktive POD-Sicherheitsrichtlinie erstellen, damit Astra Control Pods auf verwalteten Clustern erstellen und aktualisieren kann. 
+---
+= Erstellen einer benutzerdefinierten POD-Sicherheitsrichtlinie
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Control muss Kubernetes Pods auf den gemanagten Clustern erstellen und managen. Wenn Ihr Cluster eine restriktive Pod-Sicherheitsrichtlinie verwendet, die die Erstellung privilegierter Pods nicht zulässt oder Vorgänge innerhalb der Pod-Container nicht als Root-Benutzer ausgeführt werden können, müssen Sie eine weniger restriktive POD-Sicherheitsrichtlinie erstellen, damit Astra Control diese Pods erstellen und verwalten kann.
+
+.Schritte
+. Erstellen Sie eine Pod-Sicherheitsrichtlinie für den Cluster, die weniger restriktiv ist als der Standard, und speichern Sie sie in einer Datei. Beispiel:
++
+[source, yaml]
+----
+apiVersion: policy/v1beta1
+kind: PodSecurityPolicy
+metadata:
+  name: astracontrol
+  annotations:
+    seccomp.security.alpha.kubernetes.io/allowedProfileNames: '*'
+spec:
+  privileged: true
+  allowPrivilegeEscalation: true
+  allowedCapabilities:
+  - '*'
+  volumes:
+  - '*'
+  hostNetwork: true
+  hostPorts:
+  - min: 0
+    max: 65535
+  hostIPC: true
+  hostPID: true
+  runAsUser:
+    rule: 'RunAsAny'
+  seLinux:
+    rule: 'RunAsAny'
+  supplementalGroups:
+    rule: 'RunAsAny'
+  fsGroup:
+    rule: 'RunAsAny'
+----
+. Erstellen Sie eine neue Rolle für die POD-Sicherheitsrichtlinie.
++
+[source, sh]
+----
+kubectl-admin create role psp:astracontrol \
+    --verb=use \
+    --resource=podsecuritypolicy \
+    --resource-name=astracontrol
+----
+. Binden Sie die neue Rolle an das Dienstkonto.
++
+[source, sh]
+----
+kubectl-admin create rolebinding default:psp:astracontrol \
+    --role=psp:astracontrol \
+    --serviceaccount=astracontrol-service-account:default
+----
+

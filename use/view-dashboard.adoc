@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: use/view-dashboard.html 
+keywords: dashboard, cluster health, unhealthy apps, protected apps, discovered apps 
+summary: Wählen Sie Dashboard aus, um eine allgemeine Ansicht Ihrer Anwendungen, Computing-Ressourcen und deren Zustand anzuzeigen. 
+---
+= Zeigen Sie eine Zusammenfassung des Applikations- und Cluster-Zustands an
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Wählen Sie das *Dashboard* aus, um eine übergeordnete Ansicht Ihrer Apps, Cluster, Storage-Back-Ends und deren Integrität anzuzeigen.
+
+Dabei handelt es sich nicht nur um statische Zahlen oder Statusangaben, sondern Sie können von jedem einzelnen Detail aus darauf aufgehen. Wenn Apps beispielsweise nicht vollständig geschützt sind, können Sie mit dem Mauszeiger auf das Symbol zeigen, um zu ermitteln, welche Apps nicht vollständig geschützt sind. Dies gibt einen Grund dafür.
+
+
+
+== Auf Applikationen Kachel
+
+Mit der Kachel * Applications* können Sie Folgendes identifizieren:
+
+* Wie viele Applikationen managen Sie aktuell mit Astra?
+* Ob diese verwalteten Apps gesund sind.
+* Gibt an, ob die Applikationen vollständig gesichert sind (sie sind geschützt, wenn neueste Backups verfügbar sind).
+* Die Anzahl der Anwendungen, die erkannt, aber noch nicht verwaltet wurden.
++
+Idealerweise wäre diese Zahl null, da Sie Apps nach dem Entstehen verwalten oder ignorieren würden. Anschließend sollten Sie die Anzahl der im Dashboard ermittelten Apps überwachen, um zu ermitteln, wann Entwickler neue Apps zu einem Cluster hinzufügen.
+
+
+
+
+
+== Cluster-Tile
+
+Die Kachel *Cluster* bietet ähnliche Details über die Integrität der Cluster, die Sie mit dem Astra Control Center verwalten, und Sie können detaillierte Informationen abrufen, wie Sie es mit einer App möglich sind.
+
+
+
+== Storage Back-Ends
+
+Die Kachel *Storage Back-Ends* enthält Informationen, die Ihnen bei der Identifizierung des Zustands von Storage-Back-Ends helfen. Dazu gehören:
+
+* Wie viele Storage-Back-Ends werden gemanagt
+* Gibt an, ob diese gemanagten Backends gesund sind
+* Gibt an, ob die Back-Ends vollständig geschützt sind
+* Die Anzahl der Back-Ends, die zwar erkannt, aber noch nicht gemanagt werden.
+

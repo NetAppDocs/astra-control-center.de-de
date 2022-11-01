@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: use/unmanage.html 
+keywords: unmanage app, remove app, stop managing app, stop managing clusters, unmanage cluster, remove cluster, kubernetes, astra, astra control 
+summary: Entfernen Sie alle Applikationen oder Computing-Ressourcen, die Sie nicht mehr über Astra Control managen möchten. 
+---
+= Heben Sie das Management von Applikationen und Clustern auf
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Entfernen Sie alle Apps oder Cluster, die Sie nicht mehr über das Astra Control Center managen möchten.
+
+
+
+== Verwaltung einer Anwendung aufheben
+
+Sie müssen nicht mehr Apps managen, die Sie nicht mehr Backups, Snapshots oder Klone von Astra Control Center erstellen möchten.
+
+* Alle bestehenden Backups und Snapshots werden gelöscht.
+* Applikationen und Daten sind weiterhin verfügbar.
+
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste die Option *Anwendungen*.
+. Aktivieren Sie das Kontrollkästchen für die Apps, die Sie nicht mehr verwalten möchten.
+. Wählen Sie im Menü *Aktion* die Option *Entverwalten*.
+. Geben Sie zur Bestätigung „nicht verwalten“ ein.
+. Bestätigen Sie, dass Sie die Verwaltung der Apps aufheben möchten, und wählen Sie dann *Ja, Anwendung verwalten* aus.
+
+
+Astra Control Center beendet die Verwaltung der App.
+
+
+
+== Aufheben des Managements eines Clusters
+
+Entmanagement des Clusters, den Sie nicht mehr über das Astra Control Center managen möchten.
+
+* Dadurch wird das Management des Clusters durch das Astra Control Center verhindert. Die Konfiguration des Clusters ändert sich nicht, und das Cluster wird nicht gelöscht.
+* Trident wird nicht vom Cluster deinstalliert. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Lesen Sie, wie Trident deinstalliert wird"^].
+
+
+
+NOTE: Bevor Sie das Management des Clusters aufheben, sollten Sie die dem Cluster zugeordnete Applikationen aufheben.
+
+.Schritte
+. Wählen Sie in der linken Navigationsleiste *Cluster* aus.
+. Aktivieren Sie das Kontrollkästchen für den Cluster, den Sie nicht mehr im Astra Control Center managen möchten.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Verwaltung aufheben* aus.
+. Bestätigen Sie, dass Sie die Verwaltung des Clusters aufheben möchten und wählen Sie dann *Ja, Cluster verwalten* aus.
+
+
+Der Status des Clusters ändert sich in *removing* und danach wird der Cluster von der Seite *Clusters* entfernt und wird nicht mehr von Astra Control Center verwaltet.
+
+
+IMPORTANT: *Wenn Astra Control Center und Cloud Insights nicht verbunden sind*, entfernt die Unverwaltung des Clusters alle Ressourcen, die zum Senden von Telemetriedaten installiert wurden. *Wenn Astra Control Center und Cloud Insights verbunden sind*, löscht die Entsteuerung des Clusters nur das `fluentbit` Und `event-exporter` Behälter.

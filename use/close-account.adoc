@@ -1,0 +1,22 @@
+---
+sidebar: sidebar 
+permalink: use/close-account.html 
+keywords: close account, delete account, delete my account, close my account 
+summary: Wenn Sie kein Astra-Konto mehr benötigen, können Sie es jederzeit abschließen. 
+---
+= Schließen Sie Ihr Konto
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Wenn Sie Ihr Astra-Konto nicht mehr benötigen, können Sie es jederzeit abschließen.
+
+.Schritte
+. link:unmanage.html["Heben Sie das Management aller Applikationen und Cluster ab"].
+. link:manage-credentials.html["Entfernen Sie die Zugangsdaten aus Astra"].
+. Wählen Sie *Konto > Abrechnung > Zahlungsart*.
+. Wählen Sie *Konto Schließen*.
+. Geben Sie Ihren Kontonamen ein und bestätigen Sie, dass das Konto geschlossen wird.
+

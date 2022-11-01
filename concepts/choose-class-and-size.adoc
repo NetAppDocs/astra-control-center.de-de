@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concepts/choose-class-and-size.html 
+keywords: service level, storage class, storage classes, pv size, persistent volume size, volume size, bandwidth, performance, persistent, volume, kubernetes, containers 
+summary: Astra Control Center unterstützt Trident-Storage-Klassen auf ONTAP Storage- oder Astra Data Store-Storage-Klassen. Sie sollten verstehen, wie Storage-Klassen und persistente Volume-Größe Sie dabei unterstützen können, Ihre Performance-Ziele zu erreichen. 
+---
+= Storage-Klassen und persistente Volume-Größe
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+[role="lead"]
+Astra Control Center unterstützt ONTAP oder Astra Data Store als Storage-Backend.
+
+
+
+== Überblick
+
+Das Astra Control Center unterstützt Folgendes:
+
+* *Trident Storage-Klassen mit Unterstützung von Astra Data Store Storage*: Wenn Sie einen oder mehrere Astra Data Store Cluster manuell installiert haben, bietet Astra Control Center die Möglichkeit, diese zu importieren und ihre Topologie (Nodes, Festplatten) sowie verschiedene Status abzurufen.
++
+Astra Control Center zeigt das zugrunde liegende Kubernetes Cluster aus der Astra Data Store-Konfiguration, der Cloud, der dem Kubernetes-Cluster angehört, beliebigen persistenten Volumes, die durch Astra Data Store bereitgestellt werden, dem Namen des entsprechenden internen Volumes, der Applikation mit dem persistenten Volume und dem Cluster mit der App an.
+
+* *Trident Storage-Klassen mit ONTAP-Storage*: Wenn Sie ein ONTAP-Back-End verwenden, bietet Astra Control Center die Möglichkeit, das ONTAP-Back-End zu importieren, um verschiedene Monitoring-Informationen zu melden.
+
+
+
+NOTE: Trident Storage-Kurse sollten außerhalb des Astra Control Center vorkonfiguriert sein.
+
+
+
+== Speicherklassen
+
+Wenn Sie dem Astra Control Center einen Cluster hinzufügen, werden Sie aufgefordert, eine zuvor konfigurierte Storage-Klasse auf diesem Cluster als Standard-Storage-Klasse auszuwählen. Diese Storage-Klasse wird verwendet, wenn in einem persistent Volume Claim (PVC) keine Storage-Klasse angegeben ist. Die Standard-Speicherklasse kann jederzeit im Astra Control Center geändert werden und jede Speicherklasse kann jederzeit verwendet werden, indem der Name der Speicherklasse im PVC- oder Helm-Diagramm angegeben wird. Stellen Sie sicher, dass nur eine einzelne Standard-Storage-Klasse für Ihr Kubernetes-Cluster definiert ist.
+
+Wenn Sie Astra Control Center nutzen, das mit einem Astra Data Store Storage-Backend integriert ist, sind nach der Installation keine Storage-Klassen definiert. Sie müssen die Standard-Storage-Klasse Trident erstellen und sie auf das Storage-Back-End anwenden. Siehe https://docs.netapp.com/us-en/astra-data-store/get-started/setup-ads.html#set-up-astra-data-store-as-storage-backend["Astra Data Store – die ersten Schritte"] Um eine Standard-Storage-Klasse Astra Data Store zu erstellen.
+
+
+
+== Finden Sie weitere Informationen
+
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
+
