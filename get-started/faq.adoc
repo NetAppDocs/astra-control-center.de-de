@@ -11,6 +11,7 @@ summary: Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort 
 :imagesdir: ../media/
 
 
+[role="lead"]
 Diese FAQ kann Ihnen helfen, wenn Sie nur nach einer schnellen Antwort auf eine Frage suchen.
 
 
@@ -27,7 +28,7 @@ In den folgenden Abschnitten finden Sie Antworten auf einige zusätzliche Fragen
 
 Astra Control Center verwendet lokale Authentifizierung und eine spezifische URL für jede Umgebung.
 
-Geben Sie für die URL in einem Browser den vollständig qualifizierten Domänennamen (FQDN) ein, den Sie im Feld spec.astraAddress in der Datei astra_control_Center_min.yaml Custom Resource Definition (CRD) festgelegt haben, wenn Sie Astra Control Center installiert haben. Die E-Mail ist der Wert, den Sie im Feld Spec.email im astra_Control_Center_min.yaml CRD festgelegt haben.
+Geben Sie für die URL in einem Browser den vollständig qualifizierten Domänennamen (FQDN) ein, den Sie im Feld spec.astraAddress (astra_control_Center.yaml Custom Resource (CR)) festgelegt haben, wenn Sie Astra Control Center installiert haben. Die E-Mail ist der Wert, den Sie im Feld Spec.email im astra_Control_Center.yaml CR festgelegt haben.
 
 
 
@@ -39,9 +40,9 @@ Sie können die vollständige Lizenz ganz einfach von der NetApp Lizenzdatei (Ne
 
 *Schritte*
 
-* Wählen Sie in der linken Navigationsleiste *Konto* > *Lizenz*.
-* Wählen Sie *Lizenz hinzufügen*.
-* Navigieren Sie zu der Lizenzdatei, die Sie heruntergeladen haben, und wählen Sie *Hinzufügen*.
+. Wählen Sie in der linken Navigationsleiste *Konto* > *Lizenz*.
+. Wählen Sie *Lizenz hinzufügen*.
+. Navigieren Sie zu der Lizenzdatei, die Sie heruntergeladen haben, und wählen Sie *Hinzufügen*.
 
 
 *Ich verwende die Evaluierungslizenz. Kann ich trotzdem Apps verwalten?*
@@ -95,11 +96,7 @@ Nein Astra Control kann zwar Applikationen erkennen, die Storage anderer Anbiete
 
 == Datenmanagement-Vorgänge
 
-*Es gibt Schnappschüsse in meinem Konto, die ich nicht erstellt habe. Woher kamen sie?*
-
-In manchen Situationen erstellt Astra Control automatisch einen Snapshot im Rahmen eines Backup-, Klon- oder Wiederherstellungsprozesses.
-
-*Meine Anwendung verwendet mehrere PVS. Wird Astra Control Snapshots und Backups all dieser VES machen?*
+*Meine Anwendung verwendet mehrere PVS. Wird Astra Control Snapshots und Backups dieser PVS erstellen?*
 
 Ja. Ein Snapshot-Vorgang auf einer Anwendung von Astra Control umfasst die Momentaufnahme aller VES, die an die VES der Anwendung gebunden sind.
 

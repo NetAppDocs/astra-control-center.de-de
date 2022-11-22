@@ -11,6 +11,7 @@ summary: Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Cente
 :imagesdir: ../media/concepts/
 
 
+[role="lead"]
 Lernen Sie die verfügbaren Datensicherungsarten im Astra Control Center kennen und erfahren Sie, wie Sie diese am besten für den Schutz Ihrer Applikationen nutzen.
 
 

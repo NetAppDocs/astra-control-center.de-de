@@ -11,6 +11,7 @@ summary: Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funk
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, die von dieser Version des Produkts nicht unterstützt werden oder nicht korrekt mit dem Produkt zusammenarbeiten. Lesen Sie diese Einschränkungen sorgfältig durch.
 
 .Einschränkungen beim Cluster-Management
@@ -24,6 +25,8 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 
 .Einschränkungen beim Applikationsmanagement
+*  applications in a single namespace cannot be restored collectively to a different namespace
+*  Control does not automatically assign default buckets for cloud instances
 *  of apps installed using pass-by-reference operators can fail
 *  restore operations of apps that use a certificate manager are not supported
 *  and cluster-scoped operator deployed apps not supported
@@ -35,6 +38,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 *  Control Center does not validate the details you enter for your proxy server
 *  connections to a Postgres pod causes failures
 *  and snapshots might not be retained during removal of an Astra Control Center instance
+*  user and group limitations
 
 
 
@@ -99,6 +103,18 @@ Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name
 
 
 
+== Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden
+
+Wenn Sie mehrere Applikationen in einem einzigen Namespace managen (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Applikationen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
+
+
+
+== Astra Control weist nicht automatisch Standard-Buckets für Cloud-Instanzen zu
+
+Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket zu. Sie müssen manuell einen Standard-Bucket für eine Cloud-Instanz festlegen. Wenn kein Standard-Bucket festgelegt ist, können Sie keine App-Klonvorgänge zwischen zwei Clustern durchführen.
+
+
+
 == Klone von über Benutzer mit Pass-by-Reference installierten Applikationen können fehlschlagen
 
 Astra Control unterstützt Applikationen, die mit Betreibern im Namespace-Umfang installiert sind. Diese Betreiber sind in der Regel mit einer "Pass-by-Value"-Architektur statt "Pass-by-reference"-Architektur ausgelegt. Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
@@ -113,6 +129,9 @@ NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. F
 
 
 Astra Control kann einen Operator, der mit einer „Pass-by-reference“-Architektur entworfen wurde, möglicherweise nicht klonen (z.B. der CockroachDB-Operator). Während dieser Art von Klonvorgängen versucht der geklonte Operator, Kubernetes Secrets vom Quelloperator zu beziehen, obwohl er im Zuge des Klonens ein eigenes neues Geheimnis hat. Der Klonvorgang kann fehlschlagen, da Astra Control die Kubernetes-Geheimnisse im Quelloperator nicht kennt.
+
+
+NOTE: Während Klonvorgängen müssen Applikationen, die eine Ressource oder Webhooks der ProgresClass benötigen, nicht über die Ressourcen verfügen, die bereits auf dem Ziel-Cluster definiert sind.
 
 
 
@@ -158,8 +177,13 @@ Wenn Sie über eine Evaluierungslizenz verfügen, sollten Sie Ihre Konto-ID spei
 
 
 
+== Einschränkungen für LDAP-Benutzer und -Gruppen
+
+Astra Control Center unterstützt bis zu 5,000 Remote-Gruppen und 10,000 Remote-Benutzer.
+
+
+
 == Weitere Informationen
 
 * link:../release-notes/known-issues.html["Bekannte Probleme"]
-* link:../release-notes/known-issues-ads.html["Bekannte Probleme bei Astra Data Store und dieser Version des Astra Control Center"]
 

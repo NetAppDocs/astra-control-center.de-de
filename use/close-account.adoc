@@ -11,6 +11,7 @@ summary: Wenn Sie kein Astra-Konto mehr benötigen, können Sie es jederzeit abs
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Wenn Sie Ihr Astra-Konto nicht mehr benötigen, können Sie es jederzeit abschließen.
 
 .Schritte

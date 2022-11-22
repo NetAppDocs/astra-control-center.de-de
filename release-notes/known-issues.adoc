@@ -12,6 +12,7 @@ summary: Bekannte Probleme identifizieren Probleme, die Sie daran hindern könnt
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 Bekannte Probleme identifizieren Probleme, die Sie daran hindern könnten, diese Produktversion erfolgreich zu verwenden.
 
 Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
@@ -29,8 +30,8 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 
 
 .Andere Probleme
+*  clusters do not appear in NetApp Cloud Insights when connecting through a proxy
 *  data management operations fail with Internal Service Error (500) when Astra Trident is offline
-*  might fail with snapshot controller version 4.2.0
 
 
 
@@ -71,26 +72,31 @@ Sie können ein kubeconfig nicht mit mehr als einem Cluster und Kontext darin ve
 
 
 
+== Verwaltete Cluster werden nicht in NetApp Cloud Insights angezeigt, wenn die Verbindung über einen Proxy hergestellt wird
+
+Wenn Astra Control Center eine Verbindung zu NetApp Cloud Insights über einen Proxy herstellt, werden gemanagte Cluster möglicherweise nicht im Cloud Insights angezeigt. Führen Sie als Workaround die folgenden Befehle auf jedem verwalteten Cluster aus:
+
+[source, console]
+----
+kubectl get cm telegraf-conf -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
+----
+[source, console]
+----
+kubectl get cm telegraf-conf-rs -o yaml -n netapp-monitoring | sed '/\[\[outputs.http\]\]/c\    [[outputs.http]]\n    use_system_proxy = true' | kubectl replace -f -
+----
+[source, console]
+----
+kubectl get pods -n netapp-monitoring --no-headers=true | grep 'telegraf-ds\|telegraf-rs' | awk '{print $1}' | xargs kubectl delete -n netapp-monitoring pod
+----
+
+
 == Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist
 
 Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder online geschaltet wird) und 500 interne Servicefehler auftreten, wenn versucht wird, das App-Datenmanagement zu managen, starten Sie alle Kubernetes-Nodes im App-Cluster neu, um die Funktionalität wiederherzustellen.
 
 
 
-== Snapshots können mit Snapshot-Controller-Version 4.2.0 fehlschlagen
-
-Wenn Sie Kubernetes Snapshot-Controller (auch bekannt als externer Snapshot) Version 4.2.0 mit Kubernetes 1.20 oder 1.21 verwenden, können Snapshots irgendwann fehlschlagen. Um dies zu verhindern, verwenden Sie ein anderes https://kubernetes-csi.github.io/docs/snapshot-controller.html["Unterstützte Version"^] Von externen Snapshots, wie Version 4.2.1, mit Kubernetes Versionen 1.20 oder 1.21.
-
-. Führen Sie einen POST-Anruf aus, um dem eine aktualisierte kubeconfy-Datei hinzuzufügen `/credentials` endpunkt und Abrufen der zugewiesenen Daten `id` Aus dem Antwortkörper.
-. Führen Sie einen PUT-Anruf aus dem aus `/clusters` endpunkt mithilfe der entsprechenden Cluster-ID und Festlegen des `credentialID` Bis zum `id` Wert aus dem vorherigen Schritt.
-
-
-Nachdem Sie diese Schritte ausgeführt haben, werden die mit dem Cluster verknüpften Anmeldeinformationen aktualisiert, und das Cluster sollte die Verbindung wiederherstellen und seinen Status auf aktualisieren `available`.
-
-
-
 == Weitere Informationen
 
-* link:../release-notes/known-issues-ads.html["Bekannte Probleme mit der Vorschau des Astra Data Stores und dieser Version des Astra Control Center"]
 * link:../release-notes/known-limitations.html["Bekannte Einschränkungen"]
 

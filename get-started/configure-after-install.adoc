@@ -1,0 +1,307 @@
+---
+sidebar: sidebar 
+permalink: get-started/configure-after-install.html 
+keywords: configure, installation, install, after, Astra Control Center, 
+summary: Je nach Umgebung kann es nach der Installation des Astra Control Center zusätzliche Konfigurationsmöglichkeiten geben. 
+---
+= Konfigurieren Sie nach der Installation das Astra Control Center
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Je nach Umgebung kann es nach der Installation des Astra Control Center zusätzliche Konfigurationsmöglichkeiten geben.
+
+
+
+== Ressourceneinschränkungen entfernen
+
+In einigen Umgebungen werden die Objekte ResourceQuotas und LimitRanges verwendet, um zu verhindern, dass die Ressourcen in einem Namespace alle verfügbaren CPUs und Speicher im Cluster verbrauchen. Das Astra Control Center stellt keine Höchstgrenzen ein, sodass diese Ressourcen nicht eingehalten werden. Sie müssen sie aus den Namespaces entfernen, in denen Sie Astra Control Center installieren möchten.
+
+Sie können folgende Schritte verwenden, um diese Kontingente und Grenzen abzurufen und zu entfernen. In diesen Beispielen wird die Befehlsausgabe direkt nach dem Befehl angezeigt.
+
+.Schritte
+. Holen Sie sich die Ressourcenkontingente im netapp-ACC Namespace:
++
+[source, console]
+----
+kubectl get quota -n netapp-acc
+----
++
+Antwort:
+
++
+[listing]
+----
+NAME          AGE   REQUEST                                        LIMIT
+pods-high     16s   requests.cpu: 0/20, requests.memory: 0/100Gi   limits.cpu: 0/200, limits.memory: 0/1000Gi
+pods-low      15s   requests.cpu: 0/1, requests.memory: 0/1Gi      limits.cpu: 0/2, limits.memory: 0/2Gi
+pods-medium   16s   requests.cpu: 0/10, requests.memory: 0/20Gi    limits.cpu: 0/20, limits.memory: 0/200Gi
+----
+. Alle Ressourcen-Kontingente nach Namen löschen:
++
+[source, console]
+----
+kubectl delete resourcequota  pods-high -n netapp-acc
+----
++
+[source, console]
+----
+kubectl delete resourcequota  pods-low -n netapp-acc
+----
++
+[source, console]
+----
+kubectl delete resourcequota  pods-medium -n netapp-acc
+----
+. Grenzbereiche im netapp-ACC Namespace abrufen:
++
+[source, console]
+----
+kubectl get limits -n netapp-acc
+----
++
+Antwort:
+
++
+[listing]
+----
+NAME              CREATED AT
+cpu-limit-range   2022-06-27T19:01:23Z
+----
+. Grenzwerte nach Namen löschen:
++
+[source, console]
+----
+kubectl delete limitrange cpu-limit-range -n netapp-acc
+----
+
+
+
+
+== Aktivieren der Netzwerkkommunikation zwischen Namespaces
+
+Einige Umgebungen verwenden NetworkPolicy-Konstrukte, um den Datenverkehr zwischen Namespaces zu beschränken. Der Astra Control Center Operator und das Astra Control Center sind in verschiedenen Namespaces. Die Dienste in diesen verschiedenen Namespaces müssen in der Lage sein, miteinander zu kommunizieren. Gehen Sie wie folgt vor, um diese Kommunikation zu aktivieren.
+
+.Schritte
+. Löschen Sie alle im Astra Control Center Namespace vorhandenen NetworkPolicy-Ressourcen:
++
+[source, console]
+----
+kubectl get networkpolicy -n netapp-acc
+----
+. Verwenden Sie für jedes NetworkPolicy-Objekt, das vom vorhergehenden Befehl zurückgegeben wird, den folgenden Befehl, um es zu löschen. Ersetzen Sie <OBJECT_NAME> durch den Namen des zurückgegebenen Objekts:
++
+[source, console]
+----
+kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
+----
+. Wenden Sie die folgende Ressourcendatei an, um das Objekt ACC-avp-Network-Policy zu konfigurieren, damit die Astra Plugin-Dienste Anfragen an die Astra Control Center-Dienste stellen können. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
++
+[source, yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: acc-avp-network-policy
+  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: <PLUGIN_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA PLUGIN NAMESPACE NAME
+----
+. Wenden Sie die folgende Ressourcendatei an, um das ACC-Operator-Network-Policy-Objekt so zu konfigurieren, dass der Astra Control Center-Operator mit den Astra Control Center-Diensten kommunizieren kann. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
++
+[source, yaml]
+----
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: acc-operator-network-policy
+  namespace: <ACC_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA CONTROL CENTER NAMESPACE NAME
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              kubernetes.io/metadata.name: <NETAPP-ACC-OPERATOR> # REPLACE THIS WITH THE OPERATOR NAMESPACE NAME
+----
+
+
+
+
+== Fügen Sie ein benutzerdefiniertes TLS-Zertifikat hinzu
+
+Astra Control Center verwendet standardmäßig ein selbstsigniertes TLS-Zertifikat für Ingress-Controller-Datenverkehr (nur in bestimmten Konfigurationen) und die Web-UI-Authentifizierung mit Webbrowsern. Sie können das vorhandene selbst signierte TLS-Zertifikat entfernen und durch ein TLS-Zertifikat ersetzen, das von einer Zertifizierungsstelle (CA) signiert ist.
+
+[NOTE]
+====
+Das selbstsignierte Standardzertifikat wird für zwei Verbindungstypen verwendet:
+
+* HTTPS-Verbindungen zur Web-UI des Astra Control Center
+* Ingress-Controller-Verkehr (nur wenn der `ingressType: "AccTraefik"` Das Hotel wurde in der eingerichtet `astra_control_center.yaml` Datei während Astra Control Center Installation)
+
+
+Durch Ersetzen des Standard-TLS-Zertifikats wird das Zertifikat ersetzt, das für die Authentifizierung für diese Verbindungen verwendet wird.
+
+====
+.Was Sie und#8217;ll benötigen
+* Kubernetes-Cluster mit installiertem Astra Control Center
+* Administratorzugriff auf eine Command Shell auf dem zu ausgeführten Cluster `kubectl` Befehle
+* Private Schlüssel- und Zertifikatdateien aus der CA
+
+
+
+
+=== Entfernen Sie das selbstsignierte Zertifikat
+
+Entfernen Sie das vorhandene selbstsignierte TLS-Zertifikat.
+
+. Melden Sie sich mit SSH beim Kubernetes Cluster an, der als administrativer Benutzer Astra Control Center hostet.
+. Suchen Sie das mit dem aktuellen Zertifikat verknüpfte TLS-Geheimnis mit dem folgenden Befehl, Ersetzen `<ACC-deployment-namespace>` Mit dem Astra Control Center Deployment Namespace:
++
+[source, console]
+----
+kubectl get certificate -n <ACC-deployment-namespace>
+----
+. Löschen Sie den derzeit installierten Schlüssel und das Zertifikat mit den folgenden Befehlen:
++
+[source, console]
+----
+kubectl delete cert cert-manager-certificates -n <ACC-deployment-namespace>
+kubectl delete secret secure-testing-cert -n <ACC-deployment-namespace>
+----
+
+
+
+
+=== Fügen Sie mithilfe der Befehlszeile ein neues Zertifikat hinzu
+
+Fügen Sie ein neues TLS-Zertifikat hinzu, das von einer CA signiert wird.
+
+. Verwenden Sie den folgenden Befehl, um das neue TLS-Geheimnis mit dem privaten Schlüssel und den Zertifikatdateien aus der CA zu erstellen und die Argumente in Klammern <> durch die entsprechenden Informationen zu ersetzen:
++
+[source, console]
+----
+kubectl create secret tls <secret-name> --key <private-key-filename> --cert <certificate-filename> -n <ACC-deployment-namespace>
+----
+. Verwenden Sie den folgenden Befehl und das folgende Beispiel, um die Cluster-Datei CRD (Custom Resource Definition) zu bearbeiten und die zu ändern `spec.selfSigned` Mehrwert für `spec.ca.secretName` So verweisen Sie auf das zuvor erstellte TLS-Geheimnis:
++
+[listing]
+----
+kubectl edit clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
+....
+
+#spec:
+#  selfSigned: {}
+
+spec:
+  ca:
+    secretName: <secret-name>
+----
+. Überprüfen Sie mit den folgenden Befehlen und der Beispiel-Ausgabe, ob die Änderungen korrekt sind und das Cluster bereit ist, Zertifikate zu validieren, und ersetzen Sie sie `<ACC-deployment-namespace>` Mit dem Astra Control Center Deployment Namespace:
++
+[listing]
+----
+kubectl describe clusterissuers.cert-manager.io/cert-manager-certificates -n <ACC-deployment-namespace>
+....
+
+Status:
+  Conditions:
+    Last Transition Time:  2021-07-01T23:50:27Z
+    Message:               Signing CA verified
+    Reason:                KeyPairVerified
+    Status:                True
+    Type:                  Ready
+Events:                    <none>
+
+----
+. Erstellen Sie die `certificate.yaml` Datei anhand des folgenden Beispiels, Ersetzen der Platzhalterwerte in Klammern <> durch entsprechende Informationen:
++
+[source, yaml]
+----
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: <certificate-name>
+  namespace: <ACC-deployment-namespace>
+spec:
+  secretName: <certificate-secret-name>
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  dnsNames:
+  - <astra.dnsname.example.com> #Replace with the correct Astra Control Center DNS address
+  issuerRef:
+    kind: ClusterIssuer
+    name: cert-manager-certificates
+----
+. Erstellen Sie das Zertifikat mit dem folgenden Befehl:
++
+[source, console]
+----
+kubectl apply -f certificate.yaml
+----
+. Überprüfen Sie mithilfe der folgenden Befehl- und Beispielausgabe, ob das Zertifikat korrekt erstellt wurde und mit den während der Erstellung angegebenen Argumenten (z. B. Name, Dauer, Verlängerungsfrist und DNS-Namen).
++
+[listing]
+----
+kubectl describe certificate -n <ACC-deployment-namespace>
+....
+
+Spec:
+  Dns Names:
+    astra.example.com
+  Duration:  125h0m0s
+  Issuer Ref:
+    Kind:        ClusterIssuer
+    Name:        cert-manager-certificates
+  Renew Before:  61h0m0s
+  Secret Name:   <certificate-secret-name>
+Status:
+  Conditions:
+    Last Transition Time:  2021-07-02T00:45:41Z
+    Message:               Certificate is up to date and has not expired
+    Reason:                Ready
+    Status:                True
+    Type:                  Ready
+  Not After:               2021-07-07T05:45:41Z
+  Not Before:              2021-07-02T00:45:41Z
+  Renewal Time:            2021-07-04T16:45:41Z
+  Revision:                1
+Events:                    <none>
+----
+. Bearbeiten Sie die Option Ingress CRD TLS, um mit dem folgenden Befehl und Beispiel auf Ihr neues Zertifikatgeheimnis zu verweisen und die Platzhalterwerte in Klammern <> durch entsprechende Informationen zu ersetzen:
++
+[listing]
+----
+kubectl edit ingressroutes.traefik.containo.us -n <ACC-deployment-namespace>
+....
+
+# tls:
+#    options:
+#      name: default
+#    secretName: secure-testing-cert
+#    store:
+#      name: default
+
+ tls:
+    options:
+      name: default
+    secretName: <certificate-secret-name>
+    store:
+      name: default
+----
+. Navigieren Sie mithilfe eines Webbrowsers zur IP-Adresse der Implementierung von Astra Control Center.
+. Vergewissern Sie sich, dass die Zertifikatdetails mit den Details des installierten Zertifikats übereinstimmen.
+. Exportieren Sie das Zertifikat und importieren Sie das Ergebnis in den Zertifikatmanager in Ihrem Webbrowser.
+

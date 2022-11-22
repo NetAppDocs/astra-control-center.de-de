@@ -11,15 +11,18 @@ summary: Schützen Sie Ihre Applikationen, indem Sie Snapshots und Backups über
 :imagesdir: ../media/use/
 
 
-Alle Applikationen werden gesichert, indem Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder im Ad-hoc-Verfahren erstellt werden. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Anwendungen zu schützen.
+[role="lead"]
+Alle Applikationen werden gesichert, indem Snapshots und Backups über eine automatisierte Sicherungsrichtlinie oder im Ad-hoc-Verfahren erstellt werden. Sie können die Astra Control Center-UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Anwendungen zu schützen.
 
-Wenn Sie Helm zur Implementierung von Apps verwenden, erfordert Astra Control Center Helm Version 3. Das Management und Klonen von mit Helm 3 bereitgestellten Apps (oder ein Upgrade von Helm 2 auf Helm 3) werden vollständig unterstützt. Mit Helm 2 implementierte Apps werden nicht unterstützt.
-
-Wenn Sie ein Projekt zum Hosten einer App auf einem OpenShift-Cluster erstellen, wird dem Projekt (oder dem Kubernetes-Namespace) eine SecurityContext-UID zugewiesen. Um Astra Control Center zum Schutz Ihrer App zu aktivieren und die App in ein anderes Cluster oder Projekt in OpenShift zu verschieben, müssen Sie Richtlinien hinzufügen, mit denen die App als beliebige UID ausgeführt werden kann. Als Beispiel erteilen die folgenden OpenShift-CLI-Befehle der WordPress-App die entsprechenden Richtlinien.
-
+.Über diese Aufgabe
+* *Helm implementierte Apps*: Wenn Sie Helm zum Bereitstellen von Apps verwenden, benötigt Astra Control Center Helm Version 3. Das Management und Klonen von mit Helm 3 bereitgestellten Apps (oder ein Upgrade von Helm 2 auf Helm 3) werden vollständig unterstützt. Mit Helm 2 implementierte Apps werden nicht unterstützt.
+* *(nur OpenShift-Cluster) Richtlinien hinzufügen*: Wenn Sie ein Projekt zum Hosten einer App auf einem OpenShift-Cluster erstellen, wird dem Projekt (oder Kubernetes-Namespace) eine SecurityContext-UID zugewiesen. Um Astra Control Center zum Schutz Ihrer App zu aktivieren und die App in ein anderes Cluster oder Projekt in OpenShift zu verschieben, müssen Sie Richtlinien hinzufügen, mit denen die App als beliebige UID ausgeführt werden kann. Als Beispiel erteilen die folgenden OpenShift-CLI-Befehle der WordPress-App die entsprechenden Richtlinien.
++
 `oc new-project wordpress`
 `oc adm policy add-scc-to-group anyuid system:serviceaccounts:wordpress`
 `oc adm policy add-scc-to-user privileged -z default -n wordpress`
+
+
 
 Sie können die folgenden Aufgaben zum Schutz Ihrer Applikationsdaten ausführen:
 
@@ -36,7 +39,9 @@ Sie können die folgenden Aufgaben zum Schutz Ihrer Applikationsdaten ausführen
 
 == Konfigurieren einer Sicherungsrichtlinie
 
-Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups oder beides nach einem definierten Zeitplan erstellt werden. Sie können Snapshots und Backups stündlich, täglich, wöchentlich und monatlich erstellen. Außerdem können Sie die Anzahl der beizubehaltenden Kopien festlegen. Eine Sicherungsrichtlinie kann beispielsweise wöchentliche Backups und tägliche Snapshots erstellen und die Backups und Snapshots einen Monat lang aufbewahren. Wie oft Sie Snapshots und Backups erstellen und wie lange Sie sie behalten, hängt von den Anforderungen Ihres Unternehmens ab.
+Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups oder beides nach einem definierten Zeitplan erstellt werden. Sie können Snapshots und Backups stündlich, täglich, wöchentlich und monatlich erstellen. Außerdem können Sie die Anzahl der beizubehaltenden Kopien festlegen.
+
+Wenn Sie Backups oder Snapshots öfter als einmal pro Stunde benötigen, können Sie dies tun https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Erstellen Sie mithilfe der Astra Control REST API Snapshots und Backups"^].
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
@@ -45,6 +50,9 @@ Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups ode
 . Legen Sie einen Sicherungszeitplan fest, indem Sie die Anzahl der Snapshots und Backups auswählen, die stündlich, täglich, wöchentlich und monatlich erstellt werden sollen.
 +
 Sie können die stündlichen, täglichen, wöchentlichen und monatlichen Zeitpläne gleichzeitig festlegen. Ein Zeitplan wird erst aktiviert, wenn Sie eine Aufbewahrungsstufe festlegen.
+
++
+Wenn Sie ein Aufbewahrungsniveau für Backups festlegen, können Sie den Bucket auswählen, auf dem Sie die Backups speichern möchten.
 
 +
 Im folgenden Beispiel sind vier Sicherungspläne definiert: Stündlich, täglich, wöchentlich und monatlich für Snapshots und Backups.
@@ -56,7 +64,7 @@ image:screenshot-config-protection-policy.png["Einen Screenshot einer Beispielko
 . Wählen Sie *Schutzrichtlinie Festlegen.*
 
 
-Astra Control Center implementiert die Datensicherungsrichtlinien, indem Snapshots und Backups mithilfe der von Ihnen definierten Zeitplan- und Aufbewahrungsrichtlinie erstellt und aufbewahrt werden.
+Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und Backups mithilfe der von Ihnen definierten Zeitplan und Aufbewahrungsrichtlinie erstellt und aufbewahrt werden.
 
 
 
@@ -67,11 +75,11 @@ Sie können jederzeit einen On-Demand-Snapshot erstellen.
 .Schritte
 . Wählen Sie *Anwendungen*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Snapshot* aus.
-. Passen Sie den Namen des Snapshots an und wählen Sie dann *Review*.
+. Passen Sie den Namen des Snapshots an und wählen Sie dann *Weiter*.
 . Überprüfen Sie die Snapshot-Zusammenfassung und wählen Sie *Snapshot*.
 
 
-Der Snapshot-Prozess beginnt. Ein Snapshot ist erfolgreich, wenn der Status *verfügbar* in der Spalte *Aktionen* auf der Seite *Datenschutz* > *Snapshots* steht.
+Der Snapshot-Prozess beginnt. Ein Snapshot ist erfolgreich, wenn der Status in der Spalte *Zustand* auf der Seite *Datenschutz* > *Snapshots* in der Spalte *Zustand* angegeben ist.
 
 
 
@@ -84,21 +92,21 @@ NOTE: S3 Buckets im Astra Control Center berichten nicht über die verfügbare K
 
 .Schritte
 . Wählen Sie *Anwendungen*.
-. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Backup* aus.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Sichern* aus.
 . Passen Sie den Namen des Backups an.
 . Wählen Sie aus, ob die Anwendung aus einem vorhandenen Snapshot gesichert werden soll. Wenn Sie diese Option auswählen, können Sie aus einer Liste vorhandener Snapshots auswählen.
-. Wählen Sie ein Ziel für das Backup aus der Liste der Speicher-Buckets aus.
-. Wählen Sie *Bewertung*.
+. Wählen Sie aus der Liste der Storage-Buckets einen Ziel-Bucket für das Backup aus.
+. Wählen Sie *Weiter*.
 . Überprüfen Sie die Backup-Zusammenfassung und wählen Sie *Backup*.
 
 
-Astra Control Center erstellt ein Backup der App.
+Astra Control erstellt ein Backup der App.
 
 
 NOTE: Wenn Ihr Netzwerk ausfällt oder ungewöhnlich langsam ist, kann es zu einer Zeit für einen Backup-Vorgang kommen. Dies führt zum Fehlschlagen der Datensicherung.
 
 
-NOTE: Es gibt keine Möglichkeit, ein ausgelaufes Backup zu stoppen. Wenn Sie das Backup löschen müssen, warten Sie, bis es abgeschlossen ist, und befolgen Sie die Anweisungen unter  backups. So löschen Sie ein fehlgeschlagenes Backup: https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^].
+NOTE: Wenn Sie eine laufende Sicherung abbrechen müssen, befolgen Sie die Anweisungen unter  backups. Um das Backup zu löschen, warten Sie, bis es abgeschlossen ist, und befolgen Sie die Anweisungen unter  backups.
 
 
 NOTE: Nach einer Datensicherungsoperation (Klonen, Backup, Restore) und einer anschließenden Anpassung des persistenten Volumes beträgt die Verzögerung bis zu zwanzig Minuten, bevor die neue Volume-Größe in der UI angezeigt wird. Der Datensicherungsvorgang ist innerhalb von Minuten erfolgreich und Sie können mit der Management Software für das Storage-Backend die Änderung der Volume-Größe bestätigen.
@@ -125,16 +133,16 @@ Die Snapshots werden standardmäßig angezeigt.
 Löschen Sie die geplanten oder On-Demand Snapshots, die Sie nicht mehr benötigen.
 
 
-NOTE: Eine Snapshot Kopie, die derzeit repliziert wird, kann nicht gelöscht werden.
+NOTE: Sie können keinen Snapshot löschen, der derzeit repliziert wird.
 
 .Schritte
-. Wählen Sie *Anwendungen* und dann den Namen einer App aus.
+. Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
 . Wählen Sie *Datenschutz*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für den gewünschten Snapshot die Option *Snapshot löschen* aus.
 . Geben Sie das Wort „Löschen“ ein, um das Löschen zu bestätigen und wählen Sie dann *Ja, Snapshot löschen* aus.
 
 
-Astra Control Center löscht den Snapshot.
+Astra Control löscht den Snapshot.
 
 
 
@@ -143,14 +151,14 @@ Astra Control Center löscht den Snapshot.
 Sie können ein gerade einlaufenden Backup abbrechen.
 
 
-TIP: Um ein Backup abzubrechen, muss sich das Backup im laufenden Zustand befinden. Sie können ein Backup, das sich im Status „Ausstehend“ befindet, nicht abbrechen.
+TIP: Um ein Backup abzubrechen, muss sich das Backup befinden `Running` Bundesland. Sie können ein Backup, das sich in befindet, nicht abbrechen `Pending` Bundesland.
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Wählen Sie *Datenschutz*.
 . Wählen Sie *Backups*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für das gewünschte Backup die Option *Abbrechen* aus.
-. Geben Sie das Wort „Abbrechen“ ein, um den Löschvorgang zu bestätigen, und wählen Sie dann *Ja, Sicherung abbrechen* aus.
+. Geben Sie das Wort „Abbrechen“ ein, um den Vorgang zu bestätigen, und wählen Sie dann *Ja, Sicherung abbrechen* aus.
 
 
 
@@ -160,7 +168,7 @@ TIP: Um ein Backup abzubrechen, muss sich das Backup im laufenden Zustand befind
 Löschen Sie die geplanten oder On-Demand-Backups, die Sie nicht mehr benötigen.
 
 
-NOTE: Es gibt keine Möglichkeit, ein ausgelaufes Backup zu stoppen. Wenn Sie das Backup löschen müssen, warten Sie, bis es abgeschlossen ist, und befolgen Sie diese Anweisungen. So löschen Sie ein fehlgeschlagenes Backup: https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^].
+NOTE: Wenn Sie eine laufende Sicherung abbrechen müssen, befolgen Sie die Anweisungen unter  backups. Um das Backup zu löschen, warten Sie, bis es abgeschlossen ist, und befolgen Sie diese Anweisungen.
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
@@ -170,4 +178,4 @@ NOTE: Es gibt keine Möglichkeit, ein ausgelaufes Backup zu stoppen. Wenn Sie da
 . Geben Sie das Wort „Löschen“ ein, um das Löschen zu bestätigen und wählen Sie dann *Ja, Sicherung löschen*.
 
 
-Astra Control Center löscht das Backup.
+Astra Control löscht das Backup.

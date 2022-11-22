@@ -1,0 +1,77 @@
+---
+sidebar: sidebar 
+permalink: use/manage-remote-users-groups.html 
+keywords: import, import users, search, search users, groups, import groups 
+summary: Verwalten Sie Remote-LDAP-Benutzer und -Gruppen auf Ihrem Astra Control Center-System. 
+---
+= Verwalten von Remote-Benutzern und -Gruppen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Wenn Sie die LDAP-Authentifizierung auf Ihrem Astra Control System aktiviert haben, können Sie nach LDAP-Benutzern und -Gruppen suchen und diese in die genehmigten Benutzer des Systems aufnehmen.
+
+
+
+== Fügen Sie einen Remote-Benutzer hinzu
+
+Kontoinhaber und -Administratoren können Remote-Benutzer zu Astra Control hinzufügen.
+
+
+NOTE: Remote-Benutzer können nicht hinzugefügt werden, wenn bereits ein lokaler Benutzer mit derselben E-Mail-Adresse im System vorhanden ist. Um den Benutzer als Remote-Benutzer hinzuzufügen, löschen Sie zuerst den lokalen Benutzer aus dem System.
+
+.Schritte
+. Gehen Sie zum Bereich *Konto*.
+. Wählen Sie die Registerkarte *Benutzer & Gruppen* aus.
+. Wählen Sie rechts auf der Seite die Option *Remote Users*.
+. Wählen Sie *Hinzufügen*.
+. Sie können auch nach einem LDAP-Benutzer suchen, indem Sie die E-Mail-Adresse des Benutzers im Feld *Filtern nach E-Mail* eingeben.
+. Wählen Sie einen oder mehrere Benutzer aus der Liste aus.
+. Weisen Sie dem Benutzer eine Rolle zu.
++
+
+NOTE: Wenn Sie einem Benutzer und der Gruppe des Benutzers verschiedene Rollen zuweisen, hat die Rolle eine größere Priorität.
+
+. Weisen Sie diesem Benutzer optional eine oder mehrere Namespace-Einschränkungen zu und wählen Sie *Rolle auf Einschränkungen beschränken* aus, um sie durchzusetzen. Sie können eine neue Namespace-Einschränkung hinzufügen, indem Sie *Bedingung hinzufügen* auswählen.
++
+
+NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zugewiesen werden, sind die Einschränkungen in der am stärksten permissivsten Rolle die einzigen, die wirksam werden. Wenn z. B. ein Benutzer mit einer lokalen Viewer-Rolle drei Gruppen verbindet, die an die Rolle Mitglied gebunden sind, wird die Summe der Einschränkungen aus den Mitgliederrollen wirksam, und alle Einschränkungen aus der Viewer-Rolle werden ignoriert.
+
+. Wählen Sie *Hinzufügen*.
+
+
+Der neue Benutzer wird in der Liste der Remote-Benutzer angezeigt. In dieser Liste können Sie aktive Einschränkungen für den Benutzer sehen und den Benutzer über das Menü *Aktionen* verwalten.
+
+
+
+== Fügen Sie eine externe Gruppe hinzu
+
+Wenn Sie viele Remote-Benutzer gleichzeitig hinzufügen möchten, können Kontoinhaber und -Administratoren Remote-Gruppen zu Astra Control hinzufügen. Wenn Sie eine Remote-Gruppe hinzufügen, werden alle Remote-Benutzer in dieser Gruppe zu Astra Control hinzugefügt und übernehmen die gleiche Rolle.
+
+.Schritte
+. Gehen Sie zum Bereich *Konto*.
+. Wählen Sie die Registerkarte *Benutzer & Gruppen* aus.
+. Wählen Sie rechts auf der Seite *Remote-Gruppen* aus.
+. Wählen Sie *Hinzufügen*.
++
+In diesem Fenster sehen Sie eine Liste der gemeinsamen Namen und Distinguished Names der LDAP-Gruppen, die Astra Control aus dem Verzeichnis abgerufen hat.
+
+. Suchen Sie optional nach einer LDAP-Gruppe, indem Sie den gemeinsamen Namen der Gruppe in das Feld *Filter nach gemeinsamem Namen* eingeben.
+. Wählen Sie eine oder mehrere Gruppen aus der Liste aus.
+. Weisen Sie den Gruppen eine Rolle zu.
++
+
+NOTE: Die ausgewählte Rolle ist allen Benutzern in dieser Gruppe zugewiesen. Wenn Sie einem Benutzer und der Gruppe des Benutzers verschiedene Rollen zuweisen, hat die Rolle eine größere Priorität.
+
+. Weisen Sie dieser Gruppe optional eine oder mehrere Namespace-Einschränkungen zu und wählen Sie *Rolle auf Einschränkungen beschränken* aus, um sie durchzusetzen. Sie können eine neue Namespace-Einschränkung hinzufügen, indem Sie *Bedingung hinzufügen* auswählen.
++
+
+NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zugewiesen werden, sind die Einschränkungen in der am stärksten permissivsten Rolle die einzigen, die wirksam werden. Wenn z. B. ein Benutzer mit einer lokalen Viewer-Rolle drei Gruppen verbindet, die an die Rolle Mitglied gebunden sind, wird die Summe der Einschränkungen aus den Mitgliederrollen wirksam, und alle Einschränkungen aus der Viewer-Rolle werden ignoriert.
+
+. Wählen Sie *Hinzufügen*.
+
+
+Die neue Gruppe wird in der Liste der Remote-Gruppen angezeigt, und alle Remote-Benutzer in dieser Gruppe werden in der Liste der Remote-Benutzer angezeigt. In dieser Liste können Sie Details über die Gruppe anzeigen und die Gruppe über das Menü *Aktionen* verwalten.

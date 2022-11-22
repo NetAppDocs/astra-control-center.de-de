@@ -11,7 +11,8 @@ summary: Sie können eine Evaluierungslizenz in eine vollständige Lizenz umwand
 :imagesdir: ../media/get-started/
 
 
-Sie können eine Evaluierungslizenz in eine vollständige Lizenz umwandeln oder eine bestehende Evaluierung oder Volllizenz mit einer neuen Lizenz aktualisieren. Wenn Sie keine vollständige Lizenz besitzen, wenden Sie sich an Ihren NetApp Ansprechpartner, um eine vollständige Lizenz und eine Seriennummer zu erhalten. Sie können die Astra UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um eine vorhandene Lizenz zu aktualisieren.
+[role="lead"]
+Sie können eine Evaluierungslizenz in eine vollständige Lizenz umwandeln oder eine bestehende Evaluierung oder Volllizenz mit einer neuen Lizenz aktualisieren. Wenn Sie keine vollständige Lizenz besitzen, wenden Sie sich an Ihren NetApp Ansprechpartner, um eine vollständige Lizenz und eine Seriennummer zu erhalten. Sie können die Astra Control Center-UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um eine vorhandene Lizenz zu aktualisieren.
 
 .Schritte
 . Melden Sie sich bei an https://mysupport.netapp.com/site/["NetApp Support Website"^].

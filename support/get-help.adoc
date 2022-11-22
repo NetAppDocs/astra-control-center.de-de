@@ -11,6 +11,7 @@ summary: 'NetApp bietet Unterstützung für Astra Control auf verschiedene Weise
 :imagesdir: ../media/support/
 
 
+[role="lead"]
 NetApp bietet Unterstützung für Astra Control auf verschiedene Weise. Umfangreiche kostenlose Self-Support-Optionen stehen rund um die Uhr zur Verfügung, wie z. B. Knowledge Base-Artikel (KB) und ein Einseilkanal. Ihr Astra Control-Konto umfasst technischen Remote-Support über eine Web-Ticketausstellung.
 
 
@@ -37,7 +38,7 @@ Diese Optionen stehen rund um die Uhr kostenlos zur Verfügung:
 
 == Ermöglichen Sie den täglichen Upload geplanter Support-Bundles an NetApp Support
 
-Bei der Installation des Astra Control Center, falls Sie dies angeben `enrolled: true` Für `autoSupport` In der Datei Astra Control Center Custom Resource Definition (CRD) (`astra_control_center_min.yaml`) Werden täglich Support-Pakete automatisch auf die hochgeladen https://mysupport.netapp.com/site/["NetApp Support Website"^].
+Bei der Installation des Astra Control Center, falls Sie dies angeben `enrolled: true` Für `autoSupport` In der Datei Astra Control Center Custom Resource (CR) (`astra_control_center.yaml`) Werden täglich Support-Pakete automatisch auf die hochgeladen https://mysupport.netapp.com/site/["NetApp Support Website"^].
 
 
 

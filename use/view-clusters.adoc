@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: use/view-clusters.html 
-keywords: view cluster, cluster storage, cluster overview 
-summary: Nachdem Sie zum Astra Control Center Cluster hinzugefügt haben, können Sie Details zum Cluster anzeigen, beispielsweise den Speicherort, die Worker-Nodes, die persistenten Volumes und Storage-Klassen. 
+keywords: view cluster, edit storage class, storage class, cluster storage, cluster overview 
+summary: Nachdem Sie zum Astra Control Center Cluster hinzugefügt haben, können Sie Details zum Cluster anzeigen, beispielsweise den Speicherort, die Worker-Nodes, die persistenten Volumes und Storage-Klassen. Sie können auch Standardspeicherklassen ändern. 
 ---
-= Anzeigen des Systemzustands und der Details von Clustern
+= Zeigen Sie den Cluster-Zustand an und managen Sie Storage-Klassen
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,7 +12,13 @@ summary: Nachdem Sie zum Astra Control Center Cluster hinzugefügt haben, könne
 
 
 [role="lead"]
-Nachdem Sie Cluster hinzugefügt haben, die von Astra Control Center gemanagt werden können, können Sie Details zum Cluster anzeigen, beispielsweise den Speicherort, die Worker-Nodes, die persistenten Volumes und die Storage-Klassen.
+Nachdem Sie Cluster hinzugefügt haben, die von Astra Control Center gemanagt werden können, können Sie Details zum Cluster anzeigen, beispielsweise den Speicherort, die Worker-Nodes, die persistenten Volumes und die Storage-Klassen. Sie können auch die Standard-Storage-Klasse für verwaltete Cluster ändern.
+
+
+
+== Zeigen Sie den Cluster-Zustand und die Details an
+
+Sie können Details zum Cluster anzeigen, z. B. seinen Standort, die Worker-Nodes, persistente Volumes und Storage-Klassen.
 
 .Schritte
 . Wählen Sie in der Astra Control Center-Benutzeroberfläche *Cluster* aus.
@@ -32,3 +38,21 @@ NOTE: Wenn ein Cluster vorhanden ist `removed` Der Zustand der Cluster- und Netz
 
 
 NOTE: Sie können auch Clusterinformationen anzeigen, die Sie über das Astra Control Center *Dashboard* starten. Auf der Registerkarte *Cluster* unter *Resource summary* können Sie die verwalteten Cluster auswählen, die Sie zur Seite *Cluster* führen. Nachdem Sie die Seite *Cluster* aufgerufen haben, befolgen Sie die oben beschriebenen Schritte.
+
+
+
+== Ändern der Standard-Storage-Klasse
+
+Sie können die Standard-Storage-Klasse für ein Cluster ändern. Wenn Astra Control einen Cluster verwaltet, wird die Standard-Storage-Klasse des Clusters überwacht.
+
+
+NOTE: Ändern Sie die Storage-Klasse nicht mit kubectl-Befehlen. Verwenden Sie stattdessen diese Prozedur. Astra Control setzt die Änderungen zurück, wenn sie mit kubectl vorgenommen werden.
+
+.Schritte
+. Wählen Sie in der Web-UI des Astra Control Center die Option *Cluster* aus.
+. Wählen Sie auf der Seite *Cluster* den Cluster aus, den Sie ändern möchten.
+. Wählen Sie die Registerkarte *Storage* aus.
+. Wählen Sie die Kategorie *Speicherklassen* aus.
+. Wählen Sie das Menü *Aktionen* für die Speicherklasse aus, die Sie als Standard festlegen möchten.
+. Wählen Sie *als Standard*.
+

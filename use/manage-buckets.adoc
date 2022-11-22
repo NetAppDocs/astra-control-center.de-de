@@ -11,9 +11,10 @@ summary: Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn S
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Ein Objektspeicher-Bucket-Provider ist äußerst wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. Fügen Sie mithilfe des Astra Control Center einen Objektspeicher-Provider als externes Backup-Ziel für Ihre Applikationen hinzu.
 
-Sie brauchen keinen Eimer, wenn Sie Ihre Anwendungskonfiguration und Ihren persistenten Storage im selben Cluster klonen.
+Sie benötigen keinen Bucket, wenn Sie die Applikationskonfiguration und Ihren persistenten Storage auf dasselbe Cluster klonen.
 
 Verwenden Sie einen der folgenden Amazon Simple Storage Service (S3) Bucket-Provider:
 
@@ -27,7 +28,7 @@ NOTE: Amazon Web Services (AWS) und Google Cloud Platform (GCP) verwenden den Bu
 
 +
 
-NOTE: Obwohl Astra Control Center Amazon S3 als Generic S3 Bucket-Provider unterstützt, unterstützt Astra Control Center möglicherweise nicht alle Objektspeicher-Anbieter, die die S3-Unterstützung von Amazon beanspruchen.
+NOTE: Obwohl Astra Control Center Amazon S3 als Generic S3 Bucket-Provider unterstützt, unterstützt Astra Control Center unter Umständen nicht alle Objektspeicher-Anbieter, die die Unterstützung von Amazon S3 beanspruchen.
 
 
 
@@ -44,6 +45,7 @@ Sie können die folgenden Aufgaben zum Verwalten von Buckets ausführen:
 
 * link:../get-started/setup_overview.html#add-a-bucket["Fügen Sie einen Bucket hinzu"]
 *  a bucket
+*  the default bucket
 *  or remove bucket credentials
 *  a bucket
 
@@ -62,13 +64,27 @@ NOTE: Wenn Sie einen Bucket hinzufügen, wählen Sie den richtigen Bucket-Provid
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste *Buckets* aus.
-. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Bearbeiten* aus.
+. Wählen Sie im Menü in der Spalte *Aktionen* die Option *Bearbeiten*.
 . Ändern Sie alle Informationen außer dem Bucket-Typ.
 +
 
 TIP: Sie können den Bucket-Typ nicht ändern.
 
 . Wählen Sie *Aktualisieren*.
+
+
+
+
+== Legen Sie den Standard-Bucket fest
+
+Wenn Sie einen Cluster-übergreifenden Klon durchführen, benötigt Astra Control einen Standard-Bucket. Führen Sie diese Schritte aus, um einen Standard-Bucket für alle Cluster festzulegen.
+
+.Schritte
+. Gehen Sie zu *Cloud-Instanzen*.
+. Wählen Sie das Menü in der Spalte *Aktionen* für die Cloud-Instanz in der Liste aus.
+. Wählen Sie *Bearbeiten*.
+. Wählen Sie in der Liste *Bucket* den Bucket aus, der als Standard verwendet werden soll.
+. Wählen Sie *Speichern*.
 
 
 

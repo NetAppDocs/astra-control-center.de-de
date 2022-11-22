@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: learn/app-management.html 
+permalink: concepts/app-management.html 
 keywords: app, labels, kubernetes labels, kubernetes resources, pods, define app 
 summary: Beschreibt die Art der verwalteten Apps in Astra Control. 
 ---
@@ -18,11 +18,11 @@ Wenn Astra Control Ihre Cluster erkennt, werden die Apps auf diesen Clustern sol
 +
 image:diagram-managed-app1.png["Ein Konzept-Image, das Astra als Management aller Ressourcen im Namespace zeigt."]
 
-* Eine individuelle Anwendung innerhalb eines Namespace (in diesem Beispiel wird helm3 verwendet)
+* Eine individuelle Anwendung, die innerhalb einer oder mehrerer Namespaces bereitgestellt wird (in diesem Beispiel wird helm3 verwendet)
 +
 image:diagram-managed-app2.png["Ein Konzept-Image, das Astra für die Verwaltung einer individuellen in einem Namespace implementierten Applikation einschließlich anderer Applikationen zeigt"]
 
-* Eine Gruppe von Ressourcen, die innerhalb eines Namespace durch ein Kubernetes-Label identifiziert werden
+* Eine Gruppe von Ressourcen, die innerhalb eines oder mehrerer Namespaces durch ein Kubernetes-Label identifiziert werden
 +
 image:diagram-managed-app3.png["Ein Konzept-Image, das den Astra als Basis für eine App mit dem Kubernetes-Label verwaltet."]
 

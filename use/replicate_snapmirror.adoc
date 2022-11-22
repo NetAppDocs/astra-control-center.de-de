@@ -43,7 +43,30 @@ Mit Astra Control können Sie die folgenden Aufgaben für die Replikation von An
 
 == Replikationsvoraussetzungen
 
-Siehe link:../get-started/requirements.html#replication-prerequisites["Replikationsvoraussetzungen"] Bevor Sie beginnen.
+Die Astra Control Applikationsreplizierung erfordert, dass die folgenden Voraussetzungen erfüllt sein müssen, bevor Sie beginnen:
+
+* Um eine nahtlose Disaster Recovery zu erreichen, empfehlen wir Ihnen, Astra Control Center in einer dritten Fehlerdomäne oder an einem sekundären Standort einzusetzen.
+* Das Kubernetes-Cluster der Applikation, ein Ziel-Kubernetes-Cluster, muss zusammen mit den ONTAP-Clustern gemanagt werden, im Idealfall in verschiedenen Ausfall-Domains oder Standorten.
+* ONTAP-Cluster und die Host-SVM müssen gekoppelt sein. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["Übersicht über Cluster- und SVM-Peering"^].
+* Die gepaarte Remote-SVM muss für Astra Trident auf dem Ziel-Cluster verfügbar sein.
+* Astra Trident Version 22.07 oder höher muss sowohl auf den Quell- als auch Ziel-ONTAP Clustern vorhanden sein.
+* Asynchrone ONTAP SnapMirror Lizenzen mit dem Datensicherungs-Bundle müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP Clustern aktiviert werden. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Übersicht über die SnapMirror Lizenzierung in ONTAP"^].
+* Wenn Sie dem Astra Control Center ein ONTAP-Speicher-Backend hinzufügen, wenden Sie die Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über Zugriffsmethoden verfügt `http` Und `ontapi` Sowohl auf ONTAP Quell- als auch auf Ziel-Clustern aktiviert. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
+* Sowohl Quell- als auch Ziel-Kubernetes-Cluster als auch ONTAP-Cluster müssen von Astra Control gemanagt werden.
++
+
+NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster oder Standort ausgeführt) in die entgegengesetzte Richtung replizieren. So können beispielsweise Applikationen A, B und C von Datacenter 1 nach Datacenter 2 repliziert werden. Applikationen X, Y und Z können von Datacenter 2 zu Datacenter 1 repliziert werden.
+
+* *Astra Trident / ONTAP Konfiguration*: Astra Control Center erfordert, dass eine Storage-Klasse erstellt und als Standard-Storage-Klasse eingestellt wird. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident zur Replizierung:
++
+** ontap-nas
+** ontap-nas-Flexgroup
+** ontap-san
+
+
+
+
+Erfahren Sie, wie Sie link:../use/replicate_snapmirror.html["Replizieren von Applikationen auf einem Remote-System mit SnapMirror Technologie"^].
 
 
 
@@ -62,14 +85,11 @@ Die Einrichtung einer Replikationsbeziehung umfasst Folgendes, die die Replikati
 . Wählen Sie auf der Registerkarte Data Protection > Replication die Option *Configure Replication Policy* aus. Oder wählen Sie im Feld Anwendungsschutz die Option Aktionen aus, und wählen Sie *Replikationsrichtlinie konfigurieren* aus.
 . Geben Sie die folgenden Informationen ein, oder wählen Sie sie aus:
 +
-** Ziel-Cluster
+** *Zielcluster*: Geben Sie einen Zielcluster ein, der sich von der Quelle unterscheidet.
 ** *Zielspeicherklasse*: Wählen Sie die Speicherklasse aus, die die gekoppelte SVM auf dem Ziel-ONTAP-Cluster verwendet.
 ** *Replikationstyp*: "Asynchron" ist derzeit der einzige verfügbare Replikationstyp. 
-** *Ziel-Namespace*: Geben Sie einen neuen oder bestehenden Ziel-Namespace für das Ziel-Cluster ein.
-+
-
-NOTE: Alle in Konflikt stehenden Ressourcen im ausgewählten Namespace werden überschrieben. 
-
+** *Ziel-Namespace*: Geben Sie neue oder vorhandene Ziel-Namespaces für das Ziel-Cluster ein.
+** (Optional) Fügen Sie zusätzliche Namespaces hinzu, indem Sie *Namespace hinzufügen* und den Namespace aus der Dropdown-Liste auswählen.
 ** *Frequenz der Replikation*: Legen Sie fest, wie oft Astra Control einen Snapshot machen und ihn an sein Ziel replizieren soll.
 ** *Offset*: Stellen Sie die Anzahl der Minuten von der Stunde her, die Sie möchten, dass Astra Control einen Schnappschuss machen soll. Möglicherweise möchten Sie einen Offset verwenden, sodass er nicht mit anderen geplanten Vorgängen übereinstimmt. Wenn Sie beispielsweise den Snapshot alle 5 Minuten ab 10:02 Uhr aufnehmen möchten, geben Sie als Offset-Minuten „02“ ein. Das Ergebnis sind 10:02, 10:07, 10:12 usw.
 
@@ -102,7 +122,7 @@ Auf der Seite Datensicherung werden der Status und der Status der Replikationsbe
 
 Zum Beispiel: Normal
 
-Weitere Informationen zu Replikationsstatus und -Status finden Sie unten.
+Erfahren Sie am Ende dieses Themas mehr über Replikationszustände und -Status.
 
 
 

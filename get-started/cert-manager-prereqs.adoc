@@ -11,12 +11,13 @@ summary: Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen S
 :imagesdir: ../media/get-started/
 
 
+[role="lead"]
 Wenn bereits ein Zert-Manager in Ihrem Kubernetes Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center keinen eigenen Cert-Manager installiert.
 
 .Schritte
 . Vergewissern Sie sich, dass ein Zertifikat-Manager installiert ist:
 +
-[source, sh]
+[source, console]
 ----
 kubectl get pods -A | grep 'cert-manager'
 ----
@@ -32,7 +33,7 @@ cert-manager   essential-cert-manager-webhook-56b76db9cc-fjqrq      1/1     Runn
 ----
 . Erstellen Sie ein Zertifikat-/Schlüsselpaar für den FQDN der AstraAddress:
 +
-[source, sh]
+[source, console]
 ----
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt
 ----
@@ -49,7 +50,7 @@ writing new private key to 'tls.key'
 ----
 . Erstellen eines Geheimnisses mit zuvor generierten Dateien:
 +
-[source, sh]
+[source, console]
 ----
 kubectl create secret tls selfsigned-tls --key tls.key --cert tls.crt -n <cert-manager-namespace>
 ----
@@ -75,7 +76,7 @@ spec:
     secretName: selfsigned-tls
 ----
 +
-[source, sh]
+[source, console]
 ----
 kubectl apply -f ClusterIssuer.yaml
 ----
@@ -89,7 +90,7 @@ clusterissuer.cert-manager.io/astra-ca-clusterissuer created
 ----
 . Stellen Sie sicher, dass der ClusterIssuer richtig aufgelegt ist. `Ready` Muss sein `True` Bevor Sie fortfahren können:
 +
-[source, sh]
+[source, console]
 ----
 kubectl get ClusterIssuer
 ----

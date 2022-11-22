@@ -2,64 +2,35 @@
 sidebar: sidebar 
 permalink: get-started/acc_cluster_cr_options.html 
 keywords: astra cr, cluster cr, astra control center, how to configure, deploy 
-summary: Astra Control Center Cluster CR-Optionen für benutzerdefinierte Konfigurationen während der Implementierung 
+summary: Benutzerdefinierte Konfigurationen finden Sie in den Optionen des Astra Control Center Cluster CR, die Sie während der Implementierung verwenden können. 
 ---
-= Detaillierte Informationen zu den CR-Optionen des Astra Control Center-Clusters
+= Individuelle Ressourcenoptionen für den Astra Control Center Cluster
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Sie können die folgenden Optionen des Astra Control Center Cluster CR verwenden, um während der Bereitstellung individuelle Konfigurationen zu erstellen.
+[role="lead"]
+Sie können die folgenden Optionen des Astra Control Center Cluster Custom Resource (CR) verwenden, um während der Bereitstellung individuelle Konfigurationen zu erstellen.
 
 |===
 | Einstellung | Typ | Nutzung | Wertbeispiel | Beschreibung 
 
 
-| AstraVersion | Zeichenfolge | Erforderlich | 1.5.2 | Version von AstraControlCenter für die Bereitstellung. Ihnen steht ein Helm-Repository mit einer entsprechenden Version zur Verfügung. 
+| AccountName | Zeichenfolge | Erforderlich | Beispiel | Astra Control Center Kontoname Es kann nur einer sein. 
 
 
 | AstraAddress | Zeichenfolge | Erforderlich | astra.example.com | Definiert, wie Astra im Datacenter eingesetzt werden wird. Diese IP-Adresse und/oder DNS Muss Vor der Bereitstellung von Astra Control Center Ein Datensatz erstellt werden. 
 
 
-| AccountName | Zeichenfolge | Erforderlich | Beispiel | Astra Control Center Kontoname Es kann nur einer sein. 
-
-
-| E-Mail | Zeichenfolge | Erforderlich | admin@example.com | Der Benutzername des Administrators, der als erster Benutzer von Astra hinzugefügt werden soll. Diese E-Mail-Adresse wird von Astra Control als Veranstaltungsbefehl benachrichtigt. 
-
-
-| Vorname | Zeichenfolge | Erforderlich | SRE | Der Vorname des Administrators, der Astra unterstützt. 
-
-
-| Nachname | Zeichenfolge | Erforderlich | Admin | Der Nachname des Administrators, der Astra unterstützt. 
-
-
-| Storage Class | Zeichenfolge | Optional (dies ist der Standardwert) | ontap Gold | Die Speicherklasse, die für PVCs verwendet werden soll. Wenn nicht festgelegt, wird die Standard-Speicherklasse verwendet. 
-
-
-| VolumeReclaimPolicy | Nicht Festgelegt | Optional | Beibehalten | Zurückgewinnungsrichtlinie für persistente Volumes 
+| AstraKubeConfigSecret | Zeichenfolge | Erforderlich | ACC-kubeconfg-Credo | Wenn dieser Wert vorhanden ist und ein Geheimnis existiert, versucht der Operator, diesen KubeConfig zum ersten verwalteten Cluster hinzuzufügen. 
 
 
 | AstraResourcesScaler | Zeichenfolge | Erforderlich | Standard | Skalierungsoptionen für die Ressourcengrenzen von AstraControlCenter. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
 
 
-| AstraKubeConfigSecret | Zeichenfolge | Erforderlich | ACC-kubeconfg-Credo | Wenn dieser Wert vorhanden ist und ein Geheimnis existiert, versucht der Operator, diesen KubeConfig zum ersten verwalteten Cluster hinzuzufügen. 
-
-
-| Typ | Zeichenfolge | Optional | Allgemein (dies ist der Standardwert) | Der Typ des Ingress Astra Control Centers sollte für konfiguriert werden. Gültige Werte sind `Generic` Und `AccTraefik`. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
-
-
-| AvpDeploy | Boolesch | Optional | True (dies ist der Standardwert) | Option, mit der Benutzer die Implementierung des Astra Plugin für VMware vSphere Operator deaktivieren können. 
-
-
-| ImageRegistry | Nicht Festgelegt | Optional |  | Die Container-Image-Registry, die die Astra-Anwendungsbilder, den Astra Control Center Operator und das Astra Control Center Helm Repository hostet. 
-
-
-| imageRegistry.name | Zeichenfolge | Erforderlich, wenn Sie imageRegistry verwenden | example.registry.com/astra | Der Name der Bildregistrierung. Geben Sie kein Präfix mit Protokoll an. 
-
-
-| imageRegistry.secret | Zeichenfolge | Erforderlich, wenn Sie imageRegistry verwenden | astra-Registry-Credo | Der Name des Kubernetes Secret, das zur Authentifizierung mit der Bildregistrierung verwendet wird. 
+| AstraVersion | Zeichenfolge | Erforderlich | 1.5.2 | Version von AstraControlCenter für die Bereitstellung. Ihnen steht ein Helm-Repository mit einer entsprechenden Version zur Verfügung. 
 
 
 | AutoSupport | Nicht Festgelegt | Erforderlich |  | Zeigt den Partizipationsstatus an der proaktiven Supportapplikation von NetApp Active IQ an. Eine Internetverbindung ist erforderlich (Port 442) und alle Supportdaten werden anonymisiert. 
@@ -71,25 +42,46 @@ Sie können die folgenden Optionen des Astra Control Center Cluster CR verwenden
 | AutoSupport.url | Zeichenfolge | Optional, aber entweder `enrolled` Oder `url` Felder müssen ausgewählt werden | https://support.netapp.com/asupprod/post/1.0/postAsup[] | URL legt fest, wo die anonymen Daten gesendet werden. 
 
 
+| AvpDeploy | Boolesch | Optional | True (dies ist der Standardwert) | Option, mit der ein Benutzer die Bereitstellung eines Plug-in-Operators deaktivieren kann. 
+
+
 | crds | Nicht Festgelegt | Nicht Festgelegt |  | Optionen, wie Astra Control Center mit CRDs umgehen soll. 
-
-
-| crds.externaliTraefik | Boolesch | Optional | True (dieser Wert ist der Standard) | Astra Control Center installiert standardmäßig die erforderlichen Trafik-CRDs. CRDs sind Cluster-weite Objekte und deren Installation kann Auswirkungen auf andere Teile des Clusters haben. Mit diesem Flag können Sie dem Astra Control Center signalisieren, dass diese CRDs vom Clusteradministrator außerhalb des Astra Control Center installiert und verwaltet werden. 
 
 
 | crds.externaliCertManager | Boolesch | Optional | True (dieser Wert ist der Standard) | Astra Control Center installiert standardmäßig die erforderlichen Zertifikatmanager-CRDs. CRDs sind Cluster-weite Objekte und deren Installation kann Auswirkungen auf andere Teile des Clusters haben. Mit diesem Flag können Sie dem Astra Control Center signalisieren, dass diese CRDs vom Clusteradministrator außerhalb des Astra Control Center installiert und verwaltet werden. 
 
 
+| crds.externaliTraefik | Boolesch | Optional | True (dieser Wert ist der Standard) | Astra Control Center installiert standardmäßig die erforderlichen Trafik-CRDs. CRDs sind Cluster-weite Objekte und deren Installation kann Auswirkungen auf andere Teile des Clusters haben. Mit diesem Flag können Sie dem Astra Control Center signalisieren, dass diese CRDs vom Clusteradministrator außerhalb des Astra Control Center installiert und verwaltet werden. 
+
+
 | crds.sollte aktualisiert werden | Boolesch | Optional | Nicht Festgelegt | Bestimmt, ob CRDs bei einem Upgrade des Astra Control Centers aktualisiert werden sollten. 
 
 
-| mtls |  |  |  | Optionen, wie Astra Control Center Service implementieren soll, um MTLS im Cluster zu warten. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken 
+| E-Mail | Zeichenfolge | Erforderlich | admin@example.com | Der Benutzername des Administrators, der als erster Benutzer von Astra hinzugefügt werden soll. Diese E-Mail-Adresse wird von Astra Control als Veranstaltungsbefehl benachrichtigt. 
 
 
-| mtls.aktiviert | Boolesch | Optional | True (dieser Wert ist der Standard) | Astra Control Center verwendet standardmäßig MTLS für Service-to-Service-Kommunikation. Diese Option sollte deaktiviert werden, wenn stattdessen ein Service-Mesh verwendet wird, um die Service-to-Service-Kommunikation zu verschlüsseln. 
+| Vorname | Zeichenfolge | Erforderlich | SRE | Der Vorname des Administrators, der Astra unterstützt. 
 
 
-| mtls.certDauer | Zeichenfolge | Optional | 2140h (dieser Wert ist die Standarddauer) | Die Zeitspanne in Stunden, die als Zertifikatlebensdauer bei der Ausstellung von TLS-Zertifikaten verwendet werden muss. Diese Einstellung funktioniert nur, wenn `mtls.enabled` Ist auf festgelegt `true`. 
+| ImageRegistry | Nicht Festgelegt | Optional |  | Die Container-Image-Registry, die die Astra-Anwendungsbilder, den Astra Control Center Operator und das Astra Control Center Helm Repository hostet. 
+
+
+| imageRegistry.name | Zeichenfolge | Erforderlich, wenn Sie imageRegistry verwenden | example.registry.com/astra | Der Name der Bildregistrierung. Geben Sie kein Präfix mit Protokoll an. 
+
+
+| imageRegistry.secret | Zeichenfolge | Erforderlich, wenn Sie imageRegistry verwenden, die ein Geheimnis erfordert | astra-Registry-Credo | Der Name des Kubernetes Secret, das zur Authentifizierung mit der Bildregistrierung verwendet wird. 
+
+
+| Typ | Zeichenfolge | Optional | Allgemein (dies ist der Standardwert) | Der Typ des Ingress Astra Control Centers sollte für konfiguriert werden. Gültige Werte sind `Generic` Und `AccTraefik`. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
+
+
+| Nachname | Zeichenfolge | Erforderlich | Admin | Der Nachname des Administrators, der Astra unterstützt. 
+
+
+| Storage Class | Zeichenfolge | Optional (dies ist der Standardwert) | ontap Gold | Die Speicherklasse, die für PVCs verwendet werden soll. Wenn nicht festgelegt, wird die Standard-Speicherklasse verwendet. 
+
+
+| VolumeReclaimPolicy | Nicht Festgelegt | Optional | Beibehalten | Zurückgewinnungsrichtlinie für persistente Volumes 
 |===
 
 
@@ -103,7 +95,7 @@ Einige CR-Konfigurationseinstellungen des Astra Control Center-Clusters wirken s
 
 Astra Control Center implementiert standardmäßig mit Ressourcenanfragen, die für die meisten Komponenten in Astra bereitgestellt werden. Mit dieser Konfiguration verbessert sich die Leistung des Astra Control Center Software-Stacks auch bei erhöhter Applikationslast und -Skalierung.
 
-In Szenarien mit kleineren Entwicklungs- oder Testclustern jedoch das CR-Feld `AstraResourcesScalar` Kann auf festgelegt werden `Off`. Dadurch werden Ressourcenanforderungen deaktiviert und die Bereitstellung auf kleineren Clustern ist möglich.
+In Szenarien mit kleineren Entwicklungs- oder Testclustern jedoch das CR-Feld `AstraResourcesScalar` Kann auf festgelegt werden `Off`. Dadurch werden Ressourcenanforderungen deaktiviert und die Bereitstellung auf kleineren Clustern ist möglich.
 
 
 
@@ -142,28 +134,4 @@ spec:
                 number: 80
           pathType: ImplementationSpecific
 ----
-
-WARNING: Wenn MTLS mit der Einstellung mtls.Enabled im CR deaktiviert ist, müssen Sie die Option verwenden `ingressType: Generic`.
-
 Wenn `ingressType` Ist auf festgelegt `AccTraefik`, Astra Control Center implementiert sein Trafik Gateway als Kubernetes Load Balancer-Service. Benutzer müssen einen externen Load Balancer (wie MetalLB) für Astra Control Center bereitstellen, um eine externe IP zu erhalten.
-
-
-
-=== mtls
-
-Die im CR verwendeten Einstellungen bestimmen, wie die Kommunikation innerhalb der Anwendung gesichert wird. Es ist sehr wichtig, dass der Benutzer rechtzeitig weiß, ob er ein Service-Mesh verwendet oder nicht.
-
-* `enabled=true`: Wenn diese Einstellung aktiviert ist, wird Astra ein internes Service-zu-Service-Kommunikationsnetzwerk bereitstellen, das den gesamten Datenverkehr innerhalb der Anwendung sichert.
-
-
-
-WARNING: Das Astra Control Center darf nicht in einem Service-Mesh abgedeckt werden, während diese Einstellung lautet `true`.
-
-* `enabled=false`: Wenn diese Einstellung deaktiviert ist, sichert das Astra Control Center den internen Verkehr nicht und Sie müssen Astra Namensräume unabhängig mit einem Service-Netz sichern.
-
-
-
-WARNING: Wenn MTLS mit der Einstellung mtls.Enabled im CR deaktiviert ist, müssen Sie die Option verwenden `ingressType: Generic`.
-
-
-WARNING: Wenn kein Service-Mesh verwendet wird und diese Einstellung deaktiviert ist, ist die interne Kommunikation unsicher.

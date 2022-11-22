@@ -1,6 +1,6 @@
 ---
 section: use
-title: Nutzen Sie Astra
+title: Nutzen Sie Das Astra Control Center
 entries:
 - title: Starten Sie das Anwendungsmanagement
   url: "/use/manage-apps.html"
@@ -31,10 +31,12 @@ entries:
     url: "/use/view-apps.html"
 - title: Konto verwalten
   entries:
-  - title: Benutzer managen
-    url: "/use/manage-users.html"
-  - title: Rollen managen
-    url: "/use/manage-roles.html"
+  - title: Managen Sie lokale Benutzer und Rollen
+    url: "/use/manage-local-users-and-roles.html"
+  - title: Managen Sie die Remote-Authentifizierung
+    url: "/use/manage-remote-authentication.html"
+  - title: Verwalten von Remote-Benutzern und -Gruppen
+    url: "/use/manage-remote-users-groups.html"
   - title: Benachrichtigungen verwalten
     url: "/use/manage-notifications.html"
   - title: Anmeldeinformationen verwalten
@@ -43,14 +45,12 @@ entries:
     url: "/use/view-account-activity.html"
   - title: Aktualisieren einer vorhandenen Lizenz
     url: "/use/update-licenses.html"
-  - title: Repository-Verbindungen verwalten
-    url: "/use/manage-connections.html"
-  - title: Managen von Softwarepaketen
-    url: "/use/manage-packages-acc.html"
 - title: Buckets verwalten
   url: "/use/manage-buckets.html"
 - title: Management des Storage-Backends
   url: "/use/manage-backend.html"
+- title: Überwachen Sie laufende Aufgaben
+  url: "/use/monitor-running-tasks.html"
 - title: Infrastruktur mit Cloud Insights und Fluentd überwachen
   url: "/use/monitor-protect.html"
 - title: Heben Sie das Management von Applikationen und Clustern auf

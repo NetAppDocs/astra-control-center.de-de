@@ -31,7 +31,7 @@ NOTE: Sie können ohne Lizenz ein Cluster hinzufügen, einen Bucket hinzufügen 
 
 Wenn Sie dem Astra Control Center einen neuen Cluster hinzufügen, zählen diese nicht auf verbrauchte Lizenzen, bis mindestens eine auf dem Cluster ausgeführte Applikation vom Astra Control Center verwaltet wird.
 
-Wenn Sie eine App auf einem Cluster verwalten, sind alle CPU-Einheiten dieses Clusters im Lizenzverbrauch des Astra Control Center enthalten.
+Wenn Sie eine App auf einem Cluster managen, sind alle CPU-Einheiten des Clusters im Lizenzverbrauch des Astra Control Center enthalten.
 
 
 

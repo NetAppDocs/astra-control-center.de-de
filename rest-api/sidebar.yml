@@ -1,6 +1,6 @@
 ---
 section: rest-api
-title: Automatisierung mit REST-API
+title: Automatisierung mit Astra Control REST-API
 entries:
 - title: Einführung
   url: "/rest-api/api-intro.html"

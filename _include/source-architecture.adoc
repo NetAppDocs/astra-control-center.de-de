@@ -2,9 +2,7 @@
 :allow-uri-read: 
 
 
-Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung.
-
-image:astra-architecture-diagram-v4.png["Astra Control – Architekturdiagramm und Komponenten"]
+image:astra-architecture-diagram-v5.png["Astra Control – Architekturdiagramm und Komponenten"]
 
 
 

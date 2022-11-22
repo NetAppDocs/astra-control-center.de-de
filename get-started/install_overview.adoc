@@ -11,9 +11,15 @@ summary: Sie haben die Wahl für die Astra Control Center Installation.
 :imagesdir: ../media/release-notes/
 
 
+[role="lead"]
 Wählen Sie einen der folgenden Astra Control Center-Installationsverfahren aus:
 
 * link:../get-started/install_acc.html["Installieren Sie das Astra Control Center mithilfe des Standardprozesses"]
 * link:../get-started/acc_operatorhub_install.html["(Wenn Sie Red hat OpenShift verwenden) installieren Sie Astra Control Center mit OpenShift OperatorHub"]
 * link:../get-started/install_acc-cvo.html["Installieren Sie Astra Control Center mit einem Cloud Volumes ONTAP Storage-Backend"]
+
+
+Je nach Umgebung kann nach der Installation des Astra Control Center eine zusätzliche Konfiguration erforderlich sein:
+
+* link:../get-started/configure-after-install.html["Konfigurieren Sie nach der Installation das Astra Control Center"]
 

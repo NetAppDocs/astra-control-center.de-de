@@ -1,0 +1,180 @@
+---
+sidebar: sidebar 
+permalink: use/manage-local-users-and-roles.html 
+keywords: add users, edit users, remove users, delete users, manage roles 
+summary: Managen Sie Benutzer und Rollen auf Ihrem Astra Control Center-System. 
+---
+= Managen Sie lokale Benutzer und Rollen
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+[role="lead"]
+Sie können Benutzer Ihrer Astra Control Center-Installation über die Astra Control-Benutzeroberfläche hinzufügen, entfernen und bearbeiten. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Benutzer zu managen.
+
+Sie können LDAP auch zur Authentifizierung für ausgewählte Benutzer verwenden.
+
+
+
+== LDAP verwenden
+
+LDAP ist ein branchenübliches Protokoll für den Zugriff auf verteilte Verzeichnisinformationen und eine beliebte Wahl für die Unternehmensauthentifizierung. Sie können Astra Control Center mit einem LDAP-Server verbinden, um die Authentifizierung für ausgewählte Astra Control-Benutzer durchzuführen. Auf hohem Niveau beinhaltet die Konfiguration die Integration von Astra mit LDAP und die Definition der Astra Control Benutzer und Gruppen entsprechend der LDAP-Definitionen. Sie können die Astra Control API oder die Web-Benutzeroberfläche verwenden, um die LDAP-Authentifizierung und LDAP-Benutzer und -Gruppen zu konfigurieren. Weitere Informationen finden Sie in der folgenden Dokumentation:
+
+* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["Mit der Astra Control API können Sie die Remote-Authentifizierung und -Benutzer verwalten"^]
+* link:manage-remote-users-groups.html["Verwenden Sie die Astra Control-Benutzeroberfläche, um Remote-Benutzer und -Gruppen zu verwalten"]
+* link:manage-remote-authentication.html["Verwenden Sie die Astra Control-Benutzeroberfläche, um die Remote-Authentifizierung zu verwalten"]
+
+
+
+
+== Benutzer hinzufügen
+
+Kontoinhaber und -Administratoren können weitere Benutzer zur Installation des Astra Control Center hinzufügen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Benutzer* aus.
+. Wählen Sie *Benutzer Hinzufügen*.
+. Geben Sie den Namen des Benutzers, die E-Mail-Adresse und ein temporäres Kennwort ein.
++
+Der Benutzer muss das Passwort bei der ersten Anmeldung ändern.
+
+. Wählen Sie eine Benutzerrolle mit den entsprechenden Systemberechtigungen aus.
++
+Jede Rolle bietet die folgenden Berechtigungen:
+
++
+** Ein *Viewer* kann Ressourcen anzeigen.
+** Ein *Mitglied* verfügt über Berechtigungen für Viewer-Rollen und kann Apps und Cluster verwalten, Apps verwalten und Snapshots und Backups löschen.
+** Ein *Admin* verfügt über Berechtigungen für die Mitgliederrolle und kann alle anderen Benutzer außer dem Eigentümer hinzufügen und entfernen.
+** Ein *Owner* hat Administratorrechte und kann beliebige Benutzerkonten hinzufügen und entfernen.
+
+
+. Um einem Benutzer mit einer Mitglied- oder Viewer-Rolle Einschränkungen hinzuzufügen, aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.
++
+Weitere Informationen zum Hinzufügen von Einschränkungen finden Sie unter link:manage-local-users-and-roles.html["Managen Sie lokale Benutzer und Rollen"].
+
+. Wählen Sie *Hinzufügen*.
+
+
+
+
+== Passwörter verwalten
+
+Sie können Passwörter für Benutzerkonten im Astra Control Center verwalten.
+
+
+
+=== Passwort ändern
+
+Sie können das Passwort Ihres Benutzerkontos jederzeit ändern.
+
+.Schritte
+. Klicken Sie oben rechts auf dem Bildschirm auf das Symbol Benutzer.
+. Wählen Sie *Profil*.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Passwort ändern* aus.
+. Geben Sie ein Passwort ein, das den Anforderungen des Passworts entspricht.
+. Geben Sie das Kennwort zur Bestätigung erneut ein.
+. Wählen Sie *Passwort ändern*.
+
+
+
+
+=== Kennwort eines anderen Benutzers zurücksetzen
+
+Wenn Ihr Konto über Berechtigungen für die Administrator- oder Eigentümerrolle verfügt, können Sie Passwörter für andere Benutzerkonten sowie für Ihre eigenen zurücksetzen. Wenn Sie ein Kennwort zurücksetzen, weisen Sie ein temporäres Kennwort zu, das der Benutzer bei der Anmeldung ändern muss.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Dropdown-Liste *Aktionen* aus.
+. Wählen Sie *Passwort Zurücksetzen*.
+. Geben Sie ein temporäres Kennwort ein, das den Anforderungen des Passworts entspricht.
+. Geben Sie das Kennwort zur Bestätigung erneut ein.
++
+
+NOTE: Wenn sich der Benutzer beim nächsten Mal anmeldet, wird er aufgefordert, das Passwort zu ändern.
+
+. Wählen Sie *Passwort zurücksetzen*.
+
+
+
+
+== Benutzer entfernen
+
+Benutzer mit der Eigentümer- oder Administratorrolle können jederzeit andere Benutzer aus dem Konto entfernen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Aktivieren Sie auf der Registerkarte *Benutzer* das Kontrollkästchen in der Zeile jedes Benutzers, den Sie entfernen möchten.
+. Wählen Sie im Menü Optionen in der Spalte *Aktionen* die Option *Benutzer/s entfernen* aus.
+. Wenn Sie aufgefordert werden, bestätigen Sie den Löschvorgang, indem Sie das Wort "Entfernen" eingeben und dann *Ja, Benutzer entfernen* wählen.
+
+
+Astra Control Center entfernt den Benutzer aus dem Konto.
+
+
+
+== Rollen managen
+
+Sie können Rollen managen, indem Sie Namespace-Einschränkungen hinzufügen und Benutzerrollen auf diese Einschränkungen beschränken. So können Sie den Zugriff auf Ressourcen in Ihrem Unternehmen kontrollieren. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Rollen managen.
+
+
+
+=== Fügen Sie einer Rolle eine Namespace-Einschränkung hinzu
+
+Ein Administrator oder Benutzer des Eigentümers kann den Mitglied- oder Viewer-Rollen Namespace-Einschränkungen hinzufügen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Benutzer* aus.
+. Wählen Sie in der Spalte *Actions* die Menü-Schaltfläche für einen Benutzer mit der Rolle Mitglied oder Viewer.
+. Wählen Sie *Rolle bearbeiten*.
+. Aktivieren Sie das Kontrollkästchen * Rolle auf Einschränkungen beschränken*.
++
+Das Kontrollkästchen ist nur für Mitglieder- oder Viewer-Rollen verfügbar. Aus der Dropdown-Liste *Rolle* können Sie eine andere Rolle auswählen.
+
+. Wählen Sie *Bedingung hinzufügen*.
++
+Sie können die Liste der verfügbaren Einschränkungen nach Namespace oder Namensraum-Bezeichnung anzeigen.
+
+. Wählen Sie in der Dropdown-Liste *Constraint type* je nach Konfiguration Ihrer Namespaces entweder *Kubernetes Namespace* oder *Kubernetes Namespace Label* aus.
+. Wählen Sie eine oder mehrere Namespaces oder Labels aus der Liste aus, um eine Beschränkung zu erstellen, die Rollen auf diese Namespaces beschränkt.
+. Wählen Sie *Bestätigen*.
++
+Auf der Seite * Rolle bearbeiten* wird die Liste der für diese Rolle ausgewählten Einschränkungen angezeigt.
+
+. Wählen Sie *Bestätigen*.
++
+Auf der Seite *Konto* können Sie die Einschränkungen für beliebige Mitglieder- oder Viewer-Rollen in der Spalte *Role* anzeigen.
+
+
+
+
+NOTE: Wenn Sie Einschränkungen für eine Rolle aktivieren und *Bestätigen* wählen, ohne dass Einschränkungen hinzugefügt werden müssen, gilt die Rolle als uneingeschränkt eingeschränkt (die Rolle wird dem Zugriff auf alle Ressourcen verweigert, die Namespaces zugewiesen sind).
+
+
+
+=== Entfernen Sie eine Namespace-Beschränkung aus einer Rolle
+
+Ein Administrator oder Benutzer eines Eigentümers kann eine Namespace-Einschränkung aus einer Rolle entfernen.
+
+.Schritte
+. Wählen Sie im Navigationsbereich * Konto verwalten* die Option *Konto*.
+. Wählen Sie die Registerkarte *Benutzer* aus.
+. Wählen Sie in der Spalte *Aktionen* die Menütaste für einen Benutzer mit der Rolle Mitglied oder Viewer mit aktiven Einschränkungen.
+. Wählen Sie *Rolle bearbeiten*.
++
+Im Dialogfeld *Rolle bearbeiten* werden die aktiven Einschränkungen für die Rolle angezeigt.
+
+. Wählen Sie das *X* rechts neben der Bedingung aus, die Sie entfernen müssen.
+. Wählen Sie *Bestätigen*.
+
+
+
+
+== Finden Sie weitere Informationen
+
+* link:../concepts/user-roles-namespaces.html["Benutzerrollen und Namespaces"]
+

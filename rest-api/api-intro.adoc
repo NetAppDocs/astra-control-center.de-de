@@ -11,8 +11,9 @@ summary: Astra Control verfügt über EINE REST-API, mit der Sie über eine Prog
 :imagesdir: ../media/rest-api/
 
 
+[role="lead"]
 Astra Control verfügt über EINE REST-API, mit der Sie über eine Programmiersprache oder ein Dienstprogramm wie Curl direkt auf die Astra Control-Funktionalität zugreifen können. Astra Control Implementierungen lassen sich auch über Ansible und andere Automatisierungstechnologien managen.
 
-Zum Einrichten und Managen Ihrer Kubernetes-Applikationen können Sie entweder die Astra-UI oder die Astra Control-API verwenden.
+Zur Einrichtung und zum Management Ihrer Kubernetes-Applikationen können Sie entweder die Astra Control Center-UI oder die Astra Control API verwenden.
 
 Weitere Informationen erhalten Sie im https://docs.netapp.com/us-en/astra-automation/["Astra Automation Dokumentation"^].

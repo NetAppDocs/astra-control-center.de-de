@@ -11,6 +11,7 @@ summary: Fügen Sie Storage für Ihre lokalen Kubernetes-Applikationen hinzu. As
 :imagesdir: ../media/use/
 
 
+[role="lead"]
 Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen. Sie können Storage-Kapazität und -Integritätsdetails überwachen, beispielsweise die Performance, wenn Astra Control Center mit Cloud Insights verbunden ist.
 
 Eine Anleitung zum Managen von Storage-Back-Ends mithilfe der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
@@ -20,11 +21,7 @@ Sie können die folgenden Aufgaben zur Verwaltung eines Storage-Backends ausfüh
 * link:../get-started/setup_overview.html#add-a-storage-backend["Fügen Sie ein Storage-Back-End hinzu"]
 *  storage backend details
 *  a storage backend
-*  an Astra Data Store storage backend license
-*  an Astra Data Store storage backend
 *  a storage backend
-*  nodes to a storage backend cluster
-*  nodes from a storage backend cluster
 
 
 
@@ -33,29 +30,13 @@ Sie können die folgenden Aufgaben zur Verwaltung eines Storage-Backends ausfüh
 
 Sie können Speicher-Backend-Informationen über das Dashboard oder über die Option Back-Ends anzeigen.
 
-Auf der Seite Storage Back-End-Details für Astra Data Store sehen Sie die folgenden Informationen:
-
-* Astra Data Store Cluster
-+
-** Durchsatz, IOPS und Latenz
-** Genutzte Kapazität im Vergleich zur Gesamtkapazität
-
-
-* Für jedes Astra Data Store Cluster Volume
-+
-** Genutzte Kapazität im Vergleich zur Gesamtkapazität
-** Durchsatz
-
-
-
-
 
 
 === Details zum Storage-Back-End können Sie über das Dashboard anzeigen
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste *Dashboard* aus.
-. Überprüfen Sie den Abschnitt Storage Backend, der den Status anzeigt:
+. Überprüfen Sie den Back-End-Bereich Speicher des Dashboards, der den Status anzeigt:
 +
 ** *Ungesund*: Die Lagerung befindet sich nicht im optimalen Zustand. Dies kann durch ein Latenzproblem oder eine Applikation aufgrund eines Container-Problems, z. B., beeinträchtigt sein.
 ** *Alles gesund*: Die Lagerung wurde verwaltet und ist in einem optimalen Zustand.
@@ -105,12 +86,9 @@ Sie können das Backend verwalten.
 
 Sie können ein nicht mehr verwendenden Storage-Back-End entfernen. Nutzen Sie dies, um Ihre Konfiguration auf dem neuesten Stand zu halten.
 
-
-TIP: Wenn Sie ein Astra Data Store Backend entfernen, darf es nicht vom vCenter erstellt worden sein.
-
 .Was Sie und#8217;ll benötigen
 * Stellen Sie sicher, dass das Storage-Back-End nicht gemanagt wird.
-* Stellen Sie sicher, dass im Storage-Backend keine Volumes zum Astra Data Store Cluster zugeordnet sind.
+* Stellen Sie sicher, dass dem Cluster keine Volumes im Speicher-Backend zugewiesen sind.
 
 
 .Schritte
@@ -132,133 +110,6 @@ TIP: Wenn Sie ein Astra Data Store Backend entfernen, darf es nicht vom vCenter 
 .. Wählen Sie *Ja, Speicher-Backend entfernen*.
 
 
-
-
-
-
-== Aktualisieren einer Astra Data Store Storage-Backend-Lizenz
-
-Sie können die Lizenz für ein Astra Data Store Storage-Backend aktualisieren, um eine größere Implementierung oder erweiterte Funktionen zu unterstützen.
-
-.Was Sie und#8217;ll benötigen
-* Ein implementierbares und gemanagtes Astra Data Store Storage-Back-End
-* Lizenzdatei von Astra Data Store (wenden Sie sich an Ihren NetApp Vertriebsmitarbeiter, um eine Lizenz für den Astra Data Store zu erwerben).
-
-
-.Schritte
-. Wählen Sie in der linken Navigationsleiste *Backend* aus.
-. Wählen Sie den Namen eines Storage-Backends aus.
-. Unter *Basisinformationen* können Sie den Lizenztyp anzeigen.
-+
-Wenn Sie den Mauszeiger über die Lizenzinformationen bewegen, wird ein Popup mit weiteren Informationen angezeigt, z. B. zum Ablauf und zu Berechtigungen.
-
-. Wählen Sie unter *Lizenz* das Bearbeitungssymbol neben dem Lizenznamen aus.
-. Führen Sie auf der Seite *Lizenz aktualisieren* einen der folgenden Schritte aus:
-+
-|===
-| Lizenzstatus | Aktion 
-
-
-| Mindestens eine Lizenz wurde dem Astra Data Store hinzugefügt.  a| 
-Wählen Sie eine Lizenz aus der Liste aus.
-
-
-
-| Dem Astra Data Store wurden keine Lizenzen hinzugefügt.  a| 
-.. Klicken Sie auf die Schaltfläche *Hinzufügen*.
-.. Wählen Sie eine Lizenzdatei zum Hochladen aus.
-.. Wählen Sie *Hinzufügen*, um die Lizenzdatei hochzuladen.
-
-
-|===
-. Wählen Sie *Aktualisieren*.
-
-
-
-
-== Upgrade eines Astra Data Store Storage-Backends
-
-Sie können Ihr Backend mit dem Astra Data Store über das Astra Control Center aktualisieren. Dazu müssen Sie zunächst ein Upgrade-Paket hochladen. Astra Control Center wird dieses Upgrade-Paket verwenden, um den Astra Data Store zu aktualisieren.
-
-.Was Sie und#8217;ll benötigen
-* Ein Managed Astra Data Store Storage-Backend
-* Ein hochgeladenes Astra Data Store Upgrade-Paket (siehe link:manage-packages-acc.html["Managen von Softwarepaketen"])
-
-
-.Schritte
-. Wählen Sie *Backends*.
-. Wählen Sie aus der Liste ein Astra Data Store Storage Backend aus und wählen Sie das entsprechende Menü in der Spalte *Actions* aus.
-. Wählen Sie *Upgrade*.
-. Wählen Sie eine Upgrade-Version aus der Liste aus.
-+
-Wenn Sie mehrere Upgrade-Pakete in Ihrem Repository haben, die unterschiedliche Versionen sind, können Sie die Dropdown-Liste öffnen, um die gewünschte Version auszuwählen.
-
-. Wählen Sie *Weiter*.
-. Wählen Sie *Upgrade Starten*.
-
-
-Auf der Seite *Backends* wird in der Spalte *Status* ein *Upgrade*-Status angezeigt, bis das Upgrade abgeschlossen ist.
-
-
-
-== Fügen Sie Nodes zu einem Storage-Back-End-Cluster hinzu
-
-Sie können einem Astra Data Store Cluster Nodes bis zur Anzahl der Nodes hinzufügen, die von dem für Astra Data Store installierten Lizenztyp unterstützt werden.
-
-.Was Sie und#8217;ll benötigen
-* Ein implementiertes und lizenziertes Astra Data Store Storage-Back-End
-* Sie haben das Astra Data Store Softwarepaket im Astra Control Center hinzugefügt
-* Ein oder mehrere neue Nodes, die dem Cluster hinzugefügt werden müssen
-
-
-.Schritte
-. Wählen Sie in der linken Navigationsleiste *Backend* aus.
-. Wählen Sie den Namen eines Storage-Backends aus.
-. Unter „Basisinformationen“ können Sie die Anzahl der Knoten in diesem Speicher-Backend-Cluster sehen.
-. Wählen Sie unter *Nodes* das Bearbeitungssymbol neben der Anzahl der Knoten aus.
-. Geben Sie auf der Seite *Nodes hinzufügen* Informationen zum neuen Knoten oder Knoten ein:
-+
-.. Weisen Sie jedem Node eine Node-Bezeichnung zu.
-.. Führen Sie einen der folgenden Schritte aus:
-+
-*** Wenn Sie möchten, dass Astra Data Store stets die maximal verfügbare Anzahl der Knoten entsprechend Ihrer Lizenz verwenden soll, aktivieren Sie das Kontrollkästchen *immer bis maximal maximal zulässige Knoten verwenden*.
-*** Wenn Astra Data Store nicht immer die maximale verfügbare Anzahl an Nodes nutzen soll, wählen Sie die gewünschte Anzahl an Nodes insgesamt aus.
-
-
-.. Wenn Sie Astra Data Store mit aktivierten Protection Domains implementiert haben, weisen Sie den neuen Node oder die neuen Nodes den Protection Domains zu.
-
-
-. Wählen Sie *Weiter*.
-. Geben Sie für jeden neuen Node die IP-Adresse und Netzwerkinformationen ein. Geben Sie eine einzelne IP-Adresse für einen einzelnen neuen Node oder einen IP-Adressenpool für mehrere neue Nodes ein.
-+
-Wenn Astra Data Store die während der Bereitstellung konfigurierten IP-Adressen verwenden kann, müssen Sie keine IP-Adressinformationen eingeben.
-
-. Wählen Sie *Weiter*.
-. Überprüfen der Konfiguration für den neuen Node oder die neuen Nodes
-. Wählen Sie *Knoten hinzufügen*.
-
-
-
-
-== Entfernen Sie die Nodes aus einem Storage-Back-End-Cluster
-
-Sie können Nodes aus einem Astra Data Store Cluster entfernen. Diese Nodes können einen ordnungsgemäßen Zustand oder einen fehlerhaften Node haben.
-
-Durch Entfernen eines Node aus einem Astra Data Store Cluster werden die Daten auf andere Nodes im Cluster verschoben und der Node wird aus dem Astra Data Store entfernt.
-
-Der Prozess erfordert folgende Bedingungen:
-
-* In den anderen Nodes muss ausreichend freier Speicherplatz vorhanden sein, um die Daten zu empfangen.
-* Der Cluster muss 4 oder mehr Nodes vorhanden sein.
-
-
-.Schritte
-. Wählen Sie in der linken Navigationsleiste *Backend* aus.
-. Wählen Sie den Namen eines Storage-Backends aus.
-. Wählen Sie die Registerkarte *Nodes* aus.
-. Wählen Sie im Menü Aktionen die Option *Entfernen*.
-. Bestätigen Sie den Löschvorgang, indem Sie „Entfernen“ eingeben.
-. Wählen Sie *Ja, Knoten entfernen*.
 
 
 
