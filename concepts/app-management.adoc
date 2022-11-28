@@ -4,7 +4,7 @@ permalink: concepts/app-management.html
 keywords: app, labels, kubernetes labels, kubernetes resources, pods, define app 
 summary: Beschreibt die Art der verwalteten Apps in Astra Control. 
 ---
-= Allgemeines zum Applikationsmanagement
+= Applikationsmanagement
 :hardbreaks:
 :allow-uri-read: 
 :icons: font

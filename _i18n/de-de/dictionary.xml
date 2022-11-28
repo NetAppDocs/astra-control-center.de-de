@@ -177,7 +177,6 @@
   <block id="a5f8603aae16ddbbbcfc6f63de01008d" category="inline-image-macro">Replizierung und Failover eines Images</block>
   <block id="de57d5c9dad5ff2e5621f7541a798fe9" category="paragraph"><block ref="de57d5c9dad5ff2e5621f7541a798fe9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a7da53d86332105dcae80a12f3e8b7a5" category="summary">Beschreibt die Art der verwalteten Apps in Astra Control.</block>
-  <block id="0aec310f3808bce2063a2292e6052cf8" category="doc">Allgemeines zum Applikationsmanagement</block>
   <block id="848f207b3c4594754aa82fd21b5fc5e0" category="paragraph">Wenn Astra Control Ihre Cluster erkennt, werden die Apps auf diesen Clustern solange nicht verwaltet, bis Sie das gewünschte Management wählen. Eine verwaltete Anwendung in Astra Control kann eine der folgenden sein:</block>
   <block id="3757d3597962f660c54cb3f9ed5ba251" category="list-text">Einen Namespace, einschließlich aller Ressourcen in diesem Namespace</block>
   <block id="99185f9c0e1b271b9c7c1684898a4b91" category="inline-image-macro">Ein Konzept-Image, das Astra als Management aller Ressourcen im Namespace zeigt.</block>
@@ -2598,4 +2597,5 @@
   <block id="fcd1b815fb4ca6cac38239194b4c8a5f" category="admonition">Ändern Sie die Storage-Klasse nicht mit kubectl-Befehlen. Verwenden Sie stattdessen diese Prozedur. Astra Control setzt die Änderungen zurück, wenn sie mit kubectl vorgenommen werden.</block>
   <block id="b42200f7280deb01c16bf89a68f5395d" category="sidebar">Verwenden Sie die Astra Control REST-API</block>
   <block id="f789b438cbc1e82cd52918fc029eeb85" category="sidebar">Automatisierung mit Astra Control REST-API</block>
+  <block id="934c5edffa8e732ecb866cb319c8454a" category="doc">Applikationsmanagement</block>
 </blocks>
