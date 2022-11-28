@@ -21,7 +21,7 @@ Laden Sie zum Upgrade des Astra Control Center das Installationspaket von der Ne
 +
 [listing]
 ----
-../../trident-installer/tridentctl -n trident version
+kubectl get tridentversion -n trident
 ----
 +
 Siehe https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident-Dokumentation"] Zum Upgrade von einer älteren Version.
