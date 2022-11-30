@@ -15,6 +15,7 @@ summary: Um Astra Control Center zu installieren, nachdem Sie einige Umgebungsvo
 Laden Sie zum Installieren des Astra Control Center das Installationspaket von der NetApp Support Site herunter und führen Sie die folgenden Schritte aus. Mit diesem Verfahren können Sie Astra Control Center in Internet-angeschlossenen oder luftgekapderten Umgebungen installieren.
 
 .Andere Installationsverfahren
+[%collapsible]
 ====
 * *Installation mit RedHat OpenShift OperatorHub*: Verwenden Sie dies link:../get-started/acc_operatorhub_install.html["Alternativverfahren"] So installieren Sie Astra Control Center auf OpenShift mit OperatorHub.
 * *In der öffentlichen Cloud mit Cloud Volumes ONTAP-Backend installieren*: Verwenden link:../get-started/install_acc-cvo.html["Derartige Verfahren"] Zur Installation von Astra Control Center in Amazon Web Services (AWS), Google Cloud Platform (GCP) oder Microsoft Azure mit einem Cloud Volumes ONTAP Storage-Back-End
@@ -550,6 +551,7 @@ Jeder Pod sollte einen Status von haben `Running`. Es kann mehrere Minuten dauer
 
 +
 .Beispielantwort
+[%collapsible]
 ====
 [listing, subs="+quotes"]
 ----

@@ -18,12 +18,12 @@ Je nach Umgebung kann es nach der Installation des Astra Control Center zusätzl
 
 == Ressourceneinschränkungen entfernen
 
-In einigen Umgebungen werden die Objekte ResourceQuotas und LimitRanges verwendet, um zu verhindern, dass die Ressourcen in einem Namespace alle verfügbaren CPUs und Speicher im Cluster verbrauchen. Das Astra Control Center stellt keine Höchstgrenzen ein, sodass diese Ressourcen nicht eingehalten werden. Sie müssen sie aus den Namespaces entfernen, in denen Sie Astra Control Center installieren möchten.
+In einigen Umgebungen werden die Objekte ResourceQuotas und LimitRanges verwendet, um zu verhindern, dass die Ressourcen in einem Namespace alle verfügbaren CPUs und Speicher im Cluster verbrauchen. Das Astra Control Center stellt keine Höchstgrenzen ein, sodass diese Ressourcen nicht eingehalten werden. Wenn Ihre Umgebung auf diese Weise konfiguriert ist, müssen Sie diese Ressourcen aus den Namespaces entfernen, in denen Sie Astra Control Center installieren möchten.
 
 Sie können folgende Schritte verwenden, um diese Kontingente und Grenzen abzurufen und zu entfernen. In diesen Beispielen wird die Befehlsausgabe direkt nach dem Befehl angezeigt.
 
 .Schritte
-. Holen Sie sich die Ressourcenkontingente im netapp-ACC Namespace:
+. Erhalten Sie die Ressourcen-Kontingente im `netapp-acc` Namespace:
 +
 [source, console]
 ----
@@ -98,7 +98,7 @@ kubectl get networkpolicy -n netapp-acc
 ----
 kubectl delete networkpolicy <OBJECT_NAME> -n netapp-acc
 ----
-. Wenden Sie die folgende Ressourcendatei an, um das Objekt ACC-avp-Network-Policy zu konfigurieren, damit die Astra Plugin-Dienste Anfragen an die Astra Control Center-Dienste stellen können. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
+. Wenden Sie die folgende Ressourcendatei an, um den zu konfigurieren `acc-avp-network-policy` Objekt, um Astra Plugin Services Anfragen an Astra Control Center Services zu ermöglichen. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
 +
 [source, yaml]
 ----
@@ -117,7 +117,7 @@ spec:
             matchLabels:
               kubernetes.io/metadata.name: <PLUGIN_NAMESPACE_NAME> # REPLACE THIS WITH THE ASTRA PLUGIN NAMESPACE NAME
 ----
-. Wenden Sie die folgende Ressourcendatei an, um das ACC-Operator-Network-Policy-Objekt so zu konfigurieren, dass der Astra Control Center-Operator mit den Astra Control Center-Diensten kommunizieren kann. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
+. Wenden Sie die folgende Ressourcendatei an, um den zu konfigurieren `acc-operator-network-policy` Objekt, um dem Astra Control Center-Betreiber die Kommunikation mit den Astra Control Center-Diensten zu ermöglichen. Ersetzen Sie die Informationen in Klammern <> durch Informationen aus Ihrer Umgebung:
 +
 [source, yaml]
 ----

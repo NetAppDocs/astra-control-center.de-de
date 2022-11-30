@@ -42,6 +42,7 @@ Dieses Patch-Release (22.08.1) für Astra Control Center (22.08.0) behebt kleine
 == August 10 2022 (22.08.0)
 
 .Details
+[%collapsible]
 ====
 .Neue Funktionen und Support
 * link:../use/replicate_snapmirror.html["Applikationsreplizierung mit NetApp SnapMirror Technologie"]
@@ -67,6 +68,7 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 == 26. April 2022 (22.04.0)
 
 .Details
+[%collapsible]
 ====
 .Neue Funktionen und Support
 * https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["Rollenbasierte Zugriffssteuerung (Namespace)"]
@@ -87,6 +89,7 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 == Bis 14. Dezember 2021 (21.12)
 
 .Details
+[%collapsible]
 ====
 .Neue Funktionen und Support
 * https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["Applikationswiederherstellung"^]
@@ -112,6 +115,7 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 == August 5 2021 (21.08)
 
 .Details
+[%collapsible]
 ====
 Erste Version des Astra Control Center.
 

@@ -163,6 +163,7 @@ NOTE: Bei diesem Verfahren benötigen Sie keinen kubectl-Zugriff auf den Cluster
 
 
 .Schritte
+[%collapsible]
 ====
 . Service-Konto erstellen:
 +

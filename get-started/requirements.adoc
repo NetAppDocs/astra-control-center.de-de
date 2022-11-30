@@ -34,7 +34,6 @@ Astra Control Center wurde mit folgenden Typen von Betriebsumgebungen validiert:
 
 * Cisco IKS mit Kubernetes 1.22
 * Google Anthos 1.11 oder 1.12 (siehe  Anthos cluster requirements)
-* Upstream Kubernetes 1.23 to 1.25 (Astra Trident 22.10 oder höher für Kubernetes 1.25 erforderlich)
 * Rancher Kubernetes Engine (RKE):
 +
 ** RKE 1.3.12 mit Rancher 2.6.5 und 2.6.6
@@ -44,6 +43,7 @@ Astra Control Center wurde mit folgenden Typen von Betriebsumgebungen validiert:
 
 
 * Red hat OpenShift Container Platform 4.8 bis 4.11
+* Upstream Kubernetes 1.23 to 1.25 (Astra Trident 22.10 oder höher für Kubernetes 1.25 erforderlich)
 * VMware Tanzu Kubernetes Grid: (Siehe  Tanzu Kubernetes Grid cluster requirements)
 +
 ** VMware Tanzu Kubernetes Grid 1.5

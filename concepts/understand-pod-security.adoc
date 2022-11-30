@@ -38,7 +38,7 @@ Wenn Sie Astra Control Center auf Kubernetes 1.23 oder 1.24 installieren, werden
 
 === PSPs, die während der Installation erstellt wurden
 
-Bei der Installation von Astra Control Center installiert der Astra Control Center-Operator eine benutzerdefinierte POD-Sicherheitsrichtlinie, ein Rollenobjekt und ein rollenbindendes Objekt, um die Implementierung von Astra Control Center-Diensten im Astra Control Center-Namespace zu unterstützen.
+Während der Installation des Astra Control Center installiert der Astra Control Center-Operator eine benutzerdefinierte POD-Sicherheitsrichtlinie, A `Role` Objekt und A `RoleBinding` Soll die Implementierung der Astra Control Center-Services im Astra Control Center Namespace unterstützen.
 
 Die neue Richtlinie und die neuen Objekte haben folgende Attribute:
 
@@ -63,7 +63,7 @@ netapp-astra-deployment-rb               Role/netapp-astra-deployment-role      
 
 === Während des Backup-Betriebs erstellte PSPs
 
-Astra Control Center erstellt während des Backup-Betriebs eine dynamische Pod-Sicherheitsrichtlinie, ein ClusterRollenobjekt und ein rollenbindendes Objekt. Diese unterstützen den Backup-Prozess, der in einem separaten Namespace geschieht.
+Während des Backups erstellt Astra Control Center eine dynamische POD-Sicherheitsrichtlinie, A `ClusterRole` Objekt und A `RoleBinding` Objekt: Diese unterstützen den Backup-Prozess, der in einem separaten Namespace geschieht.
 
 Die neue Richtlinie und die neuen Objekte haben folgende Attribute:
 
@@ -88,7 +88,7 @@ netapp-astra-backup   Role/netapp-astra-backup   62s
 
 === PSPs, die während des Clustermanagements erstellt wurden
 
-Wenn Sie einen Cluster verwalten, installiert Astra Control Center den netapp Monitoring Operator im Managed Cluster. Dieser Operator erstellt eine Pod-Sicherheitsrichtlinie, ein ClusterRole-Objekt und ein RoleBending-Objekt, um Telemetrieservices im Namespace von Astra Control Center bereitzustellen.
+Wenn Sie einen Cluster verwalten, installiert Astra Control Center den netapp Monitoring Operator im Managed Cluster. Dieser Operator erstellt eine POD-Sicherheitsrichtlinie, A `ClusterRole` Objekt und A `RoleBinding` Implementieren von Telemetrieservices im Astra Control Center Namespace
 
 Die neue Richtlinie und die neuen Objekte haben folgende Attribute:
 
