@@ -1331,7 +1331,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-22 17:40:50 +0000">11/22/2022</time>
+    <time datetime="2022-11-30 23:11:11 +0000">11/30/2022</time>
     
   
 
@@ -1376,7 +1376,7 @@
 <div class="sect2">
 <h3 id="psps-die-während-der-installation-erstellt-wurden">PSPs, die während der Installation erstellt wurden</h3>
 <div class="paragraph">
-<p>Bei der Installation von Astra Control Center installiert der Astra Control Center-Operator eine benutzerdefinierte POD-Sicherheitsrichtlinie, ein Rollenobjekt und ein rollenbindendes Objekt, um die Implementierung von Astra Control Center-Diensten im Astra Control Center-Namespace zu unterstützen.</p>
+<p>Während der Installation des Astra Control Center installiert der Astra Control Center-Operator eine benutzerdefinierte POD-Sicherheitsrichtlinie, A <code>Role</code> Objekt und A <code>RoleBinding</code> Soll die Implementierung der Astra Control Center-Services im Astra Control Center Namespace unterstützen.</p>
 </div>
 <div class="paragraph">
 <p>Die neue Richtlinie und die neuen Objekte haben folgende Attribute:</p>
@@ -1403,7 +1403,7 @@ netapp-astra-deployment-rb               Role/netapp-astra-deployment-role      
 <div class="sect2">
 <h3 id="während-des-backup-betriebs-erstellte-psps">Während des Backup-Betriebs erstellte PSPs</h3>
 <div class="paragraph">
-<p>Astra Control Center erstellt während des Backup-Betriebs eine dynamische Pod-Sicherheitsrichtlinie, ein ClusterRollenobjekt und ein rollenbindendes Objekt. Diese unterstützen den Backup-Prozess, der in einem separaten Namespace geschieht.</p>
+<p>Während des Backups erstellt Astra Control Center eine dynamische POD-Sicherheitsrichtlinie, A <code>ClusterRole</code> Objekt und A <code>RoleBinding</code> Objekt: Diese unterstützen den Backup-Prozess, der in einem separaten Namespace geschieht.</p>
 </div>
 <div class="paragraph">
 <p>Die neue Richtlinie und die neuen Objekte haben folgende Attribute:</p>
@@ -1430,7 +1430,7 @@ netapp-astra-backup   Role/netapp-astra-backup   62s</pre>
 <div class="sect2">
 <h3 id="psps-die-während-des-clustermanagements-erstellt-wurden">PSPs, die während des Clustermanagements erstellt wurden</h3>
 <div class="paragraph">
-<p>Wenn Sie einen Cluster verwalten, installiert Astra Control Center den netapp Monitoring Operator im Managed Cluster. Dieser Operator erstellt eine Pod-Sicherheitsrichtlinie, ein ClusterRole-Objekt und ein RoleBending-Objekt, um Telemetrieservices im Namespace von Astra Control Center bereitzustellen.</p>
+<p>Wenn Sie einen Cluster verwalten, installiert Astra Control Center den netapp Monitoring Operator im Managed Cluster. Dieser Operator erstellt eine POD-Sicherheitsrichtlinie, A <code>ClusterRole</code> Objekt und A <code>RoleBinding</code> Implementieren von Telemetrieservices im Astra Control Center Namespace</p>
 </div>
 <div class="paragraph">
 <p>Die neue Richtlinie und die neuen Objekte haben folgende Attribute:</p>
