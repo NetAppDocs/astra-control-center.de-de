@@ -112,6 +112,7 @@ Benutzer mit der Eigentümer- oder Administratorrolle können jederzeit andere B
 . Wenn Sie aufgefordert werden, bestätigen Sie den Löschvorgang, indem Sie das Wort "Entfernen" eingeben und dann *Ja, Benutzer entfernen* wählen.
 
 
+.Ergebnis
 Astra Control Center entfernt den Benutzer aus dem Konto.
 
 

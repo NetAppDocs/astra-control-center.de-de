@@ -18,9 +18,9 @@ Mit einer dieser Implementierungen können Sie Applikationsdatenmanagement-Vorg�
 
 Zur Installation von Astra Control Center in Amazon Web Services (AWS), Google Cloud Platform (GCP) und Microsoft Azure mit einem Cloud Volumes ONTAP Storage-Backend führen Sie je nach Cloud-Umgebung die folgenden Schritte aus.
 
-*  Astra Control Center in Amazon Web Services
-*  Astra Control Center in Google Cloud Platform
-*  Astra Control Center in Microsoft Azure
+* <<Implementieren Sie Astra Control Center in Amazon Web Services>>
+* <<Implementieren Sie Astra Control Center in der Google Cloud Platform>>
+* <<Implementieren Sie Astra Control Center in Microsoft Azure>>
 
 
 Applikationen lassen sich in Distributionen mit selbst gemanagten Kubernetes-Clustern managen, wie z. B. mit OpenShift Container Platform (OCP). Nur selbst gemanagte OCP Cluster sind für die Implementierung des Astra Control Center validiert.
@@ -122,11 +122,11 @@ Hier finden Sie eine Übersicht über die Vorgehensweise zur Installation des As
 
 Jeder dieser Schritte wird unten im Detail erklärt.
 
-.  that you have sufficient IAM permissions.
-.  a RedHat OpenShift cluster on AWS.
-.  AWS.
-.  NetApp BlueXP for AWS.
-.  Astra Control Center for AWS.
+. <<Stellen Sie sicher, dass Sie über ausreichende IAM-Berechtigungen verfügen>>.
+. <<Installation eines RedHat OpenShift-Clusters in AWS>>.
+. <<Konfigurieren von AWS>>.
+. <<Konfiguration von NetApp BlueXP für AWS>>.
+. <<Installieren Sie Astra Control Center für AWS>>.
 
 
 
@@ -227,7 +227,7 @@ Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster i
 
 
 
-=== Was Sie für GCP benötigen
+=== Was wird für GCP benötigt
 
 Vor der Implementierung von Astra Control Center in GCP sind folgende Elemente erforderlich:
 
@@ -307,12 +307,12 @@ Hier ist eine Übersicht über die Vorgehensweise bei der Installation des Astra
 
 Jeder dieser Schritte wird unten im Detail erklärt.
 
-.  a RedHat OpenShift cluster on GCP.
-.  a GCP Project and Virtual Private Cloud.
-.  that you have sufficient IAM permissions.
-.  GCP.
-.  NetApp BlueXP for GCP.
-.  Astra Control Center for GCP.
+. <<Installation eines RedHat OpenShift-Clusters in GCP>>.
+. <<Erstellung eines GCP-Projekts und einer virtuellen Private Cloud>>.
+. <<Stellen Sie sicher, dass Sie über ausreichende IAM-Berechtigungen verfügen>>.
+. <<GCP konfigurieren>>.
+. <<Konfiguration von NetApp BlueXP für GCP>>.
+. <<Installieren Sie Astra Control Center für GCP>>.
 
 
 
@@ -403,7 +403,7 @@ Erstellen Sie mithilfe von NetApp BlueXP (früher Cloud Manager) einen Workspace
 
 Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. Siehe https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["Erste Schritte mit Cloud Volumes ONTAP in GCP"^].
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Zugriff auf das GCP-Servicekonto mit den erforderlichen IAM-Berechtigungen und -Rollen
 
 
@@ -544,12 +544,12 @@ Hier finden Sie eine Übersicht über die Vorgehensweise zur Installation von As
 
 Jeder dieser Schritte wird unten im Detail erklärt.
 
-.  a RedHat OpenShift cluster on Azure.
-.  Azure resource groups.
-.  that you have sufficient IAM permissions.
-.  Azure.
-.  NetApp BlueXP (formerly Cloud Manager) for Azure.
-.  and configure Astra Control Center for Azure.
+. <<Installieren Sie einen RedHat OpenShift-Cluster auf Azure>>.
+. <<Erstellen von Azure Ressourcengruppen>>.
+. <<Stellen Sie sicher, dass Sie über ausreichende IAM-Berechtigungen verfügen>>.
+. <<Konfigurieren Sie Azure>>.
+. <<Konfiguration von NetApp BlueXP (ehemals Cloud Manager) für Azure>>.
+. <<Installation und Konfiguration von Astra Control Center für Azure>>.
 
 
 
@@ -636,6 +636,7 @@ Erstellen Sie mit BlueXP (früher Cloud Manager) einen Workspace, fügen Sie ein
 
 Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. Siehe https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Erste Schritte mit BlueXP in Azure"^].
 
+.Was Sie benötigen
 Zugriff auf das Azure Konto mit den erforderlichen IAM-Berechtigungen und -Rollen
 
 .Schritte

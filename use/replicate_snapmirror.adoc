@@ -31,12 +31,12 @@ NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster 
 
 Mit Astra Control können Sie die folgenden Aufgaben für die Replikation von Anwendungen ausführen:
 
-*  up a replication relationship
-*  a replicated app online on the destination cluster (fail over)
-*  a failed over replication
-*  application replication
-*  back applications to the original source cluster
-*  an application replication relationship
+* <<Richten Sie eine Replikationsbeziehung ein>>
+* <<Online-Betrieb einer replizierten App auf dem Ziel-Cluster (Failover)>>
+* <<Resynchronisierung einer fehlgeschlagenen Überreplikation>>
+* <<Replizierung der Applikation wird rückgängig gemacht>>
+* <<Führen Sie ein Failback von Anwendungen auf das ursprüngliche Quellcluster durch>>
+* <<Löschen einer Replikationsbeziehung für Anwendungen>>
 
 
 
@@ -108,6 +108,7 @@ Der Snapshot-Name verwendet das Format „Replication-Schedule-<string>“. Astr
 
 
 
+.Ergebnis
 Dadurch wird die Replikationsbeziehung erstellt.
 
 Astra Control führt die folgenden Maßnahmen durch, die auf dem Aufbau der Beziehung resultieren:
@@ -137,6 +138,7 @@ Mit Astra Control können Sie ein „Failover“ Ihrer replizierten Applikatione
 . Überprüfen Sie auf der Seite Failover die Informationen, und wählen Sie *Failover*.
 
 
+.Ergebnis
 Die folgenden Aktionen ergeben sich aus dem Failover-Verfahren:
 
 * Auf dem Ziel-Cluster wird die Applikation basierend auf dem zuletzt replizierten Snapshot gestartet.
@@ -193,6 +195,7 @@ In dieser Situation tauschen Sie Quelle und Ziel aus. Der ursprüngliche Quellcl
 . Überprüfen Sie auf der Seite „Replikation umkehren“ die Informationen und wählen Sie zum Fortfahren *Replikation umkehren* aus.
 
 
+.Ergebnis
 Die folgenden Aktionen sind auf das Ergebnis der umgekehrten Replikation zurückzuführen:
 
 * Es wird ein Snapshot der Kubernetes-Ressourcen der ursprünglichen Quell-Applikation erstellt.
@@ -227,6 +230,7 @@ Dieser Prozess beginnt mit einer Beziehung, die ein Failover zu einem Ziel abges
 . Überprüfen Sie auf der Seite „Replikation umkehren“ die Informationen und wählen Sie *Replikation umkehren*.
 
 
+.Ergebnis
 Dies kombiniert die Ergebnisse aus den „Resync“- und „umgekehrten Beziehungs“-Vorgängen, um die Applikation auf dem ursprünglichen Quell-Cluster online zu schalten und die Replizierung wieder auf das ursprüngliche Ziel-Cluster zu übertragen.
 
 
@@ -241,6 +245,7 @@ Das Löschen der Beziehung führt zu zwei separaten Apps ohne Beziehung zwischen
 . Wählen Sie auf der Registerkarte Datenschutz > Replikation im Feld Anwendungsschutz oder im Beziehungsdiagramm die Option *Replikationsbeziehung löschen* aus.
 
 
+.Ergebnis
 Die folgenden Aktionen treten beim Löschen einer Replikationsbeziehung auf:
 
 * Wenn die Beziehung aufgebaut ist, aber die App noch nicht auf dem Ziel-Cluster online gestellt wurde (Failover fehlgeschlagen), behält Astra Control während der Initialisierung erstellte PVCs bei, hinterlässt eine „leere“ gemanagte App auf dem Ziel-Cluster und behält die Ziel-App bei, alle Backups zu behalten, die möglicherweise erstellt wurden.

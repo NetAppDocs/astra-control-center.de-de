@@ -15,11 +15,11 @@ summary: Nach der Installation von Astra Control Center, melden Sie sich in der 
 Nach der Installation von Astra Control Center, melden Sie sich in der UI an und ändern Sie Ihr Passwort, Sie möchten eine Lizenz einrichten, Cluster hinzufügen, Speicher verwalten und Buckets hinzufügen.
 
 .Aufgaben
-*  a license for Astra Control Center
-*  your environment for cluster management using Astra Control
-*  cluster
-*  a storage backend
-*  a bucket
+* <<Fügen Sie eine Lizenz für Astra Control Center hinzu>>
+* <<Bereiten Sie Ihre Umgebung mit Astra Control auf das Cluster-Management vor>>
+* <<Cluster hinzufügen>>
+* <<Fügen Sie ein Storage-Back-End hinzu>>
+* <<Fügen Sie einen Bucket hinzu>>
 
 
 
@@ -36,7 +36,7 @@ NOTE: Wenn Ihre Installation die Anzahl der lizenzierten CPU-Einheiten überschr
 
 NOTE: Informationen zum Aktualisieren einer vorhandenen Testversion oder einer vollständigen Lizenz finden Sie unter link:../use/update-licenses.html["Aktualisieren einer vorhandenen Lizenz"^].
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Zugriff auf eine neu installierte Astra Control Center-Instanz.
 * Berechtigungen für Administratorrollen.
 * A link:../concepts/licensing.html["NetApp Lizenzdatei"^] (NLF).
@@ -61,7 +61,7 @@ NOTE: Wenn Sie über eine Evaluierungslizenz verfügen und keine Daten an AutoSu
 
 Sie sollten sicherstellen, dass die folgenden Voraussetzungen erfüllt sind, bevor Sie ein Cluster hinzufügen. Außerdem sollten Sie Eignungsprüfungen durchführen, um sicherzustellen, dass Ihr Cluster zum Astra Control Center hinzugefügt werden kann und Rollen für das Cluster-Management schafft.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Ihre Umgebung erfüllt die Anforderungen link:../get-started/requirements.html#operational-environment-requirements["Anforderungen an die Betriebsumgebung"^] Für Astra Trident und Astra Control Center.
 * Eine Version von Astra Trident ist das link:../get-started/requirements.html#operational-environment-requirements["Unterstützt durch Astra Control Center"^] Installiert:
 +
@@ -151,6 +151,7 @@ ontap-gold (default)  csi.trident.netapp.io  Delete         Immediate          t
 
 Optional können Sie eine eingeschränkte Administratorrolle für Astra Control Center erstellen. Dies ist kein erforderliches Verfahren für die Einrichtung des Astra Control Centers. Dieses Verfahren hilft beim Erstellen eines separaten kubeconfig, das die Astra Control-Berechtigungen auf die von ihm verwalteten Cluster beschränkt.
 
+.Was Sie benötigen
 Stellen Sie sicher, dass Sie für den Cluster, den Sie verwalten möchten, vor dem Ausführen der Schritte des Verfahrens Folgendes haben:
 
 * Kubectl v1.23 oder höher installiert
@@ -460,7 +461,7 @@ mv kubeconfig-sa YOUR_CLUSTER_NAME_kubeconfig
 
 === Was kommt als Nächstes?
 
-Nachdem Sie nun überprüft haben, ob die Voraussetzungen erfüllt sind, können Sie es jetzt tun  cluster,Fügen Sie einen Cluster hinzu.
+Nachdem Sie nun überprüft haben, ob die Voraussetzungen erfüllt sind, können Sie es jetzt tun <<Cluster hinzufügen,Fügen Sie einen Cluster hinzu>>.
 
 
 
@@ -471,8 +472,8 @@ Zum Management von Applikationen fügen Sie einen Kubernetes-Cluster hinzu und m
 
 TIP: Wir empfehlen, dass Astra Control Center den Cluster, der zuerst bereitgestellt wird, verwaltet, bevor Sie zum Management weitere Cluster zum Astra Control Center hinzufügen. Das Management des anfänglichen Clusters ist erforderlich, um Kubemetrics-Daten und Cluster-zugeordnete Daten zur Metriken und Fehlerbehebung zu senden.
 
-.Was Sie und#8217;ll benötigen
-* Bevor Sie ein Cluster hinzufügen, überprüfen und führen Sie die erforderlichen Maßnahmen durch  your environment for cluster management using Astra Control,Erforderliche Aufgaben.
+.Was Sie benötigen
+* Bevor Sie ein Cluster hinzufügen, überprüfen und führen Sie die erforderlichen Maßnahmen durch <<Bereiten Sie Ihre Umgebung mit Astra Control auf das Cluster-Management vor,Erforderliche Aufgaben>>.
 
 
 .Schritte
@@ -489,7 +490,7 @@ NOTE: Der `kubeconfig.yaml` Die Datei sollte *nur die Cluster-Anmeldedaten für 
 
 +
 
-IMPORTANT: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien: Wenn Sie ein kubeconfig für eine eingeschränkte Clusterrolle erstellt haben, die mit verwendet wird  a limited cluster role kubeconfig,Das oben beschriebene Verfahren, Vergewissern Sie sich, dass in diesem Schritt kubeconfig hochgeladen oder eingefügt wird.
+IMPORTANT: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien: Wenn Sie ein kubeconfig für eine eingeschränkte Clusterrolle erstellt haben, die mit verwendet wird <<Erstellen Sie eine begrenzte Cluster-Rolle kubeconfig,Das oben beschriebene Verfahren>>, Vergewissern Sie sich, dass in diesem Schritt kubeconfig hochgeladen oder eingefügt wird.
 
 . Geben Sie einen Namen für die Anmeldeinformationen an. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.
 . Wählen Sie *Weiter*.
@@ -501,6 +502,7 @@ NOTE: Sie sollten sich für eine von ONTAP Storage gesicherte Trident Storage-Kl
 . Überprüfen Sie die Informationen, und wenn alles gut aussieht, wählen Sie *Hinzufügen*.
 
 
+.Ergebnis
 Der Cluster wechselt in den *Entdeckungs*-Zustand und dann in *gesund*. Sie managen jetzt das Cluster mit dem Astra Control Center.
 
 
@@ -531,6 +533,7 @@ NOTE: Der Benutzer, dessen Anmeldeinformationen Sie hier eingeben, muss über de
 . Bestätigen Sie die Backend-Details und wählen Sie *Verwalten*.
 
 
+.Ergebnis
 Das Backend wird im angezeigt `Healthy` Status in der Liste mit Zusammenfassungsinformationen.
 
 
@@ -544,7 +547,7 @@ Sie können einen Bucket über die Astra Control UI oder hinzufügen https://doc
 
 Wenn Sie Ihre Applikationskonfiguration und Ihren persistenten Storage im selben Cluster klonen, benötigen Sie in Astra Control keinen Bucket. Für die Funktionalität von Applikations-Snapshots ist kein Bucket erforderlich.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Ein Bucket, der von Ihren Clustern erreichbar ist, die von Astra Control Center verwaltet werden.
 * Zugangsdaten für den Bucket.
 * Ein Bucket der folgenden Typen:

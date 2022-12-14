@@ -155,7 +155,7 @@ Das selbstsignierte Standardzertifikat wird für zwei Verbindungstypen verwendet
 Durch Ersetzen des Standard-TLS-Zertifikats wird das Zertifikat ersetzt, das für die Authentifizierung für diese Verbindungen verwendet wird.
 
 ====
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Kubernetes-Cluster mit installiertem Astra Control Center
 * Administratorzugriff auf eine Command Shell auf dem zu ausgeführten Cluster `kubectl` Befehle
 * Private Schlüssel- und Zertifikatdateien aus der CA

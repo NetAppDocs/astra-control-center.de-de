@@ -14,9 +14,9 @@ summary: Hier wird beschrieben, wie Sie das Astra Control Center und den Astra C
 [role="lead"]
 Möglicherweise müssen Sie die Komponenten des Astra Control Center entfernen, wenn Sie ein Upgrade von einer Testversion auf eine Vollversion des Produkts durchführen. Um Astra Control Center und den Astra Control Center Operator zu entfernen, führen Sie die in diesem Verfahren beschriebenen Befehle nacheinander aus.
 
-Wenn Sie Probleme mit der Deinstallation haben, lesen Sie  uninstall issues.
+Wenn Sie Probleme mit der Deinstallation haben, lesen Sie <<Fehlerbehebung bei Deinstallationsproblemen>>.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Verwenden Sie die Benutzeroberfläche von Astra Control Center, um das Management aller zu lösen link:../use/unmanage.html#stop-managing-compute["Cluster"].
 
 

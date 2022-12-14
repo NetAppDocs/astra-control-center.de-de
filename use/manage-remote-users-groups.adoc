@@ -43,6 +43,7 @@ NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zu
 . Wählen Sie *Hinzufügen*.
 
 
+.Ergebnis
 Der neue Benutzer wird in der Liste der Remote-Benutzer angezeigt. In dieser Liste können Sie aktive Einschränkungen für den Benutzer sehen und den Benutzer über das Menü *Aktionen* verwalten.
 
 
@@ -74,4 +75,5 @@ NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zu
 . Wählen Sie *Hinzufügen*.
 
 
+.Ergebnis
 Die neue Gruppe wird in der Liste der Remote-Gruppen angezeigt, und alle Remote-Benutzer in dieser Gruppe werden in der Liste der Remote-Benutzer angezeigt. In dieser Liste können Sie Details über die Gruppe anzeigen und die Gruppe über das Menü *Aktionen* verwalten.

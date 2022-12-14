@@ -27,7 +27,7 @@ Sie können die folgenden Optionen des Astra Control Center Cluster Custom Resou
 | AstraKubeConfigSecret | Zeichenfolge | Erforderlich | ACC-kubeconfg-Credo | Wenn dieser Wert vorhanden ist und ein Geheimnis existiert, versucht der Operator, diesen KubeConfig zum ersten verwalteten Cluster hinzuzufügen. 
 
 
-| AstraResourcesScaler | Zeichenfolge | Erforderlich | Standard | Skalierungsoptionen für die Ressourcengrenzen von AstraControlCenter. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
+| AstraResourcesScaler | Zeichenfolge | Erforderlich | Standard | Skalierungsoptionen für die Ressourcengrenzen von AstraControlCenter. Siehe <<Konfigurationskombinationen und Inkompatibilitäten,Komplexität ist>> Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
 
 
 | AstraVersion | Zeichenfolge | Erforderlich | 1.5.2 | Version von AstraControlCenter für die Bereitstellung. Ihnen steht ein Helm-Repository mit einer entsprechenden Version zur Verfügung. 
@@ -72,7 +72,7 @@ Sie können die folgenden Optionen des Astra Control Center Cluster Custom Resou
 | imageRegistry.secret | Zeichenfolge | Erforderlich, wenn Sie imageRegistry verwenden, die ein Geheimnis erfordert | astra-Registry-Credo | Der Name des Kubernetes Secret, das zur Authentifizierung mit der Bildregistrierung verwendet wird. 
 
 
-| Typ | Zeichenfolge | Optional | Allgemein (dies ist der Standardwert) | Der Typ des Ingress Astra Control Centers sollte für konfiguriert werden. Gültige Werte sind `Generic` Und `AccTraefik`. Siehe  combinations and incompatibilities,Komplexität ist Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
+| Typ | Zeichenfolge | Optional | Allgemein (dies ist der Standardwert) | Der Typ des Ingress Astra Control Centers sollte für konfiguriert werden. Gültige Werte sind `Generic` Und `AccTraefik`. Siehe <<Konfigurationskombinationen und Inkompatibilitäten,Komplexität ist>> Um zu verstehen, wie sich diese Einstellungen auf andere Einstellungen auswirken. 
 
 
 | Nachname | Zeichenfolge | Erforderlich | Admin | Der Nachname des Administrators, der Astra unterstützt. 
@@ -107,6 +107,7 @@ Es gibt zwei gültige Werte für den Typ:
 * AccTraefik
 
 
+.Allgemein (Standard)
 Wenn `ingressType` Ist auf festgelegt `Generic`Astra Control installiert keine Ingress-Ressourcen. Es wird angenommen, dass der Benutzer für die Sicherung und Weiterleitung des Datenverkehrs über sein Netzwerk an Applikationen arbeitet, die auf Kubernetes-Clustern ausgeführt werden. Dabei sollen dieselben Mechanismen genutzt werden. Wenn der Benutzer einen Ingress erzeugt, um den Datenverkehr zum Astra Control zu leiten, muss der Ingress auf den internen Schleppdienst am Port 80 zeigen. Hier ist ein Beispiel für eine Nginx-Ingress-Ressource, die mit der Einstellung Generic ingressType arbeitet.
 
 [listing]
@@ -134,4 +135,5 @@ spec:
                 number: 80
           pathType: ImplementationSpecific
 ----
+.AccTraefik
 Wenn `ingressType` Ist auf festgelegt `AccTraefik`, Astra Control Center implementiert sein Trafik Gateway als Kubernetes Load Balancer-Service. Benutzer müssen einen externen Load Balancer (wie MetalLB) für Astra Control Center bereitstellen, um eine externe IP zu erhalten.

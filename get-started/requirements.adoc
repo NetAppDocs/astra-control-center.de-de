@@ -14,16 +14,16 @@ summary: 'Erste Schritte mit Astra Control Center: Überprüfen Sie die Unterst�
 [role="lead"]
 Prüfen Sie zunächst die Bereitschaft Ihrer Betriebsumgebung, Anwendungscluster, Applikationen, Lizenzen und Ihres Webbrowsers.
 
-*  environment requirements
-*  storage backends
-*  to the internet
-* 
-*  for on-premises Kubernetes clusters
-*  requirements
-*  web browsers
-*  requirements for application clusters
-*  Anthos cluster requirements
-*  Tanzu Kubernetes Grid cluster requirements
+* <<Anforderungen an die Betriebsumgebung>>
+* <<Unterstützte Storage-Back-Ends>>
+* <<Zugang zum Internet>>
+* <<Lizenz>>
+* <<Ingress für lokale Kubernetes Cluster>>
+* <<Netzwerkanforderungen>>
+* <<Unterstützte Webbrowser>>
+* <<Zusätzliche Anforderungen an Applikations-Cluster>>
+* <<Cluster-Anforderungen für Google Anthos>>
+* <<Cluster-Anforderungen für VMware Tanzu Kubernetes Grid>>
 
 
 
@@ -33,7 +33,7 @@ Prüfen Sie zunächst die Bereitschaft Ihrer Betriebsumgebung, Anwendungscluster
 Astra Control Center wurde mit folgenden Typen von Betriebsumgebungen validiert:
 
 * Cisco IKS mit Kubernetes 1.22
-* Google Anthos 1.11 oder 1.12 (siehe  Anthos cluster requirements)
+* Google Anthos 1.11 oder 1.12 (siehe <<Cluster-Anforderungen für Google Anthos>>)
 * Rancher Kubernetes Engine (RKE):
 +
 ** RKE 1.3.12 mit Rancher 2.6.5 und 2.6.6
@@ -44,7 +44,7 @@ Astra Control Center wurde mit folgenden Typen von Betriebsumgebungen validiert:
 
 * Red hat OpenShift Container Platform 4.8 bis 4.11
 * Upstream Kubernetes 1.23 to 1.25 (Astra Trident 22.10 oder höher für Kubernetes 1.25 erforderlich)
-* VMware Tanzu Kubernetes Grid: (Siehe  Tanzu Kubernetes Grid cluster requirements)
+* VMware Tanzu Kubernetes Grid: (Siehe <<Cluster-Anforderungen für VMware Tanzu Kubernetes Grid>>)
 +
 ** VMware Tanzu Kubernetes Grid 1.5
 ** VMware Tanzu Kubernetes Grid Integrated Edition 1.13 und 1.14
@@ -212,6 +212,6 @@ NOTE: Das standardmäßige VMware TKG- und TKGi-Konfigurationstoken läuft zehn 
 
 
 
-== Was kommt als Nächstes
+== Wie es weiter geht
 
 Sehen Sie sich die an link:quick-start.html["Schnellstart"^] Überblick.

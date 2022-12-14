@@ -14,7 +14,7 @@ summary: Zum Upgrade von Astra Control Center laden Sie das Paket herunter und f
 [role="lead"]
 Laden Sie zum Upgrade des Astra Control Center das Installationspaket von der NetApp Support Site herunter, und füllen Sie die folgenden Anweisungen aus. Mit diesem Verfahren können Sie das Astra Control Center in internetverbundenen oder luftgekapderten Umgebungen aktualisieren.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Bevor Sie ein Upgrade durchführen, lesen Sie link:../get-started/requirements.html#operational-environment-requirements["Anforderungen an die Betriebsumgebung"^] Damit Ihre Umgebung die Mindestanforderungen für die Implementierung von Astra Control Center erfüllt. Ihre Umgebung sollte Folgendes haben:
 +
 ** Eine unterstützte Astra Trident-Version um die Version zu bestimmen, die Sie ausführen, führen Sie den folgenden Befehl gegen Ihr vorhandenes Astra Control Center aus:
@@ -51,14 +51,15 @@ kubectl get apiservices
 * Melden Sie sich von der Astra Control Center-Benutzeroberfläche ab, bevor Sie das Upgrade starten.
 
 
+.Über diese Aufgabe
 Der Astra Control Center Upgrade-Prozess führt Sie durch die folgenden grundlegenden Schritte:
 
-*  the Astra Control Center bundle
-*  the bundle
-*  the images to your local registry
-*  the updated Astra Control Center operator
-*  Astra Control Center
-*  system status
+* <<Laden Sie das Astra Control Center Bundle herunter>>
+* <<Packen Sie das Paket aus>>
+* <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu>>
+* <<Installieren Sie den aktualisierten Astra Control Center-Operator>>
+* <<Upgrade Astra Control Center>>
+* <<Überprüfen Sie den Systemstatus>>
 
 
 
@@ -106,7 +107,7 @@ kubectl astra
 ----
 
 
-Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["Anweisungen"].
+Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen link:../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin["Anweisungen"^].
 
 
 
@@ -119,19 +120,14 @@ Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl ein
 ====
 .Docker
 --
-. Wechseln Sie zum `acc` Aus dem tar-Bundle entnommenes Verzeichnis:
+. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
 +
-Beispiel:
+`acc.manifest.bundle.yaml`
+`acc/`
 
-
-
-[listing]
-----
-cd ../acc
-----
-. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie folgende Ersetzungen durch, bevor Sie den Befehl ausführen:
+. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
-** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.yaml`).
+** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
 ** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise https://exampledownloads.jfrog.io/docker-astra-control/v1/[].
 ** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
 ** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
@@ -147,6 +143,11 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .Podman
 --
+. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
++
+`acc.manifest.bundle.yaml`
+`acc/`
+
 . Melden Sie sich bei Ihrer Registrierung an:
 +
 [source, console]
@@ -157,12 +158,6 @@ podman login <MY_FULL_REGISTRY_PATH>
 +
 [source, console]
 ----
-# You need to be at the root of the tarball.
-# You should see these files to confirm correct location:
-#   acc.manifest.yaml
-#   acc/
-
-# Replace <YOUR_REGISTRY> with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
 export REGISTRY=<YOUR_REGISTRY>
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
@@ -209,8 +204,8 @@ vim astra_control_center_operator_deploy.yaml
 imagePullSecrets:
 - name: <astra-registry-cred_or_custom_name_of_secret>
 ----
-.. Ändern `[your_registry_path]` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben  the images to your local registry,Vorheriger Schritt.
-.. Ändern `[your_registry_path]` Für das `acc-operator` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben  the images to your local registry,Vorheriger Schritt.
+.. Ändern `[your_registry_path]` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
+.. Ändern `[your_registry_path]` Für das `acc-operator` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
 .. Fügen Sie dem die folgenden Werte hinzu `env` Abschnitt:
 +
 [listing]
@@ -342,7 +337,7 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. Überprüfen Sie, ob Ihr Image-Registrierungspfad mit dem von Ihnen gedrückten Registrierungspfad übereinstimmt  the images to your local registry,Vorheriger Schritt. Aktualisierung `imageRegistry` Innerhalb von `Spec` Wenn sich die Registrierung seit Ihrer letzten Installation geändert hat.
+. Überprüfen Sie, ob Ihr Image-Registrierungspfad mit dem von Ihnen gedrückten Registrierungspfad übereinstimmt <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>. Aktualisierung `imageRegistry` Innerhalb von `Spec` Wenn sich die Registrierung seit Ihrer letzten Installation geändert hat.
 +
 [listing]
 ----

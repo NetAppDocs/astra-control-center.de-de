@@ -37,6 +37,7 @@ image:proxy-connect.png["Zeigt die Option Verbinden an, um Proxy-Verbindung zu a
 . Wählen Sie *Verbinden*.
 
 
+.Ergebnis
 Wenn die eingegebenen Proxydaten gespeichert wurden, zeigt der Abschnitt *HTTP Proxy* der Seite *Konto* > *Verbindungen* an, dass sie verbunden sind, und zeigt den Servernamen an.
 
 image:proxy-new.png["Zeigt den Proxyserver erfolgreich verbunden an."]
@@ -81,7 +82,7 @@ Wenn Astra Control Center mit Cloud Insights verbunden ist, wird ein Pod für di
 
 NOTE: Nach Aktivierung der Cloud Insights-Verbindung können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Speicher-Backend ausgewählt haben. Die Informationen finden Sie auch auf dem *Dashboard* im Clusterbereich, und von dort aus können Sie auch eine Verbindung zu Cloud Insights herstellen.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Ein Astra Control Center-Konto mit *admin*/*Owner* Privilegien.
 * Eine gültige Astra Control Center-Lizenz.
 * Ein Proxy-Server, wenn das Netzwerk, in dem Sie Astra Control Center verwenden, einen Proxy für die Verbindung zum Internet benötigt.
@@ -196,7 +197,7 @@ image:fluentbit.png["Zeigt ein konzeptionelles Diagramm der Ereignisprotokolle v
 
 NOTE: Nur die Ereignisprotokolle von verwalteten Clustern werden an Fluentd weitergeleitet.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Ein Astra Control Center-Konto mit *admin*/*Owner* Privilegien.
 * Astra Control Center ist auf einem Kubernetes-Cluster installiert und läuft.
 
@@ -215,6 +216,7 @@ image:connect-fluentd.png["Zeigt den UI-Bildschirm für die Aktivierung der Verb
 . Wählen Sie *Verbinden*.
 
 
+.Ergebnis
 Wenn die für den Fluentd-Server eingegebenen Details gespeichert wurden, zeigt der Abschnitt *Fluentd* auf der Seite *Konto* > *Verbindungen* an, dass er verbunden ist. Jetzt können Sie den Fluentd-Server besuchen, mit dem Sie verbunden sind, und die Ereignisprotokolle anzeigen.
 
 Wenn die Verbindung aus irgendeinem Grund fehlgeschlagen ist, wird im Status *failed* angezeigt. Den Grund für Fehlschlag finden Sie unter *Benachrichtigungen* auf der rechten oberen Seite des UI.

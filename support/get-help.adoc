@@ -49,6 +49,7 @@ Mit Astra Control Center können die Admin-Benutzer Bundles generieren, die Info
 
 NOTE: Die Zeit, die Astra Control Center für die Erstellung des Pakets benötigt, hängt von der Größe Ihrer Astra Control Center-Installation sowie den Parametern des gewünschten Support-Pakets ab. Die Dauer, die Sie bei der Anforderung eines Support-Pakets angegeben haben, gibt die Zeit an, die für die Erzeugung des Pakets benötigt wird (z. B. durch einen kürzeren Zeitraum wird eine schnellere Paketgenerierung beschleunigt).
 
+.Bevor Sie beginnen
 Ermitteln Sie, ob eine Proxy-Verbindung erforderlich ist, um Pakete auf NSS hochzuladen. Wenn eine Proxy-Verbindung erforderlich ist, überprüfen Sie, ob Astra Control Center für die Verwendung eines Proxy-Servers konfiguriert wurde.
 
 . Wählen Sie *Konten* > *Verbindungen*.

@@ -186,7 +186,6 @@
   <block id="e79c66d32821cf7f9dadf70f95c95f46" category="inline-image-macro">Ein Konzept-Image, das den Astra als Basis für eine App mit dem Kubernetes-Label verwaltet.</block>
   <block id="42e713fefe57640d4cb0e9c071431be5" category="paragraph"><block ref="42e713fefe57640d4cb0e9c071431be5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c1da0c460c22d6fba67aca5373a43cb1" category="doc">Fügen Sie ein benutzerdefiniertes TLS-Zertifikat hinzu</block>
-  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">Was Sie und#8217;ll benötigen</block>
   <block id="70f4c838af25e53e799ffca0c2ea44f5" category="list-text">Kubernetes-Cluster mit installiertem Astra Control Center</block>
   <block id="0cb21c23cf46c4ea4707d50d3d396f43" category="list-text">Administratorzugriff auf eine Command Shell auf dem zu ausgeführten Cluster<block ref="0f12ee5c9f1dd90158580f1c292b0d37" prefix=" " category="inline-code"></block> Befehle</block>
   <block id="599cad6552be336cbc11ad6b88a69f35" category="list-text">Private Schlüssel- und Zertifikatdateien aus der CA</block>
@@ -337,7 +336,6 @@
   <block id="009673abdb70c0ffd1710edeb60d8cd2" category="cell">Kommunikation zwischen NetApp AutoSupport</block>
   <block id="f370975993dbb1e7c1e24af01ed7986c" category="section-title">Unterstützte Webbrowser</block>
   <block id="5ee52824555f7e54b800612663b9f098" category="paragraph">Astra Control Center unterstützt aktuelle Versionen von Firefox, Safari und Chrome mit einer Mindestauflösung von 1280 x 720.</block>
-  <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">Was kommt als Nächstes</block>
   <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">Schnellstart</block>
   <block id="efb8331a92b47dc173e5cbcd8ae1a87b" category="summary">Nach der Installation von Astra Control Center, melden Sie sich in der UI an und ändern Sie Ihr Passwort, Sie möchten eine Lizenz einrichten, Cluster hinzufügen, Speicher verwalten und Buckets hinzufügen.</block>
   <block id="d507eb4e66b24d44edccbe2de081c8ee" category="doc">Einrichten des Astra Control Center</block>
@@ -389,7 +387,6 @@
   <block id="a57d95e33fbdffe3b4bd71d5b0be74cd" category="list-text">Wählen Sie die Kategorie *Speicherklassen* aus.</block>
   <block id="b76660fac98aeb4fc46b77e989e6d8b0" category="list-text">Wählen Sie das Menü *Aktionen* für die Speicherklasse aus, die Sie als Standard festlegen möchten.</block>
   <block id="b4789b0ec041cd5e51f32c2f901a0951" category="list-text">Wählen Sie *als Standard*.</block>
-  <block id="3f297ef15cde0668e93b35f2752fd4fd" category="section-title">Was kommt als Nächstes?</block>
   <block id="32139554c6b5c9a48dcfdd0ff983a9eb" category="inline-link-macro">Starten Sie das Anwendungsmanagement</block>
   <block id="a4338c4608081cbe5421e9459f9dc53a" category="list-text"><block ref="a4338c4608081cbe5421e9459f9dc53a" category="inline-link-macro-rx"></block></block>
   <block id="3a2448fbaa994c176580cbee02393309" category="inline-link-macro">Schützen von Applikationen</block>
@@ -459,11 +456,8 @@
   <block id="cd165c3825c1608d9ab0d7fb7273e21a" category="inline-link">Red Hat Ecosystem Catalog</block>
   <block id="73c219a393057feacc35c345709d0eff" category="paragraph">Wenn Sie Red hat OpenShift verwenden, können Sie Astra Control Center mithilfe des von Red hat zertifizierten Betreibers installieren. Gehen Sie folgendermaßen vor, um Astra Control Center von der zu installieren<block ref="a0bebb9db4c42678b95afc86229a893d" category="inline-link-rx"></block> Oder die Red hat OpenShift-Container-Plattform verwenden.</block>
   <block id="07d25e4715e49135a64667c0c238798e" category="inline-link-macro">Verbleibende Schritte</block>
-  <block id="b34733c94c2ec2f94f6765fc88c9f8db" category="paragraph">Nach Abschluss dieses Verfahrens müssen Sie zum Installationsvorgang zurückkehren, um den abzuschließen <block ref="3a285f0bf32f130cd082e260eb98d4dd" category="inline-link-macro-rx"></block> Um die erfolgreiche Installation zu überprüfen, und melden Sie sich an.</block>
   <block id="2b305f607904d67cd2da521366334e8c" category="inline-link-macro">Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor</block>
   <block id="44e141a783b8346b1ee5c52bcf894d19" category="list-text"><block ref="689b20f2e0a9cb0a12bc48475b3f81ee" category="inline-link-macro-rx"></block>.</block>
-  <block id="8a39c4d5e84433849a18a3a9c5be0506" category="list-text">Erstellen Sie in Ihrem Rechenzentrum eine FQDN-Adresse für Astra Control Center.</block>
-  <block id="817ff31e06696b2ddfbd20628237efec" category="list-text">Erhalten Sie die erforderlichen Berechtigungen und den Zugriff auf die Red hat OpenShift Container Platform, um die beschriebenen Installationsschritte durchzuführen.</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">Erforderliche Schritte</block>
   <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
   <block id="f27876af7f41dd88d732712643f9e8ab" category="list-text"><block ref="edd1a66c7657e8422b18455f2fcc01fd" category="inline-xref-macro-rx"></block></block>
@@ -479,22 +473,17 @@
   <block id="22a59db7b4ba20ac09e829d51d726828" category="section-title">Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu</block>
   <block id="64f97564a976931750ce87e0cc98894a" category="list-text">Führen Sie die entsprechende Schrittfolge für Ihre Container-Engine durch:</block>
   <block id="c5fd214cdd0d2b3b4272e73b022ba5c2" category="open-title">Docker</block>
-  <block id="26880dd653283f928ad27ce40e390c9e" category="list-text">[[substep_image_local_Registry_Push]]Schieben Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie folgende Ersetzungen durch, bevor Sie den Befehl ausführen:</block>
   <block id="455cbd59356abfa16dcf7666d4ae6c2b" category="open-title">Podman</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">Melden Sie sich bei Ihrer Registrierung an:</block>
   <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">Führen Sie das folgende Skript aus und machen Sie die Substitution &lt;YOUR_REGISTRY&gt; wie in den Kommentaren angegeben:</block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">Suchen Sie die Installationsseite des Bedieners</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">Führen Sie eines der folgenden Verfahren aus, um auf die Installationsseite des Bedieners zuzugreifen:</block>
   <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center-Installationsseite</block>
-  <block id="e6864876ae5824d03aa7240670e5a79c" category="list-text">Von der Red hat OpenShift-Webkonsole aus:<block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1b37bd82bf53c89bcedcfc65519416b2" category="list-text">Melden Sie sich in der OpenShift Container Platform UI an.</block>
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">Wählen Sie im Seitenmenü die Option *Operatoren &gt; OperatorHub* aus.</block>
-  <block id="7bd157f1c5eb232cab6fc80166141018" category="list-text">Wählen Sie den Operator des NetApp Astra Control Center aus.</block>
   <block id="6d20ba1f906a03b7657514dee48eb121" category="list-text">Wählen Sie *Installieren*.</block>
   <block id="89bb9ef577ff373ba97cf5d87b3cbfa2" category="inline-image-macro">Astra Control Center Übersichtsseite</block>
-  <block id="12127d8c57ab445f63f35cb27db68dfa" category="list-text">Aus Dem Red Hat Ecosystem Catalog:<block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">Operator</block>
-  <block id="c0c6f0344d291d5ee9dd15a613c81a83" category="list-text">Wählen Sie das NetApp Astra Control Center aus<block ref="f328fcf88c0a47197ef258962206eb83" category="inline-link-rx"></block>.</block>
   <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">Wählen Sie *Bereitstellen und Verwenden*.</block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">Installieren Sie den Operator</block>
   <block id="80c07a74abae733a8881dd926a32ef70" category="list-text">Füllen Sie die Seite *Install Operator* aus, und installieren Sie den Operator:</block>
@@ -505,23 +494,14 @@
   <block id="05bdebf9e792d9368547ebb8d5f2c878" category="admonition">Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie aufgefordert, den manuellen Installationsplan für diesen Operator zu genehmigen.</block>
   <block id="aaa3b697f556836b1ccf6d4b524be91f" category="list-text">Gehen Sie von der Konsole aus zum OperatorHub-Menü und bestätigen Sie, dass der Operator erfolgreich installiert wurde.</block>
   <block id="8c7c70cb991e0295e289054b79308c5d" category="section-title">Installieren Sie Astra Control Center</block>
-  <block id="0e31ab41ac11f3ddd6ff1a1b66bac23e" category="list-text">Wählen Sie in der Konsole in der Detailansicht des Bedieners Astra Control Center die Option aus<block ref="899eead512a99cea86280edce648f44e" prefix=" " category="inline-code"></block> Im Abschnitt über die bereitgestellten APIs.</block>
   <block id="004e45eb65515df1dc4c779bfd994156" category="list-text">Füllen Sie die aus<block ref="9eca463036a902158489237df8eb93bf" prefix=" " category="inline-code"></block> Formularfeld:</block>
   <block id="333a60821968ef136fc241c723e560c7" category="list-text">Behalten Sie den Namen des Astra Control Center bei oder passen Sie diesen an.</block>
-  <block id="d428c16854f07cbfe28afb7b35e4ec7f" category="list-text">(Optional) Aktivieren oder Deaktivieren von Auto Support. Es wird empfohlen, die Auto Support-Funktion beizubehalten.</block>
-  <block id="7b625446126311f8289b99965f874567" category="list-text">Geben Sie die Astra Control Center-Adresse ein. Kommen Sie nicht herein<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> Oder<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> In der Adresse.</block>
-  <block id="8ba4664b08ecc7bbd36d1c4a65dfb521" category="list-text">Geben Sie die Astra Control Center-Version ein, z. B. 21.12.60.</block>
   <block id="bb78a9da438c9bc3d6927b7e4cc397cd" category="list-text">Geben Sie einen Kontonamen, eine E-Mail-Adresse und einen Administratornamen ein.</block>
-  <block id="7113a598ff918e14e69611190b04f917" category="list-text">Beibehaltung der Standard-Richtlinie zur Rückgewinnung von Volumes</block>
-  <block id="1e4ea0b6d22039e7284329548ea3fb51" category="list-text">Geben Sie in *Image Registry* Ihren lokalen Container Image Registry-Pfad ein. Kommen Sie nicht herein<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> Oder<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> In der Adresse.</block>
-  <block id="6881173b182cc92c2e8408f79678be22" category="list-text">Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, geben Sie das Geheimnis ein.</block>
   <block id="118e41df0294e779966ab834d310bc09" category="list-text">Geben Sie den Vornamen des Administrators ein.</block>
   <block id="4b8b88591e5702615cf22b5d36197d60" category="list-text">Konfiguration der Ressourcenskalierung</block>
-  <block id="1d57e0a24077636df90da71912e901ba" category="list-text">Behalten Sie die Standard-Storage-Klasse bei.</block>
   <block id="6b9265a82fa5bd326052ec55e040a54a" category="list-text">Definieren Sie die Einstellungen für die Verarbeitung von CRD.</block>
   <block id="752136dc4b557a30d80aab0135d2d8d0" category="list-text">Wählen Sie<block ref="686e697538050e4664636337cc3b834f" prefix=" " category="inline-code"></block>.</block>
   <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">Setup-Aufgaben</block>
-  <block id="25bd4bfe1fe1f3d4f00d0a880c5c7b69" category="paragraph">Überprüfen Sie die erfolgreiche Installation von Astra Control Center und führen Sie die <block ref="3a285f0bf32f130cd082e260eb98d4dd" category="inline-link-macro-rx"></block> Um sich anzumelden. Darüber hinaus wird die Implementierung abgeschlossen, indem Sie auch die Ausführung durchführen <block ref="c74ac040317626af0342a18a145cdbb7" category="inline-link-macro-rx"></block>.</block>
   <block id="254a18b3f13c4603a1e896ef9d067cab" category="summary">Um Astra Control Center zu installieren, nachdem Sie einige Umgebungsvoraussetzungen erfüllt haben, laden Sie das Paket herunter und installieren Sie es gemäß den beschriebenen Schritten.</block>
   <block id="4f8d010e860956031d20fa5be10bf6e6" category="doc">Installieren Sie Astra Control Center mit einem Cloud Volumes ONTAP Storage-Backend</block>
   <block id="5393a81971c7f6d5a2fe5f5a8e4bdf5c" category="paragraph">Mit Astra Control Center können Sie Ihre Applikationen in einer Hybrid-Cloud-Umgebung mit automatisierten Kubernetes-Clustern und Cloud Volumes ONTAP Instanzen managen. Astra Control Center kann auch in lokalen Kubernetes-Clustern oder in einem der selbst gemanagten Kubernetes-Cluster in der Cloud-Umgebung implementiert werden.</block>
@@ -533,7 +513,6 @@
   <block id="7b07707c591c0c1d685106f821b042b1" category="paragraph">Applikationen lassen sich in Distributionen mit selbst gemanagten Kubernetes-Clustern managen, wie z. B. mit OpenShift Container Platform (OCP). Nur selbst gemanagte OCP Cluster sind für die Implementierung des Astra Control Center validiert.</block>
   <block id="5f70f12e51733f39df8a8d8f2f0742da" category="section-title">Implementieren Sie Astra Control Center in Amazon Web Services</block>
   <block id="b4504a5af800e56b2ac7bc310c520499" category="paragraph">Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster implementieren, der in einer Public Cloud von Amazon Web Services (AWS) gehostet wird.</block>
-  <block id="4ad0f595b9dbd4c0336e372a8a1b2410" category="section-title">Was Sie für AWS benötigen</block>
   <block id="a5a36964a87d94d5ac0851af923c64fc" category="paragraph">Vor der Implementierung von Astra Control Center in AWS sind folgende Fragen zu beachten:</block>
   <block id="e7e1ddd48b888f0547b40d916ec5553d" category="inline-link-macro">Lizenzierungsanforderungen für Astra Control Center</block>
   <block id="b488bebfd7a3a01cdcc54ea5856291cb" category="list-text">Astra Control Center-Lizenz: Siehe <block ref="fc4957629b78fc8c58b84966810cc78b" category="inline-link-macro-rx"></block>.</block>
@@ -612,7 +591,6 @@
   <block id="4fa3cb64c7a4d0ea493cd71172a39adf" category="admonition">AWS verwendet den Bucket-Typ generischer S3.</block>
   <block id="1e1383512a183b22a38cf414944a5e6f" category="section-title">Implementieren Sie Astra Control Center in der Google Cloud Platform</block>
   <block id="b22e8d7dd55c8decf5f9ba74419121b1" category="paragraph">Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster implementieren, der auf einer Google Cloud Platform (GCP) Public Cloud gehostet wird.</block>
-  <block id="03bf87a4447c098a7f465eb8095fc070" category="section-title">Was Sie für GCP benötigen</block>
   <block id="643d752df6c3694f3ce7af63534415ce" category="paragraph">Vor der Implementierung von Astra Control Center in GCP sind folgende Elemente erforderlich:</block>
   <block id="f5c6148230da18b53bb888b7c50f6394" category="list-text">Bei Verwendung von OCP, Red hat OpenShift Container Platform (OCP) 4.10</block>
   <block id="053fe1b94d4c8c543d8ea27c9283521c" category="list-text">GCP-Servicekonto mit Berechtigungen, mit denen Sie Buckets und Konnektoren erstellen können</block>
@@ -666,7 +644,6 @@
   <block id="9e7e41f010f82585ef3b0ebd3f1de902" category="list-text">Generieren Sie das Docker Secret, um Bilder für die Astra Control Center-Installation zu übertragen:</block>
   <block id="4d9093ca668edda8a4b7f1d5efe8d4bd" category="section-title">Implementieren Sie Astra Control Center in Microsoft Azure</block>
   <block id="7f18f262f0f4112be8239133aa15cff4" category="paragraph">Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster implementieren, der in einer Microsoft Azure Public Cloud gehostet wird.</block>
-  <block id="24fdd2eaa17fe7802a949abb767e47ff" category="section-title">Was Sie für Azure benötigen</block>
   <block id="0868fde25a786c798cfe63227a2e632c" category="paragraph">Vor der Implementierung von Astra Control Center in Azure sind folgende Fragen erforderlich:</block>
   <block id="06e1b0116459bf681b32b65360e38671" category="list-text">Bei Verwendung von OCP, Red hat OpenShift Container Platform (OCP) 4.8</block>
   <block id="067c001dbf7480cc26099ff0edfb8bda" category="list-text">Azure Zugangsdaten mit Berechtigungen, mit denen Sie Buckets und Konnektoren erstellen können</block>
@@ -788,14 +765,11 @@
   <block id="a87da1b8e8afc29470ac85cf788e125c" category="doc">Schnellstart für Astra Control Center</block>
   <block id="15dd8f83e9a999edc6eae56c5aec726e" category="paragraph">Diese Seite bietet einen Überblick über die Schritte, die für den Einstieg in das Astra Control Center erforderlich sind. Die Links in den einzelnen Schritten führen zu einer Seite, die weitere Details enthält.</block>
   <block id="b777e6ba4555d404b00c2436d03ae649" category="inline-link-macro">Lizenzierungsinformationen</block>
-  <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">&lt;span class=„image“&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> alt=„One“&gt;&lt;/span&gt; Kubernetes-Cluster-Anforderungen prüfen</block>
   <block id="0deb5023224ed4d71135e9bae6dff9d4" category="list-text">Cluster müssen in einem ordnungsgemäßen Zustand mit mindestens drei Online-Worker-Nodes ausgeführt werden.</block>
-  <block id="9384595b10ef347b2da67882c7b37bd7" category="list-title">&lt;span class=„image“&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> alt=„zwei“&gt;&lt;/span&gt; Astra Control Center herunterladen und installieren</block>
   <block id="afdff0e68ce5b4b3109d398df16872f7" category="inline-link">NetApp Support Site Astra Control Center Download-Seite</block>
   <block id="b6511e86f155fe09cdd3bb8e739ea6b5" category="list-text">Laden Sie das Astra Control Center von der herunter<block ref="287561c5277beeaf3b39a65b237114c8" category="inline-link-rx"></block>.</block>
   <block id="276a11727deff1a1f5ebf349b23835fc" category="list-text">Installieren Sie Astra Control Center in Ihrer lokalen Umgebung.</block>
   <block id="d0945e630f33dd0475cc6b38cb528ffb" category="inline-link-macro">Installieren des Astra Control Center</block>
-  <block id="80de081c75779cda8e2db1de0f292684" category="list-title">&lt;span class=„image“&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> alt=„drei“&gt;&lt;/span&gt; Abschließen einiger Aufgaben für die Ersteinrichtung</block>
   <block id="99bebad9572c9b2d89ca66465539d959" category="list-text">Fügen Sie eine Astra Control-Lizenz und alle unterstützenden ONTAP-Lizenzen hinzu.</block>
   <block id="87d2ee45afe04a74320927b3cc97c4ef" category="list-text">Fügen Sie ein ONTAP-Storage-Back-End hinzu.</block>
   <block id="aacfab881a9e939b2424f0e0b25eb558" category="list-text">Optional können Sie einen Objektspeicher-Bucket hinzufügen, der Ihre Applikations-Backups speichert.</block>
@@ -1281,27 +1255,7 @@
   <block id="366c043ac239af39c01a69c524d5c4d8" category="list-text">*Löschen*:</block>
   <block id="4877dec902ca3a40e2a3f5deb4d738cb" category="list-text">Wenn die Replikationsbeziehung hergestellt wurde, aber noch nicht Failover durchgeführt wurde, entfernt Astra Control PVCs, die während der Replikation erstellt wurden, und löscht die Ziel-verwaltete App.</block>
   <block id="3a6ead109505f7ea2878ab424cbe2da1" category="list-text">Wenn die Replikation bereits gescheitert ist, behält Astra Control die PVCs und die Ziel-App bei.</block>
-  <block id="a77683ae8edcb3cd1537700411834ab9" category="summary">Nutzen Sie die folgenden Beispiele, um eine Vorstellung davon zu erhalten, wie Sie Ihre Testausführungshaken strukturieren.</block>
   <block id="f1ec6389b6d19d3be02f29f4a7d29051" category="doc">Beispiele für Testausführungshaken</block>
-  <block id="3a93b0a9cf88ddc06d563489a2895c27" category="paragraph">Nutzen Sie die folgenden Beispiele, um eine Vorstellung davon zu erhalten, wie Sie Ihre Testausführungshaken strukturieren. Sie können diese Haken als Vorlagen oder als Testskripte verwenden.</block>
-  <block id="4080d94759fa38e6a6b1dba142b2c090" category="section-title">Einfaches Erfolgsbeispiel</block>
-  <block id="0633de588be1b9b7ef2ce544cc43b805" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in die Standardausgabe und Standardfehler schreibt.</block>
-  <block id="2140ca0b50b65cc33e13b1693e8f7d29" category="section-title">Einfaches Erfolgsbeispiel (Bash-Version)</block>
-  <block id="ef53d64aad9e1800233c6ff7ad7659a6" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in die Standardausgabe und Standardfehler schreibt, für bash geschrieben.</block>
-  <block id="d803bd21292822cc57f6cea1b26277a6" category="section-title">Einfaches Erfolgsbeispiel (zsh-Version)</block>
-  <block id="66b0025d5aab9045e3b45a4d66a48753" category="paragraph">Dies ist ein Beispiel für einen einfachen Haken, der erfolgreich ist und eine Nachricht in Standardausgabe und Standardfehler schreibt, geschrieben für Z Shell.</block>
-  <block id="404a19c311e695f744083ec2c8a6a1aa" category="section-title">Erfolg mit Argumenten Beispiel</block>
-  <block id="824760aa066fdf7d7264404530eab6de" category="paragraph">Das folgende Beispiel zeigt, wie Sie in einem Haken Aargliste verwenden können.</block>
-  <block id="82319328d67378fb8ea8de76b217a7b1" category="section-title">Beispiel für Haken vor dem Snapshot/nach dem Snapshot</block>
-  <block id="98fa2db3a9b66ee5684a718840275afc" category="paragraph">Das folgende Beispiel zeigt, wie dasselbe Skript sowohl für einen Pre-Snapshot als auch für einen Post-Snapshot-Haken verwendet werden kann.</block>
-  <block id="07feeb75b51e9098527fcce368e18ba4" category="section-title">Fehlerbeispiel</block>
-  <block id="76214508e53f6a5210da5d087deabd64" category="paragraph">Das folgende Beispiel zeigt, wie Sie Fehler in einem Haken handhaben können.</block>
-  <block id="3619ce0a3177781c10d45dcef727f469" category="section-title">Beispiel für ausführlichen Fehler</block>
-  <block id="e29a5c052b79db2027518d6f91a1bf51" category="paragraph">Das folgende Beispiel zeigt, wie Sie Fehler in einem Haken mit detaillierteren Protokollierung behandeln können.</block>
-  <block id="b1eef973caa0256ee30c734876bbea52" category="section-title">Fehler bei einem Beispiel für den Exit-Code</block>
-  <block id="72a1fa5b5d8898a40469febc542a9fb1" category="paragraph">Das folgende Beispiel zeigt, dass ein Haken mit einem Exit-Code ausfällt.</block>
-  <block id="19913f9a3a2b84a8e9235b0b3b542efb" category="section-title">Beispiel Erfolg nach Ausfall</block>
-  <block id="bb2f4bbf1bdeef5e734446fc84fd577d" category="paragraph">Das folgende Beispiel zeigt, dass bei der ersten Ausführung ein Haken versagt, der jedoch nach dem zweiten Lauf erfolgreich ist.</block>
   <block id="d4c0cb74693a3b84713651db5b9e59d2" category="summary">Entfernen Sie alle Applikationen oder Computing-Ressourcen, die Sie nicht mehr über Astra Control managen möchten.</block>
   <block id="e22a0ea89c99a70578a25d6819a17c5e" category="doc">Heben Sie das Management von Applikationen und Clustern auf</block>
   <block id="24609bce6cd2664d925ca0340ff14c6a" category="paragraph">Entfernen Sie alle Apps oder Cluster, die Sie nicht mehr über das Astra Control Center managen möchten.</block>
@@ -1350,7 +1304,6 @@
   <block id="a11ca2c2dd5144bf630dd5eb29b7cc67" category="list-text">Geben Sie ein Passwort ein, das den Anforderungen des Passworts entspricht.</block>
   <block id="57d4c802b66507e7e8b66d11f3a59a6f" category="list-text">Geben Sie das Kennwort zur Bestätigung erneut ein.</block>
   <block id="45e3b3a50e0542121cdf2766502b7b56" category="list-text">Wählen Sie *Passwort ändern*.</block>
-  <block id="90f1c6fc655d106b5040673f4fce5f99" category="section-title">Kennwort eines anderen Benutzers zurücksetzen</block>
   <block id="777944860c5bbcdb1b4a4a0a593efb52" category="paragraph">Wenn Ihr Konto über Berechtigungen für die Administrator- oder Eigentümerrolle verfügt, können Sie Passwörter für andere Benutzerkonten sowie für Ihre eigenen zurücksetzen. Wenn Sie ein Kennwort zurücksetzen, weisen Sie ein temporäres Kennwort zu, das der Benutzer bei der Anmeldung ändern muss.</block>
   <block id="db30d3c2fee806f0319b663d27edf75c" category="list-text">Wählen Sie die Dropdown-Liste *Aktionen* aus.</block>
   <block id="df429da64d721747277606b598df29c4" category="list-text">Wählen Sie *Passwort Zurücksetzen*.</block>
@@ -1845,7 +1798,6 @@
   <block id="85dd64e22968350ca681ba621d4bc560" category="list-text">Wählen Sie ein Skript aus, das Sie entfernen möchten, und wählen Sie das Menü in der Spalte *Aktionen* aus.</block>
   <block id="9dd5d4388456b71f9b71c1021d390f06" category="admonition">Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die Aktion *Löschen* nicht verfügbar. Um das Skript zu löschen, bearbeiten Sie zunächst die zugehörigen Testausführungshaken und ordnen Sie sie einem anderen Skript zu.</block>
   <block id="c45dea86b5befe190795d48755984936" category="section-title">Erstellen Sie einen benutzerdefinierten Testsuite-Haken</block>
-  <block id="accd1f6705376b7c94fe544977e50545" category="paragraph">Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <block ref="6d8239255f3b956e54f6aae8a56a0ae9" category="inline-link-macro-rx"></block> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.</block>
   <block id="88cf147ac90a429c61c32e7ab09e79bd" category="admonition">Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.</block>
   <block id="8418a36d2778041af8e3f737ec1644a7" category="list-text">Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.</block>
   <block id="646a0acc29f56871519ed10b81ce1989" category="list-text">Legen Sie im Bereich *Hook Details* fest, wann der Haken ausgeführt werden soll, indem Sie im Dropdown-Menü *Operation* einen Operationstyp auswählen.</block>
@@ -1880,18 +1832,13 @@
   <block id="78ce739c69215b7a8b54179394eea168" category="paragraph">Darüber hinaus können Sie Applikationen zur Vorbereitung auf das Disaster Recovery auf ein Remote-Cluster replizieren.</block>
   <block id="fe2011653552de71bf2a04defdef5e3d" category="section-title">Workflow für Applikationssicherung</block>
   <block id="9e3e52a15539d6b76c9af7b7c901f2dc" category="paragraph">Anhand des folgenden Beispielworkflows können Sie Ihre Apps schützen.</block>
-  <block id="22d2c2bc5f801a701ddbdef1d19abcb3" category="section-title">Sicherung aller Applikationen</block>
   <block id="cdb972c8ec0f0d2d064eee29da832b09" category="inline-link-macro">Erstellen Sie ein manuelles Backup aller Apps</block>
   <block id="bb9745866a03e99751c67559a4b5bbfc" category="paragraph">Um sicherzustellen, dass Ihre Apps sofort geschützt sind, <block ref="153c1de46633dd7b9ee4197b0f57d4e6" category="inline-link-macro-rx"></block>.</block>
-  <block id="fc728311492264f387b6d56bf7f401d9" category="section-title">Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie</block>
   <block id="67d8aac0ef877e89b323dda77c01cdc7" category="inline-link-macro">Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie</block>
   <block id="a6f3f1cac5047bfc8c8a549d7555afb4" category="paragraph">Zur Automatisierung zukünftiger Backups und Snapshots <block ref="be33481d5db8c6459d2a9f9986e47ba8" category="inline-link-macro-rx"></block>. Sie können beispielsweise mit wöchentlichen Backups und täglichen Snapshots beginnen und jeweils mit einer Monatsaufbewahrung beginnen. Für manuelle Backups und Snapshots wird dringend die Automatisierung von Backups und Snapshots mit einer Schutzrichtlinie empfohlen.</block>
-  <block id="44c76d6a0a4f1bde94eb2cd76b8d4eae" category="section-title">Passen Sie die Sicherungsrichtlinien an</block>
   <block id="2afcb2016ee556b04a072d6535bbab55" category="paragraph">Wenn Applikationen und ihre Nutzungsmuster sich ändern, passen Sie die Sicherungsrichtlinien nach Bedarf an, um einen bestmöglichen Schutz zu gewährleisten.</block>
-  <block id="e0a9a1ca749b026f1191e8980cfd9475" category="section-title">Replizieren von Applikationen in einem Remote-Cluster</block>
   <block id="87c77d08f8cc9ba015bc277bf63171ec" category="inline-link-macro">Replizierung von Applikationen</block>
   <block id="ed78458df917d6da9f19cca23d8468cd" category="paragraph"><block ref="c229e392652cddf73148e5c65f706c6d" category="inline-link-macro-rx"></block> Zu einem Remote-Cluster mit NetApp SnapMirror Technologie Astra Control repliziert Snapshots in einen Remote-Cluster und bietet damit asynchrone Disaster Recovery-Funktion.</block>
-  <block id="c4491e86699f3e74488527dd9f36c879" category="section-title">Stellen Sie im Notfall Ihre Applikationen mit dem neuesten Backup oder der neuesten Replizierung auf ein Remote-System wieder her</block>
   <block id="7ce9ebbb5de6892ca270cea878bd99d1" category="inline-link-macro">Wiederherstellung des aktuellen Backups</block>
   <block id="e11f531afbfddcb2e626779912560475" category="paragraph">Im Falle eines Datenverlustes sind Recoverys bis möglich <block ref="550aec8aa1d184571b143fbb368e4c54" category="inline-link-macro-rx"></block> Zuerst für jede Anwendung. Sie können dann den letzten Snapshot wiederherstellen (falls verfügbar). Sie können die Replikation zu einem Remote-System verwenden.</block>
   <block id="c8bc2d4843a862e6c92deaec60873d67" category="summary">Hier wird beschrieben, wie Sie das Astra Control Center und den Astra Control Center Operator entfernen.</block>
@@ -2053,9 +2000,6 @@
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">Geben Sie die verfügbaren Plug-ins-Binärdateien von NetApp Astra kubectl an und notieren Sie sich den Namen der für Ihr Betriebssystem und die CPU-Architektur erforderlichen Datei:</block>
   <block id="04663e125a4b7af87fb04b1c90f3981c" category="admonition">Die kubectl Plugin-Bibliothek ist Teil des tar-Bündels und wird in den Ordner extrahiert<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>.</block>
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">Verschieben Sie die richtige Binärdatei in den aktuellen Pfad, und benennen Sie sie in um<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
-  <block id="526e16124c7eb6f5947cd1751f820311" category="list-text">Wechseln Sie zum<block ref="1673448ee7064c989d02579c534f6b66" prefix=" " category="inline-code"></block> Aus dem tar-Bundle entnommenes Verzeichnis:</block>
-  <block id="c7556264a1988a2b92f66e12713a407c" category="list-text">Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie folgende Ersetzungen durch, bevor Sie den Befehl ausführen:</block>
-  <block id="e9484fc1507ea77c3a2885da70f0b7aa" category="list-text">Ersetzen Sie &lt;BUNDLE_FILE&gt; durch den Namen der Astra Control Bundle-Datei <block ref="04ac7257261c11a0d93b808ddb77d9a4" prefix="(" category="inline-code"></block>).</block>
   <block id="1fc880ef4f8b3cc45475542399bd1928" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; durch die URL des Docker Repositorys ersetzen, beispielsweise<block ref="2f83a38130745792f380ff2448ba7723" category="inline-link-rx"></block>.</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">Ersetzen Sie &lt;MY_REGISTRY_USER&gt; durch den Benutzernamen.</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">Ersetzen Sie &lt;MY_REGISTRY_TOKEN&gt; durch ein autorisiertes Token für die Registrierung.</block>
@@ -2266,7 +2210,6 @@
   <block id="b24ff57a65ef73f0fc117dd330a967f3" category="section-title">Installation und Konfiguration von Astra Control Center für Azure</block>
   <block id="7a06675f408aed2dabe52a3645059966" category="list-text">Stellen Sie in Ihrem OpenShift-Cluster sicher, dass sich alle Clusterbetreiber in einem ordnungsgemäßen Zustand befinden:</block>
   <block id="845e2368c3a6b9728a9fa15096c62bd0" category="list-text">Stellen Sie in Ihrem OpenShift-Cluster sicher, dass sich alle API-Services in einem ordnungsgemäßen Zustand befinden:</block>
-  <block id="60bf0b4c923a3385d93eb4121816891d" category="list-text">Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen Sie einen Teil durchführen <block ref="1787bdbf8a8938a728c4bed68c77105f" category="inline-link-macro-rx"></block> Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.</block>
   <block id="36c884b69a5d1e5a404eca027f6ca471" category="paragraph">Je nach Umgebung kann nach der Installation des Astra Control Center eine zusätzliche Konfiguration erforderlich sein:</block>
   <block id="747bf8100668838f9a411ea795df98d2" category="list-text"><block ref="747bf8100668838f9a411ea795df98d2" category="inline-link-macro-rx"></block></block>
   <block id="d0eb4126e7ac0ad8eceb118a01c4eb97" category="summary">Benutzerdefinierte Konfigurationen finden Sie in den Optionen des Astra Control Center Cluster CR, die Sie während der Implementierung verwenden können.</block>
@@ -2342,7 +2285,6 @@
   <block id="bc73322c3d32428ecdf621fe0171026e" category="section-title">Packen Sie das Paket aus</block>
   <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">Vergewissern Sie sich, dass das NetApp Astra kubectl-Plugin installiert ist</block>
   <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">Verwenden Sie den folgenden Befehl, um festzustellen, ob das Plug-in installiert ist:</block>
-  <block id="c67373faa5639b4ca6e32589cf11cd56" category="paragraph">Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen <block ref="90fc243007038370eb8af0bc519f22fe" category="inline-link-macro-rx"></block>.</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">Wenn Sie eine Registrierung verwenden, die eine Authentifizierung erfordert, ersetzen oder bearbeiten Sie die Standardzeile von<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> Mit folgenden Optionen:</block>
   <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">Ändern<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> Für das<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Bearbeiten der benutzerdefinierten Ressource des Astra Control Center (CR):</block>
@@ -2598,4 +2540,81 @@
   <block id="b8d4d634b190031290c70773522846be" category="paragraph">Während der Installation des Astra Control Center installiert der Astra Control Center-Operator eine benutzerdefinierte POD-Sicherheitsrichtlinie, A<block ref="bbbabdbe1b262f75d99d62880b953be1" prefix=" " category="inline-code"></block> Objekt und A<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Soll die Implementierung der Astra Control Center-Services im Astra Control Center Namespace unterstützen.</block>
   <block id="8513cb080cab78ccf96de84f5f78e0bb" category="paragraph">Während des Backups erstellt Astra Control Center eine dynamische POD-Sicherheitsrichtlinie, A<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> Objekt und A<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Objekt: Diese unterstützen den Backup-Prozess, der in einem separaten Namespace geschieht.</block>
   <block id="be8388c8f6217d1c42721f925d1fd7a9" category="paragraph">Wenn Sie einen Cluster verwalten, installiert Astra Control Center den netapp Monitoring Operator im Managed Cluster. Dieser Operator erstellt eine POD-Sicherheitsrichtlinie, A<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> Objekt und A<block ref="ec7eab019566cfca91934ab1e0073511" prefix=" " category="inline-code"></block> Implementieren von Telemetrieservices im Astra Control Center Namespace</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="section-title">Wie es weiter geht</block>
+  <block id="d59db7846bd10b6d60d21543df9faa9e" category="list-title">Was Sie benötigen</block>
+  <block id="a4da44ef0ecd9d3734b7e2c7ba1db457" category="list-text">Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:</block>
+  <block id="d5096c7b79dfe1069ab6cc6deca5f992" category="paragraph"><block ref="1c505200729f6188430504adf03e42f9" prefix="" category="inline-code"></block><block ref="c7dd43fbfc8e7f6b24b6d78aa8c0d7f1" prefix=" " category="inline-code"></block></block>
+  <block id="a5099f5631b11f07c52cbab5ff1c62db" category="list-text">Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> Befehl:</block>
+  <block id="75097903812737c4d2a13cc9b473b6f8" category="list-text">Ersetzen Sie &lt;BUNDLE_FILE&gt; durch den Namen der Astra Control Bundle-Datei <block ref="1c505200729f6188430504adf03e42f9" prefix="(" category="inline-code"></block>).</block>
+  <block id="06c2cea18679d64399783748fa367bdd" category="inline-image-macro">Eins</block>
+  <block id="13a0d74de4f994f2861da351c22e5549" category="list-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Kubernetes-Cluster-Anforderungen prüfen</block>
+  <block id="aada29daee1d64ed0fe907043855cb7e" category="inline-image-macro">Zwei</block>
+  <block id="6e6d8bfff1b16149f8c62cfee0d2f62e" category="list-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Laden Sie Astra Control Center herunter und installieren Sie es</block>
+  <block id="ca8a2087e5557e317599344687a57391" category="inline-image-macro">Drittens</block>
+  <block id="ba9e9d1eb144bbf0eb66ffe3fb01e03a" category="list-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Führen Sie einige erste Setup-Aufgaben aus</block>
+  <block id="981b8fcee42e1e726a67a2b9a98ea6e9" category="inline-image-macro">Vier</block>
+  <block id="9824425bd5418e5e140ee6b8561b8914" category="paragraph-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Nutzen Sie Das Astra Control Center</block>
+  <block id="e5d9de39f7ca1ba2637e5640af3ae8aa" category="inline-image-macro">Fünf</block>
+  <block id="4e661ed0899ae91f577701320636fabf" category="paragraph-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Fahren Sie mit dieser Schnellstartanleitung fort</block>
+  <block id="58eaebf972358f1cf03d386a4ade1a0f" category="section-title">Was kommt als Nächstes?</block>
+  <block id="9905787058ed1f891f5110340336c6f4" category="section-title">Was Sie für AWS benötigen</block>
+  <block id="60f26f17249a512292a5fb57e3431dea" category="section-title">Was wird für GCP benötigt</block>
+  <block id="e4f3253ab12e0c60faa03ce6ef1c9784" category="section-title">Was Sie für Azure benötigen</block>
+  <block id="541f75b678c457ef572002d605bf4537" category="paragraph">Nach Abschluss dieses Verfahrens müssen Sie zum Installationsvorgang zurückkehren, um den abzuschließen <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Um die erfolgreiche Installation zu überprüfen, und melden Sie sich an.</block>
+  <block id="805e6402de9821da73582c66cb02ba50" category="list-text">*Voraussetzungen für die Umwelt erfüllt*: <block ref="5a52cbd8843223f6ce9ceecb81c75e6c" category="inline-link-macro-rx"></block>.</block>
+  <block id="138ea3764228f5e7341fdfd2ab86eb9c" category="list-text">*Gesunde Cluster-Betreiber und API-Dienste*:</block>
+  <block id="b898f98923f32bea4889471220e01aba" category="list-text">*FQDN-Adresse*: Erhalten Sie eine FQDN-Adresse für Astra Control Center in Ihrem Rechenzentrum.</block>
+  <block id="7a49e1a0bc84ad5cadf3b7fad78e680c" category="list-text">*OpenShift Permissions*: Erhalten Sie die erforderlichen Berechtigungen und den Zugriff auf die Red hat OpenShift Container Platform, um die beschriebenen Installationsschritte durchzuführen.</block>
+  <block id="4c71df267c87cd2b3b5085729a31c399" category="list-text">*Cert-Manager konfiguriert*: Wenn bereits ein Cert-Manager im Cluster vorhanden ist, müssen Sie einige durchführen <block ref="7f9e8cec8531f8660dfaaf382da03535" category="inline-link-macro-rx"></block> Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.</block>
+  <block id="dc7c0458c369052b702ad6db4e0f5569" category="list-text">*Kubernetes Ingress-Controller*: Wenn Sie über einen Kubernetes Ingress-Controller verfügen, der externen Zugriff auf Services wie etwa den Lastausgleich in einem Cluster managt, müssen Sie ihn zur Verwendung mit Astra Control Center einrichten:</block>
+  <block id="060534066f9a22cabf451772f0daf58b" category="list-text">Erstellen Sie den Operator-Namespace:</block>
+  <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">Einrichtung abschließen</block>
+  <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> Für Ihren Ingress-Controller-Typ.</block>
+  <block id="e10b9da8362fecb065da69f3ade6cf7c" category="list-text">[[substep_image_local_Registry_Push]]Schieben Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> Befehl:</block>
+  <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Von der Red hat OpenShift-Webkonsole aus:</block>
+  <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">Suchen Sie nach und wählen Sie den Operator des NetApp Astra Control Center aus.</block>
+  <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="6f711eb57d6111094b5030c8f526d269" category="list-text">Aus Dem Red Hat Ecosystem Catalog:</block>
+  <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">Wählen Sie das NetApp Astra Control Center aus<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>.</block>
+  <block id="5698ddd18c8f6cab72a468c7cfa4eeec" category="paragraph"><block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ebba57f57d5e5b122328701846bed429" category="inline-image-macro">Bedienerseite des Astra Control Center</block>
+  <block id="c8d7734b1f32bc2769d028defe4768af" category="list-text">Wählen Sie in der Konsole auf der Registerkarte *Astra Control Center* des Astra Control Center-Bedieners die Option *AstraControlCenter erstellen* aus.<block ref="4b62ec811b7f534bf6133b7281cc1006" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Fügen Sie Etiketten für das Astra Control Center hinzu.</block>
+  <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">Aktivieren oder deaktivieren Sie Auto Support. Es wird empfohlen, die Auto Support-Funktion beizubehalten.</block>
+  <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Geben Sie den FQDN des Astra Control Centers oder die IP-Adresse ein. Kommen Sie nicht herein<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> Oder<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> Im Adressfeld.</block>
+  <block id="54fb7a05fbdd98f00caaf5eaa1a5becc" category="list-text">Geben Sie die Astra Control Center-Version ein, z. B. 22.04.1.</block>
+  <block id="dcfdd5754023d297c0d864d5eb1bf301" category="list-text">Wählen Sie eine Richtlinie zur Rückgewinnung von Volumes aus<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>,<block ref="6b2724e1fdbbcc2065b002943d831972" prefix=" " category="inline-code"></block>, Oder<block ref="f2a6c498fb90ee345d997f888fce3b18" prefix=" " category="inline-code"></block>. Der Standardwert ist<block ref="afece4245269582cb2f1009d4fb52047" prefix=" " category="inline-code"></block>.</block>
+  <block id="a650850a843a62d902c5720a572d392d" category="list-text">Wählen Sie den Eingangstyp aus:</block>
+  <block id="c122f0572e72207cecd5efd0f12fdf10" category="paragraph">Verwenden Sie diese Option, wenn Sie einen anderen Ingress-Controller verwenden oder Ihren eigenen Ingress-Controller verwenden möchten. Nach der Implementierung des Astra Control Center müssen Sie den konfigurieren <block ref="7d074c32e6c49929382498ad8c5637bd" category="inline-link-macro-rx"></block> Um Astra Control Center mit einer URL zu zeigen.</block>
+  <block id="48ef1dd5f5bfc32677c3fc047fb19110" category="admonition">Einzelheiten zum Servicetyp von „loadbalancer“ und Ingress finden Sie unter <block ref="f326683052260ae8ea69adae62a4336c" category="inline-link-macro-rx"></block>.</block>
+  <block id="a890b0561a490db953d8aa934f2612a2" category="list-text">Geben Sie in *Image Registry* Ihren lokalen Container Image Registry-Pfad ein. Kommen Sie nicht herein<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> Oder<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> Im Adressfeld.</block>
+  <block id="a652de3539170389d449c2c9109f940b" category="list-text">Wenn Sie eine Bildregistrierung verwenden, die eine Authentifizierung erfordert, geben Sie das Bildgeheimnis ein.</block>
+  <block id="412c5c06cc42607623120ae8f6ce48f9" category="inline-xref">Erstellen Sie ein Geheimnis auf dem Cluster</block>
+  <block id="24ac124fff17ff1632cecc7d31aacda4" category="admonition">Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, <block ref="fe63e1bce5791215a30c45526a4b8597" category="inline-xref-macro-rx"></block>.</block>
+  <block id="8d8abe07e5ed4b0dca006fa753e019b1" category="list-text">Stellen Sie die Standard-Storage-Klasse bereit.</block>
+  <block id="11325c490cd13a98d700159b54be4801" category="admonition">Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist.</block>
+  <block id="dc06cbbd59f888e4642096721734051c" category="inline-link">Diesem Abschnitt</block>
+  <block id="a3b6ac753c3ae677811e6300b886ca8a" category="admonition">Weitere Informationen zu CRD-Optionen finden Sie unter<block ref="16b9f9e9fbef5f13b27c8fa04d072d4c" category="inline-link-rx"></block>.</block>
+  <block id="c655ba9297ca1a15861d81d9de3419a2" category="list-text">Wählen Sie die YAML-Ansicht aus, um die ausgewählten Einstellungen zu überprüfen.</block>
+  <block id="4377bff523574a6a6552343a5585386b" category="section-title">Erstellen Sie einen Registrierungsschlüssel</block>
+  <block id="d963245b5fa2d61154278c1b2b8686a8" category="paragraph">Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, erstellen Sie im OpenShift-Cluster ein Geheimnis, und geben Sie den geheimen Namen in ein<block ref="9eca463036a902158489237df8eb93bf" prefix=" " category="inline-code"></block> Formularfeld.</block>
+  <block id="7ed5f25dbea8cfe8420af3c2205034ba" category="list-text">Erstellen Sie einen Namespace für den Astra Control Center-Betreiber:</block>
+  <block id="8d7dade639b832993874b6e94e53560a" category="list-text">Erstellen eines Geheimnisses in diesem Namespace:</block>
+  <block id="247048b761f645c17b335e075ed2882c" category="admonition">Astra Control unterstützt nur die Geheimnisse der Docker-Registrierung.</block>
+  <block id="99453eb5ea67532cb71dffba08d350b6" category="inline-xref">Das Feld AstraControlCenter-Formular erstellen</block>
+  <block id="afb684d3bd4af4da101b5e78eb0b47c6" category="list-text">Füllen Sie die übrigen Felder in aus <block ref="243363764a8adb65b934b31027e60498" category="inline-xref-macro-rx"></block>.</block>
+  <block id="e20f9875b736f5d534a7c14be355eb06" category="paragraph">Füllen Sie die aus <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Um zu überprüfen, ob Astra Control Center erfolgreich installiert wurde, richten Sie einen Ingress-Controller ein (optional), und melden Sie sich an der UI an. Zusätzlich müssen Sie durchführen <block ref="76156c33c6c1487a578aad8446a04b02" category="inline-link-macro-rx"></block> Nach Abschluss der Installation.</block>
+  <block id="cfe9e43a4e29105f9f24bd0ed639721b" category="paragraph-title">Allgemein (Standard)</block>
+  <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">Bevor Sie beginnen</block>
+  <block id="52c456ead6bc96bfe1643dfd233cbf2c" category="paragraph">Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen <block ref="fbbc714d1fb27025d6c64aea6ddcaf11" category="inline-link-macro-rx"></block>.</block>
+  <block id="d94e29dda4626ec2be6ac4f06224f6cf" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Sicherung aller Applikationen</block>
+  <block id="596a8ca466f62d03c2dfc376a65cac71" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie</block>
+  <block id="db0ae7eb707500904a523f5186eb92f0" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Passen Sie die Sicherungsrichtlinien an</block>
+  <block id="e954bf1cb1b54437e70f5d5704a01657" category="section-title"><block ref="beadfa85a2fdca06b91edc1131c603e6" category="inline-image-macro-rx" type="image"></block> Replizieren von Applikationen in einem Remote-Cluster</block>
+  <block id="8ab08c3e81a1ee43c6b03a22403291db" category="section-title"><block ref="99e8b2f00e172bfcff96afdce69907bc" category="inline-image-macro-rx" type="image"></block> Stellen Sie im Notfall Ihre Applikationen mit dem neuesten Backup oder der neuesten Replizierung auf ein Remote-System wieder her</block>
+  <block id="0370124d48bfc5af2def19c48f433283" category="inline-link">NetApp Verda GitHub Projekt</block>
+  <block id="a59e4fa5cc01a3a4bdebbff4cec60b47" category="paragraph">Besuchen Sie das<block ref="84d9961ef5a89731849bc2055780d0b6" category="inline-link-rx"></block> Zum Herunterladen von Real-Execution-Hooks für beliebte Apps wie Apache Cassandra und Elasticsearch. Sie können auch Beispiele sehen und Ideen für die Strukturierung Ihrer eigenen benutzerdefinierten Execution Hooks erhalten.</block>
+  <block id="1e24416e12dc76c10b1a5d91e4001b23" category="paragraph">Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <block ref="17e166b6ef6242446312ff693caa559b" category="inline-xref-macro-rx"></block> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.</block>
+  <block id="9ad3989601b59e755170866a5329554c" category="list-text"><block ref="9ad3989601b59e755170866a5329554c" category="inline-link-rx"></block></block>
+  <block id="53c5fac0ba78b08ca3f0a270b746c5d2" category="section-title">Kennwort eines anderen Benutzers zurücksetzen</block>
 </blocks>

@@ -37,7 +37,8 @@ Fügen Sie das private TLS-Zertifikat für den LDAP-Server hinzu, damit sich Ast
 
 Sie können die LDAP-Authentifizierung aktivieren und die Verbindung zwischen Astra Control und dem Remote LDAP-Server konfigurieren.
 
-Wenn Sie LDAPS verwenden möchten, stellen Sie sicher, dass das private TLS-Zertifikat für den LDAP-Server im Astra Control Center installiert ist, damit sich Astra Control Center mit dem LDAP-Server authentifizieren kann. Siehe  a certificate for LDAPS authentication Weitere Anweisungen.
+.Was Sie benötigen
+Wenn Sie LDAPS verwenden möchten, stellen Sie sicher, dass das private TLS-Zertifikat für den LDAP-Server im Astra Control Center installiert ist, damit sich Astra Control Center mit dem LDAP-Server authentifizieren kann. Siehe <<Fügen Sie ein Zertifikat für die LDAPS-Authentifizierung hinzu>> Weitere Anweisungen.
 
 .Schritte
 . Gehen Sie zu *Konto > Verbindungen*.
@@ -58,6 +59,7 @@ NOTE: Verwenden Sie unbedingt den richtigen Basisnamen (DN) und einen entspreche
 . Wählen Sie *Senden*.
 
 
+.Ergebnis
 Der Fensterstatus *Remote-Authentifizierung* wechselt zu *Ausstehend* und dann zu *verbunden*, wenn die Verbindung zum LDAP-Server hergestellt wird.
 
 
@@ -75,6 +77,7 @@ NOTE: Wenn Sie eine Verbindung zu einem LDAP-Server deaktivieren, werden alle Ei
 . Wählen Sie *Deaktivieren*.
 
 
+.Ergebnis
 Der Status des Fensterbereichs *Remote Authentication* wechselt zu *deaktivierte*. Alle Einstellungen für die Remote-Authentifizierung, Remote-Benutzer und Remote-Gruppen bleiben erhalten, und Sie können die Verbindung jederzeit wieder aktivieren.
 
 
@@ -84,7 +87,7 @@ Der Status des Fensterbereichs *Remote Authentication* wechselt zu *deaktivierte
 Wenn Sie die Verbindung zum LDAP-Server deaktiviert haben oder sich der Fensterbereich *Remote Authentication* im Status „Verbindungsfehler“ befindet, können Sie die Konfigurationseinstellungen bearbeiten.
 
 
-NOTE: Sie können die URL oder IP-Adresse des LDAP-Servers nicht bearbeiten, wenn sich der Bereich *Remote Authentication* im Status „deaktiviert“ befindet. Sie müssen  remote authentication Zunächst.
+NOTE: Sie können die URL oder IP-Adresse des LDAP-Servers nicht bearbeiten, wenn sich der Bereich *Remote Authentication* im Status „deaktiviert“ befindet. Sie müssen <<Trennen Sie die Remote-Authentifizierung>> Zunächst.
 
 .Schritte
 . Gehen Sie zu *Konto > Verbindungen*.
@@ -108,4 +111,5 @@ CAUTION: Wenn Sie die Verbindung zum LDAP-Server trennen, werden alle Konfigurat
 . Wählen Sie *Trennen*.
 
 
+.Ergebnis
 Der Status des Fensterbereichs *Remote Authentication* wechselt zu *nicht verbunden*. Remote-Authentifizierungseinstellungen, Remote-Benutzer und Remote-Gruppen werden aus Astra Control entfernt.

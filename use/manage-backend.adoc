@@ -19,9 +19,9 @@ Eine Anleitung zum Managen von Storage-Back-Ends mithilfe der Astra Control API 
 Sie können die folgenden Aufgaben zur Verwaltung eines Storage-Backends ausführen:
 
 * link:../get-started/setup_overview.html#add-a-storage-backend["Fügen Sie ein Storage-Back-End hinzu"]
-*  storage backend details
-*  a storage backend
-*  a storage backend
+* <<Details zum Storage-Back-End>>
+* <<Unmanagement eines Storage-Backends>>
+* <<Entfernen Sie ein Speicher-Back-End>>
 
 
 
@@ -86,7 +86,7 @@ Sie können das Backend verwalten.
 
 Sie können ein nicht mehr verwendenden Storage-Back-End entfernen. Nutzen Sie dies, um Ihre Konfiguration auf dem neuesten Stand zu halten.
 
-.Was Sie und#8217;ll benötigen
+.Was Sie benötigen
 * Stellen Sie sicher, dass das Storage-Back-End nicht gemanagt wird.
 * Stellen Sie sicher, dass dem Cluster keine Volumes im Speicher-Backend zugewiesen sind.
 
