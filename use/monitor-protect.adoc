@@ -114,7 +114,7 @@ Sie erhalten die Mandanten-URL, wenn Sie die Cloud Insights-Lizenz erhalten. Wen
 image:cloud-insights-api.png["Zeigt die Seite zur Generierung des Cloud Insights-API-Tokens."]
 
 .. Kopieren Sie die Taste * nur Lesen*. Sie müssen es in das Fenster Astra Control Center einfügen, um die Cloud Insights-Verbindung zu aktivieren. Wählen Sie für die Hauptberechtigungen Lese-API-Zugriffstoken die Option Assets, Alerts, Acquisition Unit und Data Collection aus.
-.. Kopieren Sie die Taste *Lesen/Schreiben*. Sie müssen es in das Astra Control Center *Connect Cloud Insights* Fenster einfügen. Für die Hauptberechtigungen Lese-/Schreibzugriff auf API-Zugriffstoken wählen Sie: Assets, Datenaufnahme, Log-Ingestion, Acquisition Unit, Und Datenerfassung.
+.. Kopieren Sie die Taste *Lesen/Schreiben*. Sie müssen es in das Astra Control Center *Connect Cloud Insights* Fenster einfügen. Wählen Sie für die Hauptberechtigungen Lese-/Schreib-API-Zugriffstoken die Option Datenaufnahme, Protokollaufnahme, Erfassungseinheit und Datenerfassung aus.
 +
 
 NOTE: Wir empfehlen Ihnen, einen *Read Only*-Schlüssel und einen *Read/Write*-Schlüssel zu generieren und nicht den gleichen Schlüssel für beide Zwecke zu verwenden. Standardmäßig ist der Ablauf des Tokens auf ein Jahr festgelegt. Wir empfehlen, dass Sie die Standardauswahl beibehalten, um dem Token die maximale Dauer zu geben, bevor es abläuft. Wenn Ihr Token abläuft, wird die Telemetrie angehalten.
