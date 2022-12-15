@@ -45,7 +45,10 @@ Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes b
 
 [NOTE]
 ====
-Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.
+* Wenn Sie einen Testsuite-Haken für eine Anwendung erstellen, die an einem Istio-Service-Netz teilnimmt, stellen Sie sicher, dass der Haken gegen den ursprünglichen Anwendungscontainer und nicht den Service-Mesh-Container ausgeführt wird. Sie können Istio Service-Mesh-Container ausschließen, indem Sie einen Filter-Regex auf jeden Ausführunghaken anwenden, der für Anwendungen ausgeführt wird, die ein Istio-Service-Mesh verwenden.
+* Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt.
+* Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.
+
 
 ====
 
