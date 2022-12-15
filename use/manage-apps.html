@@ -594,29 +594,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/de-de/astra-control-center/pdfs/sidebar/Anwendungsausführungshaken_verwalten.pdf" 
-            
-          >
-            <img src="/de-de/astra-control-center/images/pdf.png" alt="" width="16" height="16"/>
-            Anwendungsausführungshaken verwalten
-          </a>
-          
-
-
-        </li>
-      </ul>
-    
-
-  
-
 
         </li>
       </ul>
@@ -1061,20 +1038,11 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Anwendungsausführungshaken verwalten"
-      data-li-level="3" 
-      class="subfolders "
-    ><a href="/de-de/astra-control-center/use/execution-hooks.html">
-        <div class="na-navbar-padding"> Anwendungsausführungshaken verwalten</div>
-      </a>
-      <ul style="display: none;">
-        <li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Beispiele für Testausführungshaken"
-      data-li-level="4#" 
+      data-li-level="3#" 
       class=" "
-    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hook-examples.html">
-        Beispiele für Testausführungshaken
-      </a></li></ul></li></ul></li><li 
+    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hooks.html">
+        Anwendungsausführungshaken verwalten
+      </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Monitoring des Applikations- und Cluster-Systemzustands"
       data-li-level="2" 
@@ -1331,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-30 23:11:11 +0000">11/30/2022</time>
+    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
     
   
 
@@ -1495,7 +1463,7 @@ Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für ei
 <h2 id="definieren-von-apps">Definieren von Apps</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Nachdem Astra Control Namespaces auf den Clustern ermittelt hat, können Sie Anwendungen definieren, die Sie managen möchten. Sie können wählen  resources to manage as an app,Verwalten einer App, die einen oder mehrere Namespaces umfasst Oder  a namespace to manage as an app,Management eines gesamten Namespace als einzelne Applikation. All dies kommt auf die Granularität zurück, die Sie für Datensicherungsvorgänge benötigen.</p>
+<p>Nachdem Astra Control Namespaces auf den Clustern ermittelt hat, können Sie Anwendungen definieren, die Sie managen möchten. Sie können wählen <a href="#Definition von Ressourcen">die als Applikation gemanagt werden sollen,Verwalten einer App, die einen oder mehrere Namespaces umfasst</a> Oder <a href="#Definieren Sie einen Namespace">der als App gemanagt werden soll,Management eines gesamten Namespace als einzelne Applikation</a>. All dies kommt auf die Granularität zurück, die Sie für Datensicherungsvorgänge benötigen.</p>
 </div>
 <div class="paragraph">
 <p>Astra Control ermöglicht es Ihnen zwar, beide Ebenen der Hierarchie (den Namespace und die Apps in diesem Namespace oder den überspannenden Namespaces) separat zu verwalten, aber die beste Vorgehensweise ist es, eine oder andere zu wählen. Aktionen, die Sie in Astra Control nehmen, können fehlschlagen, wenn die Aktionen gleichzeitig sowohl auf Namespace- als auch auf App-Ebene stattfinden.</p>
@@ -1513,13 +1481,13 @@ Beispielsweise könnten Sie eine Backup-Policy für „maria“ setzen, die übe
 </table>
 </div>
 <div class="ulist">
-<div class="title">Was Sie und#8217;ll benötigen</div>
+<div class="title">Was Sie benötigen</div>
 <ul>
 <li>
 <p>Astra Control ist ein Kubernetes Cluster.</p>
 </li>
 <li>
-<p>Eine oder mehrere installierte Applikationen auf dem Cluster.  app installation methods,Weitere Informationen zu unterstützten App-Installationsmethoden.</p>
+<p>Eine oder mehrere installierte Applikationen auf dem Cluster. <a href="#unterstützte-installationsmethoden-für-anwendungen">Weitere Informationen zu unterstützten App-Installationsmethoden</a>.</p>
 </li>
 <li>
 <p>Ein oder mehrere aktive Pods.</p>
@@ -1562,10 +1530,10 @@ Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten zur I
 <div class="title">Optionen für Applikationsmanagement</div>
 <ul>
 <li>
-<p>resources to manage as an app</p>
+<p><a href="#Definition von Ressourcen">die als Applikation gemanagt werden sollen</a></p>
 </li>
 <li>
-<p>a namespace to manage as an app</p>
+<p><a href="#Definieren Sie einen Namespace">der als App gemanagt werden soll</a></p>
 </li>
 </ul>
 </div>
@@ -1584,7 +1552,7 @@ Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten zur I
 <img src="/us-en/astra-control-center/images/warning.svg" alt="Warnung">
 </td>
 <td class="content">
-Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen.  Separate Protection Policy for different releases,Lesen Sie mehr in einem Beispiel.
+Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen. <a href="#beispiel-separate-sicherungsrichtlinie-für-verschiedene-versionen">Lesen Sie mehr in einem Beispiel.</a>
 </td>
 </tr>
 </table>
@@ -1803,7 +1771,7 @@ Um Details zu einer bestimmten App anzuzeigen, wählen Sie den App-Namen aus.
 <img src="/us-en/astra-control-center/images/tip.svg" alt="Hinweis">
 </td>
 <td class="content">
-Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche <strong>Aktionen</strong> in der linken oberen Ecke aus und wählen Sie <strong>als Anwendung definieren</strong> aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Multi-Namespace-Anwendungen finden Sie unter  resources to manage as an app.
+Wenn Sie mehrere Anwendungen definieren möchten, wählen Sie in der Namensliste die Schaltfläche <strong>Aktionen</strong> in der linken oberen Ecke aus und wählen Sie <strong>als Anwendung definieren</strong> aus. Damit werden mehrere einzelne Anwendungen in ihren einzelnen Namespaces definiert. Informationen zu Multi-Namespace-Anwendungen finden Sie unter <a href="#Definition von Ressourcen">die als Applikation gemanagt werden sollen</a>.
 </td>
 </tr>
 </table>

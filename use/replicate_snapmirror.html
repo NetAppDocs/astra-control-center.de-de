@@ -594,29 +594,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/de-de/astra-control-center/pdfs/sidebar/Anwendungsausführungshaken_verwalten.pdf" 
-            
-          >
-            <img src="/de-de/astra-control-center/images/pdf.png" alt="" width="16" height="16"/>
-            Anwendungsausführungshaken verwalten
-          </a>
-          
-
-
-        </li>
-      </ul>
-    
-
-  
-
 
         </li>
       </ul>
@@ -1061,20 +1038,11 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Anwendungsausführungshaken verwalten"
-      data-li-level="3" 
-      class="subfolders "
-    ><a href="/de-de/astra-control-center/use/execution-hooks.html">
-        <div class="na-navbar-padding"> Anwendungsausführungshaken verwalten</div>
-      </a>
-      <ul style="display: none;">
-        <li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Beispiele für Testausführungshaken"
-      data-li-level="4#" 
+      data-li-level="3#" 
       class=" "
-    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hook-examples.html">
-        Beispiele für Testausführungshaken
-      </a></li></ul></li></ul></li><li 
+    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hooks.html">
+        Anwendungsausführungshaken verwalten
+      </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Monitoring des Applikations- und Cluster-Systemzustands"
       data-li-level="2" 
@@ -1331,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-22 17:40:50 +0000">11/22/2022</time>
+    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
     
   
 
@@ -1389,22 +1357,22 @@ Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster oder S
 <div class="ulist">
 <ul>
 <li>
-<p>up a replication relationship</p>
+<p><a href="#richten-sie-eine-replikationsbeziehung-ein">Richten Sie eine Replikationsbeziehung ein</a></p>
 </li>
 <li>
-<p>a replicated app online on the destination cluster (fail over)</p>
+<p><a href="#online-betrieb-einer-replizierten-app-auf-dem-ziel-cluster-failover">Online-Betrieb einer replizierten App auf dem Ziel-Cluster (Failover)</a></p>
 </li>
 <li>
-<p>a failed over replication</p>
+<p><a href="#resynchronisierung-einer-fehlgeschlagenen-überreplikation">Resynchronisierung einer fehlgeschlagenen Überreplikation</a></p>
 </li>
 <li>
-<p>application replication</p>
+<p><a href="#replizierung-der-applikation-wird-rückgängig-gemacht">Replizierung der Applikation wird rückgängig gemacht</a></p>
 </li>
 <li>
-<p>back applications to the original source cluster</p>
+<p><a href="#führen-sie-ein-failback-von-anwendungen-auf-das-ursprüngliche-quellcluster-durch">Führen Sie ein Failback von Anwendungen auf das ursprüngliche Quellcluster durch</a></p>
 </li>
 <li>
-<p>an application replication relationship</p>
+<p><a href="#löschen-einer-replikationsbeziehung-für-anwendungen">Löschen einer Replikationsbeziehung für Anwendungen</a></p>
 </li>
 </ul>
 </div>
@@ -1563,6 +1531,7 @@ Zunächst wird der Status „App-Mirror“ angezeigt, bevor der erste Zeitplan s
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Dadurch wird die Replikationsbeziehung erstellt.</p>
 </div>
 <div class="paragraph">
@@ -1619,6 +1588,7 @@ Zunächst wird der Status „App-Mirror“ angezeigt, bevor der erste Zeitplan s
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Die folgenden Aktionen ergeben sich aus dem Failover-Verfahren:</p>
 </div>
 <div class="ulist">
@@ -1747,6 +1717,7 @@ Wählen Sie die Quelle sorgfältig neu synchronisieren, da die Daten auf dem Zie
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Die folgenden Aktionen sind auf das Ergebnis der umgekehrten Replikation zurückzuführen:</p>
 </div>
 <div class="ulist">
@@ -1825,6 +1796,7 @@ Wählen Sie die Quelle sorgfältig neu synchronisieren, da die Daten auf dem Zie
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Dies kombiniert die Ergebnisse aus den „Resync“- und „umgekehrten Beziehungs“-Vorgängen, um die Applikation auf dem ursprünglichen Quell-Cluster online zu schalten und die Replizierung wieder auf das ursprüngliche Ziel-Cluster zu übertragen.</p>
 </div>
 </div>
@@ -1850,6 +1822,7 @@ Wählen Sie die Quelle sorgfältig neu synchronisieren, da die Daten auf dem Zie
 </ol>
 </div>
 <div class="paragraph">
+<div class="title">Ergebnis</div>
 <p>Die folgenden Aktionen treten beim Löschen einer Replikationsbeziehung auf:</p>
 </div>
 <div class="ulist">

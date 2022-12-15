@@ -592,29 +592,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/de-de/astra-control-center/pdfs/sidebar/Anwendungsausführungshaken_verwalten.pdf" 
-            
-          >
-            <img src="/de-de/astra-control-center/images/pdf.png" alt="" width="16" height="16"/>
-            Anwendungsausführungshaken verwalten
-          </a>
-          
-
-
-        </li>
-      </ul>
-    
-
-  
-
 
         </li>
       </ul>
@@ -1061,20 +1038,11 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Anwendungsausführungshaken verwalten"
-      data-li-level="3" 
-      class="subfolders "
-    ><a href="/de-de/astra-control-center/use/execution-hooks.html">
-        <div class="na-navbar-padding"> Anwendungsausführungshaken verwalten</div>
-      </a>
-      <ul style="display: none;">
-        <li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Beispiele für Testausführungshaken"
-      data-li-level="4#" 
+      data-li-level="3#" 
       class=" "
-    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hook-examples.html">
-        Beispiele für Testausführungshaken
-      </a></li></ul></li></ul></li><li 
+    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hooks.html">
+        Anwendungsausführungshaken verwalten
+      </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Monitoring des Applikations- und Cluster-Systemzustands"
       data-li-level="2" 
@@ -1331,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-28 23:51:24 +0000">11/28/2022</time>
+    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
     
   
 
@@ -1347,7 +1315,7 @@
 <p>Laden Sie zum Upgrade des Astra Control Center das Installationspaket von der NetApp Support Site herunter, und füllen Sie die folgenden Anweisungen aus. Mit diesem Verfahren können Sie das Astra Control Center in internetverbundenen oder luftgekapderten Umgebungen aktualisieren.</p>
 </div>
 <div class="ulist">
-<div class="title">Was Sie und#8217;ll benötigen</div>
+<div class="title">Was Sie benötigen</div>
 <ul>
 <li>
 <p>Bevor Sie ein Upgrade durchführen, lesen Sie <a href="../get-started/requirements.html#operational-environment-requirements" target="_blank" rel="noopener">"Anforderungen an die Betriebsumgebung"</a> Damit Ihre Umgebung die Mindestanforderungen für die Implementierung von Astra Control Center erfüllt. Ihre Umgebung sollte Folgendes haben:</p>
@@ -1417,27 +1385,28 @@ Sie müssen ein Upgrade auf Astra Trident 22.10 * VOR* auf Kubernetes 1.25 durch
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Über diese Aufgabe</div>
 <p>Der Astra Control Center Upgrade-Prozess führt Sie durch die folgenden grundlegenden Schritte:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>the Astra Control Center bundle</p>
+<p><a href="#laden-sie-das-astra-control-center-bundle-herunter">Laden Sie das Astra Control Center Bundle herunter</a></p>
 </li>
 <li>
-<p>the bundle</p>
+<p><a href="#packen-sie-das-paket-aus">Packen Sie das Paket aus</a></p>
 </li>
 <li>
-<p>the images to your local registry</p>
+<p><a href="#fügen-sie-die-bilder-ihrer-lokalen-registrierung-hinzu">Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu</a></p>
 </li>
 <li>
-<p>the updated Astra Control Center operator</p>
+<p><a href="#installieren-sie-den-aktualisierten-astra-control-center-operator">Installieren Sie den aktualisierten Astra Control Center-Operator</a></p>
 </li>
 <li>
-<p>Astra Control Center</p>
+<p><a href="#upgrade-astra-control-center">Upgrade Astra Control Center</a></p>
 </li>
 <li>
-<p>system status</p>
+<p><a href="#überprüfen-sie-den-systemstatus">Überprüfen Sie den Systemstatus</a></p>
 </li>
 </ul>
 </div>
@@ -1523,7 +1492,7 @@ Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups un
 </ol>
 </div>
 <div class="paragraph">
-<p>Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen <a href="../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin">"Anweisungen"</a>.</p>
+<p>Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen <a href="../get-started/install_acc.html#install-the-netapp-astra-kubectl-plugin" target="_blank" rel="noopener">"Anweisungen"</a>.</p>
 </div>
 </div>
 </div>
@@ -1545,26 +1514,18 @@ Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups un
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Wechseln Sie zum <code>acc</code> Aus dem tar-Bundle entnommenes Verzeichnis:</p>
+<p>Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:</p>
 <div class="paragraph">
-<p>Beispiel:</p>
+<p><code>acc.manifest.bundle.yaml</code><br>
+<code>acc/</code></p>
 </div>
 </li>
-</ol>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>cd ../acc</pre>
-</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
 <li>
-<p>Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie folgende Ersetzungen durch, bevor Sie den Befehl ausführen:</p>
+<p>Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen <code>push-images</code> Befehl:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Ersetzen Sie &lt;BUNDLE_FILE&gt; durch den Namen der Astra Control Bundle-Datei (<code>acc.manifest.yaml</code>).</p>
+<p>Ersetzen Sie &lt;BUNDLE_FILE&gt; durch den Namen der Astra Control Bundle-Datei (<code>acc.manifest.bundle.yaml</code>).</p>
 </li>
 <li>
 <p>&lt;MY_FULL_REGISTRY_PATH&gt; durch die URL des Docker Repositorys ersetzen, beispielsweise <a href="https://exampledownloads.jfrog.io/docker-astra-control/v1/" class="bare">https://exampledownloads.jfrog.io/docker-astra-control/v1/</a>.</p>
@@ -1593,6 +1554,13 @@ Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups un
 <div class="olist arabic">
 <ol class="arabic">
 <li>
+<p>Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:</p>
+<div class="paragraph">
+<p><code>acc.manifest.bundle.yaml</code><br>
+<code>acc/</code></p>
+</div>
+</li>
+<li>
 <p>Melden Sie sich bei Ihrer Registrierung an:</p>
 <div class="listingblock">
 <div class="content">
@@ -1604,13 +1572,7 @@ Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups un
 <p>Führen Sie das folgende Skript aus und machen Sie die Substitution &lt;YOUR_REGISTRY&gt; wie in den Kommentaren angegeben:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console"># You need to be at the root of the tarball.
-# You should see these files to confirm correct location:
-#   acc.manifest.yaml
-#   acc/
-
-# Replace &lt;YOUR_REGISTRY&gt; with your own registry (e.g registry.customer.com or registry.customer.com/testing, etc..)
-export REGISTRY=&lt;YOUR_REGISTRY&gt;
+<pre class="highlight"><code class="language-console" data-lang="console">export REGISTRY=&lt;YOUR_REGISTRY&gt;
 export PACKAGENAME=acc
 export PACKAGEVERSION=22.11.0-82
 export DIRECTORYNAME=acc
@@ -1670,10 +1632,10 @@ done</code></pre>
 </div>
 </li>
 <li>
-<p>Ändern <code>[your_registry_path]</code> Für das <code>kube-rbac-proxy</code> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben  the images to your local registry,Vorheriger Schritt.</p>
+<p>Ändern <code>[your_registry_path]</code> Für das <code>kube-rbac-proxy</code> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <a href="#fügen-sie-die-bilder-ihrer-lokalen-registrierung-hinzu">Vorheriger Schritt</a>.</p>
 </li>
 <li>
-<p>Ändern <code>[your_registry_path]</code> Für das <code>acc-operator</code> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben  the images to your local registry,Vorheriger Schritt.</p>
+<p>Ändern <code>[your_registry_path]</code> Für das <code>acc-operator</code> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <a href="#fügen-sie-die-bilder-ihrer-lokalen-registrierung-hinzu">Vorheriger Schritt</a>.</p>
 </li>
 <li>
 <p>Fügen Sie dem die folgenden Werte hinzu <code>env</code> Abschnitt:</p>
@@ -1821,7 +1783,7 @@ deployment.apps/acc-operator-controller-manager configured</pre>
 </div>
 </li>
 <li>
-<p>Überprüfen Sie, ob Ihr Image-Registrierungspfad mit dem von Ihnen gedrückten Registrierungspfad übereinstimmt  the images to your local registry,Vorheriger Schritt. Aktualisierung <code>imageRegistry</code> Innerhalb von <code>Spec</code> Wenn sich die Registrierung seit Ihrer letzten Installation geändert hat.</p>
+<p>Überprüfen Sie, ob Ihr Image-Registrierungspfad mit dem von Ihnen gedrückten Registrierungspfad übereinstimmt <a href="#fügen-sie-die-bilder-ihrer-lokalen-registrierung-hinzu">Vorheriger Schritt</a>. Aktualisierung <code>imageRegistry</code> Innerhalb von <code>Spec</code> Wenn sich die Registrierung seit Ihrer letzten Installation geändert hat.</p>
 <div class="listingblock">
 <div class="content">
 <pre>  imageRegistry:

@@ -594,29 +594,6 @@
 
 
 
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/de-de/astra-control-center/pdfs/sidebar/Anwendungsausführungshaken_verwalten.pdf" 
-            
-          >
-            <img src="/de-de/astra-control-center/images/pdf.png" alt="" width="16" height="16"/>
-            Anwendungsausführungshaken verwalten
-          </a>
-          
-
-
-        </li>
-      </ul>
-    
-
-  
-
 
         </li>
       </ul>
@@ -1061,20 +1038,11 @@
       </a></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Anwendungsausführungshaken verwalten"
-      data-li-level="3" 
-      class="subfolders "
-    ><a href="/de-de/astra-control-center/use/execution-hooks.html">
-        <div class="na-navbar-padding"> Anwendungsausführungshaken verwalten</div>
-      </a>
-      <ul style="display: none;">
-        <li 
-      data-pdf-exists="true" 
-      data-pdf-filename="Beispiele für Testausführungshaken"
-      data-li-level="4#" 
+      data-li-level="3#" 
       class=" "
-    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hook-examples.html">
-        Beispiele für Testausführungshaken
-      </a></li></ul></li></ul></li><li 
+    ><a class="na-navbar-padding" href="/de-de/astra-control-center/use/execution-hooks.html">
+        Anwendungsausführungshaken verwalten
+      </a></li></ul></li><li 
       data-pdf-exists="true" 
       data-pdf-filename="Monitoring des Applikations- und Cluster-Systemzustands"
       data-li-level="2" 
@@ -1331,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-22 17:40:50 +0000">11/22/2022</time>
+    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
     
   
 
@@ -1350,10 +1318,10 @@
 <div class="title">Einschränkungen beim Cluster-Management</div>
 <ul>
 <li>
-<p>same cluster cannot be managed by two Astra Control Center instances</p>
+<p><a href="#derselbe-cluster-kann-nicht-von-zwei-astra-control-center-instanzen-gemanagt-werden">Derselbe Cluster kann nicht von zwei Astra Control Center Instanzen gemanagt werden</a></p>
 </li>
 <li>
-<p>Control Center cannot manage two identically named clusters</p>
+<p><a href="#astra-control-center-kann-nicht-zwei-identisch-benannte-cluster-managen">Astra Control Center kann nicht zwei identisch benannte Cluster managen</a></p>
 </li>
 </ul>
 </div>
@@ -1361,10 +1329,10 @@
 <div class="title">Einschränkungen bei der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC</div>
 <ul>
 <li>
-<p>user with namespace RBAC constraints can add and unmanage a cluster</p>
+<p><a href="#benutzer-mit-rollenbasierten-bedingungen-für-die-namespace-zugriffssteuerung-können-ein-cluster-hinzufügen-und-aus-dem-management-wieder-aufheben">Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben</a></p>
 </li>
 <li>
-<p>member with namespace constraints cannot access the cloned or restored apps until admin adds the namespace to the constraint</p>
+<p><a href="#Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen">bis der Administrator den Namespace zu der Bedingung hinzufügt</a></p>
 </li>
 </ul>
 </div>
@@ -1372,22 +1340,22 @@
 <div class="title">Einschränkungen beim Applikationsmanagement</div>
 <ul>
 <li>
-<p>applications in a single namespace cannot be restored collectively to a different namespace</p>
+<p><a href="#mehrere-applikationen-in-einem-einzelnen-namespace-können-nicht-zusammen-in-einem-anderen-namespace-wiederhergestellt-werden">Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden</a></p>
 </li>
 <li>
-<p>Control does not automatically assign default buckets for cloud instances</p>
+<p><a href="#astra-control-weist-nicht-automatisch-standard-buckets-für-cloud-instanzen-zu">Astra Control weist nicht automatisch Standard-Buckets für Cloud-Instanzen zu</a></p>
 </li>
 <li>
-<p>of apps installed using pass-by-reference operators can fail</p>
+<p><a href="#klone-von-über-benutzer-mit-pass-by-reference-installierten-applikationen-können-fehlschlagen">Klone von über Benutzer mit Pass-by-Reference installierten Applikationen können fehlschlagen</a></p>
 </li>
 <li>
-<p>restore operations of apps that use a certificate manager are not supported</p>
+<p><a href="#In-Place-Wiederherstellungsvorgänge von Anwendungen">die einen Zertifikatmanager verwenden, werden nicht unterstützt</a></p>
 </li>
 <li>
-<p>and cluster-scoped operator deployed apps not supported</p>
+<p><a href="#vom-betreiber-bereitgestellte-apps-mit-olm-enabled-und-cluster-scoped-werden-nicht-unterstützt">Vom Betreiber bereitgestellte Apps mit OLM-Enabled und Cluster-Scoped werden nicht unterstützt</a></p>
 </li>
 <li>
-<p>deployed with Helm 2 are not supported</p>
+<p><a href="#mit-helm-2-implementierte-apps-werden-nicht-unterstützt">Mit Helm 2 implementierte Apps werden nicht unterstützt</a></p>
 </li>
 </ul>
 </div>
@@ -1395,19 +1363,19 @@
 <div class="title">Allgemeine Einschränkungen</div>
 <ul>
 <li>
-<p>buckets in Astra Control Center do not report available capacity</p>
+<p><a href="#s3-buckets-im-astra-control-center-berichten-nicht-über-die-verfügbare-kapazität">S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität</a></p>
 </li>
 <li>
-<p>Control Center does not validate the details you enter for your proxy server</p>
+<p><a href="#astra-control-center-überprüft-nicht-die-von-ihnen-eingegebenen-details-für-ihren-proxy-server">Astra Control Center überprüft nicht die von Ihnen eingegebenen Details für Ihren Proxy-Server</a></p>
 </li>
 <li>
-<p>connections to a Postgres pod causes failures</p>
+<p><a href="#bestehende-verbindungen-zu-einem-postgres-pod-führen-zu-fehlern">Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern</a></p>
 </li>
 <li>
-<p>and snapshots might not be retained during removal of an Astra Control Center instance</p>
+<p><a href="#backups-und-snapshots-werden-während-der-entfernung-einer-astra-control-center-instanz-nicht-aufbewahrt">Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt</a></p>
 </li>
 <li>
-<p>user and group limitations</p>
+<p><a href="#einschränkungen-für-ldap-benutzer-und-gruppen">Einschränkungen für LDAP-Benutzer und -Gruppen</a></p>
 </li>
 </ul>
 </div>
