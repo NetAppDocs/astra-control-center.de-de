@@ -1299,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
+    <time datetime="2022-12-15 18:17:04 +0000">12/15/2022</time>
     
   
 
@@ -1384,8 +1384,18 @@
 <img src="/us-en/astra-control-center/images/note.svg" alt="Anmerkung">
 </td>
 <td class="content">
-<div class="paragraph">
-<p>Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Wenn Sie einen Testsuite-Haken für eine Anwendung erstellen, die an einem Istio-Service-Netz teilnimmt, stellen Sie sicher, dass der Haken gegen den ursprünglichen Anwendungscontainer und nicht den Service-Mesh-Container ausgeführt wird. Sie können Istio Service-Mesh-Container ausschließen, indem Sie einen Filter-Regex auf jeden Ausführunghaken anwenden, der für Anwendungen ausgeführt wird, die ein Istio-Service-Mesh verwenden.</p>
+</li>
+<li>
+<p>Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt.</p>
+</li>
+<li>
+<p>Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.</p>
+</li>
+</ul>
 </div>
 </td>
 </tr>
