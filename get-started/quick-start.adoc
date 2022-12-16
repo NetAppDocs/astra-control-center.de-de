@@ -14,56 +14,64 @@ summary: Starten Sie mit Astra Control in wenigen Schritten.
 [role="lead"]
 Diese Seite bietet einen Überblick über die Schritte, die für den Einstieg in das Astra Control Center erforderlich sind. Die Links in den einzelnen Schritten führen zu einer Seite, die weitere Details enthält.
 
-Probieren Sie es aus! Wenn Sie Astra Control Center ausprobieren möchten, können Sie eine 90-Tage-Evaluierungslizenz verwenden. Siehe link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Lizenzierungsinformationen"] Entsprechende Details.
+Probieren Sie es aus! Wenn Sie Astra Control Center ausprobieren möchten, können Sie eine 90-Tage-Evaluierungslizenz verwenden. Siehe link:../concepts/licensing.html["Lizenzierungsinformationen"^] Entsprechende Details.
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["Eins"] Kubernetes-Cluster-Anforderungen prüfen
-[role="quick-margin-list"]
-* Astra arbeitet mit Kubernetes-Clustern über eine auf Trident basierende Storage-Klasse mit einem ONTAP-Storage-Back-End zusammen.
-* Cluster müssen in einem ordnungsgemäßen Zustand mit mindestens drei Online-Worker-Nodes ausgeführt werden.
+Stellen Sie sicher, dass Ihre Umgebung diese Anforderungen erfüllt.
+
+* Kubernetes Cluster*
+
+* link:../get-started/requirements.html#operational-environment-requirements["Stellen Sie sicher, dass Ihre Umgebung den Anforderungen der Betriebsumgebung entspricht"^]
+* link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Konfigurieren Sie Ingress für den Lastausgleich von lokalen Kubernetes-Clustern"^]
 
 
-[role="quick-margin-para"]
-Weitere Informationen zu link:../get-started/requirements.html["Anforderungen des Astra Control Centers"].
+*Storage-Integration*
+
+* link:../get-started/requirements.html#operational-environment-requirements["Stellen Sie sicher, dass Ihre Umgebung die von Astra Trident unterstützte Version enthält"^]
+* https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Konfigurieren Sie das Astra Trident Storage-Back-End"^]
+* https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Konfigurieren Sie Astra Trident Storage-Kurse"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie Astra Trident Volume Snapshot Controller und Snapshot Class"^]
+* https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html["Konfigurieren Sie Astra Trident Storage-Volume Snapshot Controller und Snapshot-Klasse"^]
+
+
+*ONTAP-Anmeldedaten*
+
+* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["Konfigurieren Sie die ONTAP-Anmeldedaten"^]
+
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Laden Sie Astra Control Center herunter und installieren Sie es
-[role="quick-margin-list"]
-* Laden Sie das Astra Control Center von der herunter https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Site Astra Control Center Download-Seite"^].
-* Installieren Sie Astra Control Center in Ihrer lokalen Umgebung.
-+
-Optional können Sie Astra Control Center mit Red hat OperatorHub installieren. Optional kann das Astra Control Center auf einer unterstützten Public-Cloud-Plattform installiert werden, beispielsweise über ein Cloud Volumes ONTAP-Storage-Backend.
+Führen Sie die folgenden Installationsaufgaben aus.
 
-* Optional, ganz abhängig von Ihrer Umgebung, ergänzen Sie zusätzlich link:configure-after-install.html["Konfigurationsschritte"]. Weitere Informationen zu link:../get-started/install_overview.html["Installieren des Astra Control Center"].
+* https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Laden Sie Astra Control Center von der Download-Seite der NetApp Support Site herunter"^]
+* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter"^]
+* link:../concepts/licensing.html["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre Lizenzdatei"^]
+* link:../get-started/install_overview.html["Installieren Sie Astra Control Center"^]
+* link:../get-started/configure-after-install.html["Führen Sie weitere optionale Konfigurationsschritte durch"^]
 
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["Drittens"] Führen Sie einige erste Setup-Aufgaben aus
-[role="quick-margin-list"]
-* Fügen Sie eine Astra Control-Lizenz und alle unterstützenden ONTAP-Lizenzen hinzu.
-* Fügen Sie einen Kubernetes-Cluster hinzu.
-* Fügen Sie ein ONTAP-Storage-Back-End hinzu.
-* Optional können Sie einen Objektspeicher-Bucket hinzufügen, der Ihre Applikations-Backups speichert.
+Führen Sie einige grundlegende Aufgaben durch, um zu beginnen.
 
+* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Fügen Sie eine Lizenz hinzu"^]
+* link:../get-started/setup_overview.html#prepare-your-environment-for-cluster-management-using-astra-control["Vorbereitung der Umgebung auf das Cluster Management"^]
+* link:../get-started/setup_overview.html#add-cluster["Fügen Sie einen Cluster hinzu"^]
+* link:../get-started/setup_overview.html#add-a-storage-backend["Fügen Sie ein Storage-Back-End hinzu"^]
+* link:../get-started/setup_overview.html#add-a-bucket["Fügen Sie einen Bucket hinzu"^]
 
-[role="quick-margin-para"]
-Erfahren Sie mehr über das link:../get-started/setup_overview.html["Initialer Einrichtungsvorgang"].
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["Vier"] Nutzen Sie Das Astra Control Center
-[role="quick-margin-list"]
-Nachdem Sie das Astra Control Center eingerichtet haben, können Sie folgende Schritte ausführen:
+Nachdem Sie das Astra Control Center eingerichtet haben, können Sie als nächstes das Astra Control Center einrichten. Sie können die Astra Control-Benutzeroberfläche (UI) oder die verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^].
 
-[role="quick-margin-list"]
-* Eine App verwalten. Weitere Informationen zu link:../use/manage-apps.html["Managen von Apps"].
-* Schützen Sie Applikationen durch die Konfiguration von Sicherheitsrichtlinien für Applikationen, das Replizieren von Applikationen auf Remote-Systeme, das Klonen von Applikationen und das Migrieren von Applikationen. Weitere Informationen zu link:../use/protection-overview.html["Wie Anwendungen geschützt werden"].
-* Konten verwalten (einschließlich Benutzer, Rollen, LDAP zur Benutzerauthentifizierung, Anmeldedaten usw.). Weitere Informationen zu link:../use/manage-local-users-and-roles.html["Managen von lokalen Benutzern, Rollen und LDAP"].
-* Optional können Sie eine Verbindung zu NetApp Cloud Insights herstellen, um Kennzahlen zum Zustand von System, Kapazität und Durchsatz innerhalb der Astra Control Center UI anzuzeigen. Weitere Informationen zu link:../use/monitor-protect.html["So stellen Sie eine Verbindung zu Cloud Insights her"].
-
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["Fünf"] Fahren Sie mit dieser Schnellstartanleitung fort
-[role="quick-margin-para"]
-link:../get-started/install_overview.html["Installieren Sie Astra Control Center"].
+* link:../use/manage-apps.html["Applikationsmanagement"^]
+* link:../use/protection-overview.html["Schützen von Applikationen"^]: Schutzrichtlinien konfigurieren und Anwendungen replizieren, klonen und migrieren.
+* link:../use/manage-local-users-and-roles.html["Konten verwalten"^]: Benutzer, Rollen, LDAP, Anmeldedaten und vieles mehr
+* link:../use/monitor-protect.html#connect-to-cloud-insights["Optional Verbindung mit Cloud Insights herstellen"^]: Anzeige von Kennzahlen zur Gesundheit Ihres Systems.
 
 
 
-== Weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+== Finden Sie weitere Informationen
+
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^]
+* https://review.docs.netapp.com/us-en/astra-control-center_acc-pi7-review/use/upgrade-acc.html["Upgrade Astra Control Center"^]
 
