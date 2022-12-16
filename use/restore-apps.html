@@ -1299,7 +1299,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
+    <time datetime="2022-12-16 23:50:11 +0000">12/16/2022</time>
     
   
 
@@ -1362,7 +1362,28 @@
 <img src="/us-en/astra-control-center/images/caution.svg" alt="Achtung">
 </td>
 <td class="content">
-Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben.
+<div class="paragraph">
+<p>Die Durchführung einer in-Place-Wiederherstellung in einer Anwendung, in der Ressourcen mit einer anderen Anwendung geteilt werden, kann unbeabsichtigte Ergebnisse haben. Alle Ressourcen, die von den Applikationen gemeinsam genutzt werden, werden ersetzt, wenn eine in-Place-Wiederherstellung für eine der Applikationen durchgeführt wird. Das folgende Szenario führt zum Beispiel zu einer unerwünschten Situation bei der Verwendung der NetApp SnapMirror Replizierung:</p>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Sie definieren die Anwendung <code>app1</code> Verwenden des Namespace <code>ns1</code>.</p>
+</li>
+<li>
+<p>Sie konfigurieren eine Replikationsbeziehung für <code>app1</code>.</p>
+</li>
+<li>
+<p>Sie definieren die Anwendung <code>app2</code> (Auf demselben Cluster) mit den Namespaces <code>ns1</code> Und <code>ns2</code>.</p>
+</li>
+<li>
+<p>Sie konfigurieren eine Replikationsbeziehung für <code>app2</code>.</p>
+</li>
+<li>
+<p>Die Replizierung wird für rückgängig gemacht <code>app2</code>. Das verursacht das <code>app1</code> App auf dem Quellcluster zu deaktivieren.</p>
+</li>
+</ol>
+</div>
 </td>
 </tr>
 </table>
