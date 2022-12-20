@@ -14,11 +14,11 @@ summary: Erfahren Sie, wie sich die Aktionen mit dem Astra Control Center je nac
 [role="lead"]
 Astra Control Center erfordert die Installation einer Lizenz, damit die vollständige App-Datenmanagement-Funktion aktiviert werden kann. Wenn Sie Astra Control Center ohne Lizenz bereitstellen, wird in der Web-UI ein Banner angezeigt, in dem Sie darauf hingewiesen werden, dass die Systemfunktionalität begrenzt ist.
 
-Sie benötigen eine Lizenz zum Schutz Ihrer Applikationen und Daten. Siehe Astra Control Center link:../concepts/intro.html["Funktionen"] Entsprechende Details.
+Sie erhalten eine Lizenz auf eine der folgenden Arten:
 
-Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz. Sie können die NetApp Lizenzdatei (NetApp License File, NLF) von generieren https://mysupport.netapp.com["NetApp Support Website"^].
+* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter"^]. Mit einer Evaluierungslizenz können Sie das Astra Control Center 90 Tage ab dem Datum, an dem Sie die Lizenz herunterladen, verwenden.
+* link:../concepts/licensing.html["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.
 
-Sie können das Astra Control Center auch mit einer Evaluierungslizenz ausprobieren, mit der Sie das Astra Control Center 90 Tage ab dem Tag, an dem Sie die Lizenz herunterladen, nutzen können. Weitere Informationen finden Sie unter link:../get-started/requirements.html["Anforderungen"].
 
 Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter link:../get-started/requirements.html["Unterstützte Storage-Back-Ends"].
 
@@ -37,5 +37,6 @@ Wenn Sie eine App auf einem Cluster managen, sind alle CPU-Einheiten des Cluster
 
 == Weitere Informationen
 
+* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Fügen Sie beim ersten Einrichten des Astra Control Center eine Lizenz hinzu"]
 * link:../use/update-licenses.html["Aktualisieren einer vorhandenen Lizenz"]
 

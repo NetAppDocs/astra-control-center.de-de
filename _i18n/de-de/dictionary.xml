@@ -18,12 +18,8 @@
   <block id="0ec24420f91223b35f271fb4a5f65f2f" category="summary">Erfahren Sie, wie sich die Aktionen mit dem Astra Control Center je nach Lizenzstatus unterscheiden und wie sich Ihre Verwendung von Astra Control Center auf den Lizenzverbrauch auswirkt.</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="doc">Lizenzierung</block>
   <block id="7710790456945bed9a23fff9f934b8fd" category="paragraph">Astra Control Center erfordert die Installation einer Lizenz, damit die vollständige App-Datenmanagement-Funktion aktiviert werden kann. Wenn Sie Astra Control Center ohne Lizenz bereitstellen, wird in der Web-UI ein Banner angezeigt, in dem Sie darauf hingewiesen werden, dass die Systemfunktionalität begrenzt ist.</block>
-  <block id="9f034b63948763d489f944319c2eb3de" category="inline-link-macro">Funktionen</block>
-  <block id="67de198544887d5fd6bd366f67305ff4" category="paragraph">Sie benötigen eine Lizenz zum Schutz Ihrer Applikationen und Daten. Siehe Astra Control Center <block ref="9c6ba53976c6f467204fe6057d6ccf7a" category="inline-link-macro-rx"></block> Entsprechende Details.</block>
   <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp Support Website</block>
-  <block id="f06853bf12dc9a7737fb9921535d6e83" category="paragraph">Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz. Sie können die NetApp Lizenzdatei (NetApp License File, NLF) von generieren<block ref="fcc52edac3ce57829c48ee35d97a295d" category="inline-link-rx"></block>.</block>
   <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="inline-link-macro">Anforderungen</block>
-  <block id="166a298c42736e336f80574cf9433db7" category="paragraph">Sie können das Astra Control Center auch mit einer Evaluierungslizenz ausprobieren, mit der Sie das Astra Control Center 90 Tage ab dem Tag, an dem Sie die Lizenz herunterladen, nutzen können. Weitere Informationen finden Sie unter <block ref="ec43fa96d69fa714ee8406758839eaf7" category="inline-link-macro-rx"></block>.</block>
   <block id="40c5eb63f5dc254aeb1e6c3a7b34d15d" category="inline-link-macro">Unterstützte Storage-Back-Ends</block>
   <block id="3e55b813dfc77f5a692ec8411b86bba6" category="paragraph">Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter <block ref="dff615b80497dbcbaf9794a9900b6f10" category="inline-link-macro-rx"></block>.</block>
   <block id="a26876e2ece0b6007cf03e315d57d9d2" category="admonition">Sie können ohne Lizenz ein Cluster hinzufügen, einen Bucket hinzufügen und ein Storage-Backend verwalten.</block>
@@ -763,8 +759,6 @@
   <block id="30639cc5d4879b6ab4636e1faec4ce6c" category="paragraph">Führen Sie die Implementierung durch <block ref="c74ac040317626af0342a18a145cdbb7" category="inline-link-macro-rx"></block>.</block>
   <block id="d61a39ecf1d91497b3661f1969243d18" category="summary">Starten Sie mit Astra Control in wenigen Schritten.</block>
   <block id="a87da1b8e8afc29470ac85cf788e125c" category="doc">Schnellstart für Astra Control Center</block>
-  <block id="15dd8f83e9a999edc6eae56c5aec726e" category="paragraph">Diese Seite bietet einen Überblick über die Schritte, die für den Einstieg in das Astra Control Center erforderlich sind. Die Links in den einzelnen Schritten führen zu einer Seite, die weitere Details enthält.</block>
-  <block id="b777e6ba4555d404b00c2436d03ae649" category="inline-link-macro">Lizenzierungsinformationen</block>
   <block id="163d94b9255ea61fa90b17e63847f07e" category="summary">Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center seinen eigenen Cert-Manager nicht installiert.</block>
   <block id="6bdc7c13872089b240b2d2e134bf8244" category="doc">Konfigurieren Sie einen externen Zertifikat-Manager</block>
   <block id="c5899da221d3a7388cf14e6ab2e7892a" category="paragraph">Wenn bereits ein Zert-Manager in Ihrem Kubernetes Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center keinen eigenen Cert-Manager installiert.</block>
@@ -2591,7 +2585,6 @@
   <block id="6f0d5941d5a6edfad3a1597fae5c8340" category="list-text">Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt.</block>
   <block id="678c0d401fe58fc5c33f7d717ff8c970" category="list-text">Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass ein Testinaper nach dem Backup nicht davon ausgehen kann, dass die Sicherung abgeschlossen wurde.</block>
   <block id="f83cc958d14f90620b7ffdf9923fe440" category="list-text">Kopieren Sie die Taste *Lesen/Schreiben*. Sie müssen es in das Astra Control Center *Connect Cloud Insights* Fenster einfügen. Wählen Sie für die Hauptberechtigungen Lese-/Schreib-API-Zugriffstoken die Option Datenaufnahme, Protokollaufnahme, Erfassungseinheit und Datenerfassung aus.</block>
-  <block id="50eac7a8226d30ab336bd2f68c81d5d7" category="paragraph">Probieren Sie es aus! Wenn Sie Astra Control Center ausprobieren möchten, können Sie eine 90-Tage-Evaluierungslizenz verwenden. Siehe <block ref="63bc3e673bda1b27140b6b5b88199732" category="inline-link-macro-rx"></block> Entsprechende Details.</block>
   <block id="a8a5da0c5d62ec5f7225e0ce27261da7" category="paragraph">Stellen Sie sicher, dass Ihre Umgebung diese Anforderungen erfüllt.</block>
   <block id="b5233b1e8c04e10566734b9cecfc92b1" category="paragraph">* Kubernetes Cluster*</block>
   <block id="b3617c5929e3cf6406a5cdcd1eea0a9c" category="inline-link-macro">Stellen Sie sicher, dass Ihre Umgebung den Anforderungen der Betriebsumgebung entspricht</block>
@@ -2607,8 +2600,6 @@
   <block id="8f233a56a0bbc57a073461b666b439e1" category="list-text"><block ref="8f233a56a0bbc57a073461b666b439e1" category="inline-link-rx"></block></block>
   <block id="2d2c9a29bb271a0bf15559829b91147a" category="inline-link">Installieren Sie Astra Trident Volume Snapshot Controller und Snapshot Class</block>
   <block id="6c4528e739169720eefd2bff769e1da1" category="list-text"><block ref="6c4528e739169720eefd2bff769e1da1" category="inline-link-rx"></block></block>
-  <block id="527fdd132db746b3b10c377fcc937a6b" category="inline-link">Konfigurieren Sie Astra Trident Storage-Volume Snapshot Controller und Snapshot-Klasse</block>
-  <block id="d0b095d6aa400765f2fd9213267791a8" category="list-text"><block ref="d0b095d6aa400765f2fd9213267791a8" category="inline-link-rx"></block></block>
   <block id="ae0a6f81e3ab19bb5bb4cc16ba804b6d" category="paragraph">*ONTAP-Anmeldedaten*</block>
   <block id="cff9e873ecc35abb358c9f43ad1d3dcf" category="inline-link-macro">Konfigurieren Sie die ONTAP-Anmeldedaten</block>
   <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
@@ -2647,4 +2638,14 @@
   <block id="2aabf9d19e05830c03047e81303050b7" category="list-text">Sie definieren die Anwendung<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block> (Auf demselben Cluster) mit den Namespaces<block ref="bfed25f845e5220adacaaf3b86228910" prefix=" " category="inline-code"></block> Und<block ref="7b3f4e5e8a4b234605eb5c242254ab09" prefix=" " category="inline-code"></block>.</block>
   <block id="baf10238a72efe4a1aab077cb3c4d82e" category="list-text">Sie konfigurieren eine Replikationsbeziehung für<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>.</block>
   <block id="34a13245622ec7d6c1a19ea86462ba96" category="list-text">Die Replizierung wird für rückgängig gemacht<block ref="ec8d838607528268a4e435628ea9f709" prefix=" " category="inline-code"></block>. Das verursacht das<block ref="f92ea1839dc16d7396db358365da7066" prefix=" " category="inline-code"></block> App auf dem Quellcluster zu deaktivieren.</block>
+  <block id="c05d7f375daa05c9c20834d303b00fd0" category="paragraph">Hier finden Sie eine Übersicht über die Schritte, die für den Einstieg in das Astra Control Center erforderlich sind. Die Links in den einzelnen Schritten führen zu einer Seite, die weitere Details enthält.</block>
+  <block id="7df63225a687cdbb0704d94ef53a4983" category="inline-link">Erstellen Sie eine Volume Snapshot-Klasse</block>
+  <block id="dd131b9996426baf36db91cd0e7d6281" category="list-text"><block ref="dd131b9996426baf36db91cd0e7d6281" category="inline-link-rx"></block></block>
+  <block id="c4002b4ebee895edc6f5898ff73a5ad8" category="list-text">Beziehen Sie die NetApp Lizenzdatei:</block>
+  <block id="e1d57bb99f6ac53ae4d1e4ead1d86a3c" category="paragraph">Sie erhalten eine Lizenz auf eine der folgenden Arten:</block>
+  <block id="6004daa4ba0df7760d75bccaccd9cdeb" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block>. Mit einer Evaluierungslizenz können Sie das Astra Control Center 90 Tage ab dem Datum, an dem Sie die Lizenz herunterladen, verwenden.</block>
+  <block id="b5172acff46c1ccd4ef355f7c403ba48" category="inline-link-macro">Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF).</block>
+  <block id="5e83d0e22710b5fb10a24a55f0464eab" category="list-text"><block ref="be01b2f45d5e5a31b2acb026a0c1fc3d" category="inline-link-macro-rx"></block> Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.</block>
+  <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Fügen Sie beim ersten Einrichten des Astra Control Center eine Lizenz hinzu</block>
+  <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
 </blocks>
