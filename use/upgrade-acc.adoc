@@ -54,8 +54,7 @@ kubectl get apiservices
 .Über diese Aufgabe
 Der Astra Control Center Upgrade-Prozess führt Sie durch die folgenden grundlegenden Schritte:
 
-* <<Laden Sie das Astra Control Center Bundle herunter>>
-* <<Packen Sie das Paket aus>>
+* <<Laden Sie das Astra Control Center herunter und extrahieren Sie es>>
 * <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu>>
 * <<Installieren Sie den aktualisierten Astra Control Center-Operator>>
 * <<Upgrade Astra Control Center>>
@@ -70,24 +69,23 @@ TIP: Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backu
 
 
 
-== Laden Sie das Astra Control Center Bundle herunter
+== Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Laden Sie das Paket Astra Control Center von der herunter https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Website"^]. Der Dateiname ist wie folgt: `astra-control-center-[version].tar.gz`.
-. (Optional) Überprüfen Sie die Signatur des Pakets:
+. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center: Seite zum Herunterladen von Produkten"^] Auf der NetApp Support Site Sie können die neueste Version oder eine andere Version aus dem Dropdown-Menü auswählen.
+. Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`).
+. (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Pakets zu überprüfen:
 +
-[listing]
+[source, console]
 ----
-openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
+tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-
-
-
-
-== Packen Sie das Paket aus
-
-. Extrahieren Sie die Bilder:
 +
-[listing]
+Die Ausgabe wird angezeigt `Verified OK` Nach erfolgreicher Überprüfung.
+
+. Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:
++
+[source, console]
 ----
 tar -vxzf astra-control-center-[version].tar.gz
 ----

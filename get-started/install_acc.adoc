@@ -51,7 +51,7 @@ IMPORTANT: Löschen Sie den Operator Astra Control Center nicht (z. B. `kubectl 
 .Schritte
 Gehen Sie wie folgt vor, um Astra Control Center zu installieren:
 
-* <<Laden Sie das Astra Control Center Bundle herunter und entpacken Sie es aus>>
+* <<Laden Sie das Astra Control Center herunter und extrahieren Sie es>>
 * <<Installieren Sie das NetApp Astra kubectl Plug-in>>
 * <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu>>
 * <<Einrichten von Namespace und Geheimdienstraum für Registrys mit auth Anforderungen>>
@@ -65,17 +65,21 @@ Gehen Sie wie folgt vor, um Astra Control Center zu installieren:
 
 
 
-== Laden Sie das Astra Control Center Bundle herunter und entpacken Sie es aus
+== Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Laden Sie das Astra Control Center Bundle herunter (`astra-control-center-[version].tar.gz`) Vom https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Website"^].
-. Laden Sie den Zip der Astra Control Center Zertifikate und Schlüssel aus dem herunter https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["NetApp Support Website"^].
-. (Optional) Überprüfen Sie die Signatur des Pakets:
+. Wechseln Sie zum https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center-Seite zum Herunterladen der Testversion"^] Auf der NetApp Support Site
+. Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`).
+. (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Pakets zu überprüfen:
 +
 [source, console]
 ----
-openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
+tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
-. Extrahieren Sie die Bilder:
++
+Die Ausgabe wird angezeigt `Verified OK` Nach erfolgreicher Überprüfung.
+
+. Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:
 +
 [source, console]
 ----

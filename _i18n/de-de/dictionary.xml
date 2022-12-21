@@ -455,16 +455,11 @@
   <block id="2b305f607904d67cd2da521366334e8c" category="inline-link-macro">Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor</block>
   <block id="44e141a783b8346b1ee5c52bcf894d19" category="list-text"><block ref="689b20f2e0a9cb0a12bc48475b3f81ee" category="inline-link-macro-rx"></block>.</block>
   <block id="6b711ca63f3156860c2b2918a106b882" category="inline-link-macro">Erforderliche Schritte</block>
-  <block id="4e7bc0f2f576e3a2e7b9bd624d2da7d3" category="list-text"><block ref="f9a9477fa54fe91dbfcc4b4adc8c5a84" category="inline-xref-macro-rx"></block></block>
   <block id="f27876af7f41dd88d732712643f9e8ab" category="list-text"><block ref="edd1a66c7657e8422b18455f2fcc01fd" category="inline-xref-macro-rx"></block></block>
   <block id="14905c130cb21eb99b32fda77b5847e3" category="list-text"><block ref="8f05616ca07e5e0f0a406924d57cac8c" category="inline-xref-macro-rx"></block></block>
   <block id="9b7b5553b7f9a88388ff63538315f288" category="list-text"><block ref="d671e7cdeaa98f3485173f8d5a620d81" category="inline-xref-macro-rx"></block></block>
   <block id="bcd2064257ec8fce1f11d1eab34e50a1" category="list-text"><block ref="d1f909bce77ae129ee64cf4c211e47c3" category="inline-xref-macro-rx"></block></block>
   <block id="3cc546d35377f25093968cba1e8c0fc6" category="list-text"><block ref="27fe6aaf425c0f95213ec6c507a97d2d" category="inline-xref-macro-rx"></block></block>
-  <block id="bb550e726ecd8419a94f47dd80d637fc" category="section-title">Laden Sie das Astra Control Center Bundle herunter und entpacken Sie es aus</block>
-  <block id="37b9c0fe975f84a28c93ed400bbf96df" category="list-text">Laden Sie das Astra Control Center Bundle herunter <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>) Vom<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
-  <block id="38073e52be4dfccbbd24b3272a244562" category="list-text">Laden Sie den Zip der Astra Control Center Zertifikate und Schlüssel aus dem herunter<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>.</block>
-  <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">Extrahieren Sie die Bilder:</block>
   <block id="72b3b17d23e094f72641c4ffa8928d85" category="section-title">Installieren Sie das NetApp Astra kubectl Plug-in</block>
   <block id="22a59db7b4ba20ac09e829d51d726828" category="section-title">Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu</block>
   <block id="64f97564a976931750ce87e0cc98894a" category="list-text">Führen Sie die entsprechende Schrittfolge für Ihre Container-Engine durch:</block>
@@ -1358,11 +1353,9 @@
   <block id="e3ebf55f76dc38e964104d304e65e99f" category="doc">Upgrade Astra Control Center</block>
   <block id="9cc7b6d57e2a51242322baa80ba76e7d" category="list-text">Stellen Sie sicher, dass alle API-Services in einem gesunden Zustand und verfügbar sind.</block>
   <block id="acd4353523a542de5b311529e048a8e8" category="paragraph">Der Astra Control Center Upgrade-Prozess führt Sie durch die folgenden grundlegenden Schritte:</block>
-  <block id="545c199a2f9ae71f3bff75a2efc1785a" category="list-text"><block ref="8f1bc9f78e55e970421f771e463483a1" category="inline-xref-macro-rx"></block></block>
   <block id="279afcccd954d47b442a29a6bd38e688" category="list-text"><block ref="75ed4647183314a63168429062f35c29" category="inline-xref-macro-rx"></block></block>
   <block id="41df3de87c6ea858ea2bb342ad613900" category="list-text"><block ref="4185a8362c964abfe734b0dc16083199" category="inline-xref-macro-rx"></block></block>
   <block id="64ab6dee28636075579961e17cb0df5f" category="admonition">Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups und Snapshots nicht ausgeführt werden.</block>
-  <block id="bf6391de5876b6e51397f39ae8289eec" category="section-title">Laden Sie das Astra Control Center Bundle herunter</block>
   <block id="9d37e8b16bca7866e9db4f98f5080a5a" category="section-title">Installieren Sie den aktualisierten Astra Control Center-Operator</block>
   <block id="4dfe1039695653a07d27cb2151fbe633" category="list-text">Bearbeiten Sie die yaml-Implementierung des Astra Control Center-Bedieners <block ref="29815934e812e1cfba6cc38eff0d17d3" prefix="(" category="inline-code"></block>) Zu Ihrem lokalen Register und Geheimnis zu verweisen.</block>
   <block id="b693c64ae6465cc37d63bb7e1a3bc84e" category="list-text">Fügen Sie dem die folgenden Werte hinzu<block ref="ff035a1dd7655da15295fa5fa89362a7" prefix=" " category="inline-code"></block> Abschnitt:</block>
@@ -1974,7 +1967,6 @@
   <block id="0a95083609256f37336e12a9bcf2e463" category="list-text">Stellen Sie fest, dass alle Astra Control Center Pods ausgeführt werden.</block>
   <block id="b9c8db9ede8046f6b37500c8dbd6bff3" category="list-text">Installieren Sie die Astra Control Center-UI.</block>
   <block id="d73f4cd3ed09d80212f766964fd60d2b" category="admonition">Löschen Sie den Operator Astra Control Center nicht (z. B.<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) Zu jeder Zeit während der Astra Control Center Installation oder Betrieb, um das Löschen von Pods zu vermeiden.</block>
-  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">(Optional) Überprüfen Sie die Signatur des Pakets:</block>
   <block id="1bde686a3d07054e85d48421d9a23fe0" category="paragraph">Das NetApp Astra kubectl Kommandozeilen-Plug-in spart Zeit, wenn es gängige Aufgaben im Zusammenhang mit der Bereitstellung und dem Upgrade des Astra Control Center ausführt.</block>
   <block id="23a38036ff7df90ffe338fd68ee89bb1" category="paragraph">NetApp bietet Plug-ins-Binärdateien für verschiedene CPU-Architekturen und Betriebssysteme. Sie müssen wissen, welche CPU und welches Betriebssystem Sie haben, bevor Sie diese Aufgabe ausführen.</block>
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">Geben Sie die verfügbaren Plug-ins-Binärdateien von NetApp Astra kubectl an und notieren Sie sich den Namen der für Ihr Betriebssystem und die CPU-Architektur erforderlichen Datei:</block>
@@ -2245,10 +2237,7 @@
   <block id="fc6ccc2ccd83dc8264cd34d7b982f76c" category="list-text">Führen Sie als Standard-Storage-Klasse den folgenden Befehl für Ihr vorhandenes Astra Control Center aus, um Ihre Standard-Storage-Klasse zu bestimmen:<block ref="6c8dbf2986e91118b19341b89fa1a31d" prefix=" " category="inline-code"></block></block>
   <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">(Nur OpenShift) Stellen Sie sicher, dass sich alle Clusterbetreiber in einem gesunden Zustand befinden und verfügbar sind.</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">Melden Sie sich von der Astra Control Center-Benutzeroberfläche ab, bevor Sie das Upgrade starten.</block>
-  <block id="2706061cc7b67d10cbb2fd9207c73066" category="list-text"><block ref="c923275db650d69735b78d7ae2ff9702" category="inline-xref-macro-rx"></block></block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Löschen Sie den Operator Astra Control Center nicht (z. B.<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) Zu jeder Zeit während des Astra Control Center Upgrades oder Betrieb, um zu vermeiden, dass Pods gelöscht werden.</block>
-  <block id="74653d2b98b664476dac80c4d327b6fd" category="list-text">Laden Sie das Paket Astra Control Center von der herunter<block ref="4e4882d47509d388d52971aaee9abe33" category="inline-link-rx"></block>. Der Dateiname ist wie folgt:<block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix=" " category="inline-code"></block>.</block>
-  <block id="bc73322c3d32428ecdf621fe0171026e" category="section-title">Packen Sie das Paket aus</block>
   <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">Vergewissern Sie sich, dass das NetApp Astra kubectl-Plugin installiert ist</block>
   <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">Verwenden Sie den folgenden Befehl, um festzustellen, ob das Plug-in installiert ist:</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">Wenn Sie eine Registrierung verwenden, die eine Authentifizierung erfordert, ersetzen oder bearbeiten Sie die Standardzeile von<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> Mit folgenden Optionen:</block>
@@ -2604,8 +2593,6 @@
   <block id="cff9e873ecc35abb358c9f43ad1d3dcf" category="inline-link-macro">Konfigurieren Sie die ONTAP-Anmeldedaten</block>
   <block id="27912e4366edb4ee86aa373395b590f5" category="list-text"><block ref="27912e4366edb4ee86aa373395b590f5" category="inline-link-macro-rx"></block></block>
   <block id="7ae94f3e29fb1789e466d68ff3b7719d" category="paragraph">Führen Sie die folgenden Installationsaufgaben aus.</block>
-  <block id="be63ab5309fd82ceb3e549496baad39a" category="inline-link">Laden Sie Astra Control Center von der Download-Seite der NetApp Support Site herunter</block>
-  <block id="5aa98cd838ea9dade91877a36ab694a8" category="list-text"><block ref="5aa98cd838ea9dade91877a36ab694a8" category="inline-link-rx"></block></block>
   <block id="81d47d4dec7b1222070eae27bb4310ee" category="inline-link-macro">Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter</block>
   <block id="1ac362ab549aa84c347d7d5271314ad6" category="list-text"><block ref="1ac362ab549aa84c347d7d5271314ad6" category="inline-link-macro-rx"></block></block>
   <block id="fbc059a4c4dca73352b8c2d2b522c031" category="inline-link-macro">Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre Lizenzdatei</block>
@@ -2648,4 +2635,16 @@
   <block id="5e83d0e22710b5fb10a24a55f0464eab" category="list-text"><block ref="be01b2f45d5e5a31b2acb026a0c1fc3d" category="inline-link-macro-rx"></block> Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.</block>
   <block id="89eae3d9e27253b30e1b76d62008b32d" category="inline-link-macro">Fügen Sie beim ersten Einrichten des Astra Control Center eine Lizenz hinzu</block>
   <block id="117e62f8841c871dc009220d6b7e5401" category="list-text"><block ref="117e62f8841c871dc009220d6b7e5401" category="inline-link-macro-rx"></block></block>
+  <block id="2f8cadf95c6d0e5ffc19921fb6fd5cca" category="doc">Laden Sie das Astra Control Center herunter und extrahieren Sie es</block>
+  <block id="a63179888ca7fc528404e8b4f6bab69a" category="inline-link">Astra Control Center-Seite zum Herunterladen der Testversion</block>
+  <block id="e7ba0480f7b95b8e2dba97abcd8511d1" category="list-text">Wechseln Sie zum<block ref="7d0bcaecb4c3439d264a801b59ac8770" category="inline-link-rx"></block> Auf der NetApp Support Site</block>
+  <block id="7bf65886a6daf176486ecc32f5736b33" category="list-text">Laden Sie das Bundle mit Astra Control Center herunter <block ref="f38ca01b4c2fe15aa06076beb2ee98ff" prefix="(" category="inline-code"></block>).</block>
+  <block id="a5633748c6774da7b883a9fcf799a73e" category="list-text">(Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter <block ref="7a63467f08b4d3ec454a0b66e2353d54" prefix="(" category="inline-code"></block>) Um die Signatur des Pakets zu überprüfen:</block>
+  <block id="79204d6da69fa9c1924fe4edc28bd8c4" category="paragraph">Die Ausgabe wird angezeigt<block ref="33a9cc0739a5a17f65e28cf0b260007f" prefix=" " category="inline-code"></block> Nach erfolgreicher Überprüfung.</block>
+  <block id="e05ea496750d85fb7d63c1d2952dc33e" category="list-text">Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:</block>
+  <block id="78fef5e4370c46736bde008c50f1c5ce" category="inline-link">Laden Sie das Astra Control Center von der NetApp Support Site Evaluierungs-Download-Seite herunter</block>
+  <block id="781315777416a8ea4df0544c1a15fab7" category="list-text"><block ref="781315777416a8ea4df0544c1a15fab7" category="inline-link-rx"></block></block>
+  <block id="47fc3325fabe9d0cade728b90fbe622a" category="list-text"><block ref="182b6f14d78206b412277e5e36bb924f" category="inline-xref-macro-rx"></block></block>
+  <block id="a73afd2c31b746ac34e3fec7590e3cfa" category="inline-link">Astra Control Center: Seite zum Herunterladen von Produkten</block>
+  <block id="779308b02cace7345409bae24871be63" category="list-text">Wechseln Sie zum<block ref="463a64da5039ffbaa330e14a245ba287" category="inline-link-rx"></block> Auf der NetApp Support Site Sie können die neueste Version oder eine andere Version aus dem Dropdown-Menü auswählen.</block>
 </blocks>
