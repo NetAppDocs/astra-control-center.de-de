@@ -1297,7 +1297,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-12-14 17:16:48 +0000">12/14/2022</time>
+    <time datetime="2022-12-21 21:02:23 +0000">12/21/2022</time>
     
   
 
@@ -1394,7 +1394,7 @@ Löschen Sie den Operator Astra Control Center nicht (z. B. <code>kubectl delete
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#laden-sie-das-astra-control-center-bundle-herunter-und-entpacken-sie-es-aus">Laden Sie das Astra Control Center Bundle herunter und entpacken Sie es aus</a></p>
+<p><a href="#laden-sie-das-astra-control-center-herunter-und-extrahieren-sie-es">Laden Sie das Astra Control Center herunter und extrahieren Sie es</a></p>
 </li>
 <li>
 <p><a href="#installieren-sie-das-netapp-astra-kubectl-plug-in">Installieren Sie das NetApp Astra kubectl Plug-in</a></p>
@@ -1428,26 +1428,30 @@ Löschen Sie den Operator Astra Control Center nicht (z. B. <code>kubectl delete
 </div>
 </div>
 <div class="sect1">
-<h2 id="laden-sie-das-astra-control-center-bundle-herunter-und-entpacken-sie-es-aus">Laden Sie das Astra Control Center Bundle herunter und entpacken Sie es aus</h2>
+<h2 id="laden-sie-das-astra-control-center-herunter-und-extrahieren-sie-es">Laden Sie das Astra Control Center herunter und extrahieren Sie es</h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Laden Sie das Astra Control Center Bundle herunter (<code>astra-control-center-[version].tar.gz</code>) Vom <a href="https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab" target="_blank" rel="noopener">"NetApp Support Website"</a>.</p>
+<p>Wechseln Sie zum <a href="https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center" target="_blank" rel="noopener">"Astra Control Center-Seite zum Herunterladen der Testversion"</a> Auf der NetApp Support Site</p>
 </li>
 <li>
-<p>Laden Sie den Zip der Astra Control Center Zertifikate und Schlüssel aus dem herunter <a href="https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab" target="_blank" rel="noopener">"NetApp Support Website"</a>.</p>
+<p>Laden Sie das Bundle mit Astra Control Center herunter (<code>astra-control-center-[version].tar.gz</code>).</p>
 </li>
 <li>
-<p>(Optional) Überprüfen Sie die Signatur des Pakets:</p>
+<p>(Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (<code>astra-control-center-certs-[version].tar.gz</code>) Um die Signatur des Pakets zu überprüfen:</p>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-console" data-lang="console">openssl dgst -sha256 -verify AstraControlCenter-public.pub -signature astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz</code></pre>
+<pre class="highlight"><code class="language-console" data-lang="console">tar -vxzf astra-control-center-certs-[version].tar.gz
+openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Die Ausgabe wird angezeigt <code>Verified OK</code> Nach erfolgreicher Überprüfung.</p>
 </div>
 </li>
 <li>
-<p>Extrahieren Sie die Bilder:</p>
+<p>Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-console" data-lang="console">tar -vxzf astra-control-center-[version].tar.gz</code></pre>
