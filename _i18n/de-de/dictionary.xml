@@ -466,7 +466,6 @@
   <block id="c5fd214cdd0d2b3b4272e73b022ba5c2" category="open-title">Docker</block>
   <block id="455cbd59356abfa16dcf7666d4ae6c2b" category="open-title">Podman</block>
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">Melden Sie sich bei Ihrer Registrierung an:</block>
-  <block id="c330f6e98afeb2bb5f8da986c24088ee" category="list-text">Führen Sie das folgende Skript aus und machen Sie die Substitution &lt;YOUR_REGISTRY&gt; wie in den Kommentaren angegeben:</block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">Suchen Sie die Installationsseite des Bedieners</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">Führen Sie eines der folgenden Verfahren aus, um auf die Installationsseite des Bedieners zuzugreifen:</block>
   <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center-Installationsseite</block>
@@ -772,7 +771,6 @@
   <block id="3366964e7a216dba2d0ba31b76ba649c" category="inline-link-macro">(Wenn Sie Red hat OpenShift verwenden) installieren Sie Astra Control Center mit OpenShift OperatorHub</block>
   <block id="dbcbff2a607cc46b36bf41219a49e1a4" category="list-text"><block ref="dbcbff2a607cc46b36bf41219a49e1a4" category="inline-link-macro-rx"></block></block>
   <block id="29a22a050bd07366c87409e65a0fd0cd" category="list-text"><block ref="29a22a050bd07366c87409e65a0fd0cd" category="inline-link-macro-rx"></block></block>
-  <block id="cbde2df6a7c89370edc449dc5705d30c" category="inline-link">Anweisungen</block>
   <block id="df17fddf226fe3399a8cb420856f3565" category="section-title">Führen Sie Eignungsprüfungen durch</block>
   <block id="40152bf47b47316f99abeacf61572ddd" category="paragraph">Führen Sie die folgenden Eignungsprüfungen durch, um sicherzustellen, dass Ihr Cluster zum Astra Control Center hinzugefügt werden kann.</block>
   <block id="e4eb377a2e7862d376898d450a2e5bc4" category="list-text">Überprüfen Sie die Trident Version.</block>
@@ -1972,7 +1970,6 @@
   <block id="18f40e403e21c47db1d640c681eb60c1" category="list-text">Geben Sie die verfügbaren Plug-ins-Binärdateien von NetApp Astra kubectl an und notieren Sie sich den Namen der für Ihr Betriebssystem und die CPU-Architektur erforderlichen Datei:</block>
   <block id="04663e125a4b7af87fb04b1c90f3981c" category="admonition">Die kubectl Plugin-Bibliothek ist Teil des tar-Bündels und wird in den Ordner extrahiert<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>.</block>
   <block id="70c1282aae344c7012022e40f12892d7" category="list-text">Verschieben Sie die richtige Binärdatei in den aktuellen Pfad, und benennen Sie sie in um<block ref="90432a9da14d46e4d20c4b841576b1ee" prefix=" " category="inline-code"></block>:</block>
-  <block id="1fc880ef4f8b3cc45475542399bd1928" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; durch die URL des Docker Repositorys ersetzen, beispielsweise<block ref="2f83a38130745792f380ff2448ba7723" category="inline-link-rx"></block>.</block>
   <block id="f65f53e091cb29cf07faf1ce22c7b7af" category="list-text">Ersetzen Sie &lt;MY_REGISTRY_USER&gt; durch den Benutzernamen.</block>
   <block id="942beacf5a707600cdbf9c51118da46f" category="list-text">Ersetzen Sie &lt;MY_REGISTRY_TOKEN&gt; durch ein autorisiertes Token für die Registrierung.</block>
   <block id="739ad756d2571ec4c01ae0e2a5a259ff" category="admonition">Bevor Sie die Installation abgeschlossen haben, stellen Sie sicher, dass Ihr KUBECONFIG auf den Cluster zeigt, in dem Sie Astra Control Center installieren möchten. Die KUBECONFIG kann nur einen Kontext enthalten.</block>
@@ -2238,8 +2235,6 @@
   <block id="f84aae8dfc7421a333e4e7e836c130c7" category="list-text">(Nur OpenShift) Stellen Sie sicher, dass sich alle Clusterbetreiber in einem gesunden Zustand befinden und verfügbar sind.</block>
   <block id="825d372ea32aac53c3ee57e9a6a5bbc6" category="list-text">Melden Sie sich von der Astra Control Center-Benutzeroberfläche ab, bevor Sie das Upgrade starten.</block>
   <block id="a7cd7e89d9e646b3bc6c32ee6ac752b0" category="admonition">Löschen Sie den Operator Astra Control Center nicht (z. B.<block ref="dfe54be7b1dbab0ff279802517dca055" prefix=" " category="inline-code"></block>) Zu jeder Zeit während des Astra Control Center Upgrades oder Betrieb, um zu vermeiden, dass Pods gelöscht werden.</block>
-  <block id="4fa6fdd44c10c16a714b8f15d294dafa" category="section-title">Vergewissern Sie sich, dass das NetApp Astra kubectl-Plugin installiert ist</block>
-  <block id="22752d0c5fc41c072184ec1bf10292a7" category="list-text">Verwenden Sie den folgenden Befehl, um festzustellen, ob das Plug-in installiert ist:</block>
   <block id="9cdaf3a6ae59eb2faabcb002cfc1bd4b" category="list-text">Wenn Sie eine Registrierung verwenden, die eine Authentifizierung erfordert, ersetzen oder bearbeiten Sie die Standardzeile von<block ref="e90e0b4a41dde5f038023d33ee45ad34" prefix=" " category="inline-code"></block> Mit folgenden Optionen:</block>
   <block id="ddfa64b94159cbde6c02f2aa3ae5598c" category="list-text">Ändern<block ref="a3d1b23e7abf0f3b3ca5fcf7e61860cd" prefix=" " category="inline-code"></block> Für das<block ref="4b559e0a1b6f68f62c5edecea8c35c7e" prefix=" " category="inline-code"></block> Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <block ref="7fe0e1ddcc2917e6a216033278119235" category="inline-xref-macro-rx"></block>.</block>
   <block id="49442a4bf304a6a24081fc054a06ba5e" category="list-text">Bearbeiten der benutzerdefinierten Ressource des Astra Control Center (CR):</block>
@@ -2523,7 +2518,6 @@
   <block id="060534066f9a22cabf451772f0daf58b" category="list-text">Erstellen Sie den Operator-Namespace:</block>
   <block id="8f70adb2eebdea2e00d5d57216cd59b5" category="inline-link-macro">Einrichtung abschließen</block>
   <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> Für Ihren Ingress-Controller-Typ.</block>
-  <block id="e10b9da8362fecb065da69f3ade6cf7c" category="list-text">[[substep_image_local_Registry_Push]]Schieben Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen<block ref="2957bfd514a0f16d8946142cd37400fd" prefix=" " category="inline-code"></block> Befehl:</block>
   <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Von der Red hat OpenShift-Webkonsole aus:</block>
   <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">Suchen Sie nach und wählen Sie den Operator des NetApp Astra Control Center aus.</block>
   <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
@@ -2559,7 +2553,6 @@
   <block id="e20f9875b736f5d534a7c14be355eb06" category="paragraph">Füllen Sie die aus <block ref="9908a5e65371462fab8de29e0e8be055" category="inline-link-macro-rx"></block> Um zu überprüfen, ob Astra Control Center erfolgreich installiert wurde, richten Sie einen Ingress-Controller ein (optional), und melden Sie sich an der UI an. Zusätzlich müssen Sie durchführen <block ref="76156c33c6c1487a578aad8446a04b02" category="inline-link-macro-rx"></block> Nach Abschluss der Installation.</block>
   <block id="cfe9e43a4e29105f9f24bd0ed639721b" category="paragraph-title">Allgemein (Standard)</block>
   <block id="135b308ed83c53f1516b7c754566d1c4" category="paragraph-title">Bevor Sie beginnen</block>
-  <block id="52c456ead6bc96bfe1643dfd233cbf2c" category="paragraph">Dieser Befehl sollte die kubectl Plugin-Hilfe bereitstellen. Wenn der Befehl einen Fehler zurückgibt, installieren Sie das Plugin mit diesen <block ref="fbbc714d1fb27025d6c64aea6ddcaf11" category="inline-link-macro-rx"></block>.</block>
   <block id="d94e29dda4626ec2be6ac4f06224f6cf" category="section-title"><block ref="58f667aaf05f87159670e12bd9bc076b" category="inline-image-macro-rx" type="image"></block> Sicherung aller Applikationen</block>
   <block id="596a8ca466f62d03c2dfc376a65cac71" category="section-title"><block ref="54f425ce8d89f4ed6b8a546561af5d60" category="inline-image-macro-rx" type="image"></block> Konfigurieren Sie für jede Applikation eine Sicherungsrichtlinie</block>
   <block id="db0ae7eb707500904a523f5186eb92f0" category="section-title"><block ref="05b2444faffd66d76e88602ea7dd353f" category="inline-image-macro-rx" type="image"></block> Passen Sie die Sicherungsrichtlinien an</block>
@@ -2647,4 +2640,14 @@
   <block id="779308b02cace7345409bae24871be63" category="list-text">Wechseln Sie zum<block ref="463a64da5039ffbaa330e14a245ba287" category="inline-link-rx"></block> Auf der NetApp Support Site Sie können die neueste Version oder eine andere Version aus dem Dropdown-Menü auswählen.</block>
   <block id="e4a1005c9b913ef4e65af805a3797f79" category="inline-link">Installieren Sie den Astra Trident Volume Snapshot Controller</block>
   <block id="93dcbf6be32efef5eec53e28c4ff8075" category="list-text"><block ref="93dcbf6be32efef5eec53e28c4ff8075" category="inline-link-rx"></block></block>
+  <block id="93ad66a46b85e39a2b044839f8f2aa91" category="list-text">&lt;MY_FULL_REGISTRY_PATH&gt; durch die URL des Docker Repositorys ersetzen, beispielsweise <block ref="d7fe5bd4ab1ec72dd633a9f2fec43513" category="inline-link-rx"></block>.</block>
+  <block id="cf2e3395153844dc4e8c51bf180f6521" category="list-text">Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie &lt;MY_FULL_REGISTRY_PATH&gt; durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.</block>
+  <block id="1c1c5c039da9639f08735d40aaf63a64" category="admonition">Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registrierungskonfiguration wie folgt aussehen:<block ref="8929bffa043dcda91696884d35eb8d51" prefix=" " category="inline-code"></block></block>
+  <block id="638283958f0ae559c161db72d114108e" category="list-text"><block ref="2a51122d7bd0346abfa8c6be52c45cf7" category="inline-xref-macro-rx"></block></block>
+  <block id="aedff9adaa71ff103bfa455b6a0fe7f0" category="section-title">Entfernen Sie das NetApp Astra kubectl Plugin und installieren Sie es erneut</block>
+  <block id="cc1f46f2f9e4a1afbedacc4d8ce3c2e3" category="list-text">Ermitteln Sie, ob das Plug-in installiert ist:</block>
+  <block id="c8395a903c51ee6b771d7f06ac987978" category="list-text">Führen Sie eine der folgenden Aktionen durch:</block>
+  <block id="d0ff3cbf62dac1b7f8447b852cfe9c4c" category="list-text">Falls das Plugin installiert ist, sollte der Befehl die kubectl Plugin-Hilfe zurückgeben. Führen Sie folgenden Befehl aus, um eine vorhandene Version von kubectl-astra zu entfernen:<block ref="53504093e13f5f1ec1d1d91d3e1dd05b" prefix=" " category="inline-code"></block>.</block>
+  <block id="1b6605c6bf28deef0dc2970f3179c395" category="list-text">Wenn der Befehl einen Fehler zurückgibt, ist das Plugin nicht installiert und Sie können mit dem nächsten Schritt fortfahren, um es zu installieren.</block>
+  <block id="dab1a9c7ecb95d287fc412736d955975" category="list-text">Installieren Sie das Plugin:</block>
 </blocks>
