@@ -23,6 +23,9 @@ Kontoinhaber und -Administratoren können Remote-Benutzer zu Astra Control hinzu
 
 NOTE: Remote-Benutzer können nicht hinzugefügt werden, wenn bereits ein lokaler Benutzer mit derselben E-Mail-Adresse im System vorhanden ist. Um den Benutzer als Remote-Benutzer hinzuzufügen, löschen Sie zuerst den lokalen Benutzer aus dem System.
 
+
+IMPORTANT: Astra Control Center verwendet die E-Mail-Adresse im LDAP-Attribut „Mail“, um Remote-Benutzer zu suchen und zu verfolgen. Dieses Attribut kann ein optionales oder leeres Feld in Ihrem Verzeichnis sein. In diesem Feld muss für alle Remote-Benutzer, die im Astra Control Center erscheinen sollen, eine E-Mail-Adresse vorhanden sein. Diese E-Mail-Adresse wird als Benutzername im Astra Control Center zur Authentifizierung verwendet.
+
 .Schritte
 . Gehen Sie zum Bereich *Konto*.
 . Wählen Sie die Registerkarte *Benutzer & Gruppen* aus.
