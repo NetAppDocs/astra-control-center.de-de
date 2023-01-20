@@ -80,12 +80,17 @@ Astra Trident 22.01 oder höher installiert und konfiguriert Astra Trident 22.07
 NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center die einzige Applikation ist, die in der Betriebsumgebung ausgeführt wird. Wenn in der Umgebung zusätzliche Applikationen ausgeführt werden, passen Sie diese Mindestanforderungen entsprechend an.
 
 * *Image Registry*: Sie benötigen eine bereits vorhandene private Docker-Image-Registry, mit der Sie Astra Control Center-Bilder erstellen können. Sie müssen die URL der Bildregistrierung angeben, in der Sie die Bilder hochladen.
-* *Astra Trident / ONTAP Konfiguration*: Astra Control Center erfordert, dass eine Storage-Klasse erstellt und als Standard-Storage-Klasse eingestellt wird. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:
+* *Astra Trident/ONTAP-Konfiguration*:
 +
-** ontap-nas
-** ontap-nas-Flexgroup
-** ontap-san
-** ontap-san-Ökonomie (nicht unterstützt für Applikationsreplizierung)
+** Astra Control Center erfordert, dass eine Storage-Klasse erstellt und als Standard-Storage-Klasse eingestellt wird.
+** Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:
++
+*** ontap-nas
+*** ontap-nas-Flexgroup
+*** ontap-san
+*** ontap-san-Ökonomie (nicht unterstützt für Applikationsreplizierung)
+
+
 
 
 
