@@ -86,7 +86,6 @@ NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center
 ** Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:
 +
 *** ontap-nas
-*** ontap-nas-Flexgroup
 *** ontap-san
 *** ontap-san-Ökonomie (nicht unterstützt für Applikationsreplizierung)
 
