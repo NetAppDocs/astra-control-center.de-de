@@ -30,7 +30,7 @@ IMPORTANT: Astra Control Center überprüft nicht die von Ihnen eingegebenen Det
 . Wählen Sie *Konto* > *Verbindungen*.
 . Wählen Sie in der Dropdown-Liste *Verbinden* aus, um einen Proxyserver hinzuzufügen.
 +
-image:proxy-connect.png["Zeigt die Option Verbinden an, um Proxy-Verbindung zu aktivieren."]
+image:proxy-connect.png["Dieses Bild zeigt die Option Verbinden, um Proxy-Verbindung zu aktivieren."]
 
 . Geben Sie den Proxy-Servernamen oder die IP-Adresse und die Proxy-Portnummer ein.
 . Wenn Ihr Proxy-Server eine Authentifizierung erfordert, aktivieren Sie das Kontrollkästchen, und geben Sie den Benutzernamen und das Kennwort ein.
@@ -40,7 +40,7 @@ image:proxy-connect.png["Zeigt die Option Verbinden an, um Proxy-Verbindung zu a
 .Ergebnis
 Wenn die eingegebenen Proxydaten gespeichert wurden, zeigt der Abschnitt *HTTP Proxy* der Seite *Konto* > *Verbindungen* an, dass sie verbunden sind, und zeigt den Servernamen an.
 
-image:proxy-new.png["Zeigt den Proxyserver erfolgreich verbunden an."]
+image:proxy-new.png["Dieses Bild zeigt, dass der Proxyserver erfolgreich verbunden wurde."]
 
 
 
@@ -96,7 +96,7 @@ TIP: Falls Sie neu bei Cloud Insights sind, sollten Sie sich mit den Funktionen 
 . Wählen Sie *Konto* > *Verbindungen*.
 . Wählen Sie in der Dropdown-Liste *Verbinden*, wo es *getrennt* angezeigt wird, um die Verbindung hinzuzufügen.
 +
-image:ci-connect.png["Zeigt die Option Verbinden aus der Dropdown-Liste an, um die Cloud Insights-Verbindung zu aktivieren."]
+image:ci-connect.png["Dieses Bild zeigt die Option Verbinden aus der Dropdown-Liste, um die Cloud Insights-Verbindung zu aktivieren."]
 
 . Geben Sie die Cloud Insights-API-Token und die Mandanten-URL ein. Die Mandanten-URL weist beispielsweise das folgende Format auf:
 +
@@ -111,7 +111,7 @@ Sie erhalten die Mandanten-URL, wenn Sie die Cloud Insights-Lizenz erhalten. Wen
 .. Um die zu bekommen link:https://docs.netapp.com/us-en/cloudinsights/API_Overview.html#api-access-tokens["API-Token"^], Loggen Sie sich bei Ihrer Cloud Insights-Mandanten-URL ein.
 .. Generieren Sie in Cloud Insights durch Klicken auf *Admin* > *API-Zugriff* sowohl ein *Lesen/Schreiben* als auch ein *schreibgeschütztes* API-Zugriffstoken.
 +
-image:cloud-insights-api.png["Zeigt die Seite zur Generierung des Cloud Insights-API-Tokens."]
+image:cloud-insights-api.png["Dieses Bild zeigt die Seite zur Generierung des Cloud Insights-API-Tokens."]
 
 .. Kopieren Sie die Taste * nur Lesen*. Sie müssen es in das Fenster Astra Control Center einfügen, um die Cloud Insights-Verbindung zu aktivieren. Wählen Sie für die Hauptberechtigungen Lese-API-Zugriffstoken die Option Assets, Alerts, Acquisition Unit und Data Collection aus.
 .. Kopieren Sie die Taste *Lesen/Schreiben*. Sie müssen es in das Astra Control Center *Connect Cloud Insights* Fenster einfügen. Wählen Sie für die Hauptberechtigungen Lese-/Schreib-API-Zugriffstoken die Option Datenaufnahme, Protokollaufnahme, Erfassungseinheit und Datenerfassung aus.
@@ -137,21 +137,21 @@ NOTE: Um zwischen dem Astra Control Center und den Cloud Insights UIs hin und he
 
 Wenn die Verbindung erfolgreich war, zeigt der Abschnitt *Cloud Insights* auf der Seite *Konto* > *Verbindungen* an, dass sie verbunden ist, und zeigt die Mandanten-URL an. Sie können Cloud Insights besuchen, um zu sehen, dass Daten erfolgreich empfangen und angezeigt werden.
 
-image:cloud-insights.png["Zeigt die Cloud Insights-Verbindung, die in der Astra Control Center-Benutzeroberfläche aktiviert ist."]
+image:cloud-insights.png["Dieses Bild zeigt die Cloud Insights-Verbindung, die in der Astra Control Center-Benutzeroberfläche aktiviert ist."]
 
 Wenn die Verbindung aus irgendeinem Grund fehlgeschlagen ist, wird im Status *failed* angezeigt. Den Grund für Fehlschlag finden Sie unter *Benachrichtigungen* auf der rechten oberen Seite des UI.
 
-image:cloud-insights-notifications.png["Zeigt die Fehlermeldung an, wenn die Cloud Insights-Verbindung fehlschlägt."]
+image:cloud-insights-notifications.png["Dieses Bild zeigt die Fehlermeldung, wenn die Cloud Insights-Verbindung fehlschlägt."]
 
 Die gleichen Informationen finden Sie auch unter *Konto* > *Benachrichtigungen*.
 
-Vom Astra Control Center können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Storage-Backend ausgewählt haben.image:throughput.png["Zeigt die Durchsatzinformationen auf der Seite Backend im Astra Control Center an."]
+Vom Astra Control Center können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Storage-Backend ausgewählt haben.image:throughput.png["Dieses Bild zeigt die Durchsatzinformationen auf der Seite Back Ends im Astra Control Center."]
 
 Um direkt zu Cloud Insights zu gelangen, wählen Sie neben dem Kennzahlenbild das Symbol *Cloud Insights* aus.
 
 Die Informationen finden Sie auch auf dem *Dashboard*.
 
-image:dashboard-ci.png["Zeigt das Symbol Cloud Insights auf dem Dashboard an."]
+image:dashboard-ci.png["Dieses Bild zeigt das Cloud Insights-Symbol auf dem Dashboard an."]
 
 
 IMPORTANT: Wenn Sie nach Aktivierung der Cloud Insights-Verbindung die Back-Ends entfernen, die Sie im Astra Control Center hinzugefügt haben, werden die Back-Ends nicht mehr an Cloud Insights gemeldet.
@@ -192,7 +192,7 @@ Sie können die Cloud Insights-Verbindung für einen Kubernetes Cluster deaktivi
 
 Sie können Protokolle (Kubernetes-Ereignisse) vom Astra Control Center an Ihren Fluentd Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.
 
-image:fluentbit.png["Zeigt ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd."]
+image:fluentbit.png["Dies ist ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd."]
 
 
 NOTE: Nur die Ereignisprotokolle von verwalteten Clustern werden an Fluentd weitergeleitet.
@@ -210,7 +210,7 @@ IMPORTANT: Astra Control Center überprüft nicht die Details, die Sie für Ihre
 . Wählen Sie *Konto* > *Verbindungen*.
 . Wählen Sie in der Dropdown-Liste *nicht verbunden* aus, um die Verbindung hinzuzufügen.
 +
-image:connect-fluentd.png["Zeigt den UI-Bildschirm für die Aktivierung der Verbindung mit Fluentd an."]
+image:connect-fluentd.png["Dieses Bild zeigt den UI-Bildschirm zur Aktivierung der Verbindung mit Fluentd."]
 
 . Geben Sie die Host-IP-Adresse, die Portnummer und den freigegebenen Schlüssel für Ihren Fluentd-Server ein.
 . Wählen Sie *Verbinden*.

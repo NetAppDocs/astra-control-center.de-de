@@ -30,7 +30,6 @@
   <block id="c985292efffba104a103f0714c4407ab" category="list-text"><block ref="c985292efffba104a103f0714c4407ab" category="inline-link-macro-rx"></block></block>
   <block id="60f694f21643599c137f6c610e48124e" category="summary">Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung.</block>
   <block id="9282ad3aef7e124a3b2b9c7eab52b33d" category="doc">Architektur und Komponenten</block>
-  <block id="2325c645f4d2112a8e96b127fbad7bf2" category="inline-image-macro">Astra Control – Architekturdiagramm und Komponenten</block>
   <block id="51d249216b03414f10b242b851af7951" category="section-title">Komponenten des Astra Control</block>
   <block id="a8d77bbb11d2e1a349811767d194e9ba" category="list-text">*Kubernetes-Cluster*: Kubernetes ist eine portable, erweiterbare Open-Source-Plattform für das Management von Workloads und Services in Containern, die sowohl deklarative Konfigurationen als auch Automatisierung ermöglicht. Astra bietet Managementservices für Applikationen, die in einem Kubernetes-Cluster gehostet werden.</block>
   <block id="c2c28b59e21cbd4b3d6c78dbdf1db70f" category="list-text">*Astra Trident*: Trident ist eine vollständig unterstützte Open-Source-Storage-bereitstellung und -Orchestrierung mit Hilfe von NetApp. Mit Trident können Sie Storage Volumes für Container-Applikationen erstellen, die von Docker und Kubernetes verwaltet werden. Bei der Implementierung mit Astra Control Center umfasst Trident ein konfiguriertes ONTAP Storage-Back-End.</block>
@@ -167,20 +166,10 @@
   <block id="d212abf709fef8fefcdce84a69830236" category="paragraph">Weitere Informationen zur Replizierung von Applikationen finden Sie unter <block ref="f775ff169c13e4056fe6b95c5da23416" category="inline-link-macro-rx"></block>.</block>
   <block id="2e67b4ffa9856ed714ace3c83ce69b11" category="paragraph">Die folgenden Images zeigen den geplanten Backup- und Wiederherstellungsprozess im Vergleich zum Replikationsprozess.</block>
   <block id="0684163543dd8c63ba059f860287849a" category="paragraph">Der Backup-Prozess kopiert Daten in S3 Buckets und Restores aus S3 Buckets:</block>
-  <block id="81cddeedfe823c0b5ecc3077e6dafc47" category="inline-image-macro">Geplante Sicherung und Wiederherstellung von Images</block>
-  <block id="85d4813220dc61b1558025981ecb0a0c" category="paragraph"><block ref="85d4813220dc61b1558025981ecb0a0c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af71b68b2a3d17f7141855dcd02a56ca" category="paragraph">Zum anderen erfolgt die Replizierung auf ONTAP. Bei einem Failover werden die Kubernetes-Ressourcen erstellt:</block>
-  <block id="a5f8603aae16ddbbbcfc6f63de01008d" category="inline-image-macro">Replizierung und Failover eines Images</block>
-  <block id="de57d5c9dad5ff2e5621f7541a798fe9" category="paragraph"><block ref="de57d5c9dad5ff2e5621f7541a798fe9" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a7da53d86332105dcae80a12f3e8b7a5" category="summary">Beschreibt die Art der verwalteten Apps in Astra Control.</block>
   <block id="848f207b3c4594754aa82fd21b5fc5e0" category="paragraph">Wenn Astra Control Ihre Cluster erkennt, werden die Apps auf diesen Clustern solange nicht verwaltet, bis Sie das gewünschte Management wählen. Eine verwaltete Anwendung in Astra Control kann eine der folgenden sein:</block>
   <block id="3757d3597962f660c54cb3f9ed5ba251" category="list-text">Einen Namespace, einschließlich aller Ressourcen in diesem Namespace</block>
-  <block id="99185f9c0e1b271b9c7c1684898a4b91" category="inline-image-macro">Ein Konzept-Image, das Astra als Management aller Ressourcen im Namespace zeigt.</block>
-  <block id="5f5e029c480c6d454f7077a350ea7051" category="paragraph"><block ref="5f5e029c480c6d454f7077a350ea7051" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="bc02e113923823bd80cf4509ac5dd0ea" category="inline-image-macro">Ein Konzept-Image, das Astra für die Verwaltung einer individuellen in einem Namespace implementierten Applikation einschließlich anderer Applikationen zeigt</block>
-  <block id="aaa30264edbceaac1a9c4ae46e684508" category="paragraph"><block ref="aaa30264edbceaac1a9c4ae46e684508" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e79c66d32821cf7f9dadf70f95c95f46" category="inline-image-macro">Ein Konzept-Image, das den Astra als Basis für eine App mit dem Kubernetes-Label verwaltet.</block>
-  <block id="42e713fefe57640d4cb0e9c071431be5" category="paragraph"><block ref="42e713fefe57640d4cb0e9c071431be5" category="inline-image-macro-rx" type="image"></block></block>
   <block id="c1da0c460c22d6fba67aca5373a43cb1" category="doc">Fügen Sie ein benutzerdefiniertes TLS-Zertifikat hinzu</block>
   <block id="70f4c838af25e53e799ffca0c2ea44f5" category="list-text">Kubernetes-Cluster mit installiertem Astra Control Center</block>
   <block id="0cb21c23cf46c4ea4707d50d3d396f43" category="list-text">Administratorzugriff auf eine Command Shell auf dem zu ausgeführten Cluster<block ref="0f12ee5c9f1dd90158580f1c292b0d37" prefix=" " category="inline-code"></block> Befehle</block>
@@ -467,11 +456,9 @@
   <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">Melden Sie sich bei Ihrer Registrierung an:</block>
   <block id="55c6b9fd6efcd18e0f53c34459084a3f" category="section-title">Suchen Sie die Installationsseite des Bedieners</block>
   <block id="396cd1df886b31da3577b40fa6f7cf0f" category="list-text">Führen Sie eines der folgenden Verfahren aus, um auf die Installationsseite des Bedieners zuzugreifen:</block>
-  <block id="fd8cbefedde3fbeeb2817b2484ff0e38" category="inline-image-macro">Astra Control Center-Installationsseite</block>
   <block id="1b37bd82bf53c89bcedcfc65519416b2" category="list-text">Melden Sie sich in der OpenShift Container Platform UI an.</block>
   <block id="d23202f3a841766e7b5d6b37777fc6c3" category="list-text">Wählen Sie im Seitenmenü die Option *Operatoren &gt; OperatorHub* aus.</block>
   <block id="6d20ba1f906a03b7657514dee48eb121" category="list-text">Wählen Sie *Installieren*.</block>
-  <block id="89bb9ef577ff373ba97cf5d87b3cbfa2" category="inline-image-macro">Astra Control Center Übersichtsseite</block>
   <block id="4b583376b2767b923c3e1da60d10de59" category="inline-link">Operator</block>
   <block id="13191ff715c85f59fd2da330d31c4e9f" category="list-text">Wählen Sie *Bereitstellen und Verwenden*.</block>
   <block id="a961f7d3b56fe3f9b072af70813d6f82" category="section-title">Installieren Sie den Operator</block>
@@ -559,8 +546,6 @@
   <block id="6da6782dc02c8e2ffb3f2eeb0c8f4f10" category="list-text">Drücken Sie die ACC-Bilder auf die definierte Registrierung.</block>
   <block id="1768a4b0762c934953673bc18b18890a" category="admonition">Das AWS Elastic Container Registry (ECR) Token läuft nach 12 Stunden ab und verursacht das Fehlschlagen clusterübergreifender Klonvorgänge. Dieses Problem tritt auf, wenn ein Storage-Back-End von für AWS konfigurierten Cloud Volumes ONTAP gemanagt wird. Um dieses Problem zu beheben, müssen Sie sich erneut mit der ECR authentifizieren und ein neues Geheimnis generieren, damit Klonvorgänge erfolgreich fortgesetzt werden können.</block>
   <block id="d0d3a0a6bbae566c1e61c2fc0d0377ad" category="paragraph">Beispiel für eine AWS Implementierung:</block>
-  <block id="00e2fab6bb1c1ddf5a08853aa2b05595" category="inline-image-macro">Astra Control Center mit Implementierungsbeispiel für Cloud Volumes ONTAP</block>
-  <block id="a5f9219af3aa469c4909489aee2c2362" category="paragraph"><block ref="a5f9219af3aa469c4909489aee2c2362" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f7bba7b010fcf309ed99329ba3de1d34" category="inline-link">Erste Schritte mit Cloud Volumes ONTAP in AWS</block>
   <block id="875986068fd60999889e672086c4a739" category="list-text"><block ref="c7ce1d84b369179362f6c701fb404ff4" category="inline-link-rx"></block>.</block>
   <block id="050e0fc66b4a702f2c0bcd4593f2022d" category="list-text">Erstellen Sie einen Arbeitsbereich.</block>
@@ -1462,14 +1447,10 @@
   <block id="33e25013c351d84e30f58671009577d3" category="list-text">Melden Sie sich bei Astra Control Center mit einem Konto mit *admin*/*Owner*-Berechtigung an.</block>
   <block id="bc19da5189cc32f27d8b9761272305cd" category="list-text">Wählen Sie *Konto* &gt; *Verbindungen*.</block>
   <block id="61ba00adf80e33f4a06350b8ca656cc4" category="list-text">Wählen Sie in der Dropdown-Liste *Verbinden* aus, um einen Proxyserver hinzuzufügen.</block>
-  <block id="2179b7b2a88ef2e506e76d57c25fa237" category="inline-image-macro">Zeigt die Option Verbinden an, um Proxy-Verbindung zu aktivieren.</block>
-  <block id="7ff85d76f103065032d94a8c68974092" category="paragraph"><block ref="7ff85d76f103065032d94a8c68974092" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ea0e7e79990da962999dce45447bba55" category="list-text">Geben Sie den Proxy-Servernamen oder die IP-Adresse und die Proxy-Portnummer ein.</block>
   <block id="78e8fc32c3b168a3792d8761ea97e657" category="list-text">Wenn Ihr Proxy-Server eine Authentifizierung erfordert, aktivieren Sie das Kontrollkästchen, und geben Sie den Benutzernamen und das Kennwort ein.</block>
   <block id="0f265823a78c858e83b858d5e6089fce" category="list-text">Wählen Sie *Verbinden*.</block>
   <block id="867f3b9a2a85b4e5b34de33b997d7b7c" category="paragraph">Wenn die eingegebenen Proxydaten gespeichert wurden, zeigt der Abschnitt *HTTP Proxy* der Seite *Konto* &gt; *Verbindungen* an, dass sie verbunden sind, und zeigt den Servernamen an.</block>
-  <block id="42b67f9f298a9aeaa29b219aa2f29a90" category="inline-image-macro">Zeigt den Proxyserver erfolgreich verbunden an.</block>
-  <block id="f0f7f1a8be3a2342c23b9810a3769c99" category="paragraph"><block ref="f0f7f1a8be3a2342c23b9810a3769c99" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1c209e4bb243a7664e81ccb259e9703e" category="section-title">Proxy-Server-Einstellungen bearbeiten</block>
   <block id="cc559a612d121e504b6603fdf97805d6" category="paragraph">Sie können die Proxy-Server-Einstellungen bearbeiten.</block>
   <block id="d5ba2be736cb80743973a43318142edb" category="list-text">Wählen Sie in der Dropdown-Liste *Bearbeiten* aus, um die Verbindung zu bearbeiten.</block>
@@ -1488,15 +1469,11 @@
   <block id="1bdb819abf27f345e251d7d74bd13432" category="list-text">Ein Proxy-Server, wenn das Netzwerk, in dem Sie Astra Control Center verwenden, einen Proxy für die Verbindung zum Internet benötigt.</block>
   <block id="c9bcb1e1ffd0a3c4060e93553536017d" category="admonition">Falls Sie neu bei Cloud Insights sind, sollten Sie sich mit den Funktionen und Features vertraut machen. Siehe <block ref="c0165bf1c80302323bce293718326d03" category="inline-link-macro-rx"></block>.</block>
   <block id="c83c4a85c1f411531560f13476d42d8a" category="list-text">Wählen Sie in der Dropdown-Liste *Verbinden*, wo es *getrennt* angezeigt wird, um die Verbindung hinzuzufügen.</block>
-  <block id="c588327a11cf77e3d35f9fea2f6da70f" category="inline-image-macro">Zeigt die Option Verbinden aus der Dropdown-Liste an, um die Cloud Insights-Verbindung zu aktivieren.</block>
-  <block id="f2045802e1db2626118073af019ba192" category="paragraph"><block ref="f2045802e1db2626118073af019ba192" category="inline-image-macro-rx" type="image"></block></block>
   <block id="daf520ac523717e78fa182acb623be60" category="list-text">Geben Sie die Cloud Insights-API-Token und die Mandanten-URL ein. Die Mandanten-URL weist beispielsweise das folgende Format auf:</block>
   <block id="3897b2a4ac4a4ef4f11715fcf865f739" category="paragraph">Sie erhalten die Mandanten-URL, wenn Sie die Cloud Insights-Lizenz erhalten. Wenn die Mandanten-URL nicht vorhanden ist, lesen Sie den <block ref="2afd17eb985e67d361b768309fdff3cf" category="inline-link-macro-rx"></block>.</block>
   <block id="51408f1c75ab7bcc90f67b3ab1801733" category="inline-link-macro">API-Token</block>
   <block id="434bddda84600d6af976eacbebbfcf8d" category="list-text">Um die zu bekommen <block ref="466720263e1cfd612e0752298c39ffb4" category="inline-link-macro-rx"></block>, Loggen Sie sich bei Ihrer Cloud Insights-Mandanten-URL ein.</block>
   <block id="0f21509577569fcfd44247652db09da1" category="list-text">Generieren Sie in Cloud Insights durch Klicken auf *Admin* &gt; *API-Zugriff* sowohl ein *Lesen/Schreiben* als auch ein *schreibgeschütztes* API-Zugriffstoken.</block>
-  <block id="1510025929fc977562c0c445934e3ab5" category="inline-image-macro">Zeigt die Seite zur Generierung des Cloud Insights-API-Tokens.</block>
-  <block id="0297da739425ffb4582516e5cde91975" category="paragraph"><block ref="0297da739425ffb4582516e5cde91975" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7a3ef7b3d20368f22318e140ed0c8bf5" category="list-text">Kopieren Sie die Taste * nur Lesen*. Sie müssen es in das Fenster Astra Control Center einfügen, um die Cloud Insights-Verbindung zu aktivieren. Wählen Sie für die Hauptberechtigungen Lese-API-Zugriffstoken die Option Assets, Alerts, Acquisition Unit und Data Collection aus.</block>
   <block id="5d81b6bdee197be668fe2348e55a8d14" category="admonition">Wir empfehlen Ihnen, einen *Read Only*-Schlüssel und einen *Read/Write*-Schlüssel zu generieren und nicht den gleichen Schlüssel für beide Zwecke zu verwenden. Standardmäßig ist der Ablauf des Tokens auf ein Jahr festgelegt. Wir empfehlen, dass Sie die Standardauswahl beibehalten, um dem Token die maximale Dauer zu geben, bevor es abläuft. Wenn Ihr Token abläuft, wird die Telemetrie angehalten.</block>
   <block id="a086aaec8aa524f4ce0a74b48df64bcd" category="list-text">Fügen Sie die Tasten ein, die Sie von Cloud Insights in Astra Control Center kopiert haben.</block>
@@ -1504,18 +1481,10 @@
   <block id="43de6aafea6c660a2d69482b910c0bfb" category="admonition">Um zwischen dem Astra Control Center und den Cloud Insights UIs hin und her zu gehen, stellen Sie sicher, dass Sie bei beiden angemeldet sind.</block>
   <block id="46ded58f5fa86b93f6fed80f7597e45e" category="section-title">Daten im Cloud Insights anzeigen</block>
   <block id="aa7711aa5ef4fc913e7d4849d49004a8" category="paragraph">Wenn die Verbindung erfolgreich war, zeigt der Abschnitt *Cloud Insights* auf der Seite *Konto* &gt; *Verbindungen* an, dass sie verbunden ist, und zeigt die Mandanten-URL an. Sie können Cloud Insights besuchen, um zu sehen, dass Daten erfolgreich empfangen und angezeigt werden.</block>
-  <block id="d0715a0b071062148d1884938ffc1939" category="inline-image-macro">Zeigt die Cloud Insights-Verbindung, die in der Astra Control Center-Benutzeroberfläche aktiviert ist.</block>
-  <block id="f7f944dc9f63ad54dbe734477503a6cb" category="paragraph"><block ref="f7f944dc9f63ad54dbe734477503a6cb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d2ec190866f031171cf0a69e5c077394" category="paragraph">Wenn die Verbindung aus irgendeinem Grund fehlgeschlagen ist, wird im Status *failed* angezeigt. Den Grund für Fehlschlag finden Sie unter *Benachrichtigungen* auf der rechten oberen Seite des UI.</block>
-  <block id="e0c60e2b8f76562add536b99661d2b67" category="inline-image-macro">Zeigt die Fehlermeldung an, wenn die Cloud Insights-Verbindung fehlschlägt.</block>
-  <block id="dd27247602177d32f792cd643a225a07" category="paragraph"><block ref="dd27247602177d32f792cd643a225a07" category="inline-image-macro-rx" type="image"></block></block>
   <block id="7da64ad5299c8b00ca21c382463c9f63" category="paragraph">Die gleichen Informationen finden Sie auch unter *Konto* &gt; *Benachrichtigungen*.</block>
-  <block id="454f31294c9715a898c98f2afa2685ad" category="inline-image-macro">Zeigt die Durchsatzinformationen auf der Seite Backend im Astra Control Center an.</block>
-  <block id="84472b02df9ecb9ff5c688b0c08245ca" category="paragraph">Vom Astra Control Center können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Storage-Backend ausgewählt haben.<block ref="9afc157986307cd94450fd30a9b1855a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="3374692e1399d9e6be7479a27b1dc3f3" category="paragraph">Um direkt zu Cloud Insights zu gelangen, wählen Sie neben dem Kennzahlenbild das Symbol *Cloud Insights* aus.</block>
   <block id="7927c7f1a09ecdcf3826102214946bf9" category="paragraph">Die Informationen finden Sie auch auf dem *Dashboard*.</block>
-  <block id="5572d82343396e3131940f274197b002" category="inline-image-macro">Zeigt das Symbol Cloud Insights auf dem Dashboard an.</block>
-  <block id="ba1adb88cab95f0607254af7e647a803" category="paragraph"><block ref="ba1adb88cab95f0607254af7e647a803" category="inline-image-macro-rx" type="image"></block></block>
   <block id="23d51d0a843cd66f535de41fac2eb934" category="admonition">Wenn Sie nach Aktivierung der Cloud Insights-Verbindung die Back-Ends entfernen, die Sie im Astra Control Center hinzugefügt haben, werden die Back-Ends nicht mehr an Cloud Insights gemeldet.</block>
   <block id="1e76c10ef43f6d891a3204c61a8642d3" category="section-title">Cloud Insights-Verbindung bearbeiten</block>
   <block id="25dcc2e3891265564a74533dbe1910b5" category="paragraph">Sie können die Cloud Insights-Verbindung bearbeiten.</block>
@@ -1526,14 +1495,10 @@
   <block id="7b47e5cca580c15b73298814e6dc3043" category="list-text">Bestätigen Sie im Dialogfeld, das geöffnet wird, den Vorgang. Nachdem Sie den Vorgang bestätigt haben, ändert sich der Cloud Insights-Status auf der Seite *Konto* &gt; *Verbindungen* in *Ausstehend*. Es dauert ein paar Minuten, bis der Status in *nicht verbunden* geändert wird.</block>
   <block id="e3ef410032c04be22479d1f57535cd7c" category="section-title">Mit Fluentd verbinden</block>
   <block id="53aa734867da8d80d801799743769150" category="paragraph">Sie können Protokolle (Kubernetes-Ereignisse) vom Astra Control Center an Ihren Fluentd Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.</block>
-  <block id="50ae7b2f449579ca9d0620c3718a2419" category="inline-image-macro">Zeigt ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd.</block>
-  <block id="92dbde6bbc73c8dacd1545fffe889415" category="paragraph"><block ref="92dbde6bbc73c8dacd1545fffe889415" category="inline-image-macro-rx" type="image"></block></block>
   <block id="78f449881ce819a79127ab380ec8f5f0" category="admonition">Nur die Ereignisprotokolle von verwalteten Clustern werden an Fluentd weitergeleitet.</block>
   <block id="f49f4c26cb983eb5089296d1c29bd573" category="list-text">Astra Control Center ist auf einem Kubernetes-Cluster installiert und läuft.</block>
   <block id="d3ebfa34d5e7c2c879271b1ab8424d9e" category="admonition">Astra Control Center überprüft nicht die Details, die Sie für Ihren Fluentd-Server eingeben. Stellen Sie sicher, dass Sie die richtigen Werte eingeben.</block>
   <block id="f1514cb8570b20e845f548246b841eb3" category="list-text">Wählen Sie in der Dropdown-Liste *nicht verbunden* aus, um die Verbindung hinzuzufügen.</block>
-  <block id="9222f03acbb41c941f4e1c0737a40a85" category="inline-image-macro">Zeigt den UI-Bildschirm für die Aktivierung der Verbindung mit Fluentd an.</block>
-  <block id="6dc61e2a65c7005e4eae3e77aba8d8fb" category="paragraph"><block ref="6dc61e2a65c7005e4eae3e77aba8d8fb" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8ab642391b4550bdfa0f2fe5a9dab2b5" category="list-text">Geben Sie die Host-IP-Adresse, die Portnummer und den freigegebenen Schlüssel für Ihren Fluentd-Server ein.</block>
   <block id="96e5a93d89478d68d86d192ede312f4c" category="paragraph">Wenn die für den Fluentd-Server eingegebenen Details gespeichert wurden, zeigt der Abschnitt *Fluentd* auf der Seite *Konto* &gt; *Verbindungen* an, dass er verbunden ist. Jetzt können Sie den Fluentd-Server besuchen, mit dem Sie verbunden sind, und die Ereignisprotokolle anzeigen.</block>
   <block id="d95b383228097cdda62fce9da86acceb" category="admonition">Wenn Sie Probleme mit der Protokollerfassung haben, sollten Sie sich bei Ihrem Worker-Knoten anmelden und sicherstellen, dass Ihre Protokolle in verfügbar sind<block ref="b724fbdd5752a1058b27c95056e46b6a" prefix=" " category="inline-code"></block>.</block>
@@ -2155,12 +2120,6 @@
   <block id="53e06493a0f9e186146ff53d8404521e" category="list-text">Fügen Sie einen Connector für Azure hinzu. Siehe<block ref="6d10c0b16ff75eab2b0592f6238ce259" category="inline-link-rx"></block>.</block>
   <block id="7009f92960c4bd616ffd0e2e8bbaa4cf" category="inline-link">Erstellen eines Konnektors in Azure aus BlueXPr</block>
   <block id="e8ff9cc14c42d1ea2de410aca63bd5b7" category="paragraph">Siehe<block ref="aaf2ee578bc85f6c53b28aac20a7756c" category="inline-link-rx"></block>.</block>
-  <block id="40cad368ca5806ced7d6878e36d39351" category="inline-image-macro">Switching-Anschlüsse in BlueXP</block>
-  <block id="65bd02c333199872cc44e0f11c0de104" category="paragraph"><block ref="65bd02c333199872cc44e0f11c0de104" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a551c3cf4219da80f9670f43e5d9d268" category="inline-image-macro">Schaffung einer Arbeitsumgebung in BlueXP</block>
-  <block id="b71e231cf400059d004baed1644d0ece" category="paragraph"><block ref="b71e231cf400059d004baed1644d0ece" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="24a2b49332b20b6b4dba60ffd761ddb5" category="inline-image-macro">Importiertes Cluster in BlueXP</block>
-  <block id="641d2e351c547ec3f919c306b63afc6c" category="paragraph"><block ref="641d2e351c547ec3f919c306b63afc6c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b24ff57a65ef73f0fc117dd330a967f3" category="section-title">Installation und Konfiguration von Astra Control Center für Azure</block>
   <block id="7a06675f408aed2dabe52a3645059966" category="list-text">Stellen Sie in Ihrem OpenShift-Cluster sicher, dass sich alle Clusterbetreiber in einem ordnungsgemäßen Zustand befinden:</block>
   <block id="845e2368c3a6b9728a9fa15096c62bd0" category="list-text">Stellen Sie in Ihrem OpenShift-Cluster sicher, dass sich alle API-Services in einem ordnungsgemäßen Zustand befinden:</block>
@@ -2179,7 +2138,6 @@
   <block id="9fec972e16132554b3f6d7a367b20c12" category="paragraph">Astra Control Center unterstützt Kubernetes-Cluster mit Trident-basiertem Storage mit einem Storage-Backend mit ONTAP 9.5 und höher.</block>
   <block id="46d0a394f0b8bd48b4ad9f07551cc671" category="paragraph">Sie können Astra Control Center mit einer 90-Tage-Evaluierungslizenz ausprobieren. Die Evaluierungsversion wird durch E-Mail- und Community-Optionen unterstützt. Zudem haben Sie über das Dashboard für den Produktsupport Zugriff auf Knowledgebase-Artikel und -Dokumentation.</block>
   <block id="624cfce99f1f72da4d8c5d67b46d357b" category="paragraph">Bei der Installation des Astra Control Center, falls Sie dies angeben<block ref="5ef3c13da1e4fcb9a76fc8f568eee144" prefix=" " category="inline-code"></block> Für<block ref="5398d7dab242bfea13c044912cacfd10" prefix=" " category="inline-code"></block> In der Datei Astra Control Center Custom Resource (CR) <block ref="70b058e54d2bda749060070a7f9c4e5c" prefix="(" category="inline-code"></block>) Werden täglich Support-Pakete automatisch auf die hochgeladen<block ref="3725c06f412bedb14ffd610de312875d" category="inline-link-rx"></block>.</block>
-  <block id="6ef5565e71b748d07e8a7b0699a73b5a" category="paragraph"><block ref="6ef5565e71b748d07e8a7b0699a73b5a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a62af64f81e65194efb6011308308c81" category="list-text">Eine individuelle Anwendung, die innerhalb einer oder mehrerer Namespaces bereitgestellt wird (in diesem Beispiel wird helm3 verwendet)</block>
   <block id="5200a678b94ac14cf371f3073027246a" category="list-text">Eine Gruppe von Ressourcen, die innerhalb eines oder mehrerer Namespaces durch ein Kubernetes-Label identifiziert werden</block>
   <block id="a2bbd5d6b932fb5a7f8ebfec6951f1f2" category="summary">Astra Control Center unterstützt Trident-Storage-Klassen auf Basis von ONTAP Storage. Sie sollten verstehen, wie Storage-Klassen und persistente Volume-Größe Sie dabei unterstützen können, Ihre Performance-Ziele zu erreichen.</block>
@@ -2518,12 +2476,8 @@
   <block id="83a21b4b84bec79fb67f25c973cb89d3" category="list-text"><block ref="485506977df8782eb9acff027cc95cf9" category="inline-link-macro-rx"></block> Für Ihren Ingress-Controller-Typ.</block>
   <block id="70f82fe210d70d79ae84c8e57b5baf7f" category="list-text">Von der Red hat OpenShift-Webkonsole aus:</block>
   <block id="eb5ffd4ef5a8aa98e9c36b2c79cea4ed" category="list-text">Suchen Sie nach und wählen Sie den Operator des NetApp Astra Control Center aus.</block>
-  <block id="aa29e3cb75d2e7e5a7c9020ff806205e" category="paragraph"><block ref="aa29e3cb75d2e7e5a7c9020ff806205e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="6f711eb57d6111094b5030c8f526d269" category="list-text">Aus Dem Red Hat Ecosystem Catalog:</block>
   <block id="91ec9a89e3a33fa6bc118cf53ef60c2e" category="list-text">Wählen Sie das NetApp Astra Control Center aus<block ref="e9d5520af4877fc40e9611f3ebf55be3" category="inline-link-rx"></block>.</block>
-  <block id="5698ddd18c8f6cab72a468c7cfa4eeec" category="paragraph"><block ref="5698ddd18c8f6cab72a468c7cfa4eeec" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="ebba57f57d5e5b122328701846bed429" category="inline-image-macro">Bedienerseite des Astra Control Center</block>
-  <block id="c8d7734b1f32bc2769d028defe4768af" category="list-text">Wählen Sie in der Konsole auf der Registerkarte *Astra Control Center* des Astra Control Center-Bedieners die Option *AstraControlCenter erstellen* aus.<block ref="4b62ec811b7f534bf6133b7281cc1006" category="inline-image-macro-rx" type="image"></block></block>
   <block id="20133d30eea258b6c1550d612eb75dfc" category="list-text">Fügen Sie Etiketten für das Astra Control Center hinzu.</block>
   <block id="a90dd656b7a6b8d695097aab7d876d0e" category="list-text">Aktivieren oder deaktivieren Sie Auto Support. Es wird empfohlen, die Auto Support-Funktion beizubehalten.</block>
   <block id="4039227203056b7dfe2f76bcb9aedef4" category="list-text">Geben Sie den FQDN des Astra Control Centers oder die IP-Adresse ein. Kommen Sie nicht herein<block ref="dbd7790bcd23fde7607101ef6a633779" prefix=" " category="inline-code"></block> Oder<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> Im Adressfeld.</block>
@@ -2655,4 +2609,50 @@
   <block id="2a09fd1da71158929da8e53a8b3b41b7" category="list-text">Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:</block>
   <block id="d7dde07915bbe8056e6854c2b5e50480" category="inline-link">Bereiten Sie die Worker-Knoten vor</block>
   <block id="2facff43cb177de168322dab6df7d48c" category="list-text"><block ref="2facff43cb177de168322dab6df7d48c" category="inline-link-rx"></block></block>
+  <block id="8dcf3121a9c80a937dfc06bc5fd4e5e3" category="inline-image-macro">Dieses Bild zeigt die Option Verbinden, um Proxy-Verbindung zu aktivieren.</block>
+  <block id="3e659c38f14d2c0b95bd77bdd854bd85" category="paragraph"><block ref="3e659c38f14d2c0b95bd77bdd854bd85" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="fd180d52d96c0ebe62f487b84c2d789f" category="inline-image-macro">Dieses Bild zeigt, dass der Proxyserver erfolgreich verbunden wurde.</block>
+  <block id="689a14f9780ff330d7c3aedf834175d5" category="paragraph"><block ref="689a14f9780ff330d7c3aedf834175d5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2df1a0b35f35656f62b5546dd35d1fc5" category="inline-image-macro">Dieses Bild zeigt die Option Verbinden aus der Dropdown-Liste, um die Cloud Insights-Verbindung zu aktivieren.</block>
+  <block id="c85206515206584aaee44979bb1c41dc" category="paragraph"><block ref="c85206515206584aaee44979bb1c41dc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="578a387f1f8e86b4cd4668959ab7287b" category="inline-image-macro">Dieses Bild zeigt die Seite zur Generierung des Cloud Insights-API-Tokens.</block>
+  <block id="4b1189d2248f8a4f61e3601f01c69998" category="paragraph"><block ref="4b1189d2248f8a4f61e3601f01c69998" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ff78c299289641ea8c98a5bd3d1d9f14" category="inline-image-macro">Dieses Bild zeigt die Cloud Insights-Verbindung, die in der Astra Control Center-Benutzeroberfläche aktiviert ist.</block>
+  <block id="863e5d03d8276e6ec0e91d90362ba6fc" category="paragraph"><block ref="863e5d03d8276e6ec0e91d90362ba6fc" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="61beccf9a144fb9a169b932ec10e00da" category="inline-image-macro">Dieses Bild zeigt die Fehlermeldung, wenn die Cloud Insights-Verbindung fehlschlägt.</block>
+  <block id="89f4116267c0b38a50714fb79e4dc52b" category="paragraph"><block ref="89f4116267c0b38a50714fb79e4dc52b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0693a381c51a4d797366db02bab07c85" category="inline-image-macro">Dieses Bild zeigt die Durchsatzinformationen auf der Seite Back Ends im Astra Control Center.</block>
+  <block id="8546879ad37538b080bb2017fb6a59b2" category="paragraph">Vom Astra Control Center können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Storage-Backend ausgewählt haben.<block ref="d70136cc2e2ff773a9985b636fa21877" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a3a7dcfbde4fa6707602db24edc4decc" category="inline-image-macro">Dieses Bild zeigt das Cloud Insights-Symbol auf dem Dashboard an.</block>
+  <block id="282be9d39c31d0227d619a8545c323cf" category="paragraph"><block ref="282be9d39c31d0227d619a8545c323cf" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d9f3a4876cc5135e711d40d1ce9d90e0" category="inline-image-macro">Dies ist ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd.</block>
+  <block id="690dfd75b6f39f7266559fe8a0bf7e59" category="paragraph"><block ref="690dfd75b6f39f7266559fe8a0bf7e59" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e09e6628893acd91e43aa689b73d666e" category="inline-image-macro">Dieses Bild zeigt den UI-Bildschirm zur Aktivierung der Verbindung mit Fluentd.</block>
+  <block id="983ce575b1bbce4c353117acb64736a9" category="paragraph"><block ref="983ce575b1bbce4c353117acb64736a9" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="89f828fc0373897c24df33390dd05a71" category="inline-image-macro">Dieses Bild zeigt ein Beispiel eines Astra Control Center mit einer Cloud Volumes ONTAP-Implementierung</block>
+  <block id="a022db6a8f02885ee71752a15ca989d2" category="paragraph"><block ref="a022db6a8f02885ee71752a15ca989d2" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="a887a250e32580febb9e88a148e98b6d" category="inline-image-macro">Dieses Bild zeigt Anschlüsse in BlueXP</block>
+  <block id="2e8c307a4769b3012d46947b310e8933" category="paragraph"><block ref="2e8c307a4769b3012d46947b310e8933" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="2692c49aedcd034aebf5aada7fd9ddea" category="inline-image-macro">Dieses Bild zeigt die Positionen der Arbeitsumgebung in BlueXP</block>
+  <block id="2f3dcbcb13f9b55a6871541e299ab5dd" category="paragraph"><block ref="2f3dcbcb13f9b55a6871541e299ab5dd" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="64ab5ed989081d11abcb25c80eef9d3e" category="inline-image-macro">Dieses Bild zeigt einen importierten Cluster in BlueXP</block>
+  <block id="433f94af9370edd5cebefd49c137cde8" category="paragraph"><block ref="433f94af9370edd5cebefd49c137cde8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ad33954d9b6a97c5e3d83a747222ea5c" category="inline-image-macro">Dieses Bild zeigt die Installationsseite des Astra Control Center von der OpenShift Container Platform</block>
+  <block id="c1461863db43079243c4c84fb794292c" category="paragraph"><block ref="c1461863db43079243c4c84fb794292c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ae94e6397160111c3d2cf22d9a8ca3ec" category="inline-image-macro">Dieses Bild zeigt die Übersichtsseite des Astra Control Center, die im RedHat Ecosystem Catalog verfügbar ist</block>
+  <block id="a4503954adc0dc79a485e6b85ec3e042" category="paragraph"><block ref="a4503954adc0dc79a485e6b85ec3e042" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f70a3f4d7ff63162b39fd497d3ca41a2" category="inline-image-macro">Dieses Bild zeigt die Bedienerseite des Astra Control Center, auf der die Registerkarte Astra Control Center ausgewählt ist</block>
+  <block id="9fc00961e95dc124bf940a69051c6811" category="list-text">Wählen Sie in der Konsole auf der Registerkarte *Astra Control Center* des Astra Control Center-Bedieners die Option *AstraControlCenter erstellen* aus.<block ref="17c57d9e244946cd3aa5005781885a19" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="5ddd50ee81b614308861ff77d7830f09" category="inline-image-macro">Ein Konzept, das die Astra Control Architektur und deren Komponenten beschreibt</block>
+  <block id="9a5af8d21a89c12b2cbe1b8eef81601d" category="paragraph"><block ref="9a5af8d21a89c12b2cbe1b8eef81601d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0f46081f2feaf078f0f3439194dbfeaa" category="inline-image-macro">Ein Konzept-Image, das Astra Control zum Management aller Ressourcen im Namespace zeigt.</block>
+  <block id="96cda0463e67936e4be90b32cd9b2037" category="paragraph"><block ref="96cda0463e67936e4be90b32cd9b2037" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="9ac437c5476362c9f204a18336bd8521" category="inline-image-macro">Dieses Konzept zeigt Astra Control für das Management einer individuellen, in einem Namespace implementierten Applikation, die andere Applikationen umfasst.</block>
+  <block id="8febc48974d939835115b3cec245a741" category="paragraph"><block ref="8febc48974d939835115b3cec245a741" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="878f8e36f6cbd825352ce35e02170a9e" category="inline-image-macro">Ein Konzept-Bild, das Astra Control zum Managen einer Applikation auf dem Basis eines Kubernetes-Labels zeigt</block>
+  <block id="959c3f7b4bbcebb70e2a9561abf23064" category="paragraph"><block ref="959c3f7b4bbcebb70e2a9561abf23064" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="c006b18484871e444511008d4048c4e5" category="inline-image-macro">Dieses Image zeigt ein geplantes Backup und eine Wiederherstellung zwischen zwei Kubernetes-Clustern mit S3-Bucket</block>
+  <block id="6b5e0e55ce84f7fa138aa402d59fb2ad" category="paragraph"><block ref="6b5e0e55ce84f7fa138aa402d59fb2ad" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4501b2d5d28c830c20c2907834215405" category="inline-image-macro">Dieses Image zeigt Replizierung und Failover zwischen zwei Kubernetes-Clustern und zwei ONTAP-Clustern</block>
+  <block id="620eb6fdfd4e651d0246b5b8f2fb119e" category="paragraph"><block ref="620eb6fdfd4e651d0246b5b8f2fb119e" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>

@@ -221,7 +221,7 @@ NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registri
 
 
 +
-image:openshift_operatorhub.png["Astra Control Center-Installationsseite"]
+image:openshift_operatorhub.png["Dieses Bild zeigt die Installationsseite des Astra Control Center von der OpenShift Container Platform"]
 
 ** Aus Dem Red Hat Ecosystem Catalog:
 +
@@ -232,7 +232,7 @@ image:openshift_operatorhub.png["Astra Control Center-Installationsseite"]
 
 
 +
-image:red_hat_catalog.png["Astra Control Center Übersichtsseite"]
+image:red_hat_catalog.png["Dieses Bild zeigt die Übersichtsseite des Astra Control Center, die im RedHat Ecosystem Catalog verfügbar ist"]
 
 
 
@@ -266,7 +266,7 @@ NOTE: Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie
 
 == Installieren Sie Astra Control Center
 
-. Wählen Sie in der Konsole auf der Registerkarte *Astra Control Center* des Astra Control Center-Bedieners die Option *AstraControlCenter erstellen* aus.image:openshift_acc-operator_details.png["Bedienerseite des Astra Control Center"]
+. Wählen Sie in der Konsole auf der Registerkarte *Astra Control Center* des Astra Control Center-Bedieners die Option *AstraControlCenter erstellen* aus.image:openshift_acc-operator_details.png["Dieses Bild zeigt die Bedienerseite des Astra Control Center, auf der die Registerkarte Astra Control Center ausgewählt ist"]
 . Füllen Sie die aus `Create AstraControlCenter` Formularfeld:
 +
 .. Behalten Sie den Namen des Astra Control Center bei oder passen Sie diesen an.

@@ -53,8 +53,8 @@ Die folgenden Images zeigen den geplanten Backup- und Wiederherstellungsprozess 
 
 Der Backup-Prozess kopiert Daten in S3 Buckets und Restores aus S3 Buckets:
 
-image:acc-backup_4in.png["Geplante Sicherung und Wiederherstellung von Images"]
+image:acc-backup_4in.png["Dieses Image zeigt ein geplantes Backup und eine Wiederherstellung zwischen zwei Kubernetes-Clustern mit S3-Bucket"]
 
 Zum anderen erfolgt die Replizierung auf ONTAP. Bei einem Failover werden die Kubernetes-Ressourcen erstellt:
 
-image:acc-replication_4in.png["Replizierung und Failover eines Images"]
+image:acc-replication_4in.png["Dieses Image zeigt Replizierung und Failover zwischen zwei Kubernetes-Clustern und zwei ONTAP-Clustern"]

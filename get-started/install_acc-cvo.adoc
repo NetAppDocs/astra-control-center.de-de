@@ -170,7 +170,7 @@ NOTE: Das AWS Elastic Container Registry (ECR) Token läuft nach 12 Stunden ab u
 
 Beispiel für eine AWS Implementierung:
 
-image:acc-cvo-aws2.png["Astra Control Center mit Implementierungsbeispiel für Cloud Volumes ONTAP"]
+image:acc-cvo-aws2.png["Dieses Bild zeigt ein Beispiel eines Astra Control Center mit einer Cloud Volumes ONTAP-Implementierung"]
 
 
 
@@ -652,7 +652,7 @@ Siehe https://docs.netapp.com/us-en/occm/task_creating_connectors_azure.html["Er
 
 . Stellen Sie sicher, dass der Anschluss läuft, und wechseln Sie zu diesem Anschluss.
 +
-image:acc-cvo-azure-connectors.png["Switching-Anschlüsse in BlueXP"]
+image:acc-cvo-azure-connectors.png["Dieses Bild zeigt Anschlüsse in BlueXP"]
 
 . Schaffen Sie eine Arbeitsumgebung für Ihre Cloud-Umgebung.
 +
@@ -661,13 +661,13 @@ image:acc-cvo-azure-connectors.png["Switching-Anschlüsse in BlueXP"]
 
 
 +
-image:acc-cvo-azure-working-environment.png["Schaffung einer Arbeitsumgebung in BlueXP"]
+image:acc-cvo-azure-working-environment.png["Dieses Bild zeigt die Positionen der Arbeitsumgebung in BlueXP"]
 
 . Importieren Sie den OpenShift-Cluster. Der Cluster wird mit der gerade erstellten Arbeitsumgebung verbunden.
 +
 .. Zeigen Sie die NetApp Cluster-Details an, indem Sie *K8s* > *Cluster list* > *Cluster-Details* wählen.
 +
-image:acc-cvo-azure-connected.png["Importiertes Cluster in BlueXP"]
+image:acc-cvo-azure-connected.png["Dieses Bild zeigt einen importierten Cluster in BlueXP"]
 
 .. Beachten Sie oben rechts die Trident-Version.
 .. Beachten Sie die Cloud Volumes ONTAP Cluster-Storage-Klassen, für die NetApp als provisionierung angezeigt wird.
