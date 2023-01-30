@@ -309,10 +309,6 @@ NOTE: Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erf
 NOTE: Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist.
 
 .. Definieren Sie die Einstellungen für die Verarbeitung von CRD.
-+
-
-NOTE: Weitere Informationen zu CRD-Optionen finden Sie unter https://docs.netapp.com/us-en/astra-control-center/get-started/acc_cluster_cr_options.html["Diesem Abschnitt"^].
-
 
 
 . Wählen Sie die YAML-Ansicht aus, um die ausgewählten Einstellungen zu überprüfen.

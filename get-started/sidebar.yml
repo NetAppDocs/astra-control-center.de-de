@@ -14,8 +14,6 @@ entries:
   - title: Installieren Sie Astra Control Center
     url: "/get-started/install_acc.html"
     entries:
-    - title: Individuelle Ressourcenoptionen für den Astra Control Center Cluster
-      url: "/get-started/acc_cluster_cr_options.html"
     - title: Konfigurieren Sie einen externen Zertifikat-Manager
       url: "/get-started/cert-manager-prereqs.html"
   - title: Installieren Sie Astra Control Center mit OpenShift OperatorHub
