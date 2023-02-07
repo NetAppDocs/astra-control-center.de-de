@@ -61,7 +61,7 @@ Wenn Sie versuchen, einen Cluster mit demselben Namen wie ein bereits vorhandene
 
 Führen Sie als Workaround folgende Schritte aus:
 
-. Bearbeiten Sie die Konfigurationskarte für kubeadm-config:
+. Bearbeiten Sie das `kubeadm-config` Konfigmap:
 +
 [listing]
 ----

@@ -36,7 +36,7 @@ oc get apiservices
 
 * *FQDN-Adresse*: Erhalten Sie eine FQDN-Adresse für Astra Control Center in Ihrem Rechenzentrum.
 * *OpenShift Permissions*: Erhalten Sie die erforderlichen Berechtigungen und den Zugriff auf die Red hat OpenShift Container Platform, um die beschriebenen Installationsschritte durchzuführen.
-* *Cert-Manager konfiguriert*: Wenn bereits ein Cert-Manager im Cluster vorhanden ist, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"^] Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
+* *Cert Manager konfiguriert*: Wenn bereits ein Cert Manager im Cluster vorhanden ist, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"^] Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
 * *Kubernetes Ingress-Controller*: Wenn Sie über einen Kubernetes Ingress-Controller verfügen, der externen Zugriff auf Services wie etwa den Lastausgleich in einem Cluster managt, müssen Sie ihn zur Verwendung mit Astra Control Center einrichten:
 +
 .. Erstellen Sie den Operator-Namespace:
@@ -278,13 +278,13 @@ NOTE: Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie
 .. Wählen Sie eine Richtlinie zur Rückgewinnung von Volumes aus `Retain`, `Recycle`, Oder `Delete`. Der Standardwert ist `Retain`.
 .. Wählen Sie den Eingangstyp aus:
 +
-*** *Allgemein* (`ingressType: "Generic"`) (Standard)
+*** *`Generic`* (`ingressType: "Generic"`) (Standard)
 +
 Verwenden Sie diese Option, wenn Sie einen anderen Ingress-Controller verwenden oder Ihren eigenen Ingress-Controller verwenden möchten. Nach der Implementierung des Astra Control Center müssen Sie den konfigurieren link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eingangs-Controller"^] Um Astra Control Center mit einer URL zu zeigen.
 
-*** *AccTraefik* (`ingressType: "AccTraefik"`)
+*** *`AccTraefik`* (`ingressType: "AccTraefik"`)
 +
-Verwenden Sie diese Option, wenn Sie keinen Ingress-Controller konfigurieren möchten. Dies implementiert das Astra Control Center `traefik` Gateway als Service des Typs Kubernetes Load Balancer:
+Verwenden Sie diese Option, wenn Sie keinen Ingress-Controller konfigurieren möchten. Dies implementiert das Astra Control Center `traefik` Gateway als Service vom Typ Kubernetes „Load Balancer“.
 
 +
 Astra Control Center nutzt einen Service vom Typ „loadbalancer“ (`svc/traefik` Im Astra Control Center Namespace) und erfordert, dass ihm eine zugängliche externe IP-Adresse zugewiesen wird. Wenn in Ihrer Umgebung Load Balancer zugelassen sind und Sie noch keine konfiguriert haben, können Sie MetalLB oder einen anderen externen Service Load Balancer verwenden, um dem Dienst eine externe IP-Adresse zuzuweisen. In der Konfiguration des internen DNS-Servers sollten Sie den ausgewählten DNS-Namen für Astra Control Center auf die Load-Balanced IP-Adresse verweisen.

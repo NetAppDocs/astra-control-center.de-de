@@ -418,7 +418,7 @@ Nachdem Sie den Datei-Editor gespeichert und beendet haben, werden die Änderung
 ----
 watch kubectl get pods -n [netapp-acc or custom namespace]
 ----
-. Warten Sie, bis die Statusbedingungen des Astra angezeigt werden, dass das Upgrade abgeschlossen und bereit ist (`True`):
+. Warten Sie, bis die Statusbedingungen des Astra Control angezeigt werden, um anzuzeigen, dass das Upgrade abgeschlossen und bereit ist (`True`):
 +
 [listing]
 ----

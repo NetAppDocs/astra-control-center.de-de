@@ -1,10 +1,10 @@
 ---
 sidebar: sidebar 
 permalink: get-started/cert-manager-prereqs.html 
-keywords: astra control center, prereq, requirement, cert-manager, install 
-summary: Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center seinen eigenen Cert-Manager nicht installiert. 
+keywords: astra control center, prereq, requirement, cert manager, install 
+summary: Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center keinen eigenen Cert-Manager installiert. 
 ---
-= Konfigurieren Sie einen externen Zertifikat-Manager
+= Konfigurieren Sie einen externen Zertifikaten-Manager
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -12,10 +12,10 @@ summary: Wenn bereits ein Zertifikat-Manager im Cluster vorhanden ist, müssen S
 
 
 [role="lead"]
-Wenn bereits ein Zert-Manager in Ihrem Kubernetes Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center keinen eigenen Cert-Manager installiert.
+Wenn bereits ein Cert Manager in Ihrem Kubernetes Cluster vorhanden ist, müssen Sie einige erforderliche Schritte durchführen, damit Astra Control Center keinen eigenen Cert Manager installiert.
 
 .Schritte
-. Vergewissern Sie sich, dass ein Zertifikat-Manager installiert ist:
+. Vergewissern Sie sich, dass ein Zertifikaten-Manager installiert ist:
 +
 [source, console]
 ----
@@ -31,7 +31,7 @@ cert-manager   essential-cert-manager-84446f49d5-sf2zd              1/1     Runn
 cert-manager   essential-cert-manager-cainjector-66dc99cc56-9ldmt   1/1     Running    0     6d5h
 cert-manager   essential-cert-manager-webhook-56b76db9cc-fjqrq      1/1     Running    0     6d5h
 ----
-. Erstellen Sie ein Zertifikat-/Schlüsselpaar für den FQDN der AstraAddress:
+. Erstellen Sie ein Zertifikat-/Schlüsselpaar für das `astraAddress` FQDN:
 +
 [source, console]
 ----
@@ -62,7 +62,7 @@ Beispielantwort:
 ----
 secret/selfsigned-tls created
 ----
-. Erstellen Sie eine ClusterIssuer-Datei, die *exakt* die folgenden ist, aber den Namespace-Speicherort enthält, an dem Ihre Cert-Manager-Pods installiert sind:
+. Erstellen Sie ein `ClusterIssuer` Datei, die *genau* die folgenden ist, aber den Namespace-Speicherort enthält, wo Ihr `cert-manager` Pods sind installiert:
 +
 [source, yaml]
 ----
@@ -88,7 +88,7 @@ Beispielantwort:
 ----
 clusterissuer.cert-manager.io/astra-ca-clusterissuer created
 ----
-. Stellen Sie sicher, dass der ClusterIssuer richtig aufgelegt ist. `Ready` Muss sein `True` Bevor Sie fortfahren können:
+. Überprüfen Sie das `ClusterIssuer` Ist richtig aufgekommen. `Ready` Muss sein `True` Bevor Sie fortfahren können:
 +
 [source, console]
 ----
@@ -103,5 +103,5 @@ Beispielantwort:
 NAME                     READY   AGE
 astra-ca-clusterissuer   True    9s
 ----
-. Füllen Sie die aus link:../get-started/install_acc.html["Astra Control Center-Installationsprozess"]. Es gibt ein link:../get-started/install_acc.html#configure-astra-control-center["Erforderlicher Konfigurationsschritt für den Astra Control Center-Cluster YAML"] In dem Sie den CRD-Wert ändern, um anzuzeigen, dass der Zertifikat-Manager extern installiert ist. Sie müssen diesen Schritt während der Installation abschließen, damit das Astra Control Center den externen Zertifikaten-Manager erkennt.
+. Füllen Sie die aus link:../get-started/install_acc.html["Astra Control Center-Installationsprozess"]. Es gibt ein link:../get-started/install_acc.html#configure-astra-control-center["Erforderlicher Konfigurationsschritt für den Astra Control Center-Cluster YAML"] In dem Sie den CRD-Wert ändern, um anzuzeigen, dass der Zertifikaten-Manager extern installiert ist. Sie müssen diesen Schritt während der Installation abschließen, damit das Astra Control Center den externen Zertifikaten-Manager erkennt.
 
