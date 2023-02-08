@@ -62,6 +62,7 @@ NOTE: Wenn Sie über eine Evaluierungslizenz verfügen und keine Daten an AutoSu
 Sie sollten sicherstellen, dass die folgenden Voraussetzungen erfüllt sind, bevor Sie ein Cluster hinzufügen. Außerdem sollten Sie Eignungsprüfungen durchführen, um sicherzustellen, dass Ihr Cluster zum Astra Control Center hinzugefügt werden kann und Rollen für das Cluster-Management schafft.
 
 .Was Sie benötigen
+* Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können.
 * Ihre Umgebung erfüllt die Anforderungen link:../get-started/requirements.html#operational-environment-requirements["Anforderungen an die Betriebsumgebung"^] Für Astra Trident und Astra Control Center.
 * Eine Version von Astra Trident ist das link:../get-started/requirements.html#operational-environment-requirements["Unterstützt durch Astra Control Center"^] Installiert:
 +
