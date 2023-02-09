@@ -230,33 +230,7 @@
   <block id="ca6f33719464e2320b44f90d6ae70eb7" category="section-title">Anforderungen für das Applikationsmanagement</block>
   <block id="304f557d4b7e64bda6836386e7c79fc6" category="paragraph">Astra Control verfügt über folgende Anforderungen an das Applikationsmanagement:</block>
   <block id="279aeb8fefc116ce50f1bb81d8dc343c" category="list-text">*Lizenzierung*: Zur Verwaltung von Anwendungen mit dem Astra Control Center benötigen Sie eine Astra Control Center-Lizenz.</block>
-  <block id="5d9c523a0997c65517bdf38e2f85aecd" category="list-text">*StorageClass*: Wenn Sie eine Anwendung mit einem explizit eingestellten StorageClass installieren und die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.</block>
   <block id="508704b5a40f45083050ce024bcadbd2" category="list-text">*Kubernetes-Ressourcen*: Applikationen, die nicht mit Astra Control gesammelte Kubernetes-Ressourcen verwenden, verfügen unter Umständen nicht über umfassende Funktionen zum App-Datenmanagement. Astra Control sammelt die folgenden Kubernetes-Ressourcen:</block>
-  <block id="d7d354d0f9d0780e168c895c92a32c24" category="cell">ClusterCole</block>
-  <block id="e866afd8290d5c73cda6260e04e6eef0" category="cell">ClusterrollenBding</block>
-  <block id="a941f8adb5ae079ebc739cb59407fd30" category="cell">Konfigmap</block>
-  <block id="639125955d3128c08b048bc254433dbf" category="cell">Kronjob</block>
-  <block id="99bc4b850e05bafd67cf5f5f49344c1e" category="cell">KundenressourcenDefinition</block>
-  <block id="2597d86efa761b80f198c7208e859dd7" category="cell">Benutzerressource</block>
-  <block id="0d4eb61dc57afc7f3f8d51439c96eedd" category="cell">DemonSet</block>
-  <block id="788c34b60baf42eb1cac433ba1f0b64a" category="cell">BereitstellungConfig</block>
-  <block id="f82570cd8dd080fcb0fe525f9b081bdb" category="cell">Horizon PodAutoscaler</block>
-  <block id="7d05c708b92b4809bfe9bf66edf8f765" category="cell">Eindringen</block>
-  <block id="1fcd027e4be180b1536eba3afa93e6be" category="cell">MutatingWebhook</block>
-  <block id="c794a682153b998c6dca3efddf650512" category="cell">Netzwerkrichtlinie</block>
-  <block id="2b3f8e4d49589c4452db0a07d619d824" category="cell">PersistentVolumeClaim</block>
-  <block id="8a0813c70cf4bf1529f25c411a039130" category="cell">Pod</block>
-  <block id="d8babd242bd93046572e7f50a3fbb394" category="cell">PodDisruptionBudget</block>
-  <block id="3f4dbf8b7a689375f651090e7a111098" category="cell">PodTemplate</block>
-  <block id="3f402161942e4154684cf3f56c76cead" category="cell">ReplicaSet</block>
-  <block id="bbbabdbe1b262f75d99d62880b953be1" category="cell">Rolle</block>
-  <block id="ec7eab019566cfca91934ab1e0073511" category="cell">Rollenverschwarten</block>
-  <block id="9405c3aff9112c3c60d03b94792877dc" category="cell">Route</block>
-  <block id="1e6947ac7fb3a9529a9726eb692c8cc5" category="cell">Geheim</block>
-  <block id="c2ba7e785c49050f48da9aacc45c2b85" category="cell">Service</block>
-  <block id="5c24ffd6438853b537bd99b3fccd3340" category="cell">Service Account</block>
-  <block id="f202d1133673fa6cfe280880cbc3ee66" category="cell">StatfulSet</block>
-  <block id="91e292ade0a336af19f1ac0977215b91" category="cell">ValidierenWebhook</block>
   <block id="d193cd9a2432eca22e5cf0d06dcee1e6" category="section-title">Replikationsvoraussetzungen</block>
   <block id="c44cedaf2d63c8d308691c23f6010413" category="paragraph">Die Astra Control Applikationsreplizierung erfordert, dass die folgenden Voraussetzungen erfüllt sein müssen, bevor Sie beginnen:</block>
   <block id="eb507cd0bc5d12259c54a50f248a2049" category="list-text">Um eine nahtlose Disaster Recovery zu erreichen, empfehlen wir Ihnen, Astra Control Center in einer dritten Fehlerdomäne oder an einem sekundären Standort einzusetzen.</block>
@@ -2218,7 +2192,6 @@
   <block id="c4cb46a2957e787f5e4e5299782270f6" category="inline-xref">Lesen Sie mehr in einem Beispiel.</block>
   <block id="e5d509b8ad96124cb3a6b0df8e2a6299" category="admonition">Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen. <block ref="e641e59a56328c9fa4038a349ab4087c" category="inline-xref-macro-rx"></block></block>
   <block id="23933fe5cfee8cef6dcf2e9c76674773" category="example-title">&lt;strong&gt; &lt;/strong&gt; über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Namespaces für Apps.</block>
-  <block id="42eb29ab06c150f146256489fbb31f3d" category="paragraph">Sie können Cluster-Ressourcen importieren, die den Ressourcen des Namensvetter-Pacer zugeordnet sind, zusätzlich zu den automatisch enthaltenen Astra Control. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
   <block id="86584cfcf6ac47eda80aaeeb3808d02b" category="paragraph">Sie können keine Ressourcen mit Cluster-Umfang ausschließen, die automatisch von Astra Control enthalten sind.</block>
   <block id="8b3aa3648af6fe384bf33e5384fcc7b4" category="paragraph">Sie können Folgendes hinzufügen<block ref="aec49c7ac598bde0d65853ea9807c58f" prefix=" " category="inline-code"></block> (Welche Gruppen sind mit der API-Version kombiniert):</block>
   <block id="3ba5d3eff61255f7c7727fb4ed8cdbc6" category="cell">RessourcArt</block>
@@ -2279,7 +2252,6 @@
   <block id="aeeeb524e689e79bcd894e5b1dde520a" category="paragraph">Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben. Sie können die Astra Control Center-UI oder verwenden<block ref="c3bdc3d9b521474044010a53b984c85e" category="inline-link-rx"></block> Zum Klonen und Migrieren von Applikationen</block>
   <block id="7d754e7d4f4a324710302cf0fc4d80c2" category="list-text">Um Applikationen in einem anderen Cluster zu klonen, müssen Sie sicherstellen, dass die Cloud-Instanzen, die die Quell- und Ziel-Cluster enthalten (wenn sie nicht identisch sind), einen Standard-Bucket haben. Für jede Cloud-Instanz müssen Sie einen Standard-Bucket zuweisen.</block>
   <block id="81eb21a03d5ee9fbe847337ca76b57dc" category="list-title">Einschränkungen beim Klonen</block>
-  <block id="676ff7d1c1d92284765be9dd54f79974" category="list-text">*Explicit Storage Classes*: Wenn Sie eine App mit einem explizit festgelegten StorageClass bereitstellen und die App klonen müssen, muss das Ziel-Cluster die ursprünglich angegebene StorageClass haben. Das Klonen einer Applikation, deren StorageClass explizit auf ein Cluster festgelegt ist, das nicht über dieselbe StorageClass verfügt, schlägt fehl.</block>
   <block id="d32d7bd30d168502b9d4ee99b9925378" category="list-text">*Klone und Benutzerbeschränkungen*: Jeder Mitgliedsbenutzer mit Namespace-Beschränkungen durch Namespace-Name/ID oder durch Namespace-Labels kann eine Anwendung in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto ihres Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer das Mitglied-Benutzerkonto bearbeiten und Rolleneinschränkungen für den betroffenen Benutzer aktualisieren, um dem neuen Namespace Zugriff zu gewähren.</block>
   <block id="e56febe8b6051774e32db86d1098b029" category="list-text">*Klone verwenden Standard-Buckets*: Während einer App-Sicherung oder App-Wiederherstellung können Sie optional eine Bucket-ID angeben. Ein Applikationsklonvorgang verwendet jedoch immer den definierten Standard-Bucket. Es besteht keine Möglichkeit, die Buckets für einen Klon zu ändern. Wenn Sie die Kontrolle darüber haben möchten, welcher Bucket verwendet wird, können Sie entweder <block ref="aefe6ea1b0b92dd65028296dfe305ad3" category="inline-link-macro-rx"></block> Oder machen Sie ein <block ref="5a0ced1a5e4eaf523ec6c8f1e4de7f81" category="inline-link-macro-rx"></block> Gefolgt von A <block ref="ade375e828882781f654729e54a482ee" category="inline-link-macro-rx"></block> Separat.</block>
   <block id="48c7e4419181f50e8f2789d798916836" category="list-text">*Mit Jenkins CI*: Wenn Sie eine vom Betreiber implementierte Instanz von Jenkins CI klonen, müssen Sie die persistenten Daten manuell wiederherstellen. Dies ist eine Einschränkung des Bereitstellungsmodells der Applikation.</block>
@@ -2638,4 +2610,28 @@
   <block id="9b180301de1547cfb79fd365792a5407" category="list-text">Bearbeiten Sie das<block ref="b9d73b065c599559f2852e4f2e265934" prefix=" " category="inline-code"></block> Konfigmap:</block>
   <block id="192a0e17e823e018d9d9b67cd6dbde3a" category="list-text">Sie müssen mindestens einen Astra Trident Storage-Kurs auf dem Cluster konfigurieren. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass es die einzige Storage-Klasse mit der Standardbezeichnung ist.</block>
   <block id="f7dff2bfbfe240ed80ab3ffd13689474" category="list-text">Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können.</block>
+  <block id="3bc727baad8c93a8a96ecbe4208925cf" category="list-text">*Speicherklasse*: Wenn Sie eine Anwendung installieren, die eine Speicherklasse explizit festgelegt hat und Sie die App klonen müssen, muss das Zielcluster für den Klonvorgang die ursprünglich angegebene Speicherklasse haben. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.</block>
+  <block id="e5de374e1d369bfc7e8ec51b5b744933" category="cell"><block ref="a941f8adb5ae079ebc739cb59407fd30" prefix="" category="inline-code"></block></block>
+  <block id="be5e0e20ce0e311437852c90af7c8276" category="cell"><block ref="639125955d3128c08b048bc254433dbf" prefix="" category="inline-code"></block></block>
+  <block id="0302c657e0585c41f2f6278beec1daa8" category="cell"><block ref="0d4eb61dc57afc7f3f8d51439c96eedd" prefix="" category="inline-code"></block></block>
+  <block id="3ef1c1f8bb4a9f17e4c3be129db67366" category="cell"><block ref="788c34b60baf42eb1cac433ba1f0b64a" prefix="" category="inline-code"></block></block>
+  <block id="fd8848399c1c55827bc0b79969e1e4a0" category="cell"><block ref="f82570cd8dd080fcb0fe525f9b081bdb" prefix="" category="inline-code"></block></block>
+  <block id="965155af507b897bd6e77dffd6aa0722" category="cell"><block ref="7d05c708b92b4809bfe9bf66edf8f765" prefix="" category="inline-code"></block></block>
+  <block id="77a106c2fd00e72732b9ca603f027479" category="cell"><block ref="1fcd027e4be180b1536eba3afa93e6be" prefix="" category="inline-code"></block></block>
+  <block id="e4fee35090e28014a028d2aacbc2dfd5" category="cell"><block ref="c794a682153b998c6dca3efddf650512" prefix="" category="inline-code"></block></block>
+  <block id="663d2d3603ff41da6cc6ee0a9ff5b975" category="cell"><block ref="2b3f8e4d49589c4452db0a07d619d824" prefix="" category="inline-code"></block></block>
+  <block id="82873de0f5b2ce17a8ae3c45fcdec32d" category="cell"><block ref="8a0813c70cf4bf1529f25c411a039130" prefix="" category="inline-code"></block></block>
+  <block id="11a7948f05eed04b034eed441c4f1d17" category="cell"><block ref="d8babd242bd93046572e7f50a3fbb394" prefix="" category="inline-code"></block></block>
+  <block id="93bca2ba13d4fcb7387baa5778fc009d" category="cell"><block ref="3f4dbf8b7a689375f651090e7a111098" prefix="" category="inline-code"></block></block>
+  <block id="2670a6aa236e5c7b5bd441bb5649af10" category="cell"><block ref="3f402161942e4154684cf3f56c76cead" prefix="" category="inline-code"></block></block>
+  <block id="b4686556afaf1bba0c5270574ca15c54" category="cell"><block ref="bbbabdbe1b262f75d99d62880b953be1" prefix="" category="inline-code"></block></block>
+  <block id="048d158959fcf004be385e1567033fe6" category="cell"><block ref="ec7eab019566cfca91934ab1e0073511" prefix="" category="inline-code"></block></block>
+  <block id="256f986a2a64bf0d93697e4176b13a4a" category="cell"><block ref="9405c3aff9112c3c60d03b94792877dc" prefix="" category="inline-code"></block></block>
+  <block id="793e5af2d1d35f01083c2714054795ba" category="cell"><block ref="1e6947ac7fb3a9529a9726eb692c8cc5" prefix="" category="inline-code"></block></block>
+  <block id="4074550b4bbee6a4267a989b94eb3c28" category="cell"><block ref="c2ba7e785c49050f48da9aacc45c2b85" prefix="" category="inline-code"></block></block>
+  <block id="650c66e0a27f30ae0cf2d7b83b772b35" category="cell"><block ref="5c24ffd6438853b537bd99b3fccd3340" prefix="" category="inline-code"></block></block>
+  <block id="9c396e0c60d319972f63a0023186f42a" category="cell"><block ref="f202d1133673fa6cfe280880cbc3ee66" prefix="" category="inline-code"></block></block>
+  <block id="e69175cacbe45336f1df22a8b3b32254" category="cell"><block ref="91e292ade0a336af19f1ac0977215b91" prefix="" category="inline-code"></block></block>
+  <block id="9497a649f72a465537e088cd33f63b26" category="paragraph">Außerdem können Sie Clusterressourcen importieren, die den Namespace-Ressourcen zugeordnet sind und die automatisch mit Astra Control integriert sind. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.</block>
+  <block id="0da4d61a77014ac62ef250a406e5dbce" category="list-text">*Explicit Storage class*: Wenn Sie eine App mit einer explizit eingestellten Speicherklasse bereitstellen und die App klonen müssen, muss das Ziel-Cluster über die ursprünglich angegebene Speicherklasse verfügen. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl.</block>
 </blocks>
