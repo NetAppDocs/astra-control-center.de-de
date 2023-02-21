@@ -2664,4 +2664,5 @@
   <block id="4409c1c59948e2b1fc006b492343b77d" category="list-text">Wenn Sie das Scraping von Proben im Laufe der Zeit anzeigen möchten, wählen Sie *Grafik*.</block>
   <block id="4e86b3f4151280eb07fe543c3b9974f2" category="admonition">Wenn mehrere Cluster-Daten erfasst wurden, werden die Metriken jedes Clusters in einer anderen Farbe angezeigt.</block>
   <block id="039788d35f35e7e6b801a37b1b602f56" category="paragraph">Sie können Protokolle (Kubernetes-Ereignisse) von einem vom Astra Control Center überwachten System an Ihren Fluentd Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.</block>
+  <block id="2fae9bf7af2c006788415b299aad1207" category="admonition">Wenn Sie eine in-Place-Wiederherstellung einer Applikation durchführen, die NetApp ONTAP Storage verwendet, kann der von der wiederhergestellten Applikation verwendete Speicherplatz verdoppelt werden. Nachdem Sie eine in-Place-Wiederherstellung durchgeführt haben, entfernen Sie alle unerwünschten Snapshots aus der wiederhergestellten Applikation, um Speicherplatz freizugeben.</block>
 </blocks>
