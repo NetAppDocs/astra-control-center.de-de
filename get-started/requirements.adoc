@@ -100,9 +100,11 @@ NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center
 
 Astra Control Center unterstützt folgende Storage-Back-Ends.
 
-* NetApp ONTAP 9.5 oder neuere AFF und FAS Systeme
-* NetApp ONTAP 9.8 oder neuere AFF und FAS Systeme für SnapMirror-basierte Applikationsreplizierung
-* NetApp Cloud Volumes ONTAP
+* NetApp ONTAP 9.5 oder höher AFF, FAS und ASA Systeme
+* NetApp ONTAP 9.8 oder neuere AFF, FAS und ASA Systeme für SnapMirror-basierte Applikationsreplizierung
+* NetApp ONTAP Select 9.5 oder höher
+* NetApp ONTAP Select 9.8 oder höher für SnapMirror-basierte Applikationsreplizierung
+* NetApp Cloud Volumes ONTAP 9.5 oder höher
 
 
 Um Astra Control Center zu nutzen, müssen Sie je nach den Anforderungen die folgenden ONTAP-Lizenzen besitzen:

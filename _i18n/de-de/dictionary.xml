@@ -214,9 +214,6 @@
   <block id="8763b5c0837ac6cf7ff31e202742432c" category="inline-link-macro">Konfigurieren Sie Astra Control Center</block>
   <block id="783d1a3e740eff9085416ec3f709793f" category="section-title">Unterstützte Storage-Back-Ends</block>
   <block id="160a276b6627d6a6aa9859d6c2835948" category="paragraph">Astra Control Center unterstützt folgende Storage-Back-Ends.</block>
-  <block id="dfac4790f1edf6101275f3ef6bff1bf3" category="list-text">NetApp ONTAP 9.5 oder neuere AFF und FAS Systeme</block>
-  <block id="419590ef59b29bd36215f285b4098a7c" category="list-text">NetApp ONTAP 9.8 oder neuere AFF und FAS Systeme für SnapMirror-basierte Applikationsreplizierung</block>
-  <block id="0f0b99ea2f70cd363c2c6a279f74e760" category="list-text">NetApp Cloud Volumes ONTAP</block>
   <block id="1a8fab43fd54631009166886f3f59682" category="paragraph">Um Astra Control Center zu nutzen, müssen Sie je nach den Anforderungen die folgenden ONTAP-Lizenzen besitzen:</block>
   <block id="a701f5d044348085ee4f97fef6636845" category="list-text">FlexClone</block>
   <block id="93ec3a6d617fbea35565aff959939259" category="inline-link">Informationen zu SnapMirror Lizenzen</block>
@@ -2669,4 +2666,9 @@
   <block id="d3472e0a53fc9484c0dd7ec15e76da1d" category="paragraph">Ein _Backup_ basiert auf einem Snapshot. Er wird im externen Objektspeicher gespeichert und kann daher im Vergleich zu lokalen Snapshots langsamer erstellt werden. Sie können ein Applikations-Backup in demselben Cluster wiederherstellen oder eine Applikation migrieren, indem Sie dessen Backup auf ein anderes Cluster wiederherstellen. Sie können auch eine längere Aufbewahrungsdauer für Backups wählen. Da diese im externen Objektspeicher gespeichert werden, bieten Backups in der Regel besseren Schutz als Snapshots bei Serverausfällen oder Datenverlusten.</block>
   <block id="5becefddd70e438fb63cc4c816b5f6cc" category="paragraph">Eine _Schutzrichtlinie_ ist eine Möglichkeit zum Schutz einer App, indem automatisch Snapshots, Backups oder beides gemäß einem von Ihnen für die App definierten Zeitplan erstellt werden. Eine Sicherungsrichtlinie erlaubt Ihnen außerdem festzulegen, wie viele Snapshots und Backups im Zeitplan aufbewahrt werden sollen, und verschiedene granulare Zeitplanebenen festzulegen. Die Automatisierung von Backups und Snapshots mit einer Sicherungsrichtlinie ist die beste Methode, um sicherzustellen, dass jede Applikation gemäß den Anforderungen Ihres Unternehmens und der SLA-Anforderungen (Service Level Agreement) geschützt ist.</block>
   <block id="5d18a3d426ac931bca06d705d79d80cf" category="paragraph">Ein _Clone_ ist ein exaktes Duplikat einer App, ihrer Konfiguration und ihrer persistenten Daten-Volumes. Sie können einen Klon entweder manuell auf demselben Kubernetes-Cluster oder auf einem anderen Cluster erstellen. Das Klonen einer Applikation kann nützlich sein, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen.</block>
+  <block id="f4830a7c07883165a7a5c8d341286873" category="list-text">NetApp ONTAP 9.5 oder höher AFF, FAS und ASA Systeme</block>
+  <block id="a6c8aa58cced8f18c41300f47bec2c86" category="list-text">NetApp ONTAP 9.8 oder neuere AFF, FAS und ASA Systeme für SnapMirror-basierte Applikationsreplizierung</block>
+  <block id="2f69a705b60cbc3d6bba3c41c6be8810" category="list-text">NetApp ONTAP Select 9.5 oder höher</block>
+  <block id="8ccf427f70709789c9c7a4f0ffd8f8cc" category="list-text">NetApp ONTAP Select 9.8 oder höher für SnapMirror-basierte Applikationsreplizierung</block>
+  <block id="bfd904fc0dcf06a45fdb48323bd3a82d" category="list-text">NetApp Cloud Volumes ONTAP 9.5 oder höher</block>
 </blocks>
