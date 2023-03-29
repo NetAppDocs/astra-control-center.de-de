@@ -22,6 +22,8 @@ Laden Sie zum Installieren des Astra Control Center das Installationspaket von d
 
 
 ====
+Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["Dieses Video"^].
+
 .Was Sie benötigen
 * link:requirements.html["Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor"].
 * Wenn Sie POD-Sicherheitsrichtlinien in Ihrer Umgebung konfiguriert haben oder konfigurieren möchten, sollten Sie sich mit den POD-Sicherheitsrichtlinien vertraut machen und wie diese sich auf die Installation des Astra Control Center auswirken. Siehe link:../concepts/understand-pod-security.html["Einschränkungen der POD-Sicherheitsrichtlinie verstehen"].

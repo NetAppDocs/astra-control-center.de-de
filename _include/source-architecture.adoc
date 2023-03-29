@@ -21,7 +21,7 @@ image:astra-architecture-diagram-v5.png["Ein Konzept, das die Astra Control Arch
 
 ** Astra Control Center nutzt folgende Storage-Back-Ends:
 +
-*** ONTAP AFF UND FAS. Als Storage-Software- und Hardware-Plattform bietet ONTAP wichtige Storage-Services, Unterstützung für mehrere Storage-Zugriffsprotokolle und Storage-Managementfunktionen wie Snapshots und Spiegelung.
+*** ONTAP AFF, FAS und ASA. Als Storage-Software- und Hardware-Plattform bietet ONTAP wichtige Storage-Services, Unterstützung für mehrere Storage-Zugriffsprotokolle und Storage-Managementfunktionen wie Snapshots und Spiegelung.
 *** Cloud Volumes ONTAP
 
 

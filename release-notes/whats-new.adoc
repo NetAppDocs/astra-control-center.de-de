@@ -19,16 +19,16 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 == 22. November 2022 (22.11.0)
 
 .Neue Funktionen und Support
-* link:../use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"]
-* link:../use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"]
-* link:../use/manage-remote-authentication.html["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"]
-* link:../get-started/requirements.html["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"]
-* link:../use/monitor-running-tasks.html["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"]
+* link:../use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
+* link:../use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
+* link:../use/manage-remote-authentication.html["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"^]
+* link:../get-started/requirements.html["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"^]
+* link:../use/monitor-running-tasks.html["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"]
-* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"]
+* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 
@@ -45,21 +45,21 @@ Dieses Patch-Release (22.08.1) für Astra Control Center (22.08.0) behebt kleine
 [%collapsible]
 ====
 .Neue Funktionen und Support
-* link:../use/replicate_snapmirror.html["Applikationsreplizierung mit NetApp SnapMirror Technologie"]
-* link:../use/manage-apps.html#define-apps["Verbesserter Applikations-Management-Workflow"]
-* link:../use/execution-hooks.html["Verbesserte Funktionalität für Ihre eigenen Testsuiten"]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/replicate_snapmirror.html["Applikationsreplizierung mit NetApp SnapMirror Technologie"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/manage-apps.html#define-apps["Verbesserter Applikations-Management-Workflow"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/execution-hooks.html["Verbesserte Funktionalität für Ihre eigenen Testsuiten"^]
 +
 
-NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapshot-Testbügel für spezifische Applikationen entfernt. Wenn Sie ein Upgrade auf diese Version durchführen und keine eigenen Testsuiten für Snapshots bereitstellen, führt Astra Control nur absturzkonsistente Snapshots durch. Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda"] GitHub-Repository für Hook-Beispielskripts, die Sie an Ihre Umgebung anpassen können.
+NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapshot-Testbügel für spezifische Applikationen entfernt. Wenn Sie ein Upgrade auf diese Version durchführen und keine eigenen Testsuiten für Snapshots bereitstellen, führt Astra Control nur absturzkonsistente Snapshots durch. Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda"^] GitHub-Repository für Hook-Beispielskripts, die Sie an Ihre Umgebung anpassen können.
 
-* link:../get-started/requirements.html["Unterstützung von VMware Tanzu Kubernetes Grid Integrated Edition (TKGI)"]
-* link:../get-started/requirements.html#operational-environment-requirements["Unterstützung für Google Anthos"]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html["Unterstützung von VMware Tanzu Kubernetes Grid Integrated Edition (TKGI)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html#operational-environment-requirements["Unterstützung für Google Anthos"^]
 * https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP-Konfiguration (über Astra Control API)"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"]
-* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 ====
@@ -71,16 +71,16 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 [%collapsible]
 ====
 .Neue Funktionen und Support
-* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["Rollenbasierte Zugriffssteuerung (Namespace)"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Unterstützung von Cloud Volumes ONTAP"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Generisches Ingress-Enablement für Astra Control Center"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Eimer Entfernung aus Astra Control"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["Unterstützung für VMware Tanzu Portfolio"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["Rollenbasierte Zugriffssteuerung (Namespace)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Unterstützung von Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Generisches Ingress-Enablement für Astra Control Center"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Eimer Entfernung aus Astra Control"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["Unterstützung für VMware Tanzu Portfolio"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["Bekannte Probleme in diesem Release"]
-* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 ====
