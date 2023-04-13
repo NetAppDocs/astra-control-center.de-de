@@ -11,9 +11,9 @@ Astra Control bietet entscheidende Funktionen für das Lifecycle Management von 
 * Automatisches Management von persistentem Storage
 * Erstellen Sie applikationsorientierte Snapshots und Backups nach Bedarf
 * Automatisierung von richtlinienbasierten Snapshot- und Backup-Vorgängen
-* Replizierung von Applikationen auf einem Remote-System mit NetApp SnapMirror Technologie
 * Migrieren Sie Applikationen und Daten von einem Kubernetes-Cluster zu einem anderen
-* Einfaches Klonen von Applikationen vom Staging bis zur Produktion
+* Replizieren von Applikationen auf ein Remote-System mit NetApp SnapMirror Technologie (Astra Control Center)
+* Klonen von Applikationen von Staging hin zur Produktion
 * Darstellung des Anwendungszustands und des Schutzstatus
 * Verwenden Sie eine Web-Oberfläche oder eine API zur Implementierung Ihrer Backup- und Migration-Workflows
 
@@ -53,6 +53,7 @@ Sie verwalten jegliche Updates
 +
 ** Amazon EBS
 ** Amazon FSX für NetApp ONTAP
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-getting-started-gcp.html["Cloud Volumes ONTAP"^]
 
 
 * Google Cloud:
@@ -71,7 +72,9 @@ Sie verwalten jegliche Updates
 
 * Self-Managed Cluster:
 +
-** NetApp ONTAP AFF und FAS Systeme
+** Amazon EBS
+** Google Persistent Disk
+** Über Azure Gemanagte Festplatten
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 
@@ -120,7 +123,7 @@ Mit dem kostenlosen Plan von Astra Control können Sie bis zu 10 Namespaces in I
 
 Astra Control Center wird lokal in Ihrer eigenen Private Cloud ausgeführt.
 
-Astra Control Center unterstützt Kubernetes-Cluster mit Trident-basiertem Storage mit einem Storage-Backend mit ONTAP 9.5 und höher.
+Astra Control Center unterstützt Kubernetes-Cluster mit Trident-basierter Storage-Klasse mit einem Storage-Back-End von ONTAP 9.5 und höher.
 
 In einer Cloud-vernetzten Umgebung nutzt Astra Control Center erweiterte Monitoring- und Telemetriedaten mithilfe von Cloud Insights. Liegt keine Cloud Insights-Verbindung vor, ist das Monitoring und die Telemetrie nur begrenzt (7 Tage Metriken) im Astra Control Center verfügbar und wird auch über offene Messpunkte in native Kubernetes-Monitoring-Tools (wie Prometheus und Grafana) exportiert.
 
