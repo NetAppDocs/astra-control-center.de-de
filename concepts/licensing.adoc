@@ -17,7 +17,7 @@ Astra Control Center erfordert die Installation einer Lizenz, damit die vollstä
 Sie erhalten eine Lizenz auf eine der folgenden Arten:
 
 * link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter"^]. Mit einer Evaluierungslizenz können Sie das Astra Control Center 90 Tage ab dem Datum, an dem Sie die Lizenz herunterladen, verwenden.
-* link:../concepts/licensing.html["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.
+* link:https://mysupport.netapp.com/site/["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.
 
 
 Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter link:../get-started/requirements.html["Unterstützte Storage-Back-Ends"].
