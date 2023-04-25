@@ -1644,7 +1644,6 @@
   <block id="1eda8b1f4dfa35b119f2a579170d4546" category="sidebar">Anmeldeinformationen verwalten</block>
   <block id="0adc618a9ad28f57db9328d47cf45165" category="sidebar">Infrastruktur mit Cloud Insights und Fluentd überwachen</block>
   <block id="6db4db93a9c2608b2abfc46bb675e283" category="paragraph">Zur Einrichtung und zum Management Ihrer Kubernetes-Applikationen können Sie entweder die Astra Control Center-UI oder die Astra Control API verwenden.</block>
-  <block id="c39526014b70f5854cf3c59ceb0b89d3" category="list-text"><block ref="c39526014b70f5854cf3c59ceb0b89d3" category="inline-link-macro-rx"></block></block>
   <block id="996ae349b503c8bd355d8986597a6d49" category="paragraph">Geben Sie für die URL in einem Browser den vollständig qualifizierten Domänennamen (FQDN) ein, den Sie im Feld spec.astraAddress (astra_control_Center.yaml Custom Resource (CR)) festgelegt haben, wenn Sie Astra Control Center installiert haben. Die E-Mail ist der Wert, den Sie im Feld Spec.email im astra_Control_Center.yaml CR festgelegt haben.</block>
   <block id="bda0a7ba5f9ad395d8fbd5eadadb95db" category="paragraph">*Meine Anwendung verwendet mehrere PVS. Wird Astra Control Snapshots und Backups dieser PVS erstellen?*</block>
   <block id="f8f1ef03f08e7d1c3e62dd87dde91f57" category="paragraph">Ja. Ein Snapshot-Vorgang auf einer Anwendung von Astra Control umfasst die Momentaufnahme aller VES, die an die VES der Anwendung gebunden sind.</block>
@@ -2870,4 +2869,7 @@
   <block id="4b81f371a950b4164e976fd95ff29363" category="admonition">Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> Treiber, Schutzrichtlinien können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse, wenn Sie eine Sicherungsrichtlinie wünschen.</block>
   <block id="c1a51552670bd89a555dfc498d58f040" category="admonition">Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> Treiber, Snapshots können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.</block>
   <block id="d340b669a21181fdcdf79c308ba61ea9" category="admonition">Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet<block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category="inline-code"></block> Treiber, Backups führen zu Unterbrechungen und die App ist bis zum Abschluss des Sicherungsvorgangs nicht verfügbar.</block>
+  <block id="070b3d3a153094a5ee57ed5e75530780" category="inline-link">Astra Control Center 22.11-Dokumentation</block>
+  <block id="58f23be5f86622d0993f8478be889f05" category="list-text"><block ref="58f23be5f86622d0993f8478be889f05" category="inline-link-rx"></block></block>
+  <block id="f4431fb507c16341e3a99f8f031779bc" category="list-text"><block ref="f4431fb507c16341e3a99f8f031779bc" category="inline-link-macro-rx"></block></block>
 </blocks>
