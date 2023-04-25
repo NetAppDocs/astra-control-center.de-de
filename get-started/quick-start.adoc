@@ -19,13 +19,13 @@ Stellen Sie sicher, dass Ihre Umgebung diese Anforderungen erfüllt.
 
 * Kubernetes Cluster*
 
-* link:../get-started/requirements.html#operational-environment-requirements["Stellen Sie sicher, dass Ihre Umgebung den Anforderungen der Betriebsumgebung entspricht"^]
+* link:../get-started/requirements.html#host-cluster-resource-requirements["Stellen Sie sicher, dass Ihr Host-Cluster die Anforderungen der Betriebsumgebung erfüllt"^]
 * link:../get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Konfigurieren Sie Ingress für den Lastausgleich von lokalen Kubernetes-Clustern"^]
 
 
 *Storage-Integration*
 
-* link:../get-started/requirements.html#operational-environment-requirements["Stellen Sie sicher, dass Ihre Umgebung die von Astra Trident unterstützte Version enthält"^]
+* link:../get-started/requirements.html#astra-trident-requirements["Stellen Sie sicher, dass Ihre Umgebung die von Astra Trident unterstützte Version enthält"^]
 * https://docs.netapp.com/us-en/trident/trident-use/worker-node-prep.html["Bereiten Sie die Worker-Knoten vor"^]
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Konfigurieren Sie das Astra Trident Storage-Back-End"^]
 * https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Konfigurieren Sie Astra Trident Storage-Kurse"^]
@@ -41,10 +41,10 @@ Stellen Sie sicher, dass Ihre Umgebung diese Anforderungen erfüllt.
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["Zwei"] Laden Sie Astra Control Center herunter und installieren Sie es
 Führen Sie die folgenden Installationsaufgaben aus.
 
-* https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Laden Sie das Astra Control Center von der NetApp Support Site Evaluierungs-Download-Seite herunter"^]
+* https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Laden Sie Astra Control Center von der Download-Seite der NetApp Support-Website herunter"^]
 * Beziehen Sie die NetApp Lizenzdatei:
 +
-** link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter"^]
+** Wenn Sie Astra Control Center evaluieren, ist bereits eine eingebettete Evaluierungslizenz enthalten.
 ** link:../concepts/licensing.html["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre Lizenzdatei"^]
 
 

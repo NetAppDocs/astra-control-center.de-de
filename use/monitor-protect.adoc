@@ -85,9 +85,12 @@ Cloud Insights sollte über das Netzwerk, das Astra Control Center verwendet, od
 Wenn Astra Control Center mit Cloud Insights verbunden ist, wird ein Pod für die Akquisitionseinheit erstellt. Dieser POD sammelt Daten aus den Storage-Back-Ends, die vom Astra Control Center gemanagt werden, und schiebt diese an Cloud Insights. Dieser POD benötigt 8 GB RAM und 2 CPU-Kerne.
 
 
-NOTE: Nach Aktivierung der Cloud Insights-Verbindung können Sie Durchsatzinformationen auf der Seite *Backend* anzeigen sowie von hier aus eine Verbindung zu Cloud Insights herstellen, nachdem Sie ein Speicher-Backend ausgewählt haben. Die Informationen finden Sie auch auf dem *Dashboard* im Clusterbereich, und von dort aus können Sie auch eine Verbindung zu Cloud Insights herstellen.
+NOTE: Wenn Astra Control Center mit Cloud Insights gekoppelt ist, sollten Sie die Option *Bereitstellung ändern* in Cloud Insights nicht verwenden. 
 
-.Was Sie benötigen
+
+NOTE: Nachdem Sie die Cloud Insights-Verbindung aktiviert haben, können Sie die Durchsatzinformationen auf der Seite *Backends* anzeigen sowie nach Auswahl eines Storage-Backends eine Verbindung zu Cloud Insights herstellen. Sie können auch die Informationen im *Dashboard* im Bereich Cluster finden und sich von dort mit Cloud Insights verbinden.
+
+.Bevor Sie beginnen
 * Ein Astra Control Center-Konto mit *admin*/*Owner* Privilegien.
 * Eine gültige Astra Control Center-Lizenz.
 * Ein Proxy-Server, wenn das Netzwerk, in dem Sie Astra Control Center verwenden, einen Proxy für die Verbindung zum Internet benötigt.
@@ -272,14 +275,14 @@ NOTE: Wenn mehrere Cluster-Daten erfasst wurden, werden die Metriken jedes Clust
 
 == Mit Fluentd verbinden
 
-Sie können Protokolle (Kubernetes-Ereignisse) von einem vom Astra Control Center überwachten System an Ihren Fluentd Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.
+Sie können Protokolle (Kubernetes-Ereignisse) von einem System, das von Astra Control Center überwacht wird, an Ihren Fluentd-Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.
 
 image:fluentbit.png["Dies ist ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd."]
 
 
 NOTE: Nur die Ereignisprotokolle von verwalteten Clustern werden an Fluentd weitergeleitet.
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 * Ein Astra Control Center-Konto mit *admin*/*Owner* Privilegien.
 * Astra Control Center ist auf einem Kubernetes-Cluster installiert und läuft.
 

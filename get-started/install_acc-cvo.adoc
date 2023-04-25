@@ -197,10 +197,10 @@ Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. S
 . Importieren Sie den OpenShift-Cluster. Der Cluster wird mit der gerade erstellten Arbeitsumgebung verbunden.
 +
 .. Zeigen Sie die NetApp Cluster-Details an, indem Sie *K8s* > *Cluster list* > *Cluster-Details* wählen.
-.. Beachten Sie oben rechts die Trident-Version.
+.. Beachten Sie in der oberen rechten Ecke die Astra Trident-Version.
 .. Beachten Sie die Cloud Volumes ONTAP Cluster-Storage-Klassen, für die NetApp als provisionierung angezeigt wird.
 +
-Dies importiert Ihr Red hat OpenShift-Cluster und weist ihm eine Standardspeicherklasse zu. Sie wählen die Speicherklasse aus. Trident wird automatisch im Rahmen des Import- und Erkennungsvorgangs installiert.
+Dies importiert Ihr Red hat OpenShift-Cluster und weist ihm eine Standardspeicherklasse zu. Sie wählen die Speicherklasse aus. Astra Trident wird automatisch im Rahmen des Imports und der Erkennung installiert.
 
 
 
@@ -403,7 +403,7 @@ Erstellen Sie mithilfe von NetApp BlueXP (früher Cloud Manager) einen Workspace
 
 Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. Siehe https://docs.netapp.com/us-en/occm/task_getting_started_gcp.html["Erste Schritte mit Cloud Volumes ONTAP in GCP"^].
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 * Zugriff auf das GCP-Servicekonto mit den erforderlichen IAM-Berechtigungen und -Rollen
 
 
@@ -428,7 +428,7 @@ Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. S
 .. Beachten Sie oben rechts die Trident-Version.
 .. Beachten Sie die Cloud Volumes ONTAP Cluster-Storage-Klassen mit „NetApp“ als provisionierung.
 +
-Dies importiert Ihr Red hat OpenShift-Cluster und weist ihm eine Standardspeicherklasse zu. Sie wählen die Speicherklasse aus. Trident wird automatisch im Rahmen des Import- und Erkennungsvorgangs installiert.
+Dies importiert Ihr Red hat OpenShift-Cluster und weist ihm eine Standardspeicherklasse zu. Sie wählen die Speicherklasse aus. Astra Trident wird automatisch im Rahmen des Imports und der Erkennung installiert.
 
 
 
@@ -483,7 +483,7 @@ Stellen Sie sicher, dass die Betriebsumgebung, die Sie als Host für das Astra C
 
 Astra Control Center erfordert zusätzlich zu den Ressourcenanforderungen der Umgebung die folgenden Ressourcen:
 
-Siehe link:../get-started/requirements.html#operational-environment-requirements["Anforderungen an die Betriebsumgebung des Astra Control Centers"].
+Siehe link:../get-started/requirements.html["Anforderungen an die Betriebsumgebung des Astra Control Centers"].
 
 [cols="1h,2a"]
 |===
@@ -636,7 +636,7 @@ Erstellen Sie mit BlueXP (früher Cloud Manager) einen Workspace, fügen Sie ein
 
 Befolgen Sie die BlueXP-Dokumentation, um die folgenden Schritte auszuführen. Siehe https://docs.netapp.com/us-en/occm/task_getting_started_azure.html["Erste Schritte mit BlueXP in Azure"^].
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 Zugriff auf das Azure Konto mit den erforderlichen IAM-Berechtigungen und -Rollen
 
 .Schritte
@@ -669,12 +669,12 @@ image:acc-cvo-azure-working-environment.png["Dieses Bild zeigt die Positionen de
 +
 image:acc-cvo-azure-connected.png["Dieses Bild zeigt einen importierten Cluster in BlueXP"]
 
-.. Beachten Sie oben rechts die Trident-Version.
+.. Beachten Sie in der oberen rechten Ecke die Astra Trident-Version.
 .. Beachten Sie die Cloud Volumes ONTAP Cluster-Storage-Klassen, für die NetApp als provisionierung angezeigt wird.
 
 
 +
-Damit wird Ihr Red hat OpenShift-Cluster importiert und eine Standardspeicherklasse zugewiesen. Sie wählen die Speicherklasse aus. Trident wird automatisch im Rahmen des Import- und Erkennungsvorgangs installiert.
+Damit wird Ihr Red hat OpenShift-Cluster importiert und eine Standardspeicherklasse zugewiesen. Sie wählen die Speicherklasse aus. Astra Trident wird automatisch im Rahmen des Imports und der Erkennung installiert.
 
 . Beachten Sie alle persistenten Volumes und Volumes in dieser Cloud Volumes ONTAP-Implementierung.
 . Cloud Volumes ONTAP kann als Single Node oder in High Availability betrieben werden. Wenn HA aktiviert ist, notieren Sie den HA-Status und den Node-Implementierungsstatus, der in Azure ausgeführt wird.

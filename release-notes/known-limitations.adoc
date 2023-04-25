@@ -39,6 +39,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 * <<Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern>>
 * <<Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt>>
 * <<Einschränkungen für LDAP-Benutzer und -Gruppen>>
+* <<Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt>>
 
 
 
@@ -180,6 +181,12 @@ Wenn Sie über eine Evaluierungslizenz verfügen, sollten Sie Ihre Konto-ID spei
 == Einschränkungen für LDAP-Benutzer und -Gruppen
 
 Astra Control Center unterstützt bis zu 5,000 Remote-Gruppen und 10,000 Remote-Benutzer.
+
+
+
+== Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt
+
+Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control REST-API"^].
 
 
 

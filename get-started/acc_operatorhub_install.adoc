@@ -16,7 +16,7 @@ Wenn Sie Red hat OpenShift verwenden, können Sie Astra Control Center mithilfe 
 
 Nach Abschluss dieses Verfahrens müssen Sie zum Installationsvorgang zurückkehren, um den abzuschließen link:../get-started/install_acc.html#verify-system-status["Verbleibende Schritte"^] Um die erfolgreiche Installation zu überprüfen, und melden Sie sich an.
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 * *Voraussetzungen für die Umwelt erfüllt*: link:requirements.html["Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor"^].
 * *Gesunde Cluster-Betreiber und API-Dienste*:
 +
@@ -63,7 +63,7 @@ oc create namespace netapp-acc-operator
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Wechseln Sie zum https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Astra Control Center-Seite zum Herunterladen der Testversion"^] Auf der NetApp Support Site
+. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^] Auf der NetApp Support Site
 . Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`).
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Pakets zu überprüfen:
 +
@@ -91,9 +91,9 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 == Installieren Sie das NetApp Astra kubectl Plug-in
 
-Das NetApp Astra kubectl Kommandozeilen-Plug-in spart Zeit, wenn es gängige Aufgaben im Zusammenhang mit der Bereitstellung und dem Upgrade des Astra Control Center ausführt.
+Sie können das NetApp Astra kubectl Befehlszeilenschnittstelle-Plug-in verwenden, um Images in ein lokales Docker Repository zu verschieben.
 
-.Was Sie benötigen
+.Bevor Sie beginnen
 NetApp bietet Plug-ins-Binärdateien für verschiedene CPU-Architekturen und Betriebssysteme. Sie müssen wissen, welche CPU und welches Betriebssystem Sie haben, bevor Sie diese Aufgabe ausführen.
 
 .Schritte
@@ -171,7 +171,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -190,7 +190,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=22.11.0-82
+export PACKAGEVERSION=23.04.0-22
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -201,8 +201,13 @@ done
 ----
 +
 
-NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registrierungskonfiguration wie folgt aussehen: `https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/22.11.0-82/image:version`
+NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registrierungskonfiguration wie folgt aussehen:
 
++
+[listing]
+----
+https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.04.0-22/image:version
+----
 
 
 --

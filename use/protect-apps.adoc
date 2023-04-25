@@ -43,6 +43,12 @@ Eine Sicherungsrichtlinie sichert eine Applikation, indem Snapshots, Backups ode
 
 Wenn Sie Backups oder Snapshots öfter als einmal pro Stunde benötigen, können Sie dies tun https://docs.netapp.com/us-en/astra-automation/workflows/workflows_before.html["Erstellen Sie mithilfe der Astra Control REST API Snapshots und Backups"^].
 
+
+TIP: Verschieben Sie Backup- und Replikationspläne, um Zeitplanüberschneidungen zu vermeiden. Führen Sie beispielsweise jede Stunde Backups oben in der Stunde durch, und planen Sie die Replikation, um mit einem Offset von 5 Minuten und einem Intervall von 10 Minuten zu beginnen.
+
+
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Schutzrichtlinien können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse, wenn Sie eine Sicherungsrichtlinie wünschen.
+
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
 . Wählen Sie *Datenschutz*.
@@ -73,6 +79,9 @@ Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und 
 
 Sie können jederzeit einen On-Demand-Snapshot erstellen.
 
+
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
+
 .Schritte
 . Wählen Sie *Anwendungen*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Snapshot* aus.
@@ -91,6 +100,9 @@ Sie können eine App auch jederzeit sichern.
 
 
 NOTE: S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität. Bevor Sie Backups oder Klonanwendungen durchführen, die von Astra Control Center gemanagt werden, sollten Sie die Bucket-Informationen im ONTAP oder StorageGRID Managementsystem prüfen.
+
+
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Backups führen zu Unterbrechungen und die App ist bis zum Abschluss des Sicherungsvorgangs nicht verfügbar.
 
 .Schritte
 . Wählen Sie *Anwendungen*.

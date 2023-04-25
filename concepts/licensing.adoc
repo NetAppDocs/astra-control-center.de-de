@@ -12,18 +12,38 @@ summary: Erfahren Sie, wie sich die Aktionen mit dem Astra Control Center je nac
 
 
 [role="lead"]
-Astra Control Center erfordert die Installation einer Lizenz, damit die vollständige App-Datenmanagement-Funktion aktiviert werden kann. Wenn Sie Astra Control Center ohne Lizenz bereitstellen, wird in der Web-UI ein Banner angezeigt, in dem Sie darauf hingewiesen werden, dass die Systemfunktionalität begrenzt ist.
+Bei der Bereitstellung von Astra Control Center wird es mit einer eingebetteten 90-Tage-Evaluierungslizenz für 4,800 CPU-Einheiten installiert. Wenn Sie mehr Kapazität oder einen längeren Evaluierungszeitraum benötigen oder auf eine komplette Lizenz aktualisieren möchten, können Sie eine andere Evaluierungslizenz oder eine komplette Lizenz von NetApp beziehen.
 
 Sie erhalten eine Lizenz auf eine der folgenden Arten:
 
-* link:https://mysupport.netapp.com/site/downloads/evaluation/astra-control-center["Wenn Sie Astra Control Center evaluieren, laden Sie die Evaluierungslizenzdatei herunter"^]. Mit einer Evaluierungslizenz können Sie das Astra Control Center 90 Tage ab dem Datum, an dem Sie die Lizenz herunterladen, verwenden.
+* Wenn Sie Astra Control Center evaluieren und andere Evaluierungsbedingungen als in der eingebetteten Evaluierungslizenz benötigen, wenden Sie sich an NetApp, um eine andere Evaluierungslizenzdatei zu anfordern.
 * link:https://mysupport.netapp.com/site/["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Von der NetApp Support Site aus. Nach dem Kauf des Produkts erhalten Sie eine Seriennummer und eine Lizenz, die Sie auf der Support-Website verwenden.
 
 
 Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter link:../get-started/requirements.html["Unterstützte Storage-Back-Ends"].
 
 
-NOTE: Sie können ohne Lizenz ein Cluster hinzufügen, einen Bucket hinzufügen und ein Storage-Backend verwalten.
+NOTE: Stellen Sie sicher, dass Ihre Lizenz mindestens so viele CPU-Einheiten wie erforderlich aktiviert. Wenn die Anzahl der CPU-Einheiten, die Astra Control Center derzeit verwaltet, die verfügbaren CPU-Einheiten in der neuen Lizenz überschreitet, können Sie die neue Lizenz nicht anwenden.
+
+
+
+== Evaluierungslizenzen und Volllizenzen
+
+Eine eingebettete Evaluierungslizenz wird mit der neuen Astra Control Center-Installation bereitgestellt. Eine Evaluierungslizenz ermöglicht über einen begrenzten Zeitraum (90 Tage) dieselben Funktionen und Funktionen wie eine Volllizenz. Nach dem Evaluierungszeitraum ist eine vollständige Lizenz erforderlich, um mit voller Funktionalität fortzufahren.
+
+
+
+== Ablauf der Lizenz
+
+Wenn die aktive Astra Control Center-Lizenz abläuft, sind die UI- und API-Funktionen für die folgenden Funktionen nicht verfügbar:
+
+* Manuelle lokale Snapshots und Backups
+* Geplante lokale Snapshots und Backups
+* Wiederherstellen aus einem Snapshot oder einem Backup
+* Klonen aus einem Snapshot oder aktuellem Status
+* Managen neuer Applikationen
+* Konfigurieren von Replikationsrichtlinien
+
 
 
 
@@ -31,7 +51,10 @@ NOTE: Sie können ohne Lizenz ein Cluster hinzufügen, einen Bucket hinzufügen 
 
 Wenn Sie dem Astra Control Center einen neuen Cluster hinzufügen, zählen diese nicht auf verbrauchte Lizenzen, bis mindestens eine auf dem Cluster ausgeführte Applikation vom Astra Control Center verwaltet wird.
 
-Wenn Sie eine App auf einem Cluster managen, sind alle CPU-Einheiten des Clusters im Lizenzverbrauch des Astra Control Center enthalten.
+Wenn Sie eine App auf einem Cluster verwalten, sind alle CPU-Einheiten dieses Clusters im Lizenzverbrauch von Astra Control Center enthalten, mit Ausnahme der CPU-Einheiten des Red hat OpenShift-Cluster-Node, die von einem mit dem Label gemeldet werden `node-role.kubernetes.io/infra: ""`.
+
+
+NOTE: Red hat OpenShift Infrastruktur-Nodes nutzen keine Lizenzen in Astra Control Center. Um einen Node als Infrastruktur-Node zu markieren, wenden Sie die Beschriftung an `node-role.kubernetes.io/infra: ""` Auf den Node.
 
 
 

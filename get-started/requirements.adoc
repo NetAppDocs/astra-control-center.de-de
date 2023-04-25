@@ -12,82 +12,93 @@ summary: 'Erste Schritte mit Astra Control Center: Überprüfen Sie die Unterst�
 
 
 [role="lead"]
-Prüfen Sie zunächst die Bereitschaft Ihrer Betriebsumgebung, Anwendungscluster, Applikationen, Lizenzen und Ihres Webbrowsers.
+Prüfen Sie zunächst die Bereitschaft Ihrer Betriebsumgebung, Anwendungscluster, Applikationen, Lizenzen und Ihres Webbrowsers. Stellen Sie sicher, dass Ihre Umgebung für den Einsatz und Betrieb von Astra Control Center diese Anforderungen erfüllt.
 
-* <<Anforderungen an die Betriebsumgebung>>
-* <<Unterstützte Storage-Back-Ends>>
-* <<Zugang zum Internet>>
-* <<Lizenz>>
-* <<Ingress für lokale Kubernetes Cluster>>
+* <<Unterstützte Host-Cluster-Kubernetes-Umgebungen>>
+* <<Ressourcenanforderungen des Host-Clusters>>
+* <<Anforderungen von Astra Trident>>
+* <<Storage-Back-Ends>>
+* <<Bildregistrierung>>
+* <<Astra Control Center-Lizenz>>
+* <<ONTAP-Lizenzen>>
 * <<Netzwerkanforderungen>>
+* <<Ingress für lokale Kubernetes Cluster>>
 * <<Unterstützte Webbrowser>>
 * <<Zusätzliche Anforderungen an Applikations-Cluster>>
-* <<Cluster-Anforderungen für Google Anthos>>
-* <<Cluster-Anforderungen für VMware Tanzu Kubernetes Grid>>
 
 
 
 
-== Anforderungen an die Betriebsumgebung
+== Unterstützte Host-Cluster-Kubernetes-Umgebungen
 
-Astra Control Center wurde mit folgenden Typen von Betriebsumgebungen validiert:
-
-* Cisco IKS mit Kubernetes 1.22
-* Google Anthos 1.11 oder 1.12 (siehe <<Cluster-Anforderungen für Google Anthos>>)
-* Rancher Kubernetes Engine (RKE):
-+
-** RKE 1.3.12 mit Rancher 2.6.5 und 2.6.6
-** RKE 1.3.13 mit Rancher 2.6.8
-** RKE 2 (v1.23,6+rke2r1) mit Rancher 2.6.5 und 2.6.6
-** RKE 2 (v1.24.x) mit Rancher 2.6.8
+Astra Control Center wurde mit den folgenden Kubernetes-Host-Umgebungen validiert:
 
 
-* Red hat OpenShift Container Platform 4.8 bis 4.11
-* Upstream Kubernetes 1.23 to 1.25 (Astra Trident 22.10 oder höher für Kubernetes 1.25 erforderlich)
-* VMware Tanzu Kubernetes Grid: (Siehe <<Cluster-Anforderungen für VMware Tanzu Kubernetes Grid>>)
-+
-** VMware Tanzu Kubernetes Grid 1.5
-** VMware Tanzu Kubernetes Grid Integrated Edition 1.13 und 1.14
-
-
-
-
-Stellen Sie sicher, dass die Betriebsumgebung, die Sie als Host für das Astra Control Center auswählen, den grundlegenden Ressourcenanforderungen in der offiziellen Dokumentation der Umgebung entspricht. Astra Control Center erfordert zusätzlich zu den Ressourcenanforderungen der Umgebung die folgenden Ressourcen:
+NOTE: Stellen Sie sicher, dass die Kubernetes-Umgebung, für die Sie Astra Control Center hosten, die grundlegenden Ressourcenanforderungen erfüllt, die in der offiziellen Dokumentation der Umgebung aufgeführt sind.
 
 |===
-| Komponente | Anforderungen 
+| Kubernetes-Distribution auf Host-Cluster | Unterstützte Versionen 
 
 
-| CPU-Erweiterungen | Für die CPUs in allen Knoten der Hostumgebung müssen AVX-Erweiterungen aktiviert sein. 
+| Azure Kubernetes Service für Azure Stack HCI | Azure Stack HCI 21H2 und 22H2 mit AKS 1.23 und 1.24 
 
 
-| Storage-Back-End-Kapazität | Mindestens 500 GB verfügbar 
+| Google Anthos | 1.12 bis 1.14 (siehe <<Anforderungen für Google Anthos Ingress>>) 
 
 
-| Worker-Nodes  a| 
-Insgesamt mindestens 3 Worker-Nodes mit 4 CPU-Kernen und jeweils 12 GB RAM
+| Kubernetes (Vorgelagert) | 1.24 bis 1.26 (für Kubernetes 1.25 oder neuer ist Astra Trident 22.10 oder neuer erforderlich) 
 
 
+| Rancher Kubernetes Engine (RKE) | RKE 1.3 mit Rancher 2.6 RKE 1.4 mit Rancher 2.7 RKE 2 (v1.23.x) mit Rancher 2.6 RKE 2 (v1.24.x) mit Rancher 2.7 
 
-| FQDN-Adresse | Eine FQDN-Adresse für Astra Control Center 
+
+| Red hat OpenShift Container Platform | 4.10 bis 4.12 
 
 
-| Astra Trident  a| 
-Astra Trident 22.01 oder höher installiert und konfiguriert Astra Trident 22.07 oder höher ist installiert für die SnapMirror-basierte Applikationsreplizierung Astra Trident 22.10 oder höher für Kubernetes 1.25 Cluster installiert (vor dem Upgrade auf Kubernetes 1.25 ist ein Upgrade auf Astra Trident 22.10 erforderlich)
+| VMware Tanzu Kubernetes Grid | 1.6 (Siehe <<Ressourcenanforderungen des Host-Clusters>>) 
 
+
+| VMware Tanzu Kubernetes Grid Integrated Edition | 1.14 und 1.15 (siehe <<Ressourcenanforderungen des Host-Clusters>>) 
 |===
+
+
+== Ressourcenanforderungen des Host-Clusters
+
+Astra Control Center erfordert zusätzlich zu den Ressourcenanforderungen der Umgebung die folgenden Ressourcen:
+
 
 NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center die einzige Applikation ist, die in der Betriebsumgebung ausgeführt wird. Wenn in der Umgebung zusätzliche Applikationen ausgeführt werden, passen Sie diese Mindestanforderungen entsprechend an.
 
-* *Image Registry*: Sie benötigen eine bereits vorhandene private Docker-Image-Registry, mit der Sie Astra Control Center-Bilder erstellen können. Sie müssen die URL der Bildregistrierung angeben, in der Sie die Bilder hochladen.
-* *Astra Trident/ONTAP-Konfiguration*:
+* *CPU-Erweiterungen*: Die CPUs in allen Knoten der Hosting-Umgebung müssen AVX-Erweiterungen aktiviert haben.
+* *Worker Nodes*: Insgesamt mindestens 3 Worker Nodes, mit 4 CPU Cores und je 12 GB RAM
+* *Anforderungen für den VMware Tanzu Kubernetes Grid Cluster*: Beachten Sie bei der Hosting von Astra Control Center auf einem VMware Tanzu Kubernetes Grid (TKG)- oder Tanzu Kubernetes Grid Integrated Edition (TKGi)-Cluster die folgenden Überlegungen.
 +
-** Sie müssen mindestens einen Astra Trident Storage-Kurs auf dem Cluster konfigurieren. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass es die einzige Storage-Klasse mit der Standardbezeichnung ist.
-** Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:
+** Das standardmäßige VMware TKG- und TKGi-Konfigurationstoken läuft zehn Stunden nach der Bereitstellung ab. Wenn Sie Tanzu Portfolio-Produkte verwenden, müssen Sie eine Tanzu Kubernetes Cluster-Konfigurationsdatei mit einem nicht auslaufenden Token generieren, um Verbindungsprobleme zwischen Astra Control Center und verwalteten Anwendungsclustern zu vermeiden. Anweisungen finden Sie unter https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["Die Produktdokumentation zu VMware NSX-T Data Center."^]
+** Verwenden Sie die `kubectl get nsxlbmonitors -A` Befehl, um zu sehen, ob bereits ein Service-Monitor für die Annahme von Ingress-Traffic konfiguriert ist. Wenn vorhanden, sollten Sie MetalLB nicht installieren, da der vorhandene Servicemonitor eine neue Load Balancer-Konfiguration außer Kraft setzt.
+** Deaktivieren Sie die Durchsetzung der Standardspeicherklasse TKG oder TKGi auf allen Anwendungsclustern, die von Astra Control verwaltet werden sollen. Sie können dies tun, indem Sie die bearbeiten `TanzuKubernetesCluster` Ressource auf dem Namespace-Cluster.
+** Achten Sie bei der Implementierung des Astra Control Center in einer TKG- oder TKGi-Umgebung auf die speziellen Anforderungen von Astra Trident. Weitere Informationen finden Sie im https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident-Dokumentation"^].
+
+
+
+
+
+
+== Anforderungen von Astra Trident
+
+Stellen Sie sicher, dass Sie die folgenden Anforderungen für Astra Trident erfüllen, die Ihren Anforderungen Ihrer Umgebung entsprechen:
+
+* *Mindestversion für Astra Control Center*: Astra Trident 22.04 oder neuer installiert und konfiguriert.
+* *SnapMirror Replizierung*: Installation von Astra Trident 22.07 oder neuer für die SnapMirror-basierte Applikationsreplizierung
+* *Für die Unterstützung von Kubernetes 1.25 oder neuer*: Astra Trident 22.10 oder höher für Kubernetes 1.25 oder neuere Cluster installiert (Sie müssen vor dem Upgrade auf Kubernetes 1.25 oder neuer auf Astra Trident 22.10 upgraden)
+* *ONTAP-Konfiguration mit Astra Trident*:
 +
-*** ontap-nas
-*** ontap-san
-*** ontap-san-Ökonomie (nicht unterstützt für Applikationsreplizierung)
+** *Storage class*: Konfigurieren Sie mindestens eine Astra Trident Storage-Klasse auf dem Cluster. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass es die einzige Storage-Klasse mit der Standardbezeichnung ist.
+** *Speichertreiber und Workerknoten*: Stellen Sie sicher, dass die Workerknoten in Ihrem Cluster mit den entsprechenden Speichertreibern konfiguriert sind, damit die Pods mit dem Backend-Speicher interagieren können. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident:
++
+*** `ontap-nas`
+*** `ontap-san`
+*** `ontap-san-economy` (App-Replizierung ist bei diesem Storage-Klassen-Typ nicht verfügbar)
+*** `ontap-nas-economy` (Snapshots, Replizierungsrichtlinien und Sicherungsrichtlinien stehen bei diesem Typ von Storage-Klassen nicht zur Verfügung.)
 
 
 
@@ -96,16 +107,23 @@ NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center
 
 
 
-== Unterstützte Storage-Back-Ends
+== Storage-Back-Ends
 
-Astra Control Center unterstützt folgende Storage-Back-Ends.
+Stellen Sie sicher, dass Sie ein unterstütztes Backend mit ausreichender Kapazität haben.
 
-* NetApp ONTAP 9.5 oder höher AFF, FAS und ASA Systeme
-* NetApp ONTAP 9.8 oder neuere AFF, FAS und ASA Systeme für SnapMirror-basierte Applikationsreplizierung
-* NetApp ONTAP Select 9.5 oder höher
-* NetApp ONTAP Select 9.8 oder höher für SnapMirror-basierte Applikationsreplizierung
-* NetApp Cloud Volumes ONTAP 9.5 oder höher
+* *Unterstützte Backends*: Astra Control Center unterstützt folgende Speicher-Backends:
++
+** NetApp ONTAP 9.8 oder höher AFF, FAS und ASA Systeme
+** NetApp ONTAP Select 9.8 oder höher
+** NetApp Cloud Volumes ONTAP 9.8 oder höher
 
+
+* *Erforderliche Back-End-Speicherkapazität*: Mindestens 500 GB verfügbar
+
+
+
+
+=== ONTAP-Lizenzen
 
 Um Astra Control Center zu nutzen, müssen Sie je nach den Anforderungen die folgenden ONTAP-Lizenzen besitzen:
 
@@ -118,43 +136,32 @@ Informationen darüber, ob auf Ihrem ONTAP System die erforderlichen Lizenzen vo
 
 
 
-== Zugang zum Internet
+== Bildregistrierung
 
-Sie sollten feststellen, ob Sie einen externen Zugang zum Internet haben. Wenn nicht, sind einige Funktionen möglicherweise begrenzt, beispielsweise das Empfangen von Monitoring- und Kennzahlendaten von NetApp Cloud Insights oder das Senden von Support-Paketen an die https://mysupport.netapp.com/site/["NetApp Support Website"^].
+Sie müssen über eine vorhandene private Docker Image-Registrierung verfügen, auf die Sie Astra Control Center Build-Images übertragen können. Sie müssen die URL der Bildregistrierung angeben, in der Sie die Bilder hochladen.
 
 
 
-== Lizenz
+== Astra Control Center-Lizenz
 
-Astra Control Center erfordert eine Astra Control Center-Lizenz für die volle Funktionalität. Anfordern einer Evaluierungslizenz oder Volllizenz von NetApp. Sie benötigen eine Lizenz zum Schutz Ihrer Applikationen und Daten. Siehe link:../concepts/intro.html["Funktionen des Astra Control Center"] Entsprechende Details.
+Für Astra Control Center ist eine Astra Control Center Lizenz erforderlich. Bei der Installation von Astra Control Center ist bereits eine eingebettete 90-Tage-Evaluierungslizenz für 4,800 CPU-Einheiten aktiviert. Wenn Sie mehr Kapazität oder andere Evaluierungsbedingungen benötigen, oder ein Upgrade auf eine komplette Lizenz wünschen, können Sie eine andere Evaluierungslizenz oder volle Lizenz von NetApp erhalten. Sie benötigen eine Lizenz zum Schutz Ihrer Applikationen und Daten. Siehe link:../concepts/intro.html["Funktionen des Astra Control Center"] Entsprechende Details.
 
-Sie können Astra Control Center mit einer Evaluierungslizenz ausprobieren, mit der Sie das Astra Control Center 90 Tage ab dem Tag, an dem Sie die Lizenz herunterladen, nutzen können. Sie können sich durch die Anmeldung für eine kostenlose Testversion anmelden link:https://cloud.netapp.com/astra-register["Hier"^].
+Astra Control Center können Sie ausprobieren, indem Sie sich für eine kostenlose Testversion anmelden. Registrieren Sie sich link:https://bluexp.netapp.com/astra-register["Hier"^].
 
 Informationen zum Einrichten der Lizenz finden Sie unter link:setup_overview.html["Verwenden Sie eine 90-Tage-Evaluierungslizenz"^].
 
 Weitere Informationen über die Funktionsweise von Lizenzen finden Sie unter link:../concepts/licensing.html["Lizenzierung"^].
 
-Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter link:../get-started/requirements.html["Unterstützte Storage-Back-Ends"].
-
-
-
-== Ingress für lokale Kubernetes Cluster
-
-Sie können die Art der Netzwerk Ingress Astra Control Center verwendet wählen. Astra Control Center nutzt standardmäßig das Astra Control Center Gateway (Service/Trafik) als Cluster-weite Ressource. Astra Control Center unterstützt auch den Einsatz eines Service Load Balancer, sofern diese in Ihrer Umgebung zugelassen sind. Wenn Sie lieber einen Service-Load-Balancer verwenden und noch nicht eine konfiguriert haben, können Sie den MetalLB-Load-Balancer verwenden, um dem Dienst automatisch eine externe IP-Adresse zuzuweisen. In der Konfiguration des internen DNS-Servers sollten Sie den ausgewählten DNS-Namen für Astra Control Center auf die Load-Balanced IP-Adresse verweisen.
-
-
-NOTE: Der Load Balancer sollte eine IP-Adresse verwenden, die sich im gleichen Subnetz wie die IP-Adressen des Astra Control Center Worker-Knotens befindet.
-
-
-NOTE: Wenn Sie Astra Control Center auf einem Tanzu Kubernetes Grid Cluster hosten, nutzen Sie den `kubectl get nsxlbmonitors -A` Befehl, um zu sehen, ob bereits ein Service-Monitor für die Annahme von Ingress-Traffic konfiguriert ist. Wenn vorhanden, sollten Sie MetalLB nicht installieren, da der vorhandene Servicemonitor eine neue Load Balancer-Konfiguration außer Kraft setzt.
-
-Weitere Informationen finden Sie unter link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eindringen für den Lastenausgleich einrichten"^].
-
 
 
 == Netzwerkanforderungen
 
-Die Betriebsumgebung, die als Host für Astra Control Center fungiert, kommuniziert über die folgenden TCP-Ports. Sie sollten sicherstellen, dass diese Ports über beliebige Firewalls zugelassen sind, und Firewalls so konfigurieren, dass jeder HTTPS-ausgehenden Datenverkehr aus dem Astra-Netzwerk zugelassen wird. Einige Ports erfordern Verbindungen zwischen der Umgebung, in der Astra Control Center gehostet wird, und jedem verwalteten Cluster (sofern zutreffend).
+Konfigurieren Sie Ihre Betriebsumgebung so, dass Astra Control Center ordnungsgemäß kommunizieren kann. Die folgenden Netzwerkkonfigurationen sind erforderlich:
+
+* *FQDN-Adresse*: Sie müssen eine FQDN-Adresse für Astra Control Center haben.
+* *Zugang zum Internet*: Sie sollten festlegen, ob Sie Zugang zum Internet von außen haben. Wenn nicht, sind einige Funktionen möglicherweise begrenzt, beispielsweise das Empfangen von Monitoring- und Kennzahlendaten von NetApp Cloud Insights oder das Senden von Support-Paketen an die https://mysupport.netapp.com/site/["NetApp Support Website"^].
+* *Port Access*: Die Betriebsumgebung, die das Astra Control Center hostet, kommuniziert über die folgenden TCP-Ports. Sie sollten sicherstellen, dass diese Ports über beliebige Firewalls zugelassen sind, und Firewalls so konfigurieren, dass jeder HTTPS-ausgehenden Datenverkehr aus dem Astra-Netzwerk zugelassen wird. Einige Ports erfordern Verbindungen zwischen der Umgebung, in der Astra Control Center gehostet wird, und jedem verwalteten Cluster (sofern zutreffend).
+
 
 
 NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster implementieren. Astra Control Center kann Applikationen und Storage-Back-Ends managen, die für den Dual-Stack-Betrieb konfiguriert wurden. Weitere Informationen zu Dual-Stack-Cluster-Anforderungen finden Sie im https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes-Dokumentation"^].
@@ -179,6 +186,23 @@ NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster im
 |===
 
 
+== Ingress für lokale Kubernetes Cluster
+
+Sie können die Art der Netzwerk Ingress Astra Control Center verwendet wählen. Astra Control Center nutzt standardmäßig das Astra Control Center Gateway (Service/Trafik) als Cluster-weite Ressource. Astra Control Center unterstützt auch den Einsatz eines Service Load Balancer, sofern diese in Ihrer Umgebung zugelassen sind. Wenn Sie lieber einen Service-Load-Balancer verwenden und noch nicht eine konfiguriert haben, können Sie den MetalLB-Load-Balancer verwenden, um dem Dienst automatisch eine externe IP-Adresse zuzuweisen. In der Konfiguration des internen DNS-Servers sollten Sie den ausgewählten DNS-Namen für Astra Control Center auf die Load-Balanced IP-Adresse verweisen.
+
+
+NOTE: Der Load Balancer sollte eine IP-Adresse verwenden, die sich im gleichen Subnetz wie die IP-Adressen des Astra Control Center Worker-Knotens befindet.
+
+Weitere Informationen finden Sie unter link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eindringen für den Lastenausgleich einrichten"^].
+
+
+
+=== Anforderungen für Google Anthos Ingress
+
+Beachten Sie beim Hosten von Astra Control Center auf einem Google Anthos Cluster, dass Google Anthos standardmäßig den MetalLB Load Balancer und den Istio Ingress Service enthält, sodass Sie während der Installation einfach die generischen Ingress-Funktionen von Astra Control Center verwenden können. Siehe link:install_acc.html#configure-astra-control-center["Konfigurieren Sie Astra Control Center"^] Entsprechende Details.
+
+
+
 == Unterstützte Webbrowser
 
 Astra Control Center unterstützt aktuelle Versionen von Firefox, Safari und Chrome mit einer Mindestauflösung von 1280 x 720.
@@ -196,25 +220,6 @@ Beachten Sie diese Anforderungen, wenn Sie die folgenden Funktionen des Astra Co
 
 
 
-
-
-
-== Cluster-Anforderungen für Google Anthos
-
-Wenn Sie Astra Control Center auf einem Google Anthos Cluster hosten, beachten Sie, dass Google Anthos standardmäßig den MetalLB Load Balancer und den Istio Ingress Gateway-Dienst enthält. So können Sie die generischen Ingress-Funktionen von Astra Control Center während der Installation einfach nutzen. Siehe link:install_acc.html#configure-astra-control-center["Konfigurieren Sie Astra Control Center"^] Entsprechende Details.
-
-
-
-== Cluster-Anforderungen für VMware Tanzu Kubernetes Grid
-
-Beachten Sie bei der Hosting von Astra Control Center auf einem VMware Tanzu Kubernetes Grid (TKG)- oder Tanzu Kubernetes Grid Integrated Edition (TKGi)-Cluster die folgenden Überlegungen.
-
-* Deaktivieren Sie die Durchsetzung der Standardspeicherklasse TKG oder TKGi auf allen Anwendungsclustern, die von Astra Control verwaltet werden sollen. Sie können dies tun, indem Sie die bearbeiten `TanzuKubernetesCluster` Ressource auf dem Namespace-Cluster.
-* Achten Sie bei der Implementierung des Astra Control Center in einer TKG- oder TKGi-Umgebung auf die speziellen Anforderungen von Astra Trident. Weitere Informationen finden Sie im https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident-Dokumentation"^].
-
-
-
-NOTE: Das standardmäßige VMware TKG- und TKGi-Konfigurationstoken läuft zehn Stunden nach der Bereitstellung ab. Wenn Sie Tanzu Portfolio-Produkte verwenden, müssen Sie eine Tanzu Kubernetes Cluster-Konfigurationsdatei mit einem nicht auslaufenden Token generieren, um Verbindungsprobleme zwischen Astra Control Center und verwalteten Anwendungsclustern zu vermeiden. Anweisungen finden Sie unter https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["Die Produktdokumentation zu VMware NSX-T Data Center."^]
 
 
 

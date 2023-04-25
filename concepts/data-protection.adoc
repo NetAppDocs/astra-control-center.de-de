@@ -65,3 +65,9 @@ image:acc-backup_4in.png["Dieses Image zeigt ein geplantes Backup und eine Wiede
 Zum anderen erfolgt die Replizierung auf ONTAP. Bei einem Failover werden die Kubernetes-Ressourcen erstellt:
 
 image:acc-replication_4in.png["Dieses Image zeigt Replizierung und Failover zwischen zwei Kubernetes-Clustern und zwei ONTAP-Clustern"]
+
+
+
+== Backups, Snapshots und Klone mit abgelaufener Lizenz
+
+Wenn Ihre Lizenz abläuft, können Sie nur dann eine neue Applikation hinzufügen oder Vorgänge zum Schutz von Applikationen (wie Snapshots, Backups, Klone und Wiederherstellungsvorgänge) durchführen, wenn die hinzugefügte oder zu schützende Applikation eine weitere Astra Control Center-Instanz ist.

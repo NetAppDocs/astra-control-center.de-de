@@ -60,7 +60,7 @@ NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster 
 * *Astra Trident / ONTAP Konfiguration*: Astra Control Center erfordert, dass eine Storage-Klasse erstellt und als Standard-Storage-Klasse eingestellt wird. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident zur Replizierung:
 +
 ** ontap-nas
-** ontap-nas-Flexgroup
+** ontap-nas-Economy (SnapMirror Replizierungsfunktionalität mit Astra Control ist in dieser Storage-Klasse nicht verfügbar.)
 ** ontap-san
 
 
@@ -87,11 +87,15 @@ Die Einrichtung einer Replikationsbeziehung umfasst Folgendes, die die Replikati
 +
 ** *Zielcluster*: Geben Sie einen Zielcluster ein, der sich von der Quelle unterscheidet.
 ** *Zielspeicherklasse*: Wählen Sie die Speicherklasse aus, die die gekoppelte SVM auf dem Ziel-ONTAP-Cluster verwendet.
-** *Replikationstyp*: "Asynchron" ist derzeit der einzige verfügbare Replikationstyp. 
+** *Replikationstyp*: "Asynchron" ist derzeit der einzige verfügbare Replikationstyp.
 ** *Ziel-Namespace*: Geben Sie neue oder vorhandene Ziel-Namespaces für das Ziel-Cluster ein.
 ** (Optional) Fügen Sie zusätzliche Namespaces hinzu, indem Sie *Namespace hinzufügen* und den Namespace aus der Dropdown-Liste auswählen.
 ** *Frequenz der Replikation*: Legen Sie fest, wie oft Astra Control einen Snapshot machen und ihn an sein Ziel replizieren soll.
-** *Offset*: Stellen Sie die Anzahl der Minuten von der Stunde her, die Sie möchten, dass Astra Control einen Schnappschuss machen soll. Möglicherweise möchten Sie einen Offset verwenden, sodass er nicht mit anderen geplanten Vorgängen übereinstimmt. Wenn Sie beispielsweise den Snapshot alle 5 Minuten ab 10:02 Uhr aufnehmen möchten, geben Sie als Offset-Minuten „02“ ein. Das Ergebnis sind 10:02, 10:07, 10:12 usw.
+** *Offset*: Stellen Sie die Anzahl der Minuten von der Stunde her, die Sie möchten, dass Astra Control einen Schnappschuss machen soll. Möglicherweise möchten Sie einen Offset verwenden, sodass er nicht mit anderen geplanten Vorgängen übereinstimmt.
++
+
+TIP: Verschieben Sie Backup- und Replikationspläne, um Zeitplanüberschneidungen zu vermeiden. Führen Sie beispielsweise jede Stunde Backups oben in der Stunde durch, und planen Sie die Replikation, um mit einem Offset von 5 Minuten und einem Intervall von 10 Minuten zu beginnen.
+
 
 
 . Wählen Sie *Weiter*, lesen Sie die Zusammenfassung und wählen Sie *Speichern*.
@@ -141,10 +145,11 @@ Mit Astra Control können Sie ein „Failover“ Ihrer replizierten Applikatione
 .Ergebnis
 Die folgenden Aktionen ergeben sich aus dem Failover-Verfahren:
 
-* Auf dem Ziel-Cluster wird die Applikation basierend auf dem zuletzt replizierten Snapshot gestartet.
+* Auf dem Zielcluster wird die App basierend auf dem letzten replizierten Snapshot gestartet.
 * Das Quellcluster und die App (falls betriebsbereit) werden nicht angehalten und werden weiterhin ausgeführt.
 * Der Replikationsstatus ändert sich zu „Failover“ und dann zu „Failover“, wenn er abgeschlossen ist.
 * Die Schutzrichtlinie der Quell-App wird basierend auf den Zeitplänen in der Quell-App zum Zeitpunkt des Failover in die Ziel-App kopiert.
+* Wenn in der Quell-App mindestens eine Ausführungshaken nach der Wiederherstellung aktiviert ist, werden diese Ausführungshaken für die Ziel-App ausgeführt.
 * Astra Control zeigt die App sowohl auf den Quell- und Ziel-Clustern und deren jeweiligen Zustand.
 
 

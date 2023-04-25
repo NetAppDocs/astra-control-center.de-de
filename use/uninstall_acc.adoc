@@ -16,8 +16,9 @@ Möglicherweise müssen Sie die Komponenten des Astra Control Center entfernen, 
 
 Wenn Sie Probleme mit der Deinstallation haben, lesen Sie <<Fehlerbehebung bei Deinstallationsproblemen>>.
 
-.Was Sie benötigen
-* Verwenden Sie die Benutzeroberfläche von Astra Control Center, um das Management aller zu lösen link:../use/unmanage.html#stop-managing-compute["Cluster"].
+.Bevor Sie beginnen
+. link:../use/unmanage.html#unmanage-an-app["Heben Sie die Verwaltung aller Apps auf"^] Auf den Clustern.
+. link:../use/unmanage.html#unmanage-a-cluster["Heben Sie die Verwaltung aller Cluster auf"^].
 
 
 .Schritte
@@ -35,14 +36,14 @@ Ergebnis:
 ----
 astracontrolcenter.astra.netapp.io "astra" deleted
 ----
-. Löschen Sie den mit dem folgenden Befehl `netapp-acc` Namespace:
+. Löschen Sie den mit dem folgenden Befehl `netapp-acc` (Oder benutzerdefinierter Name) Namespace:
 +
 [listing]
 ----
-kubectl delete ns netapp-acc
+kubectl delete ns [netapp-acc or custom namespace]
 ----
 +
-Ergebnis:
+Beispielergebnis:
 
 +
 [listing]

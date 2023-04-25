@@ -34,20 +34,21 @@ Geben Sie für die URL in einem Browser den vollständig qualifizierten Domänen
 
 == Lizenzierung
 
-*Ich verwende die Evaluierungslizenz. Wie ändere ich die Volllizenz?*
+*Ich verwende eine Evaluierungslizenz. Wie ändere ich die Volllizenz?*
 
-Sie können die vollständige Lizenz ganz einfach von der NetApp Lizenzdatei (NetApp License File, NLF) erhalten.
+Sie können ganz einfach zu einer vollständigen Lizenz wechseln, indem Sie die NetApp Lizenzdatei (NetApp License File, NLF) von NetApp beziehen.
 
 *Schritte*
 
 . Wählen Sie in der linken Navigationsleiste *Konto* > *Lizenz*.
-. Wählen Sie *Lizenz hinzufügen*.
+. Wählen Sie in der Lizenzübersicht rechts neben den Lizenzinformationen das Menü Optionen.
+. Wählen Sie *Ersetzen*.
 . Navigieren Sie zu der Lizenzdatei, die Sie heruntergeladen haben, und wählen Sie *Hinzufügen*.
 
 
-*Ich verwende die Evaluierungslizenz. Kann ich trotzdem Apps verwalten?*
+*Ich verwende eine Evaluierungslizenz. Kann ich trotzdem Apps verwalten?*
 
-Ja, Sie können die Funktionalität Apps verwalten mit der Evaluierungslizenz testen.
+Ja, Sie können die Funktionalität zum Verwalten von Apps mit einer Evaluierungslizenz testen (einschließlich der standardmäßig installierten integrierten Evaluierungslizenz). Zwischen einer Evaluierungslizenz und einer vollständigen Lizenz gibt es keinen Unterschied in den Funktionen oder der Funktionalität; die Evaluierungslizenz hat einfach eine kürzere Lebensdauer. Siehe link:../concepts/licensing.html["Lizenzierung"^] Finden Sie weitere Informationen.
 
 
 
@@ -70,7 +71,7 @@ Das Entfernen eines Clusters aus Astra Control führt keine Änderungen an der C
 
 WARNING: Entfernen Sie immer einen Cluster aus Astra Control, bevor Sie ihn mit anderen Methoden löschen. Das Löschen eines Clusters mithilfe eines anderen Tools, während es noch von Astra Control gemanagt wird, kann zu Problemen mit Ihrem Astra Control Konto führen.
 
-*Wird NetApp Trident bei Unmanagement automatisch von einem Cluster deinstalliert?* Wenn Sie das Management eines Clusters aus dem Astra Control Center aufheben, wird Trident nicht automatisch aus dem Cluster deinstalliert. Um Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Befolgen Sie die folgenden Schritte in der Trident-Dokumentation"^].
+*Wird NetApp Astra Trident automatisch aus einem Cluster deinstalliert, wenn ich ihn entmanage?* Wenn Sie ein Cluster aus Astra Control Center entmanage, wird Astra Trident nicht automatisch aus dem Cluster deinstalliert. Um Astra Trident zu deinstallieren, müssen Sie es benötigen https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Folgen Sie den Schritten in der Dokumentation von Astra Trident"^].
 
 
 
@@ -88,9 +89,13 @@ Alle bestehenden Backups oder Snapshots werden gelöscht. Applikationen und Date
 
 Nein Astra Control kann zwar Applikationen erkennen, die Storage anderer Anbieter nutzen, aber keine Applikation managen, die Storage von anderen Anbietern verwendet.
 
-*Sollte ich Astra Control selbst verwalten?* Nein, Sie sollten Astra Control nicht selbst verwalten, weil es sich um eine "System-App" handelt.
+*Sollte ich Astra Control selbst managen?*
 
-*Beeinträchtigen ungesunde Pods das App-Management?* Wenn eine verwaltete App Pods in einem ungesunden Zustand hat, kann Astra Control keine neuen Backups und Klone erstellen.
+Nein, Astra Control sollte nicht selbst gemanagt werden, da es sich um eine „System-Anwendung“ handelt.
+
+*Wirken sich ungesunde Pods auf das App-Management aus?*
+
+Nein, der Zustand von Pods beeinträchtigt das App-Management nicht.
 
 
 

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concepts/architecture.html 
-keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, trident 
+keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, astra trident 
 summary: Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung. 
 ---
 = Architektur und Komponenten
@@ -21,7 +21,7 @@ image:astra-architecture-diagram-v5.png["Ein Konzept, das die Astra Control Arch
 == Komponenten des Astra Control
 
 * *Kubernetes-Cluster*: Kubernetes ist eine portable, erweiterbare Open-Source-Plattform für das Management von Workloads und Services in Containern, die sowohl deklarative Konfigurationen als auch Automatisierung ermöglicht. Astra bietet Managementservices für Applikationen, die in einem Kubernetes-Cluster gehostet werden.
-* *Astra Trident*: Trident ist eine vollständig unterstützte Open-Source-Storage-bereitstellung und -Orchestrierung mit Hilfe von NetApp. Mit Trident können Sie Storage Volumes für Container-Applikationen erstellen, die von Docker und Kubernetes verwaltet werden. Bei der Implementierung mit Astra Control Center umfasst Trident ein konfiguriertes ONTAP Storage-Back-End.
+* *Astra Trident*: Als vollständig unterstützte Open-Source-Storage-bereitstellung und -Orchestrierung mit NetApp ermöglicht Ihnen Astra Trident die Erstellung von Storage Volumes für Container-Applikationen, die von Docker und Kubernetes verwaltet werden. Astra Trident ist mit dem Astra Control Center implementiert und umfasst ein konfiguriertes ONTAP Storage-Back-End.
 * *Speicher-Backend*:
 +
 ** Astra Control Service nutzt folgende Storage-Back-Ends:

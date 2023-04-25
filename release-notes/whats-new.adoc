@@ -16,19 +16,32 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 
 
 
+== 25. April 2023 (23.04.0)
+
+.Neue Funktionen und Support
+* link:../concepts/licensing.html["Bei neuen Astra Control Center-Installationen ist eine 90-Tage-Evaluierungslizenz standardmäßig aktiviert"^]
+* link:../use/execution-hooks.html["Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen"^]
+* link:../use/execution-hooks.html["Ausführungs-Hooks können jetzt nach dem Replizierungs-Failover mit Astra Control Center ausgeführt werden"^]
+* link:../get-started/requirements.html["Unterstützung für NAS-Wirtschaft als Storage-Class-Typ"^]
+* link:../use/restore-apps.html#filter-resources-during-an-application-restore["Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung"^]
+* link:../use/manage-apps.html["Unterstützung für das Management von rein datenbasierten Applikationen"]
+
+
+
+
 == 22. November 2022 (22.11.0)
 
 .Neue Funktionen und Support
-* link:../use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
-* link:../use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
-* link:../use/manage-remote-authentication.html["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"^]
-* link:../get-started/requirements.html["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"^]
-* link:../use/monitor-running-tasks.html["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-remote-authentication.html["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/get-started/requirements.html["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/monitor-running-tasks.html["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
-* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 
@@ -54,7 +67,7 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 
 * https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html["Unterstützung von VMware Tanzu Kubernetes Grid Integrated Edition (TKGI)"^]
 * https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html#operational-environment-requirements["Unterstützung für Google Anthos"^]
-* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["LDAP-Konfiguration (über Astra Control API)"^]
+* https://docs.netapp.com/us-en/astra-automation-2208/workflows_infra/ldap_prepare.html["LDAP-Konfiguration (über Astra Control API)"^]
 
 
 .Bekannte Probleme und Einschränkungen
