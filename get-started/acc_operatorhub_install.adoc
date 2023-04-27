@@ -278,9 +278,14 @@ NOTE: Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie
 .. Fügen Sie Etiketten für das Astra Control Center hinzu.
 .. Aktivieren oder deaktivieren Sie Auto Support. Es wird empfohlen, die Auto Support-Funktion beizubehalten.
 .. Geben Sie den FQDN des Astra Control Centers oder die IP-Adresse ein. Kommen Sie nicht herein `http://` Oder `https://` Im Adressfeld.
-.. Geben Sie die Astra Control Center-Version ein, z. B. 22.04.1.
+.. Geben Sie die Astra Control Center-Version ein, z. B. 23.04.0-22.
 .. Geben Sie einen Kontonamen, eine E-Mail-Adresse und einen Administratornamen ein.
 .. Wählen Sie eine Richtlinie zur Rückgewinnung von Volumes aus `Retain`, `Recycle`, Oder `Delete`. Der Standardwert ist `Retain`.
+.. Wählen Sie die ScaleSize der Installation aus.
++
+
+NOTE: Astra verwendet standardmäßig High Availability (HA). `scaleSize` Von `Medium`, Die die meisten Dienste in HA bereitstellt und mehrere Replikate für Redundanz bereitstellt. Mit `scaleSize` Als `Small`, Astra wird die Anzahl der Replikate für alle Dienste reduzieren, außer für wesentliche Dienste, um den Verbrauch zu reduzieren.
+
 .. Wählen Sie den Eingangstyp aus:
 +
 *** *`Generic`* (`ingressType: "Generic"`) (Standard)
