@@ -50,7 +50,7 @@ NOTE: Bevor Sie das Management des Clusters aufheben, sollten Sie die dem Cluste
 Wenn Sie das Management eines Clusters aufheben:
 
 * Dadurch wird das Management des Clusters durch das Astra Control Center verhindert. Die Konfiguration des Clusters ändert sich nicht, und das Cluster wird nicht gelöscht.
-* Astra Trident wird nicht vom Cluster deinstalliert. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Erfahren Sie, wie Sie Astra Trident deinstallieren"^].
+* Astra Trident wird nicht vom Cluster deinstalliert. https://["Erfahren Sie, wie Sie Astra Trident deinstallieren"^].
 
 
 .Schritte

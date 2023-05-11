@@ -12,7 +12,7 @@ summary: Managen Sie Benutzer und Rollen auf Ihrem Astra Control Center-System.
 
 
 [role="lead"]
-Sie können Benutzer Ihrer Astra Control Center-Installation über die Astra Control-Benutzeroberfläche hinzufügen, entfernen und bearbeiten. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Um Benutzer zu managen.
+Sie können Benutzer Ihrer Astra Control Center-Installation über die Astra Control-Benutzeroberfläche hinzufügen, entfernen und bearbeiten. Sie können die Astra Control UI oder verwenden https://["Die Astra Control API"^] Um Benutzer zu managen.
 
 Sie können LDAP auch zur Authentifizierung für ausgewählte Benutzer verwenden.
 
@@ -22,7 +22,7 @@ Sie können LDAP auch zur Authentifizierung für ausgewählte Benutzer verwenden
 
 LDAP ist ein branchenübliches Protokoll für den Zugriff auf verteilte Verzeichnisinformationen und eine beliebte Wahl für die Unternehmensauthentifizierung. Sie können Astra Control Center mit einem LDAP-Server verbinden, um die Authentifizierung für ausgewählte Astra Control-Benutzer durchzuführen. Auf hohem Niveau beinhaltet die Konfiguration die Integration von Astra mit LDAP und die Definition der Astra Control Benutzer und Gruppen entsprechend der LDAP-Definitionen. Sie können die Astra Control API oder die Web-Benutzeroberfläche verwenden, um die LDAP-Authentifizierung und LDAP-Benutzer und -Gruppen zu konfigurieren. Weitere Informationen finden Sie in der folgenden Dokumentation:
 
-* https://docs.netapp.com/us-en/astra-automation/workflows_infra/ldap_prepare.html["Mit der Astra Control API können Sie die Remote-Authentifizierung und -Benutzer verwalten"^]
+* https://["Mit der Astra Control API können Sie die Remote-Authentifizierung und -Benutzer verwalten"^]
 * link:manage-remote-users-groups.html["Verwenden Sie die Astra Control-Benutzeroberfläche, um Remote-Benutzer und -Gruppen zu verwalten"]
 * link:manage-remote-authentication.html["Verwenden Sie die Astra Control-Benutzeroberfläche, um die Remote-Authentifizierung zu verwalten"]
 
@@ -119,7 +119,7 @@ Astra Control Center entfernt den Benutzer aus dem Konto.
 
 == Rollen managen
 
-Sie können Rollen managen, indem Sie Namespace-Einschränkungen hinzufügen und Benutzerrollen auf diese Einschränkungen beschränken. So können Sie den Zugriff auf Ressourcen in Ihrem Unternehmen kontrollieren. Sie können die Astra Control UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Rollen managen.
+Sie können Rollen managen, indem Sie Namespace-Einschränkungen hinzufügen und Benutzerrollen auf diese Einschränkungen beschränken. So können Sie den Zugriff auf Ressourcen in Ihrem Unternehmen kontrollieren. Sie können die Astra Control UI oder verwenden https://["Die Astra Control API"^] Rollen managen.
 
 
 

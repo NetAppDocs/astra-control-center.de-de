@@ -73,10 +73,10 @@ NOTE: Bei diesen Anforderungen wird davon ausgegangen, dass Astra Control Center
 * *Worker Nodes*: Insgesamt mindestens 3 Worker Nodes, mit 4 CPU Cores und je 12 GB RAM
 * *Anforderungen für den VMware Tanzu Kubernetes Grid Cluster*: Beachten Sie bei der Hosting von Astra Control Center auf einem VMware Tanzu Kubernetes Grid (TKG)- oder Tanzu Kubernetes Grid Integrated Edition (TKGi)-Cluster die folgenden Überlegungen.
 +
-** Das standardmäßige VMware TKG- und TKGi-Konfigurationstoken läuft zehn Stunden nach der Bereitstellung ab. Wenn Sie Tanzu Portfolio-Produkte verwenden, müssen Sie eine Tanzu Kubernetes Cluster-Konfigurationsdatei mit einem nicht auslaufenden Token generieren, um Verbindungsprobleme zwischen Astra Control Center und verwalteten Anwendungsclustern zu vermeiden. Anweisungen finden Sie unter https://docs.vmware.com/en/VMware-NSX-T-Data-Center/3.2/nsx-application-platform/GUID-52A52C0B-9575-43B6-ADE2-E8640E22C29F.html["Die Produktdokumentation zu VMware NSX-T Data Center."^]
+** Das standardmäßige VMware TKG- und TKGi-Konfigurationstoken läuft zehn Stunden nach der Bereitstellung ab. Wenn Sie Tanzu Portfolio-Produkte verwenden, müssen Sie eine Tanzu Kubernetes Cluster-Konfigurationsdatei mit einem nicht auslaufenden Token generieren, um Verbindungsprobleme zwischen Astra Control Center und verwalteten Anwendungsclustern zu vermeiden. Anweisungen finden Sie unter https://["Die Produktdokumentation zu VMware NSX-T Data Center."^]
 ** Verwenden Sie die `kubectl get nsxlbmonitors -A` Befehl, um zu sehen, ob bereits ein Service-Monitor für die Annahme von Ingress-Traffic konfiguriert ist. Wenn vorhanden, sollten Sie MetalLB nicht installieren, da der vorhandene Servicemonitor eine neue Load Balancer-Konfiguration außer Kraft setzt.
 ** Deaktivieren Sie die Durchsetzung der Standardspeicherklasse TKG oder TKGi auf allen Anwendungsclustern, die von Astra Control verwaltet werden sollen. Sie können dies tun, indem Sie die bearbeiten `TanzuKubernetesCluster` Ressource auf dem Namespace-Cluster.
-** Achten Sie bei der Implementierung des Astra Control Center in einer TKG- oder TKGi-Umgebung auf die speziellen Anforderungen von Astra Trident. Weitere Informationen finden Sie im https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#other-known-configuration-options["Astra Trident-Dokumentation"^].
+** Achten Sie bei der Implementierung des Astra Control Center in einer TKG- oder TKGi-Umgebung auf die speziellen Anforderungen von Astra Trident. Weitere Informationen finden Sie im https://["Astra Trident-Dokumentation"^].
 
 
 
@@ -128,11 +128,11 @@ Stellen Sie sicher, dass Sie ein unterstütztes Backend mit ausreichender Kapazi
 Um Astra Control Center zu nutzen, müssen Sie je nach den Anforderungen die folgenden ONTAP-Lizenzen besitzen:
 
 * FlexClone
-* SnapMirror: Optional Nur für die Replizierung auf Remote-Systeme mit SnapMirror Technologie erforderlich. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Informationen zu SnapMirror Lizenzen"^].
+* SnapMirror: Optional Nur für die Replizierung auf Remote-Systeme mit SnapMirror Technologie erforderlich. Siehe https://["Informationen zu SnapMirror Lizenzen"^].
 * S3-Lizenz: Optional Nur für ONTAP S3 Buckets erforderlich
 
 
-Informationen darüber, ob auf Ihrem ONTAP System die erforderlichen Lizenzen vorhanden sind, finden Sie unter https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["Managen Sie ONTAP Lizenzen"^].
+Informationen darüber, ob auf Ihrem ONTAP System die erforderlichen Lizenzen vorhanden sind, finden Sie unter https://["Managen Sie ONTAP Lizenzen"^].
 
 
 
@@ -159,12 +159,12 @@ Weitere Informationen über die Funktionsweise von Lizenzen finden Sie unter lin
 Konfigurieren Sie Ihre Betriebsumgebung so, dass Astra Control Center ordnungsgemäß kommunizieren kann. Die folgenden Netzwerkkonfigurationen sind erforderlich:
 
 * *FQDN-Adresse*: Sie müssen eine FQDN-Adresse für Astra Control Center haben.
-* *Zugang zum Internet*: Sie sollten festlegen, ob Sie Zugang zum Internet von außen haben. Wenn nicht, sind einige Funktionen möglicherweise begrenzt, beispielsweise das Empfangen von Monitoring- und Kennzahlendaten von NetApp Cloud Insights oder das Senden von Support-Paketen an die https://mysupport.netapp.com/site/["NetApp Support Website"^].
+* *Zugang zum Internet*: Sie sollten festlegen, ob Sie Zugang zum Internet von außen haben. Wenn nicht, sind einige Funktionen möglicherweise begrenzt, beispielsweise das Empfangen von Monitoring- und Kennzahlendaten von NetApp Cloud Insights oder das Senden von Support-Paketen an die https://["NetApp Support Website"^].
 * *Port Access*: Die Betriebsumgebung, die das Astra Control Center hostet, kommuniziert über die folgenden TCP-Ports. Sie sollten sicherstellen, dass diese Ports über beliebige Firewalls zugelassen sind, und Firewalls so konfigurieren, dass jeder HTTPS-ausgehenden Datenverkehr aus dem Astra-Netzwerk zugelassen wird. Einige Ports erfordern Verbindungen zwischen der Umgebung, in der Astra Control Center gehostet wird, und jedem verwalteten Cluster (sofern zutreffend).
 
 
 
-NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster implementieren. Astra Control Center kann Applikationen und Storage-Back-Ends managen, die für den Dual-Stack-Betrieb konfiguriert wurden. Weitere Informationen zu Dual-Stack-Cluster-Anforderungen finden Sie im https://kubernetes.io/docs/concepts/services-networking/dual-stack/["Kubernetes-Dokumentation"^].
+NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster implementieren. Astra Control Center kann Applikationen und Storage-Back-Ends managen, die für den Dual-Stack-Betrieb konfiguriert wurden. Weitere Informationen zu Dual-Stack-Cluster-Anforderungen finden Sie im https://["Kubernetes-Dokumentation"^].
 
 |===
 | Quelle | Ziel | Port | Protokoll | Zweck 
@@ -176,13 +176,13 @@ NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster im
 | Kennzahlenverbraucher | Astra Control Center Worker-Node | 9090 | HTTPS | Kennzahlen Datenkommunikation - sicherstellen, dass jeder verwaltete Cluster auf diesen Port auf dem Cluster zugreifen kann, das Astra Control Center hostet (Kommunikation in zwei Bereichen erforderlich) 
 
 
-| Astra Control Center | Gehosteter Cloud Insights Service (https://www.netapp.com/cloud-services/cloud-insights/)[] | 443 | HTTPS | Cloud Insights Kommunikation 
+| Astra Control Center | Gehosteter Cloud Insights Service  | 443 | HTTPS | Cloud Insights Kommunikation 
 
 
 | Astra Control Center | Amazon S3 Storage-Bucket-Provider | 443 | HTTPS | Amazon S3 Storage-Kommunikation 
 
 
-| Astra Control Center | NetApp AutoSupport (https://support.netapp.com)[] | 443 | HTTPS | Kommunikation zwischen NetApp AutoSupport 
+| Astra Control Center | NetApp AutoSupport  | 443 | HTTPS | Kommunikation zwischen NetApp AutoSupport 
 |===
 
 

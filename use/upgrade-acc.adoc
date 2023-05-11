@@ -24,7 +24,7 @@ Laden Sie zum Upgrade des Astra Control Center das Installationspaket von der Ne
 kubectl get tridentversion -n trident
 ----
 +
-Siehe https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html#determine-the-version-to-upgrade-to["Astra Trident-Dokumentation"] Zum Upgrade von einer älteren Version.
+Siehe https://["Astra Trident-Dokumentation"] Zum Upgrade von einer älteren Version.
 
 +
 
@@ -72,7 +72,7 @@ TIP: Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backu
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Astra Control Center: Seite zum Herunterladen von Produkten"^] Auf der NetApp Support Site Sie können die neueste Version oder eine andere Version aus dem Dropdown-Menü auswählen.
+. Wechseln Sie zum https://["Astra Control Center: Seite zum Herunterladen von Produkten"^] Auf der NetApp Support Site Sie können die neueste Version oder eine andere Version aus dem Dropdown-Menü auswählen.
 . Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`).
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Pakets zu überprüfen:
 +
@@ -155,7 +155,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 . Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
 ** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
-** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
+** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://[].
 ** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
 ** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
 +

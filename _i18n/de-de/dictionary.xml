@@ -685,13 +685,11 @@
   <block id="70fc1bae36d48b09899dc323f7fbc3b4" category="paragraph">App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami PostgreSQL 11.5.0 Diagramm fehl. Um erfolgreich zu klonen, verwenden Sie eine frühere oder höhere Version des Diagramms.</block>
   <block id="9a9f5df9245945e0d6fd7c59478636f9" category="section-title">Anwendungsklone sind bei der Verwendung von OCP-Sicherheitskontextsensitonen (SCC) auf Servicekontoebene fehlgeschlagen.</block>
   <block id="d3436d442a8980f0fa5c7451b72dc851" category="inline-link">knowledgebase-Artikel</block>
-  <block id="e6accc2a7c1df4a7d754d698ff720755" category="paragraph">Ein Applikationsklon kann fehlschlagen, wenn die ursprünglichen Einschränkungen des Sicherheitskontexts auf der Service-Kontoebene im Namespace im Cluster der OpenShift Container Platform konfiguriert sind. Wenn der Anwendungsklon ausfällt, wird er im Bereich Managed Applications im Astra Control Center mit dem Status angezeigt<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>. Siehe<block ref="9fa49b796d4996efbeb6cfe9ed39c95e" category="inline-link-rx"></block> Finden Sie weitere Informationen.</block>
   <block id="3460be97ad18de8f927ac029b73aea1e" category="section-title">App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird</block>
   <block id="4640bdf0aa8bd9424ced0104155962b8" category="paragraph">Backups und Snapshots schlagen fehl<block ref="ac08e080769a07edb99e40a7cec2c15e" prefix=" " category="inline-code"></block> In diesem Szenario. Aktualisieren Sie die App-Liste als Workaround.</block>
   <block id="1af0576f77189b1c71e1d3a9eade995a" category="section-title">Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde</block>
   <block id="99dd9758763fdd9d63c8172bb77a83e6" category="paragraph">Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B.<block ref="f0318d56e2bef7e2cc1e885347ef6b43" prefix=" " category="inline-code"></block>). Nachfolgende Klonversuche der Applikation erfordern, dass das Ziel-Cluster die ursprünglich angegebene Storage-Klasse hat. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl. Es gibt keine Wiederherstellungsschritte in diesem Szenario.</block>
   <block id="36b09903bc03f599758bd10a012681dc" category="section-title">Das Verwalten eines Clusters mit Astra Control Center schlägt fehl, wenn die standardmäßige kubeconfig-Datei mehr als einen Kontext enthält</block>
-  <block id="520978df3f125bf15af9a3b4c1e17a9e" category="paragraph">Sie können ein kubeconfig nicht mit mehr als einem Cluster und Kontext darin verwenden. Siehe <block ref="f42e06683377be6f7c68a4e8b05a16c0" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
   <block id="f64cab133147d09d35d2708459ada555" category="section-title">Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist</block>
   <block id="5ffd50b83740bc0749b40034cddea615" category="paragraph">Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder online geschaltet wird) und 500 interne Servicefehler auftreten, wenn versucht wird, das App-Datenmanagement zu managen, starten Sie alle Kubernetes-Nodes im App-Cluster neu, um die Funktionalität wiederherzustellen.</block>
   <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">Bekannte Einschränkungen</block>
@@ -825,7 +823,6 @@
   <block id="e9f9b053971e4cd8cce3a402331a125b" category="paragraph">Über die Benutzeroberfläche des Astra Control Center können Sie auf Support-Optionen zugreifen, indem Sie im Hauptmenü auf die Registerkarte *Support* klicken.</block>
   <block id="9d795eb350d2c42a03b181a4bc513987" category="paragraph">Diese Optionen stehen rund um die Uhr kostenlos zur Verfügung:</block>
   <block id="68f269105158a82f8e06dd324631610e" category="inline-link">*Knowledge Base* (Anmeldung erforderlich)</block>
-  <block id="3ce7820e1a8dcaf1b20e89638e9eb65c" category="list-text"><block ref="c21c91b055ef6d38b9e7473e1602e44f" category="inline-link-rx"></block>: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.</block>
   <block id="54fb836d65dfa963fa159aa13bf9fe60" category="list-text">*Documentation Center*: Dies ist die doc-Site, die Sie gerade sehen.</block>
   <block id="35cdc0acd4828a4d409d79a5f18ee353" category="inline-link">* Hilfe erhalten Sie über Discord*</block>
   <block id="5782a764d5148bc0a62fa0db213a073b" category="list-text"><block ref="f560054dea7b7d17ab98f97d9a55b6ac" category="inline-link-rx"></block>: Gehen Sie zum Astra in der Kategorie Pub, um sich mit Kollegen und Experten auszutauschen.</block>
@@ -867,7 +864,6 @@
   <block id="231cf4c70d866b616c21baddaeed0696" category="doc">Fehlerbehebung</block>
   <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="paragraph">Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.</block>
   <block id="5fed03116ab579cfabba1dfd68c70bab" category="inline-link">NetApp Knowledge Base für Astra</block>
-  <block id="62b48e6002e259d6c98b0960c375f121" category="paragraph"><block ref="62b48e6002e259d6c98b0960c375f121" category="inline-link-rx"></block></block>
   <block id="02c8c5fbeebdf293d83e1ec96ea30aff" category="summary">Astra kann Ihre Applikationskonfiguration und Ihren persistenten Storage aus einem Snapshot oder Backup wiederherstellen. Persistente Storage-Backups werden von Ihrem Objektspeicher übertragen, sodass die Wiederherstellung aus einem bestehenden Backup möglichst schnell erfolgt.</block>
   <block id="e07596cf624c6e8c354d1188f9bdb6bb" category="doc">Wiederherstellung von Applikationen</block>
   <block id="a4f53e5340ac3c6ab0e1234f9f27981c" category="inline-link">Die Astra Control API</block>
@@ -1080,7 +1076,6 @@
   <block id="9814d372a97a81b36a132ad2cacfdff7" category="paragraph">Ein Bucket kann sich in einem dieser Zustände befinden:</block>
   <block id="42a0d288cadd6192424c03a28590c9fd" category="list-text">Ausstehend: Der Bucket ist für die Erkennung geplant.</block>
   <block id="fac51c0a7c720a76e584ea5b21dc752a" category="list-text">Verfügbar: Der Bucket ist zur Verwendung verfügbar.</block>
-  <block id="7f5b082de7160fe4d88fcb73b137ef12" category="list-text">Entfernt: Auf den Bucket ist derzeit nicht zugegriffen werden können.</block>
   <block id="2670ea2abab7233a3fe9b29dabc0e86c" category="paragraph">Anweisungen zum Verwalten von Buckets mithilfe der Astra Control API finden Sie im <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="39ee41fd712c4d72dd841699443ac03f" category="paragraph">Sie können die folgenden Aufgaben zum Verwalten von Buckets ausführen:</block>
   <block id="aaeab87cf32cd2289539c7af6e475ce1" category="list-text"><block ref="aaeab87cf32cd2289539c7af6e475ce1" category="inline-link-macro-rx"></block></block>
@@ -1107,7 +1102,6 @@
   <block id="cea7924acf8d3c8a75f4abdda00f5229" category="paragraph">Sie sollten die Bucket-Anmeldedaten nur entfernen, wenn auf einen Bucket neue Zugangsdaten angewendet wurden oder der Bucket nicht mehr aktiv verwendet wird.</block>
   <block id="a31d0ea55a51bfbd5a603a8f5fa7a37a" category="admonition">Der erste Satz von Anmeldeinformationen, die Sie Astra Control hinzufügen, wird immer verwendet, da Astra Control zur Authentifizierung des Backup-Buckets die Zugangsdaten verwendet. Entfernen Sie diese Anmeldedaten nicht, wenn der Bucket aktiv ist, da dies zu Backup-Ausfällen und Nichtverfügbarkeit von Backups führen kann.</block>
   <block id="b2b8741126a8674edc86e6286a85c804" category="inline-link">Fehlerbehebung beim Entfernen der Bucket-Anmeldeinformationen</block>
-  <block id="983be0b26fa308ee99003c55cac37fb5" category="admonition">Wenn Sie die aktiven Bucket-Anmeldedaten entfernen, finden Sie unter<block ref="939cc867881057c221247142d6425e0a" category="inline-link-rx"></block>.</block>
   <block id="576924ceb67cb5e87c15acdcb112c47d" category="paragraph">Anweisungen zum Entfernen von S3-Anmeldeinformationen mithilfe der Astra Control API finden Sie im <block ref="ef5b26cd6e9ab40377842cc20d2b4ebf" category="inline-link-macro-rx"></block>.</block>
   <block id="52eddccfd67295f46df3a2a0dcec5e44" category="section-title">Entfernen Sie einen Bucket</block>
   <block id="f53ffd7307293ef8f5f91ade211805ee" category="paragraph">Sie können einen Eimer entfernen, der nicht mehr verwendet wird oder nicht ordnungsgemäß ist. Dies könnte Sie nutzen, um die Konfiguration Ihres Objektspeicher einfach und aktuell zu halten.</block>
@@ -2874,4 +2868,10 @@
   <block id="9b846b7f30a8509224caa21eb61515be" category="list-text"><block ref="097c36d7e339c9c56e3325b9bd9b1890" category="inline-link-macro-rx"></block> Melden Sie sich dazu auf der NetApp Support-Website an und navigieren Sie zu Ihren Softwarelizenzen im Menü „Systeme“.</block>
   <block id="385a524cc6007fc04ac1f61b90b72fa0" category="inline-link-macro">Unterstützung bei der Migration von Volumes von der ONTAP &lt;block ref="caafdf62a2c609bfa5316118231a1007" prefix=" " category='inline-code'/&gt; Storage-Klasse in die ONTAP-nas Storage-Klasse</block>
   <block id="30070e59814ec1fda4c30c1c31eefb74" category="list-text"><block ref="8b33402cf5fbcddbe249556483cf0cc5" category="inline-link-macro-rx"></block></block>
+  <block id="8dd1f225c8914473641273beab27cfb5" category="list-text"><block ref="48b751d095184607defa7b45448cfbd4" category="inline-link-rx"></block>: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.</block>
+  <block id="a1e431f4eeaf20669c6a323a70204f3b" category="paragraph"><block ref="a1e431f4eeaf20669c6a323a70204f3b" category="inline-link-rx"></block></block>
+  <block id="192aebb6811705e0e43946e8f3c7ee31" category="paragraph">Ein Applikationsklon kann fehlschlagen, wenn die ursprünglichen Einschränkungen des Sicherheitskontexts auf der Service-Kontoebene im Namespace im Cluster der OpenShift Container Platform konfiguriert sind. Wenn der Anwendungsklon ausfällt, wird er im Bereich Managed Applications im Astra Control Center mit dem Status angezeigt<block ref="93f07b720ebf7d1246512569761a5804" prefix=" " category="inline-code"></block>. Siehe<block ref="664cdc6e32eb2b8d6157f7f7774ed5d3" category="inline-link-rx"></block> Finden Sie weitere Informationen.</block>
+  <block id="150c473dfbcbc21128b1b0163082e277" category="paragraph">Sie können ein kubeconfig nicht mit mehr als einem Cluster und Kontext darin verwenden. Siehe <block ref="a221b9db35a895d6b52e9dd52f69851e" category="inline-link-macro-rx"></block> Finden Sie weitere Informationen.</block>
+  <block id="17aaff3db5ad600ae90d1c45f82a9ce8" category="list-text">Entfernt: Der Bucket ist derzeit nicht zugänglich.</block>
+  <block id="a5e4709506a688389ca2ed37bb81ac98" category="admonition">Wenn Sie die aktiven Bucket-Anmeldedaten entfernen, finden Sie unter<block ref="8270c6fae649ca696475ea8dc76c4710" category="inline-link-rx"></block>.</block>
 </blocks>

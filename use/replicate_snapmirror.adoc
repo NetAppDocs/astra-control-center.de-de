@@ -47,11 +47,11 @@ Die Astra Control Applikationsreplizierung erfordert, dass die folgenden Vorauss
 
 * Um eine nahtlose Disaster Recovery zu erreichen, empfehlen wir Ihnen, Astra Control Center in einer dritten Fehlerdomäne oder an einem sekundären Standort einzusetzen.
 * Das Kubernetes-Cluster der Applikation, ein Ziel-Kubernetes-Cluster, muss zusammen mit den ONTAP-Clustern gemanagt werden, im Idealfall in verschiedenen Ausfall-Domains oder Standorten.
-* ONTAP-Cluster und die Host-SVM müssen gekoppelt sein. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["Übersicht über Cluster- und SVM-Peering"^].
+* ONTAP-Cluster und die Host-SVM müssen gekoppelt sein. Siehe https://["Übersicht über Cluster- und SVM-Peering"^].
 * Die gepaarte Remote-SVM muss für Astra Trident auf dem Ziel-Cluster verfügbar sein.
 * Astra Trident Version 22.07 oder höher muss sowohl auf den Quell- als auch Ziel-ONTAP Clustern vorhanden sein.
-* Asynchrone ONTAP SnapMirror Lizenzen mit dem Datensicherungs-Bundle müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP Clustern aktiviert werden. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Übersicht über die SnapMirror Lizenzierung in ONTAP"^].
-* Wenn Sie dem Astra Control Center ein ONTAP-Speicher-Backend hinzufügen, wenden Sie die Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über Zugriffsmethoden verfügt `http` Und `ontapi` Sowohl auf ONTAP Quell- als auch auf Ziel-Clustern aktiviert. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
+* Asynchrone ONTAP SnapMirror Lizenzen mit dem Datensicherungs-Bundle müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP Clustern aktiviert werden. Siehe https://["Übersicht über die SnapMirror Lizenzierung in ONTAP"^].
+* Wenn Sie dem Astra Control Center ein ONTAP-Speicher-Backend hinzufügen, wenden Sie die Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über Zugriffsmethoden verfügt `http` Und `ontapi` Sowohl auf ONTAP Quell- als auch auf Ziel-Clustern aktiviert. Siehe https://["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
 * Sowohl Quell- als auch Ziel-Kubernetes-Cluster als auch ONTAP-Cluster müssen von Astra Control gemanagt werden.
 +
 

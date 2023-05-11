@@ -36,5 +36,5 @@ Wenn Sie dem Astra Control Center einen Cluster hinzufügen, werden Sie aufgefor
 
 == Finden Sie weitere Informationen
 
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
+* https://["Astra Trident-Dokumentation"^]
 

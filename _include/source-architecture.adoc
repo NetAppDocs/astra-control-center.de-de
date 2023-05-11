@@ -14,9 +14,9 @@ image:astra-architecture-diagram-v5.png["Ein Konzept, das die Astra Control Arch
 +
 ** Astra Control Service nutzt folgende Storage-Back-Ends:
 +
-*** https://www.netapp.com/cloud-services/cloud-volumes-service-for-google-cloud/["NetApp Cloud Volumes Service für Google Cloud"^] Oder Google Persistent Disk als Speicher-Backend für GKE-Cluster
-*** https://www.netapp.com/cloud-services/azure-netapp-files/["Azure NetApp Dateien"^] Oder von Azure verwaltete Festplatten als Storage-Backend für AKS-Cluster.
-*** https://docs.aws.amazon.com/ebs/["Amazon Elastic Block Store (EBS)"^] Oder https://docs.aws.amazon.com/fsx/["Amazon FSX für NetApp ONTAP"^] Als Back-End-Speicheroptionen für EKS-Cluster.
+*** https://["NetApp Cloud Volumes Service für Google Cloud"^] Oder Google Persistent Disk als Speicher-Backend für GKE-Cluster
+*** https://["Azure NetApp Dateien"^] Oder von Azure verwaltete Festplatten als Storage-Backend für AKS-Cluster.
+*** https://["Amazon Elastic Block Store (EBS)"^] Oder https://["Amazon FSX für NetApp ONTAP"^] Als Back-End-Speicheroptionen für EKS-Cluster.
 
 
 ** Astra Control Center nutzt folgende Storage-Back-Ends:
@@ -46,10 +46,10 @@ Mit Astra Control Center können Sie auch Kubernetes Cluster in VM-Umgebungen ma
 
 == Finden Sie weitere Informationen
 
-* https://docs.netapp.com/us-en/astra/index.html["Dokumentation des Astra Control Service"^]
-* https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center-Dokumentation"^]
-* https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
-* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights-Dokumentation"^]
-* https://docs.netapp.com/us-en/ontap/index.html["ONTAP-Dokumentation"^]
+* https://["Dokumentation des Astra Control Service"^]
+* https://["Astra Control Center-Dokumentation"^]
+* https://["Astra Trident-Dokumentation"^]
+* https://["Verwenden Sie die Astra Control API"^]
+* https://["Cloud Insights-Dokumentation"^]
+* https://["ONTAP-Dokumentation"^]
 

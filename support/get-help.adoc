@@ -27,9 +27,9 @@ Zunächst müssen Sie link:../get-started/setup_overview.html["Sie aktivieren de
 
 Diese Optionen stehen rund um die Uhr kostenlos zur Verfügung:
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["*Knowledge Base* (Anmeldung erforderlich)"^]: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.
+* https://["*Knowledge Base* (Anmeldung erforderlich)"^]: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.
 * *Documentation Center*: Dies ist die doc-Site, die Sie gerade sehen.
-* https://discord.gg/NetApp["* Hilfe erhalten Sie über Discord*"^]: Gehen Sie zum Astra in der Kategorie Pub, um sich mit Kollegen und Experten auszutauschen.
+* https://["* Hilfe erhalten Sie über Discord*"^]: Gehen Sie zum Astra in der Kategorie Pub, um sich mit Kollegen und Experten auszutauschen.
 * *Erstellen Sie einen Support Case*: Generieren Sie Support-Bundles, um NetApp Support für die Fehlerbehebung zur Verfügung zu stellen.
 * *Geben Sie Feedback zu Astra Control*: Senden Sie eine E-Mail an astra.feedback@netapp.com, um uns Ihre Gedanken, Ideen oder Bedenken mitzuteilen.
 
@@ -38,7 +38,7 @@ Diese Optionen stehen rund um die Uhr kostenlos zur Verfügung:
 
 == Ermöglichen Sie den täglichen Upload geplanter Support-Bundles an NetApp Support
 
-Bei der Installation des Astra Control Center, falls Sie dies angeben `enrolled: true` Für `autoSupport` In der Datei Astra Control Center Custom Resource (CR) (`astra_control_center.yaml`) Werden täglich Support-Pakete automatisch auf die hochgeladen https://mysupport.netapp.com/site/["NetApp Support Website"^].
+Bei der Installation des Astra Control Center, falls Sie dies angeben `enrolled: true` Für `autoSupport` In der Datei Astra Control Center Custom Resource (CR) (`astra_control_center.yaml`) Werden täglich Support-Pakete automatisch auf die hochgeladen https://["NetApp Support Website"^].
 
 
 
@@ -98,7 +98,7 @@ Wenn Sie über eine Luftvergast-Installation verfügen, führen Sie die folgende
 Dazu können Sie eine der folgenden Methoden verwenden:
 
 +
-** Nutzung https://upload.netapp.com/sg["Hochladen von NetApp authentifizierten Dateien (Anmeldung erforderlich)"^].
+** Nutzung https://["Hochladen von NetApp authentifizierten Dateien (Anmeldung erforderlich)"^].
 ** Befestigen Sie das Paket direkt am NSS-Gehäuse.
 ** Nutzen Sie die NetApp Active IQ.
 
@@ -108,6 +108,6 @@ Dazu können Sie eine der folgenden Methoden verwenden:
 [discrete]
 == Weitere Informationen
 
-* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["Hochladen einer Datei an NetApp (Anmeldung erforderlich)"^]
-* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["Wie kann ich Dateien manuell auf NetApp hochladen? (Anmeldung erforderlich)"^]
+* https://["Hochladen einer Datei an NetApp (Anmeldung erforderlich)"^]
+* https://["Wie kann ich Dateien manuell auf NetApp hochladen? (Anmeldung erforderlich)"^]
 
