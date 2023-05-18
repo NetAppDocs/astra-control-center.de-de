@@ -102,7 +102,7 @@ Sie können eine App auch jederzeit sichern.
 NOTE: S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität. Bevor Sie Backups oder Klonanwendungen durchführen, die von Astra Control Center gemanagt werden, sollten Sie die Bucket-Informationen im ONTAP oder StorageGRID Managementsystem prüfen.
 
 
-IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Backups führen zu Unterbrechungen und die App ist bis zum Abschluss des Sicherungsvorgangs nicht verfügbar.
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, stellen Sie sicher, dass Sie einen definiert haben `backendType` Parameter in im https://["Kubernetes Storage-Objekt"^] Mit einem Wert von `ontap-nas-economy` Bevor Sie Schutzmaßnahmen durchführen. Backups für Applikationen, die von der gesichert werden `ontap-nas-economy` Die App ist nicht verfügbar, bis der Backup-Vorgang abgeschlossen ist.
 
 .Schritte
 . Wählen Sie *Anwendungen*.
