@@ -28,6 +28,7 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 .Cluster
 * <<Das Verwalten eines Clusters mit Astra Control Center schlägt fehl, wenn die standardmäßige kubeconfig-Datei mehr als einen Kontext enthält>>
 * <<Einige Pods können nach dem Upgrade auf Astra Control Center 23.04 nicht gestartet werden>>
+* <<Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen>>
 
 
 .Andere Probleme
@@ -96,6 +97,58 @@ pcloud-astra-control-center-au-pod-0 0/1 CreateContainerConfigError 0 13s
 [listing]
 ----
 kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
+----
+
+
+
+
+== Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen
+
+Wenn Sie Astra Control Center mit Cloud Insights in einer Istio Umgebung koppeln, bietet die `telegraf-rs` Pod kann abstürzen. Führen Sie als Workaround die folgenden Schritte aus:
+
+. Suchen Sie den abgestürzten POD:
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod | grep Error
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
+----
+. Starten Sie den abgestürzten Pod neu, und ersetzen Sie ihn `<pod_name_from_output>` Mit dem Namen des betroffenen Pods:
++
+[listing]
+----
+kubectl -n netapp-monitoring delete pod <pod_name_from_output>
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
++
+[listing]
+----
+pod "telegraf-rs-fhhrh" deleted
+----
+. Überprüfen Sie, ob der Pod neu gestartet wurde und sich nicht im Fehlerzustand befindet:
++
+[listing]
+----
+kubectl -n netapp-monitoring get pod
+----
++
+Sie sollten eine Ausgabe wie die folgende sehen:
+
++
+[listing]
+----
+NAME READY STATUS RESTARTS AGE
+telegraf-rs-rrnsb 2/2 Running 0 11s
 ----
 
 
