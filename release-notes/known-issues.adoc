@@ -52,7 +52,7 @@ App-Klone innerhalb desselben Clusters schlagen konsequent mit dem Bitnami Postg
 
 == Anwendungsklone sind bei der Verwendung von OCP-Sicherheitskontextsensitonen (SCC) auf Servicekontoebene fehlgeschlagen.
 
-Ein Applikationsklon kann fehlschlagen, wenn die ursprünglichen Einschränkungen des Sicherheitskontexts auf der Service-Kontoebene im Namespace im Cluster der OpenShift Container Platform konfiguriert sind. Wenn der Anwendungsklon ausfällt, wird er im Bereich Managed Applications im Astra Control Center mit dem Status angezeigt `Removed`. Siehe https://["knowledgebase-Artikel"^] Finden Sie weitere Informationen.
+Ein Applikationsklon kann fehlschlagen, wenn die ursprünglichen Einschränkungen des Sicherheitskontexts auf der Service-Kontoebene im Namespace im Cluster der OpenShift Container Platform konfiguriert sind. Wenn der Anwendungsklon ausfällt, wird er im Bereich Managed Applications im Astra Control Center mit dem Status angezeigt `Removed`. Siehe https://kb.netapp.com/Cloud/Astra/Control/Application_clone_is_failing_for_an_application_in_Astra_Control_Center["knowledgebase-Artikel"^] Finden Sie weitere Informationen.
 
 
 

@@ -22,7 +22,7 @@ Laden Sie zum Installieren des Astra Control Center das Installationspaket von d
 
 
 ====
-Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter https://["Dieses Video"^].
+Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["Dieses Video"^].
 
 .Bevor Sie beginnen
 * link:requirements.html["Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor"].
@@ -69,7 +69,7 @@ Gehen Sie wie folgt vor, um Astra Control Center zu installieren:
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Wechseln Sie zum https://["Download-Seite für Astra Control Center"^] Auf der NetApp Support Site
+. Wechseln Sie zum https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^] Auf der NetApp Support Site
 . Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`).
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Pakets zu überprüfen:
 +
@@ -142,7 +142,7 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 . Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
 ** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
-** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://[].
+** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
 ** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
 ** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
 +
@@ -917,8 +917,8 @@ Die Einstellungsschritte unterscheiden sich je nach Typ des Ingress-Controllers.
 
 
 .Bevor Sie beginnen
-* Erforderlich https://["Eingangs-Controller"] Sollte bereits eingesetzt werden.
-* Der https://["Eingangsklasse"] Entsprechend der Eingangs-Steuerung sollte bereits erstellt werden.
+* Erforderlich https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/["Eingangs-Controller"] Sollte bereits eingesetzt werden.
+* Der https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["Eingangsklasse"] Entsprechend der Eingangs-Steuerung sollte bereits erstellt werden.
 
 
 .Schritte für Istio Ingress
@@ -1011,7 +1011,7 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 
 
 .Schritte für Nginx Ingress Controller
-. Erstellen Sie ein Geheimnis des Typs `kubernetes.io/tls` Für einen privaten TLS-Schlüssel und ein Zertifikat in `netapp-acc` (Oder Custom-Name) Namespace wie in beschrieben https://["TLS-Geheimnisse"].
+. Erstellen Sie ein Geheimnis des Typs `kubernetes.io/tls` Für einen privaten TLS-Schlüssel und ein Zertifikat in `netapp-acc` (Oder Custom-Name) Namespace wie in beschrieben https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS-Geheimnisse"].
 . Bereitstellung einer Ingress-Ressource in `netapp-acc` (Oder Custom-Name) Namespace unter Verwendung des v1-Ressourcentyps für ein Schema (`nginx-Ingress.yaml` Wird in diesem Beispiel verwendet):
 +
 [source, yaml]
@@ -1082,7 +1082,7 @@ NOTE: Wenn Sie dreimal ein falsches Passwort eingeben, wird das Administratorkon
 . Ändern Sie das Passwort, wenn Sie dazu aufgefordert werden.
 +
 
-NOTE: Wenn dies Ihre erste Anmeldung ist und Sie das Passwort vergessen haben und noch keine anderen administrativen Benutzerkonten erstellt wurden, kontaktieren Sie https://["NetApp Support"] Für Unterstützung bei der Kennwortwiederherstellung.
+NOTE: Wenn dies Ihre erste Anmeldung ist und Sie das Passwort vergessen haben und noch keine anderen administrativen Benutzerkonten erstellt wurden, kontaktieren Sie https://mysupport.netapp.com/site/["NetApp Support"] Für Unterstützung bei der Kennwortwiederherstellung.
 
 . (Optional) Entfernen Sie das vorhandene selbst signierte TLS-Zertifikat und ersetzen Sie es durch ein link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["Benutzerdefiniertes TLS-Zertifikat, signiert von einer Zertifizierungsstelle (CA)"^].
 

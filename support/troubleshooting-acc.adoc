@@ -14,11 +14,11 @@ summary: 'NetApp bietet Unterstützung für Astra Control auf verschiedene Weise
 [role="lead"]
 Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.
 
-https://["NetApp Knowledge Base für Astra"^]
+https://kb.netapp.com/Cloud/Astra/Control["NetApp Knowledge Base für Astra"^]
 
 [discrete]
 == Weitere Informationen
 
-* https://["Hochladen einer Datei an NetApp (Anmeldung erforderlich)"^]
-* https://["Wie kann ich Dateien manuell auf NetApp hochladen? (Anmeldung erforderlich)"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["Hochladen einer Datei an NetApp (Anmeldung erforderlich)"^]
+* https://kb.netapp.com/Advice_and_Troubleshooting/Data_Storage_Software/ONTAP_OS/How_to_manually_upload_AutoSupport_messages_to_NetApp_in_ONTAP_9["Wie kann ich Dateien manuell auf NetApp hochladen? (Anmeldung erforderlich)"^]
 

@@ -29,7 +29,7 @@ Nachdem Sie Astra Control Center installiert haben, sich bei der UI einloggen un
 
 Wenn Sie Astra Control Center installieren, ist bereits eine eingebettete Evaluierungslizenz installiert. Wenn Sie Astra Control Center evaluieren, können Sie diesen Schritt überspringen.
 
-Über die Astra Control UI oder können Sie eine neue Lizenz hinzufügen https://["API"^].
+Über die Astra Control UI oder können Sie eine neue Lizenz hinzufügen https://docs.netapp.com/us-en/astra-automation/index.html["API"^].
 
 Astra Control Center Lizenzen messen die CPU-Ressourcen mithilfe von Kubernetes-CPU-Einheiten und berücksichtigen die CPU-Ressourcen, die den Worker-Nodes aller gemanagten Kubernetes-Cluster zugewiesen sind. Lizenzen basieren auf der vCPU-Nutzung. Weitere Informationen zur Berechnung von Lizenzen finden Sie unter link:../concepts/licensing.html["Lizenzierung"^].
 
@@ -70,15 +70,15 @@ Sie sollten sicherstellen, dass die folgenden Voraussetzungen erfüllt sind, bev
 * Eine Version von Astra Trident ist das link:../get-started/requirements.html#astra-trident-requirements["Unterstützt durch Astra Control Center"^] Installiert:
 +
 
-NOTE: Das können Sie https://["Implementieren Sie Astra Trident"^] Mit dem Astra Trident Operator (manuell oder mit dem Helm Chart) oder `tridentctl`. Vor der Installation oder dem Upgrade von Astra Trident sollten Sie sich die https://["Unterstützte Frontends, Back-Ends und Host-Konfigurationen"^].
+NOTE: Das können Sie https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html#choose-the-deployment-method["Implementieren Sie Astra Trident"^] Mit dem Astra Trident Operator (manuell oder mit dem Helm Chart) oder `tridentctl`. Vor der Installation oder dem Upgrade von Astra Trident sollten Sie sich die https://docs.netapp.com/us-en/trident/trident-get-started/requirements.html["Unterstützte Frontends, Back-Ends und Host-Konfigurationen"^].
 
 +
-** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://["Konfiguriert"^] Auf dem Cluster.
-** *Konfigurierte Astra Trident Storage-Klassen*: Es muss mindestens eine Astra Trident Storage-Klasse sein https://["Konfiguriert"^] Auf dem Cluster. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist.
-** *Astra Trident Volume Snapshot Controller und Volume Snapshot Klasse installiert und konfiguriert*: Der Volume Snapshot Controller muss sein https://["Installiert"^] Damit Snapshots in Astra Control erstellt werden können. Mindestens ein Astra Trident `VolumeSnapshotClass` Gewesen https://["Einrichtung"^] Durch einen Administrator.
+** *Astra Trident Storage-Backend konfiguriert*: Es muss mindestens ein Astra Trident Storage-Backend sein https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-postdeployment.html#step-1-create-a-backend["Konfiguriert"^] Auf dem Cluster.
+** *Konfigurierte Astra Trident Storage-Klassen*: Es muss mindestens eine Astra Trident Storage-Klasse sein https://docs.netapp.com/us-en/trident/trident-use/manage-stor-class.html["Konfiguriert"^] Auf dem Cluster. Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist.
+** *Astra Trident Volume Snapshot Controller und Volume Snapshot Klasse installiert und konfiguriert*: Der Volume Snapshot Controller muss sein https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installiert"^] Damit Snapshots in Astra Control erstellt werden können. Mindestens ein Astra Trident `VolumeSnapshotClass` Gewesen https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-set-up-a-volumesnapshotclass["Einrichtung"^] Durch einen Administrator.
 
 
-* *Kubeconfig*: Sie haben Zugang zum https://["Cluster kubeconfig"^] Das umfasst nur ein Kontextseil.
+* *Kubeconfig*: Sie haben Zugang zum https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Cluster kubeconfig"^] Das umfasst nur ein Kontextseil.
 * *ONTAP-Anmeldeinformationen*: Sie benötigen ONTAP-Anmeldeinformationen und eine Superuser- und Benutzer-ID auf dem Backing-ONTAP-System, um Apps mit Astra Control Center zu sichern und wiederherzustellen.
 +
 Führen Sie die folgenden Befehle in der ONTAP-Befehlszeile aus:
@@ -124,7 +124,7 @@ error: the server doesn't have a resource type "tridentversions"
 ----
 +
 
-NOTE: Wenn Astra Trident nicht installiert ist oder die installierte Version nicht die neueste ist, müssen Sie die neueste Version von Astra Trident installieren, bevor Sie fortfahren. Siehe https://["Astra Trident-Dokumentation"^] Weitere Anweisungen.
+NOTE: Wenn Astra Trident nicht installiert ist oder die installierte Version nicht die neueste ist, müssen Sie die neueste Version von Astra Trident installieren, bevor Sie fortfahren. Siehe https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Astra Trident-Dokumentation"^] Weitere Anweisungen.
 
 . Stellen Sie sicher, dass die Pods ausgeführt werden:
 +
@@ -494,7 +494,7 @@ NOTE: Der `kubeconfig.yaml` Die Datei sollte *nur die Cluster-Anmeldedaten für 
 
 +
 
-IMPORTANT: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien: Wenn Sie ein kubeconfig für eine eingeschränkte Clusterrolle erstellt haben, die mit verwendet wird <<Erstellen Sie eine begrenzte Cluster-Rolle kubeconfig,Das oben beschriebene Verfahren>>, Vergewissern Sie sich, dass in diesem Schritt kubeconfig hochgeladen oder eingefügt wird.
+IMPORTANT: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien: Wenn Sie ein kubeconfig für eine eingeschränkte Clusterrolle erstellt haben, die mit verwendet wird <<Erstellen Sie eine begrenzte Cluster-Rolle kubeconfig,Das oben beschriebene Verfahren>>, Vergewissern Sie sich, dass in diesem Schritt kubeconfig hochgeladen oder eingefügt wird.
 
 . Geben Sie einen Namen für die Anmeldeinformationen an. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.
 . Wählen Sie *Weiter*.
@@ -819,7 +819,7 @@ Nachdem Sie die Anmeldeinformationen oder Zertifikatauthentifizierungsinformatio
 ** *Administrator-Anmeldeinformationen verwenden*: Geben Sie die ONTAP Cluster Management IP-Adresse und die Admin-Anmeldeinformationen ein. Die Anmeldedaten müssen Cluster-weite Anmeldedaten aufweisen.
 +
 
-NOTE: Der Benutzer, dessen Anmeldeinformationen Sie hier eingeben, muss über den verfügen `ontapi` Aktivieren der Zugriffsmethode für die Anmeldung beim Benutzer in ONTAP System Manager auf dem ONTAP Cluster. Wenn Sie Vorhaben, SnapMirror Replizierung zu verwenden, wenden Sie Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über die Zugriffsmethoden verfügt `ontapi` Und `http`, Auf Quell- und Ziel-ONTAP Clustern. Siehe https://["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
+NOTE: Der Benutzer, dessen Anmeldeinformationen Sie hier eingeben, muss über den verfügen `ontapi` Aktivieren der Zugriffsmethode für die Anmeldung beim Benutzer in ONTAP System Manager auf dem ONTAP Cluster. Wenn Sie Vorhaben, SnapMirror Replizierung zu verwenden, wenden Sie Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über die Zugriffsmethoden verfügt `ontapi` Und `http`, Auf Quell- und Ziel-ONTAP Clustern. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
 
 ** *Ein Zertifikat* verwenden: Das Zertifikat hochladen `.pem` Datei, dem Zertifikatschlüssel `.key` Datei und optional die Zertifizierungsdatei.
 
@@ -838,7 +838,7 @@ NOTE: Möglicherweise müssen Sie die Seite aktualisieren, damit das Backend ang
 
 == Fügen Sie einen Bucket hinzu
 
-Sie können einen Bucket über die Astra Control UI oder hinzufügen https://["API"^]. Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. Astra Control speichert diese Backups oder Klone in den von Ihnen definierten Objektspeicher-Buckets.
+Sie können einen Bucket über die Astra Control UI oder hinzufügen https://docs.netapp.com/us-en/astra-automation/index.html["API"^]. Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. Astra Control speichert diese Backups oder Klone in den von Ihnen definierten Objektspeicher-Buckets.
 
 Wenn Sie Ihre Applikationskonfiguration und Ihren persistenten Storage im selben Cluster klonen, benötigen Sie in Astra Control keinen Bucket. Für die Funktionalität von Applikations-Snapshots ist kein Bucket erforderlich.
 
@@ -915,6 +915,6 @@ Nachdem Sie sich jetzt angemeldet haben und Cluster zum Astra Control Center hin
 [discrete]
 == Weitere Informationen
 
-* https://["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
 * link:../release-notes/known-issues.html["Bekannte Probleme"]
 

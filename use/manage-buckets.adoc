@@ -116,7 +116,7 @@ Sie sollten die Bucket-Anmeldedaten nur entfernen, wenn auf einen Bucket neue Zu
 TIP: Der erste Satz von Anmeldeinformationen, die Sie Astra Control hinzufügen, wird immer verwendet, da Astra Control zur Authentifizierung des Backup-Buckets die Zugangsdaten verwendet. Entfernen Sie diese Anmeldedaten nicht, wenn der Bucket aktiv ist, da dies zu Backup-Ausfällen und Nichtverfügbarkeit von Backups führen kann.
 
 
-NOTE: Wenn Sie die aktiven Bucket-Anmeldedaten entfernen, finden Sie unter https://["Fehlerbehebung beim Entfernen der Bucket-Anmeldeinformationen"].
+NOTE: Wenn Sie die aktiven Bucket-Anmeldedaten entfernen, finden Sie unter https://kb.netapp.com/Cloud/Astra/Control/Deleting_active_S3_bucket_credentials_leads_to_spurious_500_errors_reported_in_the_UI["Fehlerbehebung beim Entfernen der Bucket-Anmeldeinformationen"].
 
 Anweisungen zum Entfernen von S3-Anmeldeinformationen mithilfe der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
 
@@ -151,5 +151,5 @@ NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien g
 
 == Weitere Informationen
 
-* https://["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
 

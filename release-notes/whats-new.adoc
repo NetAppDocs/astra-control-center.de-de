@@ -32,16 +32,16 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 == 22. November 2022 (22.11.0)
 
 .Neue Funktionen und Support
-* https://["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
-* https://["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
-* https://["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"^]
-* https://["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"^]
-* https://["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-remote-authentication.html["Erweiterte LDAP-Authentifizierung mit rollenbasierter Integration der Zugriffssteuerung (Role Based Access Control, RBAC"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/get-started/requirements.html["Zusätzliche Unterstützung für Kubernetes 1.25 und Pod Security Admission (PSA)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/use/monitor-running-tasks.html["Verbesserte Fortschrittsberichte für Backup-, Restore- und Klonvorgänge"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* https://["Bekannte Probleme in diesem Release"^]
-* https://["Bekannte Einschränkungen für diese Version"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 
@@ -58,21 +58,21 @@ Dieses Patch-Release (22.08.1) für Astra Control Center (22.08.0) behebt kleine
 [%collapsible]
 ====
 .Neue Funktionen und Support
-* https://["Applikationsreplizierung mit NetApp SnapMirror Technologie"^]
-* https://["Verbesserter Applikations-Management-Workflow"^]
-* https://["Verbesserte Funktionalität für Ihre eigenen Testsuiten"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/replicate_snapmirror.html["Applikationsreplizierung mit NetApp SnapMirror Technologie"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/manage-apps.html#define-apps["Verbesserter Applikations-Management-Workflow"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/use/execution-hooks.html["Verbesserte Funktionalität für Ihre eigenen Testsuiten"^]
 +
 
-NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapshot-Testbügel für spezifische Applikationen entfernt. Wenn Sie ein Upgrade auf diese Version durchführen und keine eigenen Testsuiten für Snapshots bereitstellen, führt Astra Control nur absturzkonsistente Snapshots durch. Besuchen Sie das https://["NetApp Verda"^] GitHub-Repository für Hook-Beispielskripts, die Sie an Ihre Umgebung anpassen können.
+NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapshot-Testbügel für spezifische Applikationen entfernt. Wenn Sie ein Upgrade auf diese Version durchführen und keine eigenen Testsuiten für Snapshots bereitstellen, führt Astra Control nur absturzkonsistente Snapshots durch. Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda"^] GitHub-Repository für Hook-Beispielskripts, die Sie an Ihre Umgebung anpassen können.
 
-* https://["Unterstützung von VMware Tanzu Kubernetes Grid Integrated Edition (TKGI)"^]
-* https://["Unterstützung für Google Anthos"^]
-* https://["LDAP-Konfiguration (über Astra Control API)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html["Unterstützung von VMware Tanzu Kubernetes Grid Integrated Edition (TKGI)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/get-started/requirements.html#operational-environment-requirements["Unterstützung für Google Anthos"^]
+* https://docs.netapp.com/us-en/astra-automation-2208/workflows_infra/ldap_prepare.html["LDAP-Konfiguration (über Astra Control API)"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* https://["Bekannte Probleme in diesem Release"^]
-* https://["Bekannte Einschränkungen für diese Version"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2208/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 ====
@@ -84,16 +84,16 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 [%collapsible]
 ====
 .Neue Funktionen und Support
-* https://["Rollenbasierte Zugriffssteuerung (Namespace)"^]
-* https://["Unterstützung von Cloud Volumes ONTAP"^]
-* https://["Generisches Ingress-Enablement für Astra Control Center"^]
-* https://["Eimer Entfernung aus Astra Control"^]
-* https://["Unterstützung für VMware Tanzu Portfolio"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/concepts/user-roles-namespaces.html["Rollenbasierte Zugriffssteuerung (Namespace)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/install_acc-cvo.html["Unterstützung von Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#ingress-for-on-premises-kubernetes-clusters["Generisches Ingress-Enablement für Astra Control Center"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/use/manage-buckets.html#remove-a-bucket["Eimer Entfernung aus Astra Control"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/get-started/requirements.html#tanzu-kubernetes-grid-cluster-requirements["Unterstützung für VMware Tanzu Portfolio"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* https://["Bekannte Probleme in diesem Release"^]
-* https://["Bekannte Einschränkungen für diese Version"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2204/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 ====
@@ -105,21 +105,21 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 [%collapsible]
 ====
 .Neue Funktionen und Support
-* https://["Applikationswiederherstellung"^]
-* https://["Ausführungshaken"^]
-* https://["Unterstützung für Applikationen, die mit Betreibern im Namespace-Umfang implementiert wurden"^]
-* https://["Zusätzliche Unterstützung für Upstream Kubernetes und Rancher"^]
-* https://["Astra Control Center-Upgrades"^]
-* https://["Red hat OperatorHub-Option zur Installation"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/restore-apps.html["Applikationswiederherstellung"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/execution-hooks.html["Ausführungshaken"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html#supported-app-installation-methods["Unterstützung für Applikationen, die mit Betreibern im Namespace-Umfang implementiert wurden"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/requirements.html["Zusätzliche Unterstützung für Upstream Kubernetes und Rancher"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/use/upgrade-acc.html["Astra Control Center-Upgrades"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/get-started/acc_operatorhub_install.html["Red hat OperatorHub-Option zur Installation"^]
 
 
 .Behobene Probleme
-* https://["Probleme in diesem Release wurden behoben"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/resolved-issues.html["Probleme in diesem Release wurden behoben"^]
 
 
 .Bekannte Probleme und Einschränkungen
-* https://["Bekannte Probleme in diesem Release"^]
-* https://["Bekannte Einschränkungen für diese Version"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2112/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 ====
@@ -132,14 +132,14 @@ NOTE: Von NetApp wurden in dieser Version standardmäßige Pre- und Post-Snapsho
 ====
 Erste Version des Astra Control Center.
 
-* https://["Was ist das"^]
-* https://["Verstehen von Architektur und Komponenten"^]
-* https://["Was Sie benötigen, um zu beginnen"^]
-* https://["Installieren"^] Und https://["Einrichtung"^]
-* https://["Managen"^] Und https://["Sichern"^] Anwendungen
-* https://["Buckets verwalten"^] Und https://["Storage-Back-Ends"^]
-* https://["Konten verwalten"^]
-* https://["Automatisierung mit API"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/intro.html["Was ist das"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/concepts/architecture.html["Verstehen von Architektur und Komponenten"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/requirements.html["Was Sie benötigen, um zu beginnen"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/get-started/install_acc.html["Installieren"^] Und https://docs.netapp.com/us-en/astra-control-center-2108/get-started/setup_overview.html["Einrichtung"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-apps.html["Managen"^] Und https://docs.netapp.com/us-en/astra-control-center-2108/use/protect-apps.html["Sichern"^] Anwendungen
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-buckets.html["Buckets verwalten"^] Und https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-backend.html["Storage-Back-Ends"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/use/manage-users.html["Konten verwalten"^]
+* https://docs.netapp.com/us-en/astra-control-center-2108/rest-api/api-intro.html["Automatisierung mit API"^]
 
 
 ====

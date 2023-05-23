@@ -23,7 +23,7 @@ settings:
   - name: Astra Control Center
     url: "/astra-control-center-2112"
     version-number: '21.12'
-  langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr
+  langs: de-de,us-en,ja-jp,ko-kr,zh-cn,zh-tw,es-es,fr-fr,it-it
 sidebar:
   entries:
   - title: Astra Control Center - Dokumentation
