@@ -37,8 +37,8 @@ Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster i
 
 Vor der Implementierung von Astra Control Center in AWS sind folgende Fragen zu beachten:
 
-* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"].
-* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"].
+* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"^].
+* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"^].
 * NetApp Cloud Central Konto
 * Bei Verwendung von OCP, Berechtigungen für die Red hat OpenShift Container Platform (OCP) (auf Namespace-Ebene zum Erstellen von Pods)
 * AWS Zugangsdaten, Zugriffs-ID und geheimer Schlüssel mit Berechtigungen, mit denen Sie Buckets und Konnektoren erstellen können
@@ -155,7 +155,7 @@ Folgen Sie der AWS Dokumentation, um die folgenden Schritte auszuführen. Siehe 
 
 . Virtuelles AWS Netzwerk erstellen.
 . EC2 Computing-Instanzen prüfen. Dabei können es sich um einen Bare Metal Server oder VMs in AWS handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in AWS, um die Astra-Anforderungen zu erfüllen. Siehe link:../requirements.html["Anforderungen des Astra Control Centers"].
+. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in AWS, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen AWS S3-Bucket zum Speichern Ihrer Backups.
 . AWS Elastic Container Registry (ECR) erstellen, um alle ACC-Images zu hosten
 +
@@ -214,7 +214,7 @@ TIP: Cloud Volumes ONTAP kann als Single Node oder in High Availability betriebe
 
 === Installieren Sie Astra Control Center für AWS
 
-Dem Standard folgen link:../get-started/install_acc.html["Installationsanweisungen für Astra Control Center"].
+Dem Standard folgen link:../get-started/install_acc.html["Installationsanweisungen für Astra Control Center"^].
 
 
 NOTE: AWS verwendet den Bucket-Typ generischer S3.
@@ -231,8 +231,8 @@ Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster i
 
 Vor der Implementierung von Astra Control Center in GCP sind folgende Elemente erforderlich:
 
-* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"].
-* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"].
+* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"^].
+* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"^].
 * NetApp Cloud Central Konto
 * Bei Verwendung von OCP, Red hat OpenShift Container Platform (OCP) 4.10
 * Bei Verwendung von OCP, Berechtigungen für die Red hat OpenShift Container Platform (OCP) (auf Namespace-Ebene zum Erstellen von Pods)
@@ -356,7 +356,7 @@ Befolgen Sie die GCP-Dokumentation, um die folgenden Schritte auszuführen. Sieh
 
 . Erstellen eines GCP-Projekts und der VPC in der GCP, die Sie für den OCP-Cluster mit dem CVO-Back-End verwenden möchten
 . Prüfen Sie die Computing-Instanzen. Dabei kann es sich um einen Bare Metal Server oder VMs in GCP handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in GCP, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"].
+. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in GCP, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen GCP Cloud Storage Bucket, um Ihre Backups zu speichern.
 . Erstellen eines Geheimnisses, das für den Bucket-Zugriff erforderlich ist
 . Erstellen Sie eine Google Container-Registry, um alle Astra Control Center-Bilder zu hosten.
@@ -442,7 +442,7 @@ TIP: Cloud Volumes ONTAP kann als Single Node oder in High Availability (HA) bet
 
 === Installieren Sie Astra Control Center für GCP
 
-Dem Standard folgen link:../get-started/install_acc.html["Installationsanweisungen für Astra Control Center"].
+Dem Standard folgen link:../get-started/install_acc.html["Installationsanweisungen für Astra Control Center"^].
 
 
 NOTE: GCP verwendet den allgemeinen S3-Bucket-Typ.
@@ -467,8 +467,8 @@ Astra Control Center lässt sich in einem selbst gemanagten Kubernetes-Cluster i
 
 Vor der Implementierung von Astra Control Center in Azure sind folgende Fragen erforderlich:
 
-* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"].
-* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"].
+* Astra Control Center-Lizenz: Siehe link:../get-started/requirements.html["Lizenzierungsanforderungen für Astra Control Center"^].
+* link:../get-started/requirements.html["Sie erfüllen die Anforderungen des Astra Control Centers"^].
 * NetApp Cloud Central Konto
 * Bei Verwendung von OCP, Red hat OpenShift Container Platform (OCP) 4.8
 * Bei Verwendung von OCP, Berechtigungen für die Red hat OpenShift Container Platform (OCP) (auf Namespace-Ebene zum Erstellen von Pods)
@@ -483,7 +483,7 @@ Stellen Sie sicher, dass die Betriebsumgebung, die Sie als Host für das Astra C
 
 Astra Control Center erfordert zusätzlich zu den Ressourcenanforderungen der Umgebung die folgenden Ressourcen:
 
-Siehe link:../get-started/requirements.html["Anforderungen an die Betriebsumgebung des Astra Control Centers"].
+Siehe link:../get-started/requirements.html["Anforderungen an die Betriebsumgebung des Astra Control Centers"^].
 
 [cols="1h,2a"]
 |===
@@ -593,7 +593,7 @@ Folgen Sie der Azure-Dokumentation, um die folgenden Schritte durchzuführen. Si
 
 . Virtuelles Azure Netzwerk erstellen.
 . Prüfen Sie die Computing-Instanzen. Dabei können es sich um einen Bare Metal Server oder VMs in Azure handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in Azure, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"].
+. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in Azure, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen Azure Blob Container, um Ihre Backups zu speichern.
 . Erstellen Sie ein Speicherkonto. Sie benötigen ein Storage-Konto, um einen Container zu erstellen, der im Astra Control Center als Bucket verwendet wird.
 . Erstellen eines Geheimnisses, das für den Bucket-Zugriff erforderlich ist
@@ -684,6 +684,6 @@ Damit wird Ihr Red hat OpenShift-Cluster importiert und eine Standardspeicherkla
 
 === Installation und Konfiguration von Astra Control Center für Azure
 
-Installieren Sie Astra Control Center standardmäßig link:../get-started/install_acc.html["Installationsanweisungen"].
+Installieren Sie Astra Control Center standardmäßig link:../get-started/install_acc.html["Installationsanweisungen"^].
 
-Fügen Sie über Astra Control Center einen Azure-Bucket hinzu. Siehe link:../get-started/setup_overview.html["Astra Control Center einrichten und Buckets hinzufügen"].
+Fügen Sie über Astra Control Center einen Azure-Bucket hinzu. Siehe link:../get-started/setup_overview.html["Astra Control Center einrichten und Buckets hinzufügen"^].

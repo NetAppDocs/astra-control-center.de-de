@@ -28,6 +28,7 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 .Cluster
 * <<Das Verwalten eines Clusters mit Astra Control Center schlägt fehl, wenn die standardmäßige kubeconfig-Datei mehr als einen Kontext enthält>>
 * <<Einige Pods können nach dem Upgrade auf Astra Control Center 23.04 nicht gestartet werden>>
+* <<Einige Pods zeigen nach der Phase des Upgrades von 23.04 auf 23.04.2 einen Fehlerstatus>>
 * <<Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen>>
 
 
@@ -100,6 +101,24 @@ kubectl delete pod pcloud-astra-control-center-au-pod-0 -n <namespace>
 ----
 
 
+
+
+== Einige Pods zeigen nach der Phase des Upgrades von 23.04 auf 23.04.2 einen Fehlerstatus
+
+Nach dem Upgrade auf Astra Control Center 23.04.2 wird bei einigen Pods möglicherweise ein Fehler in den für relevanten Protokollen angezeigt `task-service-task-purge`:
+
+[listing]
+----
+kubectl get all -n netapp-acc -o wide|grep purge
+
+pod/task-service-task-purge-28282828-ab1cd     0/1     Error       0             48m     10.111.0.111   openshift-clstr-ol-07-zwlj8-worker-jhp2b   <none>           <none>
+----
+Dieser Fehlerstatus bedeutet, dass ein Bereinigungsschritt nicht ordnungsgemäß ausgeführt wurde. Das Upgrade auf 23.04.2 ist erfolgreich. Führen Sie den folgenden Befehl aus, um die Aufgabe zu bereinigen und den Fehlerstatus zu entfernen:
+
+[listing]
+----
+kubectl delete job task-service-task-purge-[system-generated task ID] -n <netapp-acc or custom namespace>
+----
 
 
 == Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen

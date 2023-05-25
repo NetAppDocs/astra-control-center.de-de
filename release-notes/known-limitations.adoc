@@ -40,6 +40,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 * <<Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt>>
 * <<Einschränkungen für LDAP-Benutzer und -Gruppen>>
 * <<Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt>>
+* <<Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise>>
 
 
 
@@ -187,6 +188,21 @@ Astra Control Center unterstützt bis zu 5,000 Remote-Gruppen und 10,000 Remote-
 == Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt
 
 Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control REST-API"^].
+
+
+
+== Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise
+
+Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.
+
+Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:
+
+. Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
+
 
 
 

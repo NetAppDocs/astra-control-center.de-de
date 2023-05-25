@@ -47,7 +47,7 @@ Wenn Sie Backups oder Snapshots öfter als einmal pro Stunde benötigen, können
 TIP: Verschieben Sie Backup- und Replikationspläne, um Zeitplanüberschneidungen zu vermeiden. Führen Sie beispielsweise jede Stunde Backups oben in der Stunde durch, und planen Sie die Replikation, um mit einem Offset von 5 Minuten und einem Intervall von 10 Minuten zu beginnen.
 
 
-IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Schutzrichtlinien können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse, wenn Sie eine Sicherungsrichtlinie wünschen.
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Schutzrichtlinien können nicht verwendet werden. Migrieren Sie zu einer von Astra Control unterstützten Storage-Klasse, um Backups und Snapshots zu planen.
 
 .Schritte
 . Wählen Sie *Anwendungen* und dann den Namen einer App aus.
@@ -80,7 +80,7 @@ Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und 
 Sie können jederzeit einen On-Demand-Snapshot erstellen.
 
 
-IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht verwendet werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
+IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht erstellt werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
 
 .Schritte
 . Wählen Sie *Anwendungen*.

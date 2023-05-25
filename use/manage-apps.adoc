@@ -119,7 +119,7 @@ TIP: Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten 
 
 .Über diese Aufgabe
 * Bevor Sie beginnen, sollten Sie auch verstehen link:../use/manage-apps.html#what-about-system-namespaces["Verwalten von Standard- und Systemnames"].
-* Wenn Sie in Astra Control mehrere Namespaces mit Ihren Apps verwenden möchten, link:../use/manage-roles.html#add-a-namespace-constraint-to-a-role["Ändern Sie Benutzerrollen mit Namespace-Einschränkungen"] Nach dem Upgrade auf eine Astra Control Center-Version mit Unterstützung für mehrere Namespace.
+* Wenn Sie in Astra Control mehrere Namespaces mit Ihren Apps verwenden möchten, link:../use/manage-local-users-and-roles.html#add-a-namespace-constraint-to-a-role["Ändern Sie Benutzerrollen mit Namespace-Einschränkungen"] Nach dem Upgrade auf eine Astra Control Center-Version mit Unterstützung für mehrere Namespace.
 * Anweisungen zum Verwalten von Apps mit der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
 
 
@@ -132,7 +132,7 @@ TIP: Eine Bezeichnung ist ein Schlüssel-/Wertpaar, das Sie Kubernetes-Objekten 
 
 === Definition von Ressourcen, die als Applikation gemanagt werden sollen
 
-Sie können den angeben link:../learn/app-management.html["Kubernetes-Ressourcen bilden eine Applikation"] Die Sie mit Astra Control verwalten möchten. Durch die Definition einer App können Sie Elemente Ihres Kubernetes Clusters zu einer einzelnen Applikation gruppieren. Diese Sammlung von Kubernetes-Ressourcen ist nach Namespace und Auswahlkriterien für Labels organisiert.
+Sie können den angeben link:../concepts/app-management.html["Kubernetes-Ressourcen bilden eine Applikation"] Die Sie mit Astra Control verwalten möchten. Durch die Definition einer App können Sie Elemente Ihres Kubernetes Clusters zu einer einzelnen Applikation gruppieren. Diese Sammlung von Kubernetes-Ressourcen ist nach Namespace und Auswahlkriterien für Labels organisiert.
 
 Mit der Definition einer App haben Sie eine granularere Kontrolle über die Auswirkungen einer Astra Control Operation, einschließlich Klonen, Snapshots und Backups.
 

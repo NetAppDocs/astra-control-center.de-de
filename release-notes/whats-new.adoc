@@ -16,6 +16,16 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 
 
 
+== 18. Mai 2023 (23.04.2)
+
+Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unterstützung für https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Externer Kubernetes CSI-Snapshot v6.1.0"^] Und behebt Folgendes:
+
+* Ein Fehler bei der Wiederherstellung von Anwendungen vor Ort, wenn Ausführungshaken verwendet werden
+* Verbindungsprobleme mit dem Bucket-Service
+
+
+
+
 == 25. April 2023 (23.04.0)
 
 .Neue Funktionen und Support
@@ -25,6 +35,11 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 * 
 * link:../use/restore-apps.html#filter-resources-during-an-application-restore["Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung"^]
 * link:../use/manage-apps.html["Unterstützung für das Management von rein datenbasierten Applikationen"]
+
+
+.Bekannte Probleme und Einschränkungen
+* link:../release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
 
