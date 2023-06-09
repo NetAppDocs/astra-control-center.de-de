@@ -301,7 +301,7 @@ Astra Control Center nutzt einen Service vom Typ „loadbalancer“ (`svc/traefi
 
 +
 
-NOTE: Einzelheiten zum Servicetyp von „loadbalancer“ und Ingress finden Sie unter link:../get-started/requirements.html["Anforderungen"^].
+NOTE: Weitere Informationen zum Servicetyp „loadbalancer“ und „ingress“ finden Sie unter link:../get-started/requirements.html["Anforderungen"^].
 
 
 

@@ -56,7 +56,7 @@ Sie können die Proxy-Server-Einstellungen bearbeiten.
 .Schritte
 . Melden Sie sich bei Astra Control Center mit einem Konto mit *admin*/*Owner*-Berechtigung an.
 . Wählen Sie *Konto* > *Verbindungen*.
-. Wählen Sie in der Dropdown-Liste *Bearbeiten* aus, um die Verbindung zu bearbeiten.
+. Wählen Sie *Bearbeiten* aus der Dropdown-Liste, um die Verbindung zu bearbeiten.
 . Bearbeiten Sie die Serverdetails und die Authentifizierungsinformationen.
 . Wählen Sie *Speichern*.
 
@@ -176,7 +176,7 @@ NOTE: Sie können nur die API-Schlüssel bearbeiten. Um die Cloud Insights-Manda
 .Schritte
 . Melden Sie sich bei Astra Control Center mit einem Konto mit *admin*/*Owner*-Berechtigung an.
 . Wählen Sie *Konto* > *Verbindungen*.
-. Wählen Sie in der Dropdown-Liste *Bearbeiten* aus, um die Verbindung zu bearbeiten.
+. Wählen Sie *Bearbeiten* aus der Dropdown-Liste, um die Verbindung zu bearbeiten.
 . Bearbeiten Sie die Cloud Insights-Verbindungseinstellungen.
 . Wählen Sie *Speichern*.
 
@@ -320,7 +320,7 @@ Sie können die Fluentd-Verbindung zu Ihrer Astra Control Center-Instanz bearbei
 .Schritte
 . Melden Sie sich bei Astra Control Center mit einem Konto mit *admin*/*Owner*-Berechtigung an.
 . Wählen Sie *Konto* > *Verbindungen*.
-. Wählen Sie in der Dropdown-Liste *Bearbeiten* aus, um die Verbindung zu bearbeiten.
+. Wählen Sie *Bearbeiten* aus der Dropdown-Liste, um die Verbindung zu bearbeiten.
 . Ändern Sie die Einstellungen für den Fluentd-Endpunkt.
 . Wählen Sie *Speichern*.
 

@@ -32,7 +32,7 @@ Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unters
 * link:../concepts/licensing.html["Bei neuen Astra Control Center-Installationen ist eine 90-Tage-Evaluierungslizenz standardmäßig aktiviert"^]
 * link:../use/execution-hooks.html["Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen"^]
 * link:../use/execution-hooks.html["Ausführungs-Hooks können jetzt nach dem Replizierungs-Failover mit Astra Control Center ausgeführt werden"^]
-* 
+* link:../use/restore-apps.html#migrate-from-ontap-nas-economy-storage-to-ontap-nas-storage["Unterstützung bei der Migration von Volumes aus der Klasse „ontap-nas-Economy“ in die Storage-Klasse „ontap-nas“"^]
 * link:../use/restore-apps.html#filter-resources-during-an-application-restore["Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung"^]
 * link:../use/manage-apps.html["Unterstützung für das Management von rein datenbasierten Applikationen"]
 

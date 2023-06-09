@@ -50,11 +50,11 @@ Astra Control repliziert asynchron App-Snapshot-Kopien in einem Remote-Cluster. 
 
 Die Replizierung von Applikationen unterscheidet sich folgendermaßen von Backup und Restore von Applikationen:
 
-* *App-Replizierung*: Astra Control erfordert, dass die Quell- und Ziel-Kubernetes-Cluster mit den entsprechenden ONTAP Storage-Back-Ends verfügbar und gemanagt werden, die für NetApp SnapMirror konfiguriert sind. Astra Control repliziert den richtlinienbasierten Applikations-Snapshot auf dem Remote-Cluster. NetApp SnapMirror Technologie wird zur Replizierung der Daten des persistenten Volumes verwendet. Zum Failover kann Astra Control die replizierte Applikation online schalten, indem die Applikationsobjekte auf dem Kubernetes Ziel-Cluster mit den replizierten Volumes auf dem ONTAP Ziel-Cluster neu erstellt werden. Da die Daten des persistenten Volumes bereits auf dem Ziel-ONTAP Cluster vorhanden sind, bietet Astra Control kurze Recovery-Zeiten für Failover.
+* *App-Replizierung*: Für Astra Control müssen die Kubernetes Quell- und Ziel-Cluster verfügbar sein und mit ihren jeweiligen ONTAP Storage-Back-Ends gemanagt werden, die für die Aktivierung von NetApp SnapMirror konfiguriert sind. Astra Control repliziert den richtlinienbasierten Applikations-Snapshot in den Remote-Cluster. NetApp SnapMirror wird zur Replizierung der persistenten Volume-Daten eingesetzt. Zum Failover kann Astra Control die replizierte Applikation online schalten, indem die Applikationsobjekte auf dem Kubernetes Ziel-Cluster mit den replizierten Volumes auf dem ONTAP Ziel-Cluster neu erstellt werden. Da die persistenten Volume-Daten bereits auf dem Ziel-ONTAP-Cluster vorhanden sind, kann Astra Control schnelle Recovery-Zeiten für Failover bieten.
 * *App-Backup und -Restore*: Beim Backup von Applikationen erstellt Astra Control einen Snapshot der Applikationsdaten und speichert diese in einem Objekt-Storage-Bucket. Wenn eine Wiederherstellung erforderlich ist, müssen die Daten in dem Bucket auf ein persistentes Volume auf dem ONTAP Cluster kopiert werden. Der Backup-/Restore-Vorgang erfordert nicht, dass der sekundäre Kubernetes/ONTAP Cluster verfügbar und gemanagt wird. Die zusätzliche Datenkopie kann jedoch zu längeren Restore-Zeiten führen.
 
 
-Weitere Informationen zur Replizierung von Applikationen finden Sie unter link:../use/replicate_snapmirror.html["Replizieren von Applikationen auf einem Remote-System mit SnapMirror Technologie"].
+Weitere Informationen zum Replizieren von Apps finden Sie unter link:../use/replicate_snapmirror.html["Replizieren von Applikationen auf einem Remote-System mit SnapMirror Technologie"].
 
 Die folgenden Images zeigen den geplanten Backup- und Wiederherstellungsprozess im Vergleich zum Replikationsprozess.
 
@@ -62,7 +62,7 @@ Der Backup-Prozess kopiert Daten in S3 Buckets und Restores aus S3 Buckets:
 
 image:acc-backup_4in.png["Dieses Image zeigt ein geplantes Backup und eine Wiederherstellung zwischen zwei Kubernetes-Clustern mit S3-Bucket"]
 
-Zum anderen erfolgt die Replizierung auf ONTAP. Bei einem Failover werden die Kubernetes-Ressourcen erstellt:
+Andererseits wird die Replizierung zu ONTAP durchgeführt. Durch ein Failover werden die Kubernetes-Ressourcen erzeugt:
 
 image:acc-replication_4in.png["Dieses Image zeigt Replizierung und Failover zwischen zwei Kubernetes-Clustern und zwei ONTAP-Clustern"]
 

@@ -155,7 +155,7 @@ Folgen Sie der AWS Dokumentation, um die folgenden Schritte auszuführen. Siehe 
 
 . Virtuelles AWS Netzwerk erstellen.
 . EC2 Computing-Instanzen prüfen. Dabei können es sich um einen Bare Metal Server oder VMs in AWS handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in AWS, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
+. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in AWS, um die Astra-Anforderungen zu erfüllen.  Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen AWS S3-Bucket zum Speichern Ihrer Backups.
 . AWS Elastic Container Registry (ECR) erstellen, um alle ACC-Images zu hosten
 +
@@ -356,7 +356,7 @@ Befolgen Sie die GCP-Dokumentation, um die folgenden Schritte auszuführen. Sieh
 
 . Erstellen eines GCP-Projekts und der VPC in der GCP, die Sie für den OCP-Cluster mit dem CVO-Back-End verwenden möchten
 . Prüfen Sie die Computing-Instanzen. Dabei kann es sich um einen Bare Metal Server oder VMs in GCP handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in GCP, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
+. Wenn der Instanztyp nicht bereits den Astra-Mindestanforderungen für die Ressourcen für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in GCP, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen GCP Cloud Storage Bucket, um Ihre Backups zu speichern.
 . Erstellen eines Geheimnisses, das für den Bucket-Zugriff erforderlich ist
 . Erstellen Sie eine Google Container-Registry, um alle Astra Control Center-Bilder zu hosten.
@@ -593,7 +593,7 @@ Folgen Sie der Azure-Dokumentation, um die folgenden Schritte durchzuführen. Si
 
 . Virtuelles Azure Netzwerk erstellen.
 . Prüfen Sie die Computing-Instanzen. Dabei können es sich um einen Bare Metal Server oder VMs in Azure handelt.
-. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in Azure, um die Astra-Anforderungen zu erfüllen. Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
+. Wenn der Instanztyp nicht bereits den Mindestanforderungen für Ressourcen von Astra für Master- und Worker-Nodes entspricht, ändern Sie den Instanztyp in Azure, um die Astra-Anforderungen zu erfüllen.  Siehe link:../get-started/requirements.html["Anforderungen des Astra Control Centers"^].
 . Erstellen Sie mindestens einen Azure Blob Container, um Ihre Backups zu speichern.
 . Erstellen Sie ein Speicherkonto. Sie benötigen ein Storage-Konto, um einen Container zu erstellen, der im Astra Control Center als Bucket verwendet wird.
 . Erstellen eines Geheimnisses, das für den Bucket-Zugriff erforderlich ist

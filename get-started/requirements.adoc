@@ -150,7 +150,7 @@ Astra Control Center können Sie ausprobieren, indem Sie sich für eine kostenlo
 
 Informationen zum Einrichten der Lizenz finden Sie unter link:setup_overview.html["Verwenden Sie eine 90-Tage-Evaluierungslizenz"^].
 
-Weitere Informationen über die Funktionsweise von Lizenzen finden Sie unter link:../concepts/licensing.html["Lizenzierung"^].
+Weitere Informationen zur Funktionsweise von Lizenzen finden Sie unter link:../concepts/licensing.html["Lizenzierung"^].
 
 
 

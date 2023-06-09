@@ -26,6 +26,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 .Einschränkungen beim Applikationsmanagement
 * <<Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden>>
+* <<Astra Control unterstützt nicht Apps, die mehrere Storage-Klassen pro Namespace verwenden>>
 * <<Astra Control weist nicht automatisch Standard-Buckets für Cloud-Instanzen zu>>
 * <<Klone von über Benutzer mit Pass-by-Reference installierten Applikationen können fehlschlagen>>
 * <<In-Place-Wiederherstellungsvorgänge von Anwendungen, die einen Zertifikatmanager verwenden, werden nicht unterstützt>>
@@ -108,6 +109,12 @@ Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name
 == Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden
 
 Wenn Sie mehrere Applikationen in einem einzigen Namespace managen (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Applikationen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
+
+
+
+== Astra Control unterstützt nicht Apps, die mehrere Storage-Klassen pro Namespace verwenden
+
+Astra Control unterstützt Applikationen, die eine einzelne Storage-Klasse pro Namespace verwenden. Wenn Sie eine App zu einem Namespace hinzufügen, stellen Sie sicher, dass die App dieselbe Storage-Klasse wie andere Apps im Namespace hat.
 
 
 

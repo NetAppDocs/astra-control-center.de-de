@@ -14,7 +14,7 @@ summary: Astra kann Ihre Applikationskonfiguration und Ihren persistenten Storag
 [role="lead"]
 Mithilfe von Astra Control können Sie mit den asynchronen Replizierungsfunktionen der NetApp SnapMirror Technologie Business Continuity für Ihre Applikationen erzielen: Mit Low-RPO (Recovery Point Objective) und Low-RTO (Recovery Time Objective). Sobald Ihre Applikationen konfiguriert sind, können sie Daten und Applikationsänderungen von einem Cluster auf ein anderes replizieren.
 
-Einen Vergleich zwischen Backups/Wiederherstellungen und der Replizierung finden Sie unter link:../concepts/data-protection.html["Konzepte zur Datensicherung"].
+Einen Vergleich zwischen Backups/Wiederherstellungen und Replikation finden Sie unter link:../concepts/data-protection.html["Konzepte zur Datensicherung"].
 
 Applikationen lassen sich in unterschiedlichen Szenarien replizieren, z. B. nur on-Premises, in Hybrid- und Multi-Cloud-Szenarien:
 
@@ -32,7 +32,7 @@ NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster 
 Mit Astra Control können Sie die folgenden Aufgaben für die Replikation von Anwendungen ausführen:
 
 * <<Richten Sie eine Replikationsbeziehung ein>>
-* <<Online-Betrieb einer replizierten App auf dem Ziel-Cluster (Failover)>>
+* <<Online-Funktion einer replizierten Anwendung auf dem Ziel-Cluster (Failover)>>
 * <<Resynchronisierung einer fehlgeschlagenen Überreplikation>>
 * <<Replizierung der Applikation wird rückgängig gemacht>>
 * <<Führen Sie ein Failback von Anwendungen auf das ursprüngliche Quellcluster durch>>
@@ -43,36 +43,47 @@ Mit Astra Control können Sie die folgenden Aufgaben für die Replikation von An
 
 == Replikationsvoraussetzungen
 
-Die Astra Control Applikationsreplizierung erfordert, dass die folgenden Voraussetzungen erfüllt sein müssen, bevor Sie beginnen:
+Für die Replizierung der Astra Control Applikation müssen vor Beginn die folgenden Voraussetzungen erfüllt sein:
 
-* Um eine nahtlose Disaster Recovery zu erreichen, empfehlen wir Ihnen, Astra Control Center in einer dritten Fehlerdomäne oder an einem sekundären Standort einzusetzen.
-* Das Kubernetes-Cluster der Applikation, ein Ziel-Kubernetes-Cluster, muss zusammen mit den ONTAP-Clustern gemanagt werden, im Idealfall in verschiedenen Ausfall-Domains oder Standorten.
-* ONTAP-Cluster und die Host-SVM müssen gekoppelt sein. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["Übersicht über Cluster- und SVM-Peering"^].
-* Die gepaarte Remote-SVM muss für Astra Trident auf dem Ziel-Cluster verfügbar sein.
-* Astra Trident Version 22.07 oder höher muss sowohl auf den Quell- als auch Ziel-ONTAP Clustern vorhanden sein.
-* Asynchrone ONTAP SnapMirror Lizenzen mit dem Datensicherungs-Bundle müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP Clustern aktiviert werden. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Übersicht über die SnapMirror Lizenzierung in ONTAP"^].
-* Wenn Sie dem Astra Control Center ein ONTAP-Speicher-Backend hinzufügen, wenden Sie die Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über Zugriffsmethoden verfügt `http` Und `ontapi` Sowohl auf ONTAP Quell- als auch auf Ziel-Clustern aktiviert. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
-* Sowohl Quell- als auch Ziel-Kubernetes-Cluster als auch ONTAP-Cluster müssen von Astra Control gemanagt werden.
+* *ONTAP-Cluster*:
++
+** *Trident*: Astra Trident Version 22.07 oder höher muss sowohl auf den Quell- als auch auf den Ziel-Kubernetes-Clustern vorhanden sein, die ONTAP als Backend nutzen.
+** *Lizenzen*: Asynchrone Lizenzen von ONTAP SnapMirror, die das Datensicherungspaket verwenden, müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP-Clustern aktiviert sein. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Übersicht über die SnapMirror Lizenzierung in ONTAP"^] Finden Sie weitere Informationen.
+
+
+* * Paarung*:
++
+** *Cluster und SVM*: ONTAP-Cluster und die Host-SVM müssen gekoppelt werden. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["Übersicht über Cluster- und SVM-Peering"^] Finden Sie weitere Informationen.
+** *Trident und SVM*: Die gekoppelte Remote SVM muss für Astra Trident auf dem Ziel-Cluster verfügbar sein.
+
+
+* *Astra Control Center*:
 +
 
-NOTE: Sie können gleichzeitig eine andere Applikation (auf dem anderen Cluster oder Standort ausgeführt) in die entgegengesetzte Richtung replizieren. So können beispielsweise Applikationen A, B und C von Datacenter 1 nach Datacenter 2 repliziert werden. Applikationen X, Y und Z können von Datacenter 2 zu Datacenter 1 repliziert werden.
+TIP: link:../get-started/install_acc.html["Implementieren Sie Astra Control Center"^] In einer dritten Fehlerdomäne oder an einem sekundären Standort für nahtloses Disaster Recovery
 
-* *Astra Trident / ONTAP Konfiguration*: Astra Control Center erfordert, dass eine Storage-Klasse erstellt und als Standard-Storage-Klasse eingestellt wird. Astra Control Center unterstützt die folgenden ONTAP-Treiber von Astra Trident zur Replizierung:
 +
-** ontap-nas
-** ontap-nas-Economy (SnapMirror Replizierungsfunktionalität mit Astra Control ist in dieser Storage-Klasse nicht verfügbar.)
-** ontap-san
+** *Verwaltete Cluster*: Folgende Cluster müssen von Astra Control hinzugefügt und verwaltet werden, idealerweise an verschiedenen Ausfalldomänen oder Standorten:
++
+*** Quell-Kubernetes-Cluster
+*** Kubernetes Ziel-Cluster
+*** Zugeordnete ONTAP-Cluster
+
+
+** *Benutzerkonten*: Wenn Sie ein ONTAP-Speicher-Backend zu Astra Control Center hinzufügen, wenden Sie die Anmeldeinformationen des Benutzers mit der Rolle "admin" an. Diese Rolle verfügt über Zugriffsmethoden `http` Und `ontapi` Sowohl auf ONTAP Quell- als auch auf Ziel-Clustern aktiviert. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
+
+
+* *Astra Trident / ONTAP-Konfiguration*: Für Astra Control Center muss mindestens eine Storage-Klasse konfiguriert werden, die die Replizierung sowohl für Quell- als auch für Ziel-Cluster unterstützt.
 
 
 
-
-Erfahren Sie, wie Sie link:../use/replicate_snapmirror.html["Replizieren von Applikationen auf einem Remote-System mit SnapMirror Technologie"^].
+IMPORTANT: Die Astra Control Replizierung unterstützt Applikationen, die eine einzige Storage-Klasse verwenden. Wenn Sie eine App zu einem Namespace hinzufügen, stellen Sie sicher, dass die App dieselbe Storage-Klasse wie andere Apps im Namespace hat. Wenn Sie eine PVC zu einer replizierten App hinzufügen, stellen Sie sicher, dass die neue PVC die gleiche Speicherklasse hat wie andere VES im Namespace.
 
 
 
 == Richten Sie eine Replikationsbeziehung ein
 
-Die Einrichtung einer Replikationsbeziehung umfasst Folgendes, die die Replikationsrichtlinie enthält;
+Die Einrichtung einer Replikationsbeziehung umfasst Folgendes:
 
 * Wählen Sie, wie häufig Astra Control einen App Snapshot erstellen soll (einschließlich der Kubernetes-Ressourcen der Applikation und der Volume-Snapshots für die einzelnen Applikations-Volumes).
 * Auswahl des Replizierungszeitplans (einschließlich Kubernetes-Ressourcen und persistente Volume-Daten)
@@ -108,7 +119,7 @@ Astra Control erstellt einen Applikations-Snapshot, der für die Replizierung ve
 
 . Um den Snapshot-Status der Anwendung anzuzeigen, wählen Sie die Registerkarte *Anwendungen* > *Snapshots*.
 +
-Der Snapshot-Name verwendet das Format „Replication-Schedule-<string>“. Astra Control behält den letzten Snapshot, der für die Replizierung verwendet wurde. Alle älteren Replizierungs-Snapshots werden nach Abschluss der Replikation gelöscht.
+Der Snapshot-Name verwendet das Format von `replication-schedule-<string>`. Astra Control behält den letzten Snapshot, der für die Replizierung verwendet wurde. Alle älteren Replizierungs-Snapshots werden nach Abschluss der Replikation gelöscht.
 
 
 
@@ -131,9 +142,9 @@ Erfahren Sie am Ende dieses Themas mehr über Replikationszustände und -Status.
 
 
 
-== Online-Betrieb einer replizierten App auf dem Ziel-Cluster (Failover)
+== Online-Funktion einer replizierten Anwendung auf dem Ziel-Cluster (Failover)
 
-Mit Astra Control können Sie ein „Failover“ Ihrer replizierten Applikationen auf ein Ziel-Cluster ausführen. Durch dieses Verfahren wird die Replikationsbeziehung angehalten und die App wird auf dem Ziel-Cluster online geschaltet. Durch dieses Verfahren wird die App nicht auf dem Quell-Cluster angehalten, wenn sie betriebsbereit war.
+Mit Astra Control können Sie ein Failover replizierter Applikationen auf ein Ziel-Cluster durchführen. Durch dieses Verfahren wird die Replikationsbeziehung angehalten und die App wird auf dem Ziel-Cluster online geschaltet. Durch dieses Verfahren wird die App nicht auf dem Quell-Cluster angehalten, wenn sie betriebsbereit war.
 
 .Schritte
 . Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
@@ -143,12 +154,12 @@ Mit Astra Control können Sie ein „Failover“ Ihrer replizierten Applikatione
 
 
 .Ergebnis
-Die folgenden Aktionen ergeben sich aus dem Failover-Verfahren:
+Die folgenden Aktionen werden als Ergebnis des Failover-Verfahrens durchgeführt:
 
 * Auf dem Zielcluster wird die App basierend auf dem letzten replizierten Snapshot gestartet.
 * Das Quellcluster und die App (falls betriebsbereit) werden nicht angehalten und werden weiterhin ausgeführt.
 * Der Replikationsstatus ändert sich zu „Failover“ und dann zu „Failover“, wenn er abgeschlossen ist.
-* Die Schutzrichtlinie der Quell-App wird basierend auf den Zeitplänen in der Quell-App zum Zeitpunkt des Failover in die Ziel-App kopiert.
+* Die Schutzrichtlinie der Quell-App wird auf Basis der zum Zeitpunkt des Failovers auf der Quell-App vorhandenen Zeitpläne in die Ziel-App kopiert.
 * Wenn in der Quell-App mindestens eine Ausführungshaken nach der Wiederherstellung aktiviert ist, werden diese Ausführungshaken für die Ziel-App ausgeführt.
 * Astra Control zeigt die App sowohl auf den Quell- und Ziel-Clustern und deren jeweiligen Zustand.
 
@@ -215,9 +226,9 @@ Die folgenden Aktionen sind auf das Ergebnis der umgekehrten Replikation zurück
 
 == Führen Sie ein Failback von Anwendungen auf das ursprüngliche Quellcluster durch
 
-Mit Astra Control können Sie nach einem „Failover“-Vorgang „Failback“ erreichen, indem Sie die folgende Reihenfolge der Vorgänge verwenden. In diesem Workflow repliziert (neu synchronisiert) Astra Control alle Anwendungen, die in die ursprüngliche Replikationsrichtung geändert werden, zurück zum ursprünglichen Quell-Cluster, bevor die Replikationsrichtung umkehrt.
+Mit Astra Control können Sie nach einem Failover-Vorgang mithilfe der folgenden Sequenz von Vorgängen „Failback“ erreichen. In diesem Workflow repliziert (neu synchronisiert) Astra Control alle Anwendungen, die in die ursprüngliche Replikationsrichtung geändert werden, zurück zum ursprünglichen Quell-Cluster, bevor die Replikationsrichtung umkehrt.
 
-Dieser Prozess beginnt mit einer Beziehung, die ein Failover zu einem Ziel abgeschlossen hat und die folgenden Schritte umfasst:
+Dieser Prozess beginnt mit einer Beziehung, bei der ein Failover zu einem Ziel durchgeführt wurde, und umfasst die folgenden Schritte:
 
 * Starten Sie mit einem Failover-Status fehlgeschlagen.
 * Beziehung neu synchronisieren.
@@ -228,7 +239,7 @@ Dieser Prozess beginnt mit einer Beziehung, die ein Failover zu einem Ziel abges
 . Wählen Sie in der linken Navigation von Astra Control die Option *Anwendungen*.
 . Wählen Sie auf der Seite Anwendung die Registerkarte *Datenschutz* > *Replikation* aus.
 . Wählen Sie auf der Registerkarte Datenschutz > Replikation im Menü Aktionen die Option *Resync* aus.
-. Für einen Fail-Back-Vorgang wählen Sie die Failover-App als Quelle für den Resynchronisierungsvorgang aus (wobei Daten nach dem Failover beim Schreiben beibehalten werden).
+. Wählen Sie für einen Failback-Vorgang die Failoveranwendung als Quelle für den Resync-Vorgang aus (unter Beibehaltung der nach dem Failover geschriebenen Daten).
 . Geben Sie zur Bestätigung „Resynchronisieren“ ein.
 . Wählen Sie *Ja, Resynchronisierung*, um den Vorgang abzuschließen.
 . Nach Abschluss der Resynchronisierung wählen Sie im Menü Aktionen auf der Registerkarte Data Protection > Replication die Option *Replikation umkehren* aus.
