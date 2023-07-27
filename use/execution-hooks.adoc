@@ -25,20 +25,19 @@ Astra Control unterstützt die folgenden Arten von Ausführungshaken, je nachdem
 * Vor dem Backup
 * Nach dem Backup
 * Nach dem Wiederherstellen
+* Nach Failover
 
 
 
 
 == Filter für Testausführungshaken
 
-Wenn Sie einer Anwendung einen Testsuite-Haken hinzufügen oder bearbeiten, können Sie einem Testsuite Filter hinzufügen, um zu verwalten, welche Container der Haken entsprechen. Filter sind für Applikationen nützlich, die in allen Containern dasselbe Container-Image nutzen. Jedes Image kann jedoch für einen anderen Zweck (wie Elasticsearch) verwendet werden. Mithilfe von Filtern können Sie Szenarien erstellen, in denen die Testsuitehaoks auf einigen der identischen Container ausgeführt werden, aber nicht unbedingt alle. Wenn Sie mehrere Filter für einen einzelnen Testausführungshaken erstellen, werden diese mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.
+Wenn Sie einer Anwendung einen Ausführungshaken hinzufügen oder bearbeiten, können Sie einem Ausführungshaken Filter hinzufügen, um zu verwalten, mit welchen Containern der Hook übereinstimmt. Filter sind für Applikationen nützlich, die in allen Containern dasselbe Container-Image nutzen. Jedes Image kann jedoch für einen anderen Zweck (wie Elasticsearch) verwendet werden. Mit Filtern können Sie Szenarien erstellen, in denen Ausführungshaken auf einigen, aber nicht unbedingt allen identischen Containern ausgeführt werden. Wenn Sie mehrere Filter für einen einzelnen Testausführungshaken erstellen, werden diese mit einem logischen UND einem Operator kombiniert. Pro Testsuite können Sie bis zu 10 aktive Filter haben.
 
-Jeder Filter, den Sie einem Execution Hook hinzufügen, verwendet einen regulären Ausdruck, um Container in Ihrem Cluster zu entsprechen. Wenn ein Haken einem Container entspricht, führt der Haken sein zugehöriges Skript auf diesem Container aus.
+Jeder Filter, den Sie einem Execution Hook hinzufügen, verwendet einen regulären Ausdruck, um Container in Ihrem Cluster zu entsprechen. Wenn ein Haken einem Container entspricht, führt der Haken sein zugehöriges Skript auf diesem Container aus. Reguläre Ausdrücke für Filter verwenden die Syntax des regulären Ausdrucks 2 (RE2), die das Erstellen eines Filters nicht unterstützt, der Container aus der Liste der Übereinstimmungen ausschließt. Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter https://github.com/google/re2/wiki/Syntax["Syntaxunterstützung für regulären Ausdruck 2 (RE2)"^].
 
 
-NOTE: Reguläre Ausdrücke für Filter verwenden die Syntax des regulären Ausdrucks 2 (RE2), die das Erstellen eines Filters nicht unterstützt, der Container aus der Liste der Übereinstimmungen ausschließt.
-
-Informationen zur Syntax, die Astra Control für regelmäßige Ausdrücke in Hook-Filter unterstützt, finden Sie unter https://github.com/google/re2/wiki/Syntax["Syntaxunterstützung für regulären Ausdruck 2 (RE2)"^].
+NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
 
 
 
@@ -48,7 +47,8 @@ Bei der Planung von Testausführungshooks für Ihre Apps sollten Sie Folgendes b
 
 [NOTE]
 ====
-Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt. Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
+Da Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt werden, oft reduzieren oder vollständig deaktivieren, sollten Sie immer versuchen, die Zeit zu minimieren, die Ihre benutzerdefinierten Testausführungshaken für die Ausführung benötigt.
+Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
 
 ====
 * Ein Testsuite muss ein Skript verwenden, um Aktionen durchzuführen. Viele Testsuitehaoks können auf dasselbe Skript verweisen.
@@ -58,9 +58,12 @@ Da die Testsuitehingel die Funktionalität der Anwendung, für die sie ausgefüh
 * Alle Fehler bei den Testausführungshaken sind weiche Ausfälle, andere Haken und der Datenschutzvorgang werden immer noch versucht, auch wenn ein Haken ausfällt. Wenn ein Haken jedoch ausfällt, wird ein Warnereignis im Ereignisprotokoll der Seite * aufgezeichnet.
 * Um Testsuiten zu erstellen, zu bearbeiten oder zu löschen, müssen Sie Benutzer mit den Berechtigungen Eigentümer, Administrator oder Mitglied sein.
 * Wenn ein Execution Hook länger als 25 Minuten dauert, schlägt der Hook fehl und erstellt einen Ereignisprotokolleintrag mit einem Rückgabecode von „N/A“. Jeder betroffene Snapshot wird als fehlgeschlagen markiert, und ein resultierender Eintrag im Ereignisprotokoll weist auf das Timeout hin.
-* Bei Ad-hoc-Datenschutzvorgängen werden alle Hook-Ereignisse im Ereignisprotokoll auf der Seite * erzeugt und gespeichert. Bei geplanten Datenschutzvorgängen werden jedoch nur Hook-Failure-Ereignisse im Ereignisprotokoll aufgezeichnet (Ereignisse, die von den geplanten Datenschutzvorgängen selbst generiert werden, werden noch aufgezeichnet).
-* Wenn Astra Control Center einen Failover über eine replizierte Quell-App zur Ziel-App ausführt, werden nach Abschluss des Failovers alle für die Quell-App aktivierten Ausführungs-Hooks nach der Wiederherstellung für die Ziel-App ausgeführt.
-* Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
+* Für Ad-hoc-Datenschutzvorgänge werden alle Hook-Ereignisse generiert und im Ereignisprotokoll der Seite *Aktivität* gespeichert. Bei geplanten Datenschutzvorgängen werden jedoch nur Hook-Failure-Ereignisse im Ereignisprotokoll aufgezeichnet (Ereignisse, die von den geplanten Datenschutzvorgängen selbst generiert werden, werden noch aufgezeichnet).
+* Wenn Astra Control Center einen Failover über eine replizierte Quell-App an die Ziel-App ausführt, werden nach dem Failover alle für die Quell-App aktivierten Ausführungs-Hooks für die Ziel-App ausgeführt.
++
+
+NOTE: Wenn Sie nach der Wiederherstellung Hooks mit Astra Control Center 23.04 ausgeführt und Ihr Astra Control Center auf 23.07 aktualisiert haben, werden die Hooks für die Ausführung nach der Wiederherstellung nach einer Failover-Replizierung nicht mehr ausgeführt. Sie müssen neue Ausführungshaken nach dem Failover für Ihre Apps erstellen. Alternativ können Sie den Operationstyp vorhandener Hooks nach der Wiederherstellung ändern, die für Failover von „nach der Wiederherstellung“ zu „nach dem Failover“ gedacht sind.
+
 
 
 
@@ -74,7 +77,7 @@ Wenn ein Datenschutzvorgang ausgeführt wird, finden Hakenereignisse in der folg
 . Alle entsprechenden benutzerdefinierten Testhaken für die Ausführung nach der Operation werden auf den entsprechenden Containern ausgeführt. Sie können beliebig viele benutzerdefinierte Haken für die Nachbearbeitung erstellen und ausführen, aber die Reihenfolge der Ausführung dieser Haken nach der Operation ist weder garantiert noch konfigurierbar.
 
 
-Wenn Sie mehrere Testausführungshaken desselben Typs erstellen (z. B. Pre-Snapshot), ist die Reihenfolge der Ausführung dieser Haken nicht garantiert. Die Reihenfolge der Ausführung von Haken unterschiedlicher Art ist jedoch garantiert. So würde beispielsweise die Reihenfolge der Ausführung einer Konfiguration mit allen fünf verschiedenen Hooks aussehen:
+Wenn Sie mehrere Testausführungshaken desselben Typs erstellen (z. B. Pre-Snapshot), ist die Reihenfolge der Ausführung dieser Haken nicht garantiert. Die Reihenfolge der Ausführung von Haken unterschiedlicher Art ist jedoch garantiert. Die Reihenfolge der Ausführung einer Konfiguration mit allen verschiedenen Hooks sieht beispielsweise folgendermaßen aus:
 
 . Hooks vor dem Backup wurden ausgeführt
 . Hooks vor dem Snapshot wurden ausgeführt
@@ -109,40 +112,46 @@ Wenn Sie starten, aber dann brechen Sie ein Backup, das einen Snapshot enthält 
 
 ====
 |===
-| Szenario | Betrieb | Vorhandener Snapshot | Vorhandenes Backup | Namespace | Cluster | Snapshot Hooks laufen | Backup Hooks laufen | Hooks Run wiederherstellen 
+| Szenario | Betrieb | Vorhandener Snapshot | Vorhandenes Backup | Namespace | Cluster | Snapshot Hooks laufen | Backup Hooks laufen | Hooks Run wiederherstellen | Failover Hooks werden ausgeführt 
 
 
-| 1 | Klon | N | N | Neu | Gleich | Y | N | Y 
+| 1 | Klon | N | N | Neu | Gleich | Y | N | Y | N 
 
 
-| 2 | Klon | N | N | Neu | Anders | Y | Y | Y 
+| 2 | Klon | N | N | Neu | Anders | Y | Y | Y | N 
 
 
-| 3 | Klonen oder Wiederherstellen | Y | N | Neu | Gleich | N | N | Y 
+| 3 | Klonen oder Wiederherstellen | Y | N | Neu | Gleich | N | N | Y | N 
 
 
-| 4 | Klonen oder Wiederherstellen | N | Y | Neu | Gleich | N | N | Y 
+| 4 | Klonen oder Wiederherstellen | N | Y | Neu | Gleich | N | N | Y | N 
 
 
-| 5 | Klonen oder Wiederherstellen | Y | N | Neu | Anders | N | N | Y 
+| 5 | Klonen oder Wiederherstellen | Y | N | Neu | Anders | N | N | Y | N 
 
 
-| 6 | Klonen oder Wiederherstellen | N | Y | Neu | Anders | N | N | Y 
+| 6 | Klonen oder Wiederherstellen | N | Y | Neu | Anders | N | N | Y | N 
 
 
-| 7 | Wiederherstellen | Y | N | Vorhanden | Gleich | N | N | Y 
+| 7 | Wiederherstellen | Y | N | Vorhanden | Gleich | N | N | Y | N 
 
 
-| 8 | Wiederherstellen | N | Y | Vorhanden | Gleich | N | N | Y 
+| 8 | Wiederherstellen | N | Y | Vorhanden | Gleich | N | N | Y | N 
 
 
-| 9 | Snapshot | K. A. | K. A. | K. A. | K. A. | Y | K. A. | K. A. 
+| 9 | Snapshot | K. A. | K. A. | K. A. | K. A. | Y | K. A. | K. A. | N 
 
 
-| 10 | Backup | N | K. A. | K. A. | K. A. | Y | Y | K. A. 
+| 10 | Backup | N | K. A. | K. A. | K. A. | Y | Y | K. A. | N 
 
 
-| 11 | Backup | Y | K. A. | K. A. | K. A. | N | N | K. A. 
+| 11 | Backup | Y | K. A. | K. A. | K. A. | N | N | K. A. | N 
+
+
+| 12 | Failover | Y | K. A. | Durch Replikation erstellt | Anders | N | N | N | Y 
+
+
+| 13 | Failover | Y | K. A. | Durch Replikation erstellt | Gleich | N | N | N | Y 
 |===
 
 
@@ -182,7 +191,7 @@ Auf dieser Seite sehen Sie eine Liste mit bereits hochgeladenen Skripten. Die Sp
 
 == Fügen Sie ein Skript hinzu
 
-Jeder Execution Hook muss ein Skript verwenden, um Aktionen durchzuführen. Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Testsuitehaoks können auf dasselbe Skript verweisen. So können Sie viele Testsuiten aktualisieren, indem Sie nur ein Skript ändern.
+Jeder Execution Hook muss ein Skript verwenden, um Aktionen durchzuführen. Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Ausführungshaken können auf dasselbe Skript verweisen. Dadurch können Sie viele Ausführungshaken aktualisieren, indem Sie nur ein Skript ändern.
 
 .Schritte
 . Gehen Sie zu *Konto*.
@@ -235,7 +244,7 @@ NOTE: Wenn das Skript mit einem oder mehreren Testsuiten verknüpft ist, ist die
 
 == Erstellen Sie einen benutzerdefinierten Testsuite-Haken
 
-Sie können einen benutzerdefinierten Testsuite-Haken für eine App erstellen. Siehe <<Beispiele für Testausführungshaken>> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.
+Sie können einen benutzerdefinierten Ausführungshaken für eine App erstellen und ihn zu Astra Control hinzufügen. Siehe <<Beispiele für Testausführungshaken>> Beispiele für Haken. Sie müssen über die Berechtigungen Eigentümer, Administrator oder Mitglied verfügen, um Testausführungshaken zu erstellen.
 
 
 NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.

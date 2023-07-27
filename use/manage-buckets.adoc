@@ -151,5 +151,5 @@ NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien g
 
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation["Verwenden Sie die Astra Control API"^]
 

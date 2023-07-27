@@ -91,7 +91,7 @@ Nein Astra Control kann zwar Applikationen erkennen, die Storage anderer Anbiete
 
 *Sollte ich Astra Control selbst managen?*
 
-Nein, Astra Control sollte nicht selbst gemanagt werden, da es sich um eine „System-Anwendung“ handelt.
+Astra Control Center wird standardmäßig nicht als eine Applikation angezeigt, die Sie managen können. Sie können jedoch eine Astra Control Center-Instanz sichern und wiederherstellen.
 
 *Wirken sich ungesunde Pods auf das App-Management aus?*
 

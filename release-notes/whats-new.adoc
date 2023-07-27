@@ -16,25 +16,15 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 
 
 
-== 18. Mai 2023 (23.04.2)
-
-Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unterstützung für https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Externer Kubernetes CSI-Snapshot v6.1.0"^] Und behebt Folgendes:
-
-* Ein Fehler bei der Wiederherstellung von Anwendungen vor Ort, wenn Ausführungshaken verwendet werden
-* Verbindungsprobleme mit dem Bucket-Service
-
-
-
-
-== 25. April 2023 (23.04.0)
+== 26. Juli 2023 (23.07.0)
 
 .Neue Funktionen und Support
-* link:../concepts/licensing.html["Bei neuen Astra Control Center-Installationen ist eine 90-Tage-Evaluierungslizenz standardmäßig aktiviert"^]
-* link:../use/execution-hooks.html["Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen"^]
-* link:../use/execution-hooks.html["Ausführungs-Hooks können jetzt nach dem Replizierungs-Failover mit Astra Control Center ausgeführt werden"^]
-* link:../use/restore-apps.html#migrate-from-ontap-nas-economy-storage-to-ontap-nas-storage["Unterstützung bei der Migration von Volumes aus der Klasse „ontap-nas-Economy“ in die Storage-Klasse „ontap-nas“"^]
-* link:../use/restore-apps.html#filter-resources-during-an-application-restore["Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung"^]
-* link:../use/manage-apps.html["Unterstützung für das Management von rein datenbasierten Applikationen"]
+* link:../get-started/requirements.html#storage-backends["Unterstützung für den Einsatz von NetApp MetroCluster in einer Stretch-Konfiguration als Storage Backend"^]
+* link:../get-started/requirements.html#storage-backends["Unterstützung von Longhorn als Storage-Backend"^]
+* link:../use/replicate_snapmirror.html#delete-an-application-replication-relationship["Applikationen können jetzt zwischen ONTAP-Back-Ends aus demselben Kubernetes-Cluster repliziert werden"]
+* link:../use/manage-remote-authentication.html["Astra Control Center unterstützt jetzt „userPrincipalName“ als alternatives Login-Attribut für Remote-Benutzer (LDAP)"^]
+* link:../use/execution-hooks.html["Der neue Ausführungs-Hook-Typ 'Post-Failover' kann nach dem Replikations-Failover mit Astra Control Center ausgeführt werden"^]
+* Klon-Workflows unterstützen jetzt nur Live-Klone (der aktuelle Status der gemanagten Applikation). Um aus einem Snapshot oder Backup zu klonen, verwenden Sie den link:../use/restore-apps.html["Wiederherstellen des Workflows"^].
 
 
 .Bekannte Probleme und Einschränkungen
@@ -44,8 +34,47 @@ Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unters
 
 
 
+== 18. Mai 2023 (23.04.2)
+
+.Details
+[%collapsible]
+====
+Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unterstützung für https://newreleases.io/project/github/kubernetes-csi/external-snapshotter/release/v6.1.0["Externer Kubernetes CSI-Snapshot v6.1.0"^] Und behebt Folgendes:
+
+* Ein Fehler bei der Wiederherstellung von Anwendungen vor Ort, wenn Ausführungshaken verwendet werden
+* Verbindungsprobleme mit dem Bucket-Service
+
+
+====
+
+
+== 25. April 2023 (23.04.0)
+
+.Details
+[%collapsible]
+====
+.Neue Funktionen und Support
+* https://docs.netapp.com/us-en/astra-control-center-2304/concepts/licensing.html["Bei neuen Astra Control Center-Installationen ist eine 90-Tage-Evaluierungslizenz standardmäßig aktiviert"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/execution-hooks.html["Verbesserte Funktionalität der Testsuitehasen mit zusätzlichen Filteroptionen"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/execution-hooks.html["Ausführungs-Hooks können jetzt nach dem Replizierungs-Failover mit Astra Control Center ausgeführt werden"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/restore-apps.html#migrate-from-ontap-nas-economy-storage-to-ontap-nas-storage["Unterstützung bei der Migration von Volumes aus der Klasse „ontap-nas-Economy“ in die Storage-Klasse „ontap-nas“"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/restore-apps.html#filter-resources-during-an-application-restore["Unterstützung für das ein- oder Ausschließen von Anwendungsressourcen während der Wiederherstellung"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/use/manage-apps.html["Unterstützung für das Management von rein datenbasierten Applikationen"]
+
+
+.Bekannte Probleme und Einschränkungen
+* https://docs.netapp.com/us-en/astra-control-center-2304/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2304/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
+
+
+====
+
+
 == 22. November 2022 (22.11.0)
 
+.Details
+[%collapsible]
+====
 .Neue Funktionen und Support
 * https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung von Applikationen, die mehrere Namespaces umfassen"^]
 * https://docs.netapp.com/us-en/astra-control-center-2211/use/manage-apps.html#define-apps["Unterstützung, um Cluster-Ressourcen in eine Applikationsdefinition zu enthalten"^]
@@ -59,12 +88,17 @@ Dieses Patch-Release (23.04.2) für Astra Control Center (23.04.0) bietet Unters
 * https://docs.netapp.com/us-en/astra-control-center-2211/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
+====
 
 
 == 8. September 2022 (22.08.1)
 
+.Details
+[%collapsible]
+====
 Dieses Patch-Release (22.08.1) für Astra Control Center (22.08.0) behebt kleinere Bugs bei der App-Replikation mit NetApp SnapMirror.
 
+====
 
 
 == August 10 2022 (22.08.0)

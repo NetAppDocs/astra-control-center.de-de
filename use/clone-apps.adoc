@@ -14,10 +14,7 @@ summary: Eine vorhandene Applikation klonen, um eine doppelte Applikation auf de
 [role="lead"]
 Eine vorhandene Applikation kann geklont werden, um eine doppelte Applikation auf demselben Kubernetes-Cluster oder einem anderen Cluster zu erstellen. Wenn Astra Control eine Applikation klonen, wird ein Klon Ihrer Applikationskonfiguration und des persistenten Storage erstellt.
 
-Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben. Sie können die Astra Control Center-UI oder verwenden https://docs.netapp.com/us-en/astra-automation/index.html["Die Astra Control API"^] Zum Klonen und Migrieren von Applikationen
-
-
-NOTE: Wenn Sie einem Ausführungs-Hook einen Namespace-Filter hinzufügen, der nach einer Wiederherstellung oder einem Klonvorgang ausgeführt wird, und die Wiederherstellungs- oder Klonquelle und das Ziel in verschiedenen Namespaces liegen, wird der Namespace-Filter nur auf den Ziel-Namespace angewendet.
+Das Klonen kann sich leisten, wenn Sie Applikationen und Storage von einem Kubernetes Cluster zu einem anderen verschieben müssen. So möchten Sie beispielsweise Workloads über eine CI/CD-Pipeline und über Kubernetes-Namespaces verschieben. Sie können die Astra Control Center-UI oder verwenden https://docs.netapp.com/us-en/astra-automation["Astra Control API"^] Zum Klonen und Migrieren von Applikationen
 
 .Bevor Sie beginnen
 * *Zieldatenträger prüfen*: Wenn Sie in eine andere Speicherklasse klonen, stellen Sie sicher, dass die Speicherklasse den gleichen persistenten Zugriffsmodus für Volumes verwendet (z. B. ReadWriteMany). Der Klonvorgang schlägt fehl, wenn der Zugriffsmodus des persistenten Volume-Ziels anders ist. Wenn das persistente Quell-Volume beispielsweise den RWX-Zugriffsmodus verwendet, wählen Sie eine Ziel-Storage-Klasse aus, die RWX nicht bereitstellen kann, wie z. B. Azure Managed Disks, AWS EBS, Google Persistent Disk oder `ontap-san`, Führt dazu, dass der Klonvorgang fehlschlägt. Weitere Informationen zu den Zugriffsmodi für persistente Volumes finden Sie im https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes["Kubernetes"^] Dokumentation.
@@ -41,6 +38,7 @@ Beim Klonen von Applikationen in OpenShift-Umgebungen muss das Astra Control Cen
 * *Klone verwenden Standard-Buckets*: Während einer App-Sicherung oder App-Wiederherstellung können Sie optional eine Bucket-ID angeben. Ein Applikationsklonvorgang verwendet jedoch immer den definierten Standard-Bucket. Es besteht keine Möglichkeit, die Buckets für einen Klon zu ändern. Wenn Sie die Kontrolle darüber haben möchten, welcher Bucket verwendet wird, können Sie entweder link:../use/manage-buckets.html#edit-a-bucket["Ändern Sie den Bucket-Standard"] Oder machen Sie ein link:../use/protect-apps.html#create-a-backup["Backup"] Gefolgt von A link:../use/restore-apps.html["Wiederherstellen"] Separat.
 * *Mit Jenkins CI*: Wenn Sie eine vom Betreiber implementierte Instanz von Jenkins CI klonen, müssen Sie die persistenten Daten manuell wiederherstellen. Dies ist eine Einschränkung des Bereitstellungsmodells der Applikation.
 * *Mit S3 Buckets*: S3 Buckets im Astra Control Center melden keine verfügbare Kapazität. Bevor Sie Backups oder Klonanwendungen durchführen, die von Astra Control Center gemanagt werden, sollten Sie die Bucket-Informationen im ONTAP oder StorageGRID Managementsystem prüfen.
+* *Mit einer bestimmten Version von PostgreSQL*: App-Klone innerhalb desselben Clusters schlagen mit dem Bitnami PostgreSQL 11.5.0-Chart konsequent fehl. Um erfolgreich zu klonen, verwenden Sie eine frühere oder höhere Version des Diagramms.
 
 
 .OpenShift-Überlegungen
@@ -70,12 +68,6 @@ Beim Klonen von Applikationen in OpenShift-Umgebungen muss das Astra Control Cen
 +
 
 NOTE: Astra Control erstellt im Rahmen des Klonvorgangs neue Ziel-Namespaces. Die angegebenen Ziel-Namespaces dürfen nicht bereits im Ziel-Cluster vorhanden sein.
-
-** Wählen Sie *Weiter*.
-** Wählen Sie aus, ob Sie den Klon aus einem vorhandenen Snapshot oder einem vorhandenen Backup erstellen möchten. Wenn Sie diese Option nicht wählen, erstellt Astra Control Center den Klon aus dem aktuellen Status der App.
-+
-*** Wenn Sie aus einem vorhandenen Snapshot oder Backup klonen möchten, wählen Sie den Snapshot oder das Backup aus, den Sie verwenden möchten.
-
 
 ** Wählen Sie *Weiter*.
 ** Wählen Sie aus, ob die der App zugeordnete ursprüngliche Storage-Klasse beibehalten oder eine andere Storage-Klasse ausgewählt werden soll.

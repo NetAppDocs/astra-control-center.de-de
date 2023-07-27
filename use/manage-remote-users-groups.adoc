@@ -18,13 +18,13 @@ Wenn Sie die LDAP-Authentifizierung auf Ihrem Astra Control System aktiviert hab
 
 == Fügen Sie einen Remote-Benutzer hinzu
 
-Kontoinhaber und -Administratoren können Remote-Benutzer zu Astra Control hinzufügen.
+Kontoinhaber und -Administratoren können Remote-Benutzer zu Astra Control hinzufügen. Astra Control Center unterstützt bis zu 10,000 LDAP Remote-Benutzer.
 
 
-NOTE: Remote-Benutzer können nicht hinzugefügt werden, wenn bereits ein lokaler Benutzer mit derselben E-Mail-Adresse im System vorhanden ist. Um den Benutzer als Remote-Benutzer hinzuzufügen, löschen Sie zuerst den lokalen Benutzer aus dem System.
+IMPORTANT: Astra Control Center verwendet das bei aktivierter Remote-Authentifizierung konfigurierte Attribut für die Benutzeranmeldung, um Remote-Benutzer zu suchen und zu verfolgen. Für jeden Remote-Benutzer, den Sie im Astra Control Center anzeigen möchten, muss in diesem Feld ein Attribut einer E-Mail-Adresse („Mail“) oder eines Hauptnamens des Benutzers („userPrincipalName“) vorhanden sein. Dieses Attribut wird als Benutzername in Astra Control Center für die Authentifizierung und bei der Suche nach Remote-Benutzern verwendet.
 
 
-IMPORTANT: Astra Control Center verwendet die E-Mail-Adresse im LDAP-Attribut „Mail“, um Remote-Benutzer zu suchen und zu verfolgen. Dieses Attribut kann ein optionales oder leeres Feld in Ihrem Verzeichnis sein. In diesem Feld muss für alle Remote-Benutzer, die im Astra Control Center erscheinen sollen, eine E-Mail-Adresse vorhanden sein. Diese E-Mail-Adresse wird als Benutzername im Astra Control Center zur Authentifizierung verwendet.
+NOTE: Sie können keinen Remote-Benutzer hinzufügen, wenn bereits ein lokaler Benutzer mit derselben E-Mail-Adresse (basierend auf dem Attribut „Mail“ oder „user principal Name“) auf dem System vorhanden ist. Um den Benutzer als Remote-Benutzer hinzuzufügen, löschen Sie zuerst den lokalen Benutzer aus dem System.
 
 .Schritte
 . Gehen Sie zum Bereich *Konto*.
@@ -53,7 +53,9 @@ Der neue Benutzer wird in der Liste der Remote-Benutzer angezeigt. In dieser Lis
 
 == Fügen Sie eine externe Gruppe hinzu
 
-Wenn Sie viele Remote-Benutzer gleichzeitig hinzufügen möchten, können Kontoinhaber und -Administratoren Remote-Gruppen zu Astra Control hinzufügen. Wenn Sie eine Remote-Gruppe hinzufügen, werden alle Remote-Benutzer in dieser Gruppe zu Astra Control hinzugefügt und übernehmen die gleiche Rolle.
+Wenn Sie viele Remote-Benutzer gleichzeitig hinzufügen möchten, können Kontoinhaber und -Administratoren Remote-Gruppen zu Astra Control hinzufügen. Wenn Sie eine Remote-Gruppe hinzufügen, können sich alle Remote-Benutzer in dieser Gruppe bei Astra Control anmelden und übernehmen die gleiche Rolle wie die Gruppe.
+
+Astra Control Center unterstützt bis zu 5,000 LDAP-Remote-Gruppen.
 
 .Schritte
 . Gehen Sie zum Bereich *Konto*.
@@ -79,4 +81,4 @@ NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zu
 
 
 .Ergebnis
-Die neue Gruppe wird in der Liste der Remote-Gruppen angezeigt, und alle Remote-Benutzer in dieser Gruppe werden in der Liste der Remote-Benutzer angezeigt. In dieser Liste können Sie Details über die Gruppe anzeigen und die Gruppe über das Menü *Aktionen* verwalten.
+Die neue Gruppe wird in der Liste der Remote-Gruppen angezeigt. Remote-Benutzer in dieser Gruppe werden erst dann in der Liste der Remote-Benutzer angezeigt, wenn sich jeder Remote-Benutzer anmeldet. In dieser Liste können Sie Details über die Gruppe anzeigen und die Gruppe über das Menü *Aktionen* verwalten.

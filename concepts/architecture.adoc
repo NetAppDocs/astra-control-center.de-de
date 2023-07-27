@@ -61,7 +61,7 @@ Mit Astra Control Center können Sie auch Kubernetes Cluster in VM-Umgebungen ma
 * https://docs.netapp.com/us-en/astra/index.html["Dokumentation des Astra Control Service"^]
 * https://docs.netapp.com/us-en/astra-control-center/index.html["Astra Control Center-Dokumentation"^]
 * https://docs.netapp.com/us-en/trident/index.html["Astra Trident-Dokumentation"^]
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation["Verwenden Sie die Astra Control API"^]
 * https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights-Dokumentation"^]
 * https://docs.netapp.com/us-en/ontap/index.html["ONTAP-Dokumentation"^]
 

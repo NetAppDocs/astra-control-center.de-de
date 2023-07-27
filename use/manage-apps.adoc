@@ -75,7 +75,7 @@ kubectl apply -f myapp.yaml
 Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
 
 +
-** https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+** https://github.com/k8ssandra/cass-operator["Apache K8ssandra"^]
 +
 
 NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
@@ -139,7 +139,7 @@ Mit der Definition einer App haben Sie eine granularere Kontrolle über die Ausw
 
 WARNING: Stellen Sie bei der Definition von Applikationen sicher, dass Sie keine Kubernetes-Ressource in mehrere Applikationen mit Sicherungsrichtlinien aufnehmen. Überlappende Sicherungsrichtlinien für Kubernetes-Ressourcen können zu Datenkonflikten führen. <<Beispiel: Separate Sicherungsrichtlinie für verschiedene Versionen,Lesen Sie mehr in einem Beispiel.>>
 
-.Erfahren Sie mehr über das Hinzufügen von Ressourcen im Cluster-Umfang zu Ihren Applikationsnamensräumen.
+.Erweitern Sie, um weitere Informationen über das Hinzufügen von Ressourcen mit Clusterbereich zu Ihren App-Namespaces zu erhalten.
 [%collapsible]
 ====
 Außerdem können Sie Clusterressourcen importieren, die den Namespace-Ressourcen zugeordnet sind und die automatisch mit Astra Control integriert sind. Sie können eine Regel hinzufügen, die Ressourcen einer bestimmten Gruppe, Art, Version und optional eine Bezeichnung enthält. Dies sollten Sie tun, wenn Astra Control nicht automatisch Ressourcen enthält.
@@ -249,7 +249,7 @@ Sie können Systemnames auf der Registerkarte Namespaces für ein ausgewähltes 
 image:acc_namespace_system.png["Ein Screenshot, der die Option *System Namespaces* zeigt, die auf der Registerkarte Namesaces verfügbar ist."]
 
 
-TIP: Astra Control selbst ist keine Standard-App, sondern eine „System-App“. Sie sollten nicht versuchen, Astra Control selbst zu verwalten. Astra Control selbst wird für das Management nicht standardmäßig angezeigt.
+TIP: Astra Control Center wird standardmäßig nicht als eine Applikation angezeigt, die Sie managen können. Sie können jedoch eine Astra Control Center-Instanz sichern und wiederherstellen.
 
 
 
@@ -267,6 +267,6 @@ Um mögliche Datenkonflikte zu vermeiden, erstellt der Admin zwei Apps: Eine fü
 
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation["Verwenden Sie die Astra Control API"^]
 * link:../use/unmanage.html["Verwaltung einer Anwendung aufheben"]
 

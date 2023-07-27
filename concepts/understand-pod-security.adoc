@@ -22,7 +22,7 @@ Anhand der hier enthaltenen Informationen und Beispiele können Sie die Sicherhe
 
 == PSAs durch Astra Control Center durchgesetzt
 
-Während der Installation ermöglicht Astra Control Center die Durchsetzung einer Padsicherheitszulassung, indem das folgende Etikett zum hinzugefügt wird `netapp-acc` Oder ein benutzerdefinierter Namespace:
+Astra Control Center ermöglicht die Durchsetzung einer Pod-Sicherheitsaufnahme, indem dem Namespace, auf dem Astra installiert ist, das folgende Label hinzugefügt wird (netapp-ACC oder benutzerdefinierter Namespace) und für Backups erstellte Namespaces.
 
 [listing]
 ----

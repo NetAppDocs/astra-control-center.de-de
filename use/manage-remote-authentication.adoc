@@ -17,7 +17,7 @@ LDAP ist ein branchenübliches Protokoll für den Zugriff auf verteilte Verzeich
 Auf hohem Niveau beinhaltet die Konfiguration die Integration von Astra mit LDAP und die Definition der Astra Control Benutzer und Gruppen entsprechend der LDAP-Definitionen. Sie können die Astra Control API oder die Web-Benutzeroberfläche verwenden, um die LDAP-Authentifizierung und LDAP-Benutzer und -Gruppen zu konfigurieren.
 
 
-IMPORTANT: Astra Control Center verwendet die E-Mail-Adresse im LDAP-Attribut „Mail“, um Remote-Benutzer zu suchen und zu verfolgen. Dieses Attribut kann ein optionales oder leeres Feld in Ihrem Verzeichnis sein. In diesem Feld muss für alle Remote-Benutzer, die im Astra Control Center erscheinen sollen, eine E-Mail-Adresse vorhanden sein. Diese E-Mail-Adresse wird als Benutzername im Astra Control Center zur Authentifizierung verwendet.
+IMPORTANT: Astra Control Center verwendet das bei aktivierter Remote-Authentifizierung konfigurierte Attribut für die Benutzeranmeldung, um Remote-Benutzer zu suchen und zu verfolgen. Für jeden Remote-Benutzer, den Sie im Astra Control Center anzeigen möchten, muss in diesem Feld ein Attribut einer E-Mail-Adresse („Mail“) oder eines Hauptnamens des Benutzers („userPrincipalName“) vorhanden sein. Dieses Attribut wird als Benutzername in Astra Control Center für die Authentifizierung und bei der Suche nach Remote-Benutzern verwendet.
 
 
 
@@ -53,7 +53,12 @@ Wenn Sie LDAPS verwenden möchten, stellen Sie sicher, dass das private TLS-Zert
 NOTE: Verwenden Sie als Best Practice LDAPS, wenn Sie eine Verbindung zum LDAP-Server herstellen. Vor der Verbindung mit LDAPS müssen Sie das private TLS-Zertifikat des LDAP-Servers in Astra Control Center installieren.
 
 . Geben Sie die Anmeldeinformationen für das Servicekonto im E-Mail-Format ein (administrator@example.com). Astra Control verwendet diese Anmeldeinformationen, wenn Sie eine Verbindung mit dem LDAP-Server herstellen.
-. Geben Sie im Abschnitt *User Match* den Basis-DN und einen entsprechenden Benutzersuchfilter ein, der beim Abrufen von Benutzerinformationen vom LDAP-Server verwendet werden soll.
+. Gehen Sie im Abschnitt *User Match* wie folgt vor:
++
+.. Geben Sie den Basis-DN und einen entsprechenden Benutzersuchfilter ein, der beim Abrufen von Benutzerinformationen vom LDAP-Server verwendet werden soll.
+.. (Optional) Wenn Ihr Verzeichnis das Benutzeranmeldungsattribut verwendet `userPrincipalName` Statt `mail`, Geben Sie ein `userPrincipalName` Geben Sie im Feld *User Login Attribut* das richtige Attribut ein.
+
+
 . Geben Sie im Abschnitt *Gruppenvergleich* den Gruppen-Suchsockel-DN und einen entsprechenden benutzerdefinierten Gruppensuchfilter ein.
 +
 
@@ -106,7 +111,7 @@ NOTE: Sie können die URL oder IP-Adresse des LDAP-Servers nicht bearbeiten, wen
 Sie können die Verbindung zu einem LDAP-Server trennen und die Konfigurationseinstellungen von Astra Control entfernen.
 
 
-CAUTION: Wenn Sie die Verbindung zum LDAP-Server trennen, werden alle Konfigurationseinstellungen für diesen LDAP-Server aus Astra Control sowie alle Remote-Benutzer und -Gruppen entfernt, die diesem LDAP-Server hinzugefügt wurden.
+CAUTION: Wenn Sie ein LDAP-Benutzer sind und die Verbindung trennen, wird Ihre Sitzung sofort beendet Wenn Sie die Verbindung zum LDAP-Server trennen, werden alle Konfigurationseinstellungen für diesen LDAP-Server aus Astra Control sowie alle Remote-Benutzer und -Gruppen entfernt, die diesem LDAP-Server hinzugefügt wurden.
 
 .Schritte
 . Gehen Sie zu *Konto > Verbindungen*.

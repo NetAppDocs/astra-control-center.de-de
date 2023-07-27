@@ -25,7 +25,7 @@ Sie können Details zum Cluster anzeigen, z. B. seinen Standort, die Worker-Node
 . Wählen Sie auf der Seite *Cluster* den Cluster aus, dessen Details Sie anzeigen möchten.
 +
 
-NOTE: Wenn ein Cluster vorhanden ist `removed` Der Zustand der Cluster- und Netzwerk-Konnektivität erscheint jedoch ordnungsgemäß (externe Versuche, mit Kubernetes-APIs erfolgreich auf das Cluster zuzugreifen, sind dennoch erfolgreich), ist das Kubeconsg, das Sie Astra Control zur Verfügung gestellt haben, möglicherweise nicht mehr gültig. Dies kann an einer Zertifikatrotation oder einem Ablaufdatum im Cluster liegen. Um dieses Problem zu beheben, aktualisieren Sie die Anmeldeinformationen, die mit dem Cluster in Astra Control verbunden sind, mithilfe des link:https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"].
+NOTE: Wenn ein Cluster vorhanden ist `removed` Der Zustand der Cluster- und Netzwerk-Konnektivität erscheint jedoch ordnungsgemäß (externe Versuche, mit Kubernetes-APIs erfolgreich auf das Cluster zuzugreifen, sind dennoch erfolgreich), ist das Kubeconsg, das Sie Astra Control zur Verfügung gestellt haben, möglicherweise nicht mehr gültig. Dies kann an einer Zertifikatrotation oder einem Ablaufdatum im Cluster liegen. Um dieses Problem zu beheben, aktualisieren Sie die Anmeldeinformationen, die mit dem Cluster in Astra Control verbunden sind, mithilfe des https://docs.netapp.com/us-en/astra-automation["Astra Control API"].
 
 . Zeigen Sie die Informationen auf den Registerkarten *Übersicht*, *Speicher* und *Aktivität* an, um die gewünschten Informationen zu finden.
 +

@@ -21,7 +21,6 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 .Einschränkungen bei der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC
 * <<Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben>>
-* <<Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt>>
 
 
 .Einschränkungen beim Applikationsmanagement
@@ -32,16 +31,16 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 * <<In-Place-Wiederherstellungsvorgänge von Anwendungen, die einen Zertifikatmanager verwenden, werden nicht unterstützt>>
 * <<Vom Betreiber bereitgestellte Apps mit OLM-Enabled und Cluster-Scoped werden nicht unterstützt>>
 * <<Mit Helm 2 implementierte Apps werden nicht unterstützt>>
+* <<Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise>>
+* <<Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt>>
 
 
 .Allgemeine Einschränkungen
+* <<Einschränkungen für LDAP-Benutzer und -Gruppen>>
 * <<S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität>>
 * <<Astra Control Center überprüft nicht die von Ihnen eingegebenen Details für Ihren Proxy-Server>>
 * <<Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern>>
-* <<Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt>>
-* <<Einschränkungen für LDAP-Benutzer und -Gruppen>>
 * <<Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt>>
-* <<Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise>>
 
 
 
@@ -100,12 +99,6 @@ Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hi
 
 
 
-== Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt
-
-Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
-
-
-
 == Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden
 
 Wenn Sie mehrere Applikationen in einem einzigen Namespace managen (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Applikationen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
@@ -128,7 +121,7 @@ Astra Control weist keinem Cloud-Instanz automatisch einen Standard-Bucket zu. S
 
 Astra Control unterstützt Applikationen, die mit Betreibern im Namespace-Umfang installiert sind. Diese Betreiber sind in der Regel mit einer "Pass-by-Value"-Architektur statt "Pass-by-reference"-Architektur ausgelegt. Im Folgenden sind einige Bedieneranwendungen aufgeführt, die folgende Muster befolgen:
 
-* https://github.com/k8ssandra/cass-operator/tree/v1.7.1["Apache K8ssandra"^]
+* https://github.com/k8ssandra/cass-operator["Apache K8ssandra"^]
 +
 
 NOTE: Für K8ssandra werden in-Place-Wiederherstellungsvorgänge unterstützt. Für einen Restore-Vorgang in einem neuen Namespace oder Cluster muss die ursprüngliche Instanz der Applikation ausgefallen sein. Dadurch soll sichergestellt werden, dass die überführten Peer-Group-Informationen nicht zu einer instanzübergreifenden Kommunikation führen. Das Klonen der App wird nicht unterstützt.
@@ -162,6 +155,35 @@ Wenn Sie Helm zur Implementierung von Apps verwenden, erfordert Astra Control Ce
 
 
 
+== Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise
+
+Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.
+
+Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:
+
+. Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
+
+
+
+
+== Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt
+
+Wenn Sie über eine Evaluierungslizenz verfügen, sollten Sie Ihre Konto-ID speichern, um Datenverlust im Falle eines Ausfalls des Astra Control Center zu vermeiden, wenn Sie ASUPs nicht senden.
+
+
+
+== Einschränkungen für LDAP-Benutzer und -Gruppen
+
+Astra Control Center unterstützt bis zu 5,000 Remote-Gruppen und 10,000 Remote-Benutzer.
+
+Astra Control unterstützt keine LDAP-Entität (Benutzer oder Gruppe) mit einem DN, der einen RDN mit einem nachgestellten '\' oder nachgestellten Leerzeichen enthält.
+
+
+
 == S3 Buckets im Astra Control Center berichten nicht über die verfügbare Kapazität
 
 Bevor Sie Backups oder Klonanwendungen durchführen, die von Astra Control Center gemanagt werden, sollten Sie die Bucket-Informationen im ONTAP oder StorageGRID Managementsystem prüfen.
@@ -180,36 +202,9 @@ Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt inne
 
 
 
-== Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt
-
-Wenn Sie über eine Evaluierungslizenz verfügen, sollten Sie Ihre Konto-ID speichern, um Datenverlust im Falle eines Ausfalls des Astra Control Center zu vermeiden, wenn Sie ASUPs nicht senden.
-
-
-
-== Einschränkungen für LDAP-Benutzer und -Gruppen
-
-Astra Control Center unterstützt bis zu 5,000 Remote-Gruppen und 10,000 Remote-Benutzer.
-
-
-
 == Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt
 
-Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control REST-API"^].
-
-
-
-== Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise
-
-Snapshots für Kubernetes-Cluster, die Version 1.25 oder höher ausführen, können fehlschlagen, wenn Version v1beta1 der Snapshot-Controller-APIs auf dem Cluster installiert sind.
-
-Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernetes 1.25 oder höher die folgenden Schritte aus:
-
-. Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
-. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
-. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
-
+Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control API"^].
 
 
 

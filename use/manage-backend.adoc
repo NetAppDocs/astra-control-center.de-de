@@ -164,5 +164,5 @@ Sie können ein nicht mehr verwendenden Storage-Back-End entfernen. Nutzen Sie d
 
 == Weitere Informationen
 
-* https://docs.netapp.com/us-en/astra-automation/index.html["Verwenden Sie die Astra Control API"^]
+* https://docs.netapp.com/us-en/astra-automation["Verwenden Sie die Astra Control API"^]
 
