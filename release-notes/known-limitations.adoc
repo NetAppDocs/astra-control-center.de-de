@@ -21,6 +21,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 
 .Einschränkungen bei der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC
 * <<Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben>>
+* <<Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt>>
 
 
 .Einschränkungen beim Applikationsmanagement
@@ -96,6 +97,12 @@ current-context: kubernetes-admin@kubernetes
 == Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben
 
 Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hinzufügen oder aus dem Management rückgängig machen. Aufgrund der derzeitigen Beschränkungen verhindert Astra nicht, dass solche Benutzer Cluster nicht mehr verwalten.
+
+
+
+== Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt
+
+Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
 
 
 
