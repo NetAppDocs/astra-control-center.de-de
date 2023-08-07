@@ -464,6 +464,11 @@ additionalValues:
       startupProbe:
         periodSeconds: 30
         failureThreshold: 600
+    polaris-keycloak:
+      livenessProbe:
+        initialDelaySeconds: 180
+      readinessProbe:
+        initialDelaySeconds: 180
 ----
 . Speichern und beenden Sie den Dateieditor. Die Änderungen werden übernommen und das Upgrade beginnt.
 . (Optional) Stellen Sie sicher, dass die Pods beendet werden und wieder verfügbar sind:
