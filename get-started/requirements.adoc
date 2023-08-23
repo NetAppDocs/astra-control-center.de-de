@@ -143,7 +143,6 @@ Weitere MetroCluster Informationen zu den einzelnen Treibern finden Sie in der D
 
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-san-examples.html["San"^]
 * https://docs.netapp.com/us-en/trident/trident-use/ontap-nas-examples.html["NAS"^]
-* https://docs.netapp.com/us-en/trident/trident-use/trident-fsx-examples.html["FSX"^]
 
 
 
