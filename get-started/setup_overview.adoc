@@ -67,6 +67,12 @@ Sie sollten sicherstellen, dass die folgenden Voraussetzungen erfüllt sind, bev
 .Bevor Sie beginnen
 * Stellen Sie sicher, dass die Worker-Nodes in Ihrem Cluster mit den entsprechenden Storage-Treibern konfiguriert sind, damit die Pods mit dem Back-End Storage interagieren können.
 * Ihre Umgebung erfüllt die Anforderungen link:../get-started/requirements.html["Anforderungen an die Betriebsumgebung"^] Für Astra Trident und Astra Control Center.
+* Wenn Sie den Cluster mit einer kubeconfig-Datei hinzufügen, die auf eine private Zertifizierungsstelle verweist, fügen Sie der folgende Zeile hinzu `cluster` Abschnitt der Datei kubeconfig. So kann Astra Control das Cluster hinzufügen:
++
+[listing]
+----
+insecure-skip-tls-verify: true
+----
 * Eine Version von Astra Trident ist das link:../get-started/requirements.html#astra-trident-requirements["Unterstützt durch Astra Control Center"^] Installiert:
 +
 
