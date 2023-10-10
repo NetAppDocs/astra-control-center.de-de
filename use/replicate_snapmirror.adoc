@@ -55,6 +55,10 @@ Für die Replizierung der Astra Control Applikation müssen vor Beginn die folge
 * *Peering*:
 +
 ** *Cluster und SVM*: Die ONTAP Speicher-Back-Ends müssen aktiviert werden. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/peering/index.html["Übersicht über Cluster- und SVM-Peering"^] Finden Sie weitere Informationen.
++
+
+IMPORTANT: Vergewissern Sie sich, dass die in der Replizierungsbeziehung zwischen zwei ONTAP-Clustern verwendeten SVM-Namen eindeutig sind.
+
 ** *Astra Trident und SVM*: Die Peering von Remote-SVMs müssen für Astra Trident auf dem Ziel-Cluster verfügbar sein.
 
 
