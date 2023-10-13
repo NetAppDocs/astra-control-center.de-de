@@ -18,6 +18,8 @@ entries:
     url: "/use/clone-apps.html"
   - title: Anwendungsausführungshaken verwalten
     url: "/use/execution-hooks.html"
+  - title: Astra Control Center kann über Astra Control Center geschützt werden
+    url: "/use/protect-acc-with-acc.html"
 - title: Monitoring des Applikations- und Cluster-Systemzustands
   entries:
   - title: Dashboard-Übersicht
