@@ -47,7 +47,7 @@ link:https://www.netapp.com/company/legal/privacy-policy/["https://www.netapp.co
 
 In den Benachrichtigungsdateien finden Sie Informationen zu Urheberrechten und Lizenzen von Drittanbietern, die in der NetApp Software verwendet werden.
 
-* link:NOTICE_AstraControlCenter_23.07.0.pdf["Hinweis zu Astra Control Center 23.07.0"^]
+* link:NOTICE.pdf["Hinweis für Astra Control Center"^]
 
 
 

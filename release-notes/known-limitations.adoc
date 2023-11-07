@@ -42,6 +42,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 * <<Astra Control Center überprüft nicht die von Ihnen eingegebenen Details für Ihren Proxy-Server>>
 * <<Bestehende Verbindungen zu einem Postgres-Pod führen zu Fehlern>>
 * <<Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt>>
+* <<SnapMirror unterstützt keine Applikationen, die NVMe over TCP für Storage-Back-Ends verwenden>>
 
 
 
@@ -102,7 +103,7 @@ Benutzer mit rollenbasierten Namespace-Einschränkungen dürfen Cluster nicht hi
 
 == Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt
 
-Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem ein neuer Namespace durch einen Klon- oder Wiederherstellungsvorgang erstellt wurde, kann der Account-Administrator/-Eigentümer den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
+Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name/ID können eine Applikation in einem neuen Namespace im selben Cluster oder einem anderen Cluster im Konto des Unternehmens klonen oder wiederherstellen. Derselbe Benutzer kann jedoch nicht auf die geklonte oder wiederhergestellte Anwendung im neuen Namespace zugreifen. Nachdem durch einen Klon- oder Wiederherstellungsvorgang ein neuer Namespace erstellt wurde, kann der Kontoadministrator/Kontoinhaber den bearbeiten `member` Benutzerkonto und Aktualisierung von Rollenbeschränkungen für den betroffenen Benutzer, um den Zugriff auf den neuen Namespace zu gewähren.
 
 
 
@@ -212,6 +213,12 @@ Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt inne
 == Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt
 
 Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control API"^].
+
+
+
+== SnapMirror unterstützt keine Applikationen, die NVMe over TCP für Storage-Back-Ends verwenden
+
+Astra Control Center unterstützt keine NetApp SnapMirror Replizierung für Storage-Back-Ends, die das NVMe-over-TCP-Protokoll verwenden.
 
 
 

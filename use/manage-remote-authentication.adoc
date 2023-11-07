@@ -56,7 +56,7 @@ NOTE: Verwenden Sie als Best Practice LDAPS, wenn Sie eine Verbindung zum LDAP-S
 . Gehen Sie im Abschnitt *User Match* wie folgt vor:
 +
 .. Geben Sie den Basis-DN und einen entsprechenden Benutzersuchfilter ein, der beim Abrufen von Benutzerinformationen vom LDAP-Server verwendet werden soll.
-.. (Optional) Wenn Ihr Verzeichnis das Benutzeranmeldungsattribut verwendet `userPrincipalName` Statt `mail`, Geben Sie ein `userPrincipalName` Geben Sie im Feld *User Login Attribut* das richtige Attribut ein.
+.. (Optional) Wenn Ihr Verzeichnis das Benutzeranmeldungsattribut verwendet `userPrincipalName` Statt `mail`, Geben Sie ein `userPrincipalName` Geben Sie im Feld *Benutzer-Login-Attribut* das richtige Attribut ein.
 
 
 . Geben Sie im Abschnitt *Gruppenvergleich* den Gruppen-Suchsockel-DN und einen entsprechenden benutzerdefinierten Gruppensuchfilter ein.

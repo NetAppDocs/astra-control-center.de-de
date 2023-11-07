@@ -14,7 +14,7 @@ summary: 'NetApp bietet Unterstützung für Astra Control auf verschiedene Weise
 [role="lead"]
 Lernen Sie, wie Sie mit einigen häufigen Problemen umgehen können.
 
-https://kb.netapp.com/Cloud/Astra/Control["NetApp Knowledge Base für Astra"^]
+https://kb.netapp.com/Cloud/Astra/Control["NetApp Knowledge Base für Astra Control"^]
 
 [discrete]
 == Weitere Informationen

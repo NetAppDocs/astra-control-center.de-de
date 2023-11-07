@@ -18,10 +18,12 @@ Bekannte Probleme identifizieren Probleme, die Sie daran hindern könnten, diese
 Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 
 * <<App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird>>
-* <<Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde>>
 * <<Das Verwalten eines Clusters mit Astra Control Center schlägt fehl, wenn die Datei kubeconfig mehr als einen Kontext enthält>>
 * <<Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen>>
 * <<Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist>>
+* <<Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl>>
+* <<Die Wiederherstellung aus einem Backup bei Verwendung der Kerberos-Verschlüsselung während der Übertragung kann fehlschlagen>>
+* <<Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten>>
 
 
 
@@ -29,12 +31,6 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 == App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird
 
 Backups und Snapshots schlagen fehl `UI 500 error` In diesem Szenario. Aktualisieren Sie die App-Liste als Workaround.
-
-
-
-== Applikationsklone scheitern, nachdem eine Applikation mit einer festgelegten Storage-Klasse implementiert wurde
-
-Nachdem eine Applikation mit einer Storage-Klasse bereitgestellt wurde (z. B. `helm install ...-set global.storageClass=netapp-cvs-perf-extreme`). Nachfolgende Klonversuche der Applikation erfordern, dass das Ziel-Cluster die ursprünglich angegebene Storage-Klasse hat. Das Klonen einer Applikation mit einer explizit festgelegten Storage-Klasse auf ein Cluster ohne dieselbe Storage-Klasse schlägt fehl. Es gibt keine Wiederherstellungsschritte in diesem Szenario.
 
 
 
@@ -99,6 +95,30 @@ telegraf-rs-rrnsb 2/2 Running 0 11s
 == Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist
 
 Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder online geschaltet wird) und 500 interne Servicefehler auftreten, wenn versucht wird, das App-Datenmanagement zu managen, starten Sie alle Kubernetes-Nodes im App-Cluster neu, um die Funktionalität wiederherzustellen.
+
+
+
+== Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl
+
+Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"^] Um das Snapshot-Verzeichnis auszublenden.
+
+
+
+== Die Wiederherstellung aus einem Backup bei Verwendung der Kerberos-Verschlüsselung während der Übertragung kann fehlschlagen
+
+Wenn Sie eine Anwendung von einem Backup auf einem Speicher-Back-End wiederherstellen, das Kerberos in-Flight-Verschlüsselung verwendet, kann der Wiederherstellungsvorgang fehlschlagen. Dieses Problem hat keine Auswirkung auf die Wiederherstellung von einem Snapshot oder die Replizierung der Applikationsdaten mit NetApp SnapMirror.
+
+
+NOTE: Wenn Sie Kerberos-Verschlüsselung während der Übertragung mit NFSv4-Volumes verwenden, stellen Sie sicher, dass die NFSv4-Volumes die richtigen Einstellungen verwenden. Weitere Informationen finden Sie im Abschnitt NetApp NFSv4-Domänenkonfiguration (Seite 13) des https://www.netapp.com/media/16398-tr-3580.pdf["NetApp Leitfaden zu NFSv4-Verbesserungen und Best Practices"^].
+
+
+
+== Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten
+
+Wenn Sie das unveränderliche Backup einer App löschen, nachdem die Aufbewahrungsrichtlinie für den Bucket abgelaufen ist, wird das Backup aus Astra Control gelöscht, nicht jedoch aus dem Bucket. Um dies zu umgehen, entfernen Sie die Backups manuell aus dem Speicher-Back-End, wenn Sie die neuesten Backups oder alle Backups für eine Anwendung löschen müssen.
+
+
+NOTE: Wenn Sie mehr als ein Backup für eine App haben, entfernen Sie entweder die letzten Backups oder alle Backups für die App. Wenn Sie alle mittleren inkrementellen Backups entfernen, können Sie die App nicht von der letzten Sicherung wiederherstellen.
 
 
 

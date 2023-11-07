@@ -4,7 +4,7 @@ permalink: release-notes/whats-new.html
 keywords: 'what"s new, bugs, bug fixes, new features, enhancements' 
 summary: NetApp aktualisiert regelmäßig das Astra Control Center, um Ihnen neue Funktionen, Verbesserungen und Fehlerbehebungen zu bieten. 
 ---
-= Was ist neu in dieser Version des Astra Control Center
+= Neuerungen in dieser Version des Astra Control Center
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
@@ -16,15 +16,33 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 
 
 
-== 31. Juli 2023 (23.07.0)
+== 7. November 2023 (23.10.0)
 
+[[nas-eco-backup-restore]]
 .Neue Funktionen und Support
-* link:../get-started/requirements.html#storage-backends["Unterstützung für den Einsatz von NetApp MetroCluster in einer Stretch-Konfiguration als Storage Backend"^]
-* link:../get-started/requirements.html#storage-backends["Unterstützung von Longhorn als Storage-Backend"^]
-* link:../use/replicate_snapmirror.html#delete-an-application-replication-relationship["Applikationen können jetzt zwischen ONTAP-Back-Ends aus demselben Kubernetes-Cluster repliziert werden"]
-* link:../use/manage-remote-authentication.html["Astra Control Center unterstützt jetzt „userPrincipalName“ als alternatives Login-Attribut für Remote-Benutzer (LDAP)"^]
-* link:../use/execution-hooks.html["Der neue Ausführungs-Hook-Typ 'Post-Failover' kann nach dem Replikations-Failover mit Astra Control Center ausgeführt werden"^]
-* Klon-Workflows unterstützen jetzt nur Live-Klone (der aktuelle Status der gemanagten Applikation). Um aus einem Snapshot oder Backup zu klonen, verwenden Sie den link:../use/restore-apps.html["Wiederherstellen des Workflows"^].
+* *Backup- und Restore-Funktionen für Applikationen mit ontap-nas-Economy Treiber-Backends*: Aktivieren Sie Backup- und Restore-Vorgänge für `ontap-nas-economy` Mit einigen link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Einfache Schritte"^].
+* *Unveränderliche Backups*: Astra Control unterstützt jetzt link:../concepts/data-protection.html#immutable-backups["Unveränderbare, schreibgeschützte Backups"^] Als zusätzliche Sicherheitsschicht gegen Malware und andere Bedrohungen.
+* *Neu: Astra Control Provisioner*
++
+In der Version 23.10 hat Astra Control eine neue Software-Komponente namens Astra Control Provisioner eingeführt, die für alle lizenzierten Astra Control Benutzer verfügbar sein wird. Mit Astra Control Provisioner erhalten Sie Zugriff auf umfassende Funktionen für erweitertes Management und Storage-Bereitstellung, die über den Funktionsumfang von Astra Trident hinausgehen. Diese Funktionen sind für alle Astra Control Kunden ohne zusätzliche Kosten verfügbar.
+
++
+** *Erste Schritte mit Astra Control Provisioner*
+Das können Sie link:../use/enable-acp.html["Astra Control Provisioner aktivieren"^] Falls Sie Ihre Umgebung installiert und konfiguriert haben, um Astra Trident 23.10 zu verwenden.
+** *Astra Control Provisioner-Funktionalität*
++
+Die Version 23.10 von Astra Control Provisioner bietet folgende Funktionen:
+
++
+*** *Verbesserte Sicherheit des Speicher-Backends mit Kerberos 5-Verschlüsselung*: Sie können die Speichersicherheit durch verbessern link:../use-acp/configure-storage-backend-encryption.html["Aktivieren der Verschlüsselung"^] Für den Datenverkehr zwischen dem gemanagten Cluster und dem Storage-Backend. Astra Control Provisioner unterstützt Kerberos-5-Verschlüsselung über NFSv4.1-Verbindungen von Red hat OpenShift-Clustern zu Azure NetApp Files und lokalen ONTAP-Volumes
+*** *Wiederherstellen von Daten mit einem Snapshot*: Astra Control Provisioner bietet schnelle, in-Place-Wiederherstellung von Volumes aus einem Snapshot mithilfe des `TridentActionSnapshotRestore` (TASR) CR.
+*** *SnapMirror Verbesserungen*: Verwenden Sie die App-Replizierungsfunktion in Umgebungen, in denen Astra Control keine direkte Verbindung zu einem ONTAP-Cluster hat oder auf ONTAP-Anmeldedaten zugreifen kann. Mit dieser Funktion können Sie Replizierung verwenden, ohne ein Storage-Back-End oder dessen Anmeldedaten in Astra Control verwalten zu müssen.
+*** *Sicherungs- und Wiederherstellungsfunktionen für Anwendungen mit `ontap-nas-economy` Treiber-Backends*: Wie beschrieben <<nas-eco-backup-restore,Oben>>.
+
+
+
+
+* *Ausführungs-Hooks standardmäßig ausgeschaltet*: Ab diesem Release können Ausführungshaken-Funktionen sein link:../use/execution-hooks.html#enable-the-execution-hooks-feature["Aktiviert"] Oder deaktiviert für zusätzliche Sicherheit (standardmäßig deaktiviert). Wenn Sie noch keine Ausführungshaken für die Verwendung mit Astra Control erstellt haben, müssen Sie dies tun link:../use/execution-hooks.html#enable-the-execution-hooks-feature["Aktivieren Sie die Funktion „Ausführungshaken“"^] Um mit dem Erstellen von Hooks zu beginnen. Wenn Sie vor diesem Release Testsuitehaoks erstellt haben, bleibt die Funktionalität „Ausführungshaken“ aktiviert und Sie können Hooks wie gewohnt verwenden.
 
 
 .Bekannte Probleme und Einschränkungen
@@ -32,6 +50,28 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 * link:../release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
 
 
+
+
+== 31. Juli 2023 (23.07.0)
+
+.Details
+[%collapsible]
+====
+.Neue Funktionen und Support
+* https://docs.netapp.com/us-en/astra-control-center-2307/get-started/requirements.html#storage-backends["Unterstützung für den Einsatz von NetApp MetroCluster in einer Stretch-Konfiguration als Storage Backend"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/get-started/requirements.html#storage-backends["Unterstützung von Longhorn als Storage-Backend"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/replicate_snapmirror.html#delete-an-application-replication-relationship["Applikationen können jetzt zwischen ONTAP-Back-Ends aus demselben Kubernetes-Cluster repliziert werden"]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/manage-remote-authentication.html["Astra Control Center unterstützt jetzt „userPrincipalName“ als alternatives Login-Attribut für Remote-Benutzer (LDAP)"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/use/execution-hooks.html["Der neue Ausführungs-Hook-Typ 'Post-Failover' kann nach dem Replikations-Failover mit Astra Control Center ausgeführt werden"^]
+* Klon-Workflows unterstützen jetzt nur Live-Klone (der aktuelle Status der gemanagten Applikation). Um aus einem Snapshot oder Backup zu klonen, verwenden Sie den https://docs.netapp.com/us-en/astra-control-center-2307/use/restore-apps.html["Wiederherstellen des Workflows"^].
+
+
+.Bekannte Probleme und Einschränkungen
+* https://docs.netapp.com/us-en/astra-control-center-2307/release-notes/known-issues.html["Bekannte Probleme in diesem Release"^]
+* https://docs.netapp.com/us-en/astra-control-center-2307/release-notes/known-limitations.html["Bekannte Einschränkungen für diese Version"^]
+
+
+====
 
 
 == 18. Mai 2023 (23.04.2)

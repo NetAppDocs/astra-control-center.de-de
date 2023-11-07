@@ -19,4 +19,4 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 * link:../release-notes/known-limitations.html["Bekannte Einschränkungen"]
 
 
-Bleiben Sie mit Twitter am Ball. @NetAppDoc. Senden Sie Feedback zu Dokumentation, indem Sie ein link:https://docs.netapp.com/us-en/contribute/["GitHub-Autor"^] Oder senden Sie eine E-Mail an doccomments@netapp.com.
+Senden Sie Feedback zu Dokumentation, indem Sie ein link:https://docs.netapp.com/us-en/contribute/["GitHub-Autor"^] Oder senden Sie eine E-Mail an doccomments@netapp.com.

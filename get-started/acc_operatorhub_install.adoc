@@ -17,8 +17,8 @@ Wenn Sie Red hat OpenShift verwenden, können Sie Astra Control Center mithilfe 
 Nach Abschluss dieses Verfahrens müssen Sie zum Installationsvorgang zurückkehren, um den abzuschließen link:../get-started/install_acc.html#verify-system-status["Verbleibende Schritte"^] Um die erfolgreiche Installation zu überprüfen, und melden Sie sich an.
 
 .Bevor Sie beginnen
-* *Voraussetzungen für die Umwelt erfüllt*: link:requirements.html["Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor"^].
-* *Gesunde Cluster-Betreiber und API-Dienste*:
+* *Umweltvoraussetzungen erfüllen*: link:requirements.html["Bevor Sie mit der Installation beginnen, bereiten Sie Ihre Umgebung auf die Implementierung des Astra Control Center vor"^].
+* *Gewährleistung einer gesunden Clusteroperatoren und API-Dienste*:
 +
 ** Stellen Sie in Ihrem OpenShift-Cluster sicher, dass sich alle Clusterbetreiber in einem ordnungsgemäßen Zustand befinden:
 +
@@ -34,11 +34,50 @@ oc get apiservices
 ----
 
 
-* *FQDN-Adresse*: Erhalten Sie eine FQDN-Adresse für Astra Control Center in Ihrem Rechenzentrum.
-* *OpenShift Permissions*: Erhalten Sie die erforderlichen Berechtigungen und den Zugriff auf die Red hat OpenShift Container Platform, um die beschriebenen Installationsschritte durchzuführen.
-* *Cert Manager konfiguriert*: Wenn bereits ein Cert Manager im Cluster vorhanden ist, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"^] Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
+* *Stellen Sie einen routingfähigen FQDN sicher*: Der Astra FQDN, den Sie verwenden möchten, kann zum Cluster weitergeleitet werden. Das bedeutet, dass Sie entweder einen DNS-Eintrag in Ihrem internen DNS-Server haben oder eine bereits registrierte Core URL-Route verwenden.
+* *OpenShift-Berechtigungen* erhalten: Sie benötigen alle erforderlichen Berechtigungen und Zugriff auf die Red hat OpenShift Container Platform, um die beschriebenen Installationsschritte auszuführen.
+* *Configure a cert Manager*: Wenn ein cert Manager bereits im Cluster vorhanden ist, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"^] Damit Astra Control Center nicht seinen eigenen Cert-Manager installiert. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
+* *Betrachten Sie ein Service-Mesh*: Es wird dringend empfohlen, die Kommunikationskanäle des Astra Control-Host-Clusters mit einem zu sichern link:requirements.html#service-mesh-requirements["Unterstütztes Service-Mesh"^].
++
+.Istio Service Mesh-Details
+[%collapsible]
+====
+Für die Nutzung von Istio Service Mesh müssen Sie Folgendes tun:
+
+** Fügen Sie ein hinzu `istio-injection:enabled` Kennzeichnen Sie den Astra-Namespace, bevor Sie Astra Control Center implementieren.
+** Verwenden Sie die `Generic` <<generic-ingress,Einstellung für Eindringen>> Und bieten eine alternative Ingress für link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Externe Lastverteilung"^].
+** Für Red hat OpenShift-Cluster müssen Sie definieren `NetworkAttachmentDefinition` In allen zugehörigen Astra Control Center-Namespaces (`netapp-acc-operator`, `netapp-acc`, `netapp-monitoring` Für Anwendungscluster oder alle benutzerdefinierten Namespaces, die ersetzt wurden).
++
+[listing]
+----
+cat <<EOF | oc -n netapp-acc-operator create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-acc create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+
+cat <<EOF | oc -n netapp-monitoring create -f -
+apiVersion: "k8s.cni.cncf.io/v1"
+kind: NetworkAttachmentDefinition
+metadata:
+  name: istio-cni
+EOF
+----
+
+
+====
 * *Kubernetes Ingress-Controller*: Wenn Sie über einen Kubernetes Ingress-Controller verfügen, der externen Zugriff auf Services wie etwa den Lastausgleich in einem Cluster managt, müssen Sie ihn zur Verwendung mit Astra Control Center einrichten:
 +
+[%collapsible]
+====
 .. Erstellen Sie den Operator-Namespace:
 +
 [listing]
@@ -48,6 +87,8 @@ oc create namespace netapp-acc-operator
 .. link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Einrichtung abschließen"^] Für Ihren Ingress-Controller-Typ.
 
 
+====
+* *Nur ONTAP-SAN-Treiber*: Wenn Sie einen ONTAP-SAN-Treiber verwenden, stellen Sie sicher, dass Multipath auf allen Kubernetes-Clustern aktiviert ist.
 
 
 .Schritte
@@ -63,12 +104,18 @@ oc create namespace netapp-acc-operator
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-. Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`) Aus dem https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^].
+Sie können das Bundle von Astra Control Center von der NetApp Support-Website herunterladen oder das Bundle mithilfe von Docker aus der Image-Registrierung des Astra Control Service abrufen.
+
+[role="tabbed-block"]
+====
+.NetApp Support Website
+--
+. Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`) Vom https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^].
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Bündels zu überprüfen.
 +
 .Erweitern Sie, um Details anzuzeigen
 [%collapsible]
-====
+=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
@@ -79,7 +126,7 @@ openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature cert
 ----
 Die Ausgabe wird angezeigt `Verified OK` Nach erfolgreicher Überprüfung.
 
-====
+=====
 . Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:
 +
 [source, console]
@@ -88,6 +135,16 @@ tar -vxzf astra-control-center-[version].tar.gz
 ----
 
 
+--
+.Astra Control-Image-Registrierung
+--
+. Melden Sie sich beim Astra Control Service an.
+. Wählen Sie im Dashboard *Deploy a self-Managed Instance of Astra Control* aus.
+. Folgen Sie den Anweisungen, um sich bei der Astra Control-Image-Registrierung anzumelden, das Astra Control Center-Installationsabbild zu ziehen und das Image zu extrahieren.
+
+
+--
+====
 
 
 == Installieren Sie das NetApp Astra kubectl Plug-in
@@ -153,8 +210,9 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 . Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
 +
-`acc.manifest.bundle.yaml`
 `acc/`
+`kubectl-astra/`
+`acc.manifest.bundle.yaml`
 
 . Melden Sie sich bei Ihrer Registrierung an:
 +
@@ -173,7 +231,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -192,7 +250,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.07.0-25
+export PACKAGEVERSION=23.10.0-68
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -208,7 +266,7 @@ NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registri
 +
 [listing]
 ----
-https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.07.0-25/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
 ----
 
 
@@ -220,7 +278,7 @@ https://netappdownloads.jfrog.io/docker-astra-control-prod/netapp/astra/acc/23.0
 
 . Führen Sie eines der folgenden Verfahren aus, um auf die Installationsseite des Bedieners zuzugreifen:
 +
-** Von der Red hat OpenShift-Webkonsole aus:
+** Über die Red hat OpenShift-Webkonsole:
 +
 ... Melden Sie sich in der OpenShift Container Platform UI an.
 ... Wählen Sie im Seitenmenü die Option *Operatoren > OperatorHub* aus.
@@ -284,7 +342,7 @@ NOTE: Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie
 .. Fügen Sie Etiketten für das Astra Control Center hinzu.
 .. Aktivieren oder deaktivieren Sie Auto Support. Es wird empfohlen, die Auto Support-Funktion beizubehalten.
 .. Geben Sie den FQDN des Astra Control Centers oder die IP-Adresse ein. Kommen Sie nicht herein `http://` Oder `https://` Im Adressfeld.
-.. Geben Sie die Astra Control Center-Version ein, z. B. 23.07.0-25.
+.. Geben Sie die Astra Control Center-Version ein, z. B. 23.10.0-68.
 .. Geben Sie einen Kontonamen, eine E-Mail-Adresse und einen Administratornamen ein.
 .. Wählen Sie eine Richtlinie zur Rückgewinnung von Volumes aus `Retain`, `Recycle`, Oder `Delete`. Der Standardwert ist `Retain`.
 .. Wählen Sie die ScaleSize der Installation aus.
@@ -292,7 +350,7 @@ NOTE: Wenn Sie eine manuelle Genehmigungsstrategie ausgewählt haben, werden Sie
 
 NOTE: Astra verwendet standardmäßig High Availability (HA). `scaleSize` Von `Medium`, Die die meisten Dienste in HA bereitstellt und mehrere Replikate für Redundanz bereitstellt. Mit `scaleSize` Als `Small`, Astra wird die Anzahl der Replikate für alle Dienste reduzieren, außer für wesentliche Dienste, um den Verbrauch zu reduzieren.
 
-.. Wählen Sie den Eingangstyp aus:
+.. [[generic-ingress]]Wählen Sie den Typ der Eindringen aus:
 +
 *** *`Generic`* (`ingressType: "Generic"`) (Standard)
 +
@@ -335,7 +393,7 @@ NOTE: Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, da
 
 == Erstellen Sie einen Registrierungsschlüssel
 
-Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, erstellen Sie im OpenShift-Cluster ein Geheimnis, und geben Sie den geheimen Namen in ein `Create AstraControlCenter` Formularfeld.
+Wenn Sie eine Registrierung verwenden, die eine Authentifizierung erfordert, erstellen Sie einen Schlüssel im OpenShift-Cluster und geben Sie den geheimen Namen in das ein `Create AstraControlCenter` Formularfeld.
 
 . Erstellen Sie einen Namespace für den Astra Control Center-Betreiber:
 +

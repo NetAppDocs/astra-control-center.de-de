@@ -18,7 +18,7 @@ Ein Execution Hook ist eine benutzerdefinierte Aktion, die Sie so konfigurieren 
 
 == Arten von Ausführungshaken
 
-Astra Control unterstützt die folgenden Arten von Ausführungshaken, je nachdem, wann sie ausgeführt werden können:
+Astra Control Center unterstützt die folgenden Typen von Ausführungshaken, je nachdem, wann sie ausgeführt werden können:
 
 * Vor dem Snapshot
 * Nach dem Snapshot
@@ -51,6 +51,13 @@ Da Testsuitehingel die Funktionalität der Anwendung, für die sie ausgeführt w
 Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starten, diese aber dann abbrechen, können die Haken trotzdem ausgeführt werden, wenn der Backup- oder Snapshot-Vorgang bereits gestartet wurde. Das bedeutet, dass die in einem Testsuite nach dem Backup verwendete Logik nicht davon ausgehen kann, dass das Backup abgeschlossen wurde.
 
 ====
+* Die Ausführungshaken-Funktion ist bei neuen Astra Control-Bereitstellungen standardmäßig deaktiviert.
++
+** Sie müssen die Funktion „Ausführungshaken“ aktivieren, bevor Sie Ausführungshaken verwenden können.
+** Benutzer von Eigentümer oder Administrator können die Funktion „Ausführungshaken“ für alle Benutzer aktivieren oder deaktivieren, die im aktuellen Astra Control-Konto definiert sind. Siehe <<Aktivieren Sie die Funktion „Ausführungshaken“>> Und <<Deaktivieren Sie die Funktion Ausführungshaken>> Weitere Anweisungen.
+** Der Status der Funktionsunterstützung bleibt bei Astra Control Upgrades erhalten.
+
+
 * Ein Testsuite muss ein Skript verwenden, um Aktionen durchzuführen. Viele Testsuitehaoks können auf dasselbe Skript verweisen.
 * Astra Control erfordert, dass die Skripte, mit denen Ausführungshaken ausgeführt werden, im Format ausführbarer Shell-Skripte geschrieben werden.
 * Die Skriptgröße ist auf 96 KB begrenzt.
@@ -62,7 +69,7 @@ Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starte
 * Wenn Astra Control Center einen Failover über eine replizierte Quell-App an die Ziel-App ausführt, werden nach dem Failover alle für die Quell-App aktivierten Ausführungs-Hooks für die Ziel-App ausgeführt.
 +
 
-NOTE: Wenn Sie nach der Wiederherstellung Hooks mit Astra Control Center 23.04 ausgeführt und Ihr Astra Control Center auf 23.07 aktualisiert haben, werden die Hooks für die Ausführung nach der Wiederherstellung nach einer Failover-Replizierung nicht mehr ausgeführt. Sie müssen neue Ausführungshaken nach dem Failover für Ihre Apps erstellen. Alternativ können Sie den Operationstyp vorhandener Hooks nach der Wiederherstellung ändern, die für Failover von „nach der Wiederherstellung“ zu „nach dem Failover“ gedacht sind.
+NOTE: Wenn Sie nach der Wiederherstellung Hooks mit Astra Control Center 23.04 ausgeführt und Ihr Astra Control Center auf 23.07 oder höher aktualisiert haben, werden die Hooks für die Ausführung nach der Wiederherstellung nach einer Failover-Replizierung nicht mehr ausgeführt. Sie müssen neue Ausführungshaken nach dem Failover für Ihre Apps erstellen. Alternativ können Sie den Operationstyp vorhandener Hooks nach der Wiederherstellung ändern, die für Failover von „nach der Wiederherstellung“ zu „nach dem Failover“ gedacht sind.
 
 
 
@@ -161,6 +168,41 @@ Besuchen Sie das https://github.com/NetApp/Verda["NetApp Verda GitHub Projekt"] 
 
 
 
+== Aktivieren Sie die Funktion „Ausführungshaken“
+
+Wenn Sie Eigentümer oder Admin-Benutzer sind, können Sie die Funktion Ausführungshaken aktivieren. Wenn Sie die Funktion aktivieren, können alle in diesem Astra Control-Konto definierten Benutzer Ausführungshaken verwenden und vorhandene Ausführungshaken und Hook-Skripte anzeigen.
+
+.Schritte
+. Gehen Sie zu *Anwendungen* und wählen Sie dann den Namen einer verwalteten App aus.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie *Ausführungshaken aktivieren*.
++
+Die Registerkarte *Account* > *feature settings* wird angezeigt.
+
+. Wählen Sie im Bereich *Ausführungshaken* das Einstellungsmenü aus.
+. Wählen Sie *Enable*.
+. Beachten Sie die Sicherheitswarnung, die angezeigt wird.
+. Wählen Sie *Ja, Ausführungshaken aktivieren*.
+
+
+
+
+== Deaktivieren Sie die Funktion Ausführungshaken
+
+Wenn Sie ein Benutzer von Eigentümer oder Administrator sind, können Sie die Funktion „Ausführungshaken“ für alle Benutzer deaktivieren, die in diesem Astra Control-Konto definiert sind. Sie müssen alle vorhandenen Ausführungshaken löschen, bevor Sie die Funktion „Ausführungshaken“ deaktivieren können. Siehe <<Löschen Sie einen Testsuite-Haken>> Für Anweisungen zum Löschen einer vorhandenen Ausführungsöse.
+
+.Schritte
+. Gehen Sie zu *Account* und wählen Sie dann die Registerkarte *Feature settings*.
+. Wählen Sie die Registerkarte *Testsuitehaschen* aus.
+. Wählen Sie im Bereich *Ausführungshaken* das Einstellungsmenü aus.
+. Wählen Sie *Deaktivieren*.
+. Beachten Sie die Warnmeldung, die angezeigt wird.
+. Typ `disable` Um zu bestätigen, dass Sie die Funktion für alle Benutzer deaktivieren möchten.
+. Wählen Sie *Ja, deaktivieren*.
+
+
+
+
 == Vorhandene Testsuiten anzeigen
 
 Sie können vorhandene benutzerdefinierte Testsuiten für eine App anzeigen.
@@ -194,6 +236,7 @@ Auf dieser Seite sehen Sie eine Liste mit bereits hochgeladenen Skripten. Die Sp
 Jeder Execution Hook muss ein Skript verwenden, um Aktionen durchzuführen. Sie können einen oder mehrere Skripte hinzufügen, auf die Testausführungshaken verweisen können. Viele Ausführungshaken können auf dasselbe Skript verweisen. Dadurch können Sie viele Ausführungshaken aktualisieren, indem Sie nur ein Skript ändern.
 
 .Schritte
+. Stellen Sie sicher, dass die Funktion Ausführungshaken aktiviert ist <<Aktivieren Sie die Funktion „Ausführungshaken“,Aktiviert>>.
 . Gehen Sie zu *Konto*.
 . Wählen Sie die Registerkarte *Skripts* aus.
 . Wählen Sie *Hinzufügen*.
@@ -250,6 +293,7 @@ Sie können einen benutzerdefinierten Ausführungshaken für eine App erstellen 
 NOTE: Wenn Sie ein benutzerdefiniertes Shell-Skript erstellen, das als Execution Hook verwendet werden soll, denken Sie daran, die entsprechende Shell am Anfang der Datei anzugeben, es sei denn, Sie führen bestimmte Befehle aus oder geben den vollständigen Pfad zu einer ausführbaren Datei an.
 
 .Schritte
+. Stellen Sie sicher, dass die Funktion Ausführungshaken aktiviert ist <<Aktivieren Sie die Funktion „Ausführungshaken“,Aktiviert>>.
 . Wählen Sie *Anwendungen* und dann den Namen einer verwalteten App aus.
 . Wählen Sie die Registerkarte *Testsuitehaschen* aus.
 . Wählen Sie *Hinzufügen*.
