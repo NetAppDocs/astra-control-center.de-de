@@ -3426,4 +3426,6 @@ Das können Sie <block ref="34554017affcf2d95a6dc49ac60c5b22" category="inline-l
   <block id="9e586fb8e7af6f105f029bce05abcad4" category="section-title">Backup-Daten bleiben nach dem Löschen von Buckets mit abgelaufener Aufbewahrungsrichtlinie im Bucket erhalten</block>
   <block id="03281739854e4951c0f98529e54a24f2" category="sidebar">Verwenden Sie Astra Control Provisioner</block>
   <block id="3c4db63c6115c69942c67f6b04d8e645" category="paragraph">Wenn Sie das unveränderliche Backup einer App löschen, nachdem die Aufbewahrungsrichtlinie für den Bucket abgelaufen ist, wird das Backup aus Astra Control gelöscht, nicht jedoch aus dem Bucket. Dieses Problem wird in einer kommenden Version behoben.</block>
+  <block id="ac4da6c6894a7c36281036138b93deac" category="list-text">*Unterstützung für die Verwaltung von Anwendungen, die NVMe/TCP-Speicher verwenden*
+Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unterstützt werden, die über NVMe/TCP verbunden sind.</block>
 </blocks>

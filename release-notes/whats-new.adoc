@@ -42,6 +42,8 @@ Die Version 23.10 von Astra Control Provisioner bietet folgende Funktionen:
 
 
 
+* *Unterstützung für die Verwaltung von Anwendungen, die NVMe/TCP-Speicher verwenden*
+Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unterstützt werden, die über NVMe/TCP verbunden sind.
 * *Ausführungs-Hooks standardmäßig ausgeschaltet*: Ab diesem Release können Ausführungshaken-Funktionen sein link:../use/execution-hooks.html#enable-the-execution-hooks-feature["Aktiviert"] Oder deaktiviert für zusätzliche Sicherheit (standardmäßig deaktiviert). Wenn Sie noch keine Ausführungshaken für die Verwendung mit Astra Control erstellt haben, müssen Sie dies tun link:../use/execution-hooks.html#enable-the-execution-hooks-feature["Aktivieren Sie die Funktion „Ausführungshaken“"^] Um mit dem Erstellen von Hooks zu beginnen. Wenn Sie vor diesem Release Testsuitehaoks erstellt haben, bleibt die Funktionalität „Ausführungshaken“ aktiviert und Sie können Hooks wie gewohnt verwenden.
 
 
