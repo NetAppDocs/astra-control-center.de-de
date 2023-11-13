@@ -229,7 +229,7 @@ WARNING: Verwenden Sie Helm nicht, um die Astra Control Provisioner zu aktiviere
 . Bearbeiten Sie den TridentOrchestrator CR, und nehmen Sie die folgenden Änderungen vor:
 +
 ** Astra Control Provisioner Aktivieren (`enableACP: true`)
-** Legen Sie den Registrierungsport für das Astra Control Provisioner-Image fest (`acpImage: <my_custom_registry>/trident-acp:v23.10.0`).
+** Legen Sie den Registrierungsport für das Astra Control Provisioner-Image fest (`acpImage: <my_custom_registry>/trident-acp:23.10.0`).
 +
 
 NOTE: Wenn Sie sich etabliert haben <<pull-secrets,Geheimnisse der Bildausziehung>> Früher in diesem Verfahren, können Sie sie hier verwenden (`cr.astra.netapp.io/astra/trident-acp:23.10.0 imagePullSecrets: - <secret name>`)
@@ -247,7 +247,7 @@ spec:
   debug: true
   namespace: trident
   *enableACP: true*
-  *acpImage: <my_custom_registry>/trident-acp:v23.10.0*
+  *acpImage: <my_custom_registry>/trident-acp:23.10.0*
 ----
 . Übernehmen Sie die Änderungen:
 +
@@ -291,7 +291,7 @@ status:
   acpVersion: 23.10.0
   currentInstallationParams:
     ...
-    acpImage: <my_custom_registry>/trident-acp:v23.10.0
+    acpImage: <my_custom_registry>/trident-acp:23.10.0
     enableACP: "true"
     ...
   ...
@@ -307,7 +307,7 @@ status:
 +
 [listing]
 ----
-./tridentctl -n trident install --enable-acp=true --acp-image=mycustomregistry/trident-acp:v23.10
+./tridentctl -n trident install --enable-acp=true --acp-image=mycustomregistry/trident-acp:23.10
 ----
 . Aktivieren Sie die Astra Control Provisioner-Funktion:
 +
