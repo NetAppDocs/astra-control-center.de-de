@@ -101,7 +101,7 @@ NOTE: Obwohl nicht beschrieben, kann der Astra Control Center-Operator auch im s
 .. Wählen Sie *Add include Rule*.
 .. Wählen Sie diese Einträge aus, und wählen Sie *Hinzufügen*:
 +
-*** Etikettenauswahl: ACC-crds
+*** Etikettenauswahl: <label name>
 *** Gruppe: Apiextensions.k8s.io
 *** Stand: v1
 *** Art: CustomResourceDefinition
