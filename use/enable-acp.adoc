@@ -14,7 +14,7 @@ summary: Astra Control Provisioner bietet Zugriff auf erweiterte Storage-Bereits
 [role="lead"]
 In Astra Trident Version 23.10 und höher können Sie Astra Control Provisioner verwenden, damit lizenzierte Benutzer von Astra Control auf erweiterte Storage-Bereitstellungsfunktionen zugreifen können. Astra Control Provisioner bietet diese erweiterte Funktionalität zusätzlich zu den auf Astra Trident basierenden Standardfunktionen.
 
-Bei den nächsten Updates für Astra Control wird der Provisioner Astra Trident als Storage-bereitstellung und -Orchestrierung in der Architektur von Astra Control ersetzen. Aus diesem Grund wird dringend empfohlen, Astra Control Benutzer für die Astra Control-Bereitstellung zu verwenden. Astra Trident wird weiterhin Open Source bleiben und mit neuen CSI- und anderen Funktionen von NetApp veröffentlicht, gepflegt, unterstützt und auf dem neuesten Stand sein.
+Bei den nächsten Updates für Astra Control wird der Provisioner Astra Trident als Storage-bereitstellung und -Orchestrierung in der Architektur von Astra Control ersetzen. Aus diesem Grund wird dringend empfohlen, Astra Control für die Astra Control-Bereitstellung zu aktivieren. Astra Trident wird weiterhin Open Source bleiben und mit neuen CSI- und anderen Funktionen von NetApp veröffentlicht, gepflegt, unterstützt und auf dem neuesten Stand sein.
 
 .Über diese Aufgabe
 Befolgen Sie dieses Verfahren, wenn Sie als lizenzierter Astra Control Center-Benutzer die Astra Control Provisioner-Funktion verwenden möchten. Wenn Sie Astra Trident verwenden und die zusätzlichen Funktionen von Astra Control Provisioner verwenden möchten, sollten Sie dieses Verfahren auch befolgen.
@@ -26,7 +26,7 @@ Wenn Sie die Astra Control Provisioner aktivieren, gehen Sie wie folgt vor:
 
 [role="tabbed-block"]
 ====
-.Astra Control Provisioniert Benutzer mit Astra Control Center
+.Astra Control Provisioner für Benutzer mit Astra Control Center
 * *Bewirke eine Astra Control Center Lizenz*: Du benötigst eine link:../concepts/licensing.html["Astra Control Center-Lizenz"] Um Astra Control Provisioner zu aktivieren und auf die enthaltenen Funktionen zuzugreifen.
 * *Installation oder Upgrade auf Astra Control Center 23.10*: Sie benötigen diese Version, wenn Sie Astra Control Provisioner mit Astra Control verwenden möchten.
 * *Bestätigen Sie, dass Ihr Cluster über eine AMD64-Systemarchitektur verfügt*: Das Astra Control Provisioner-Image wird sowohl in AMD64- als auch in ARM64-CPU-Architekturen bereitgestellt, aber nur AMD64 wird von Astra Control Center unterstützt.
