@@ -85,14 +85,26 @@ Sie verwalten jegliche Updates
 * Self-Managed Cluster:
 +
 ** Amazon EBS
-** Google Persistent Disk
 ** Über Azure Gemanagte Festplatten
+** Google Persistent Disk
 ** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** NetApp MetroCluster
+** https://longhorn.io/["Longhorn"^]
+
+
+* Lokale Cluster:
++
+** NetApp MetroCluster
+** NetApp ONTAP AFF und FAS Systeme
+** NetApp ONTAP Select
+** https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
+** https://longhorn.io/["Longhorn"^]
 
 
 
  a| 
 * NetApp ONTAP AFF und FAS Systeme
+* NetApp ONTAP Select
 * https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/["Cloud Volumes ONTAP"^]
 
 

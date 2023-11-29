@@ -3428,4 +3428,8 @@ Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unt
   <block id="aa22bb99bde532781940eb4a1e458758" category="paragraph">*_nur Astra Control Provisioner_*: Das Hinzufügen und Managen von ONTAP-Storage-Back-Ends in Astra Control Center ist bei Verwendung der NetApp SnapMirror Technologie optional, wenn Sie Astra Control Provisioner mit Astra Control Center 23.10 oder höher aktiviert haben.</block>
   <block id="4985a3b824e2fb63f86dcaa415a32c2d" category="paragraph">Bei den nächsten Updates für Astra Control wird der Provisioner Astra Trident als Storage-bereitstellung und -Orchestrierung in der Architektur von Astra Control ersetzen. Aus diesem Grund wird dringend empfohlen, Astra Control für die Astra Control-Bereitstellung zu aktivieren. Astra Trident wird weiterhin Open Source bleiben und mit neuen CSI- und anderen Funktionen von NetApp veröffentlicht, gepflegt, unterstützt und auf dem neuesten Stand sein.</block>
   <block id="8af227b0e0743a7dba6ed339a67722c9" category="list-title">Astra Control Provisioner für Benutzer mit Astra Control Center</block>
+  <block id="cd27a1715aac859bc2a48a86ed2000c0" category="inline-link">Longhorn</block>
+  <block id="1752f949f63eb1f41cea70be24a2a732" category="list-text"><block ref="1752f949f63eb1f41cea70be24a2a732" category="inline-link-rx"></block></block>
+  <block id="d5bd450a47d2497dc5f133703c0fab95" category="list-text">Lokale Cluster:</block>
+  <block id="00ae925249b1dcd734cdb679b48bf8f7" category="list-text">NetApp ONTAP Select</block>
 </blocks>
