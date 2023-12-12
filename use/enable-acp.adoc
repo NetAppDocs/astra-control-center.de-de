@@ -31,13 +31,13 @@ Wenn Sie die Astra Control Provisioner aktivieren, gehen Sie wie folgt vor:
 * *Installation oder Upgrade auf Astra Control Center 23.10*: Sie benötigen diese Version, wenn Sie Astra Control Provisioner mit Astra Control verwenden möchten.
 * *Bestätigen Sie, dass Ihr Cluster über eine AMD64-Systemarchitektur verfügt*: Das Astra Control Provisioner-Image wird sowohl in AMD64- als auch in ARM64-CPU-Architekturen bereitgestellt, aber nur AMD64 wird von Astra Control Center unterstützt.
 * *Erhalten Sie ein Astra Control Service-Konto für den Registrierungszugriff*: Wenn Sie beabsichtigen, die Astra Control-Registrierung anstelle der NetApp-Support-Website zu verwenden, um das Astra Control-Provisioner-Image herunterzuladen, schließen Sie die Registrierung für einen ab https://bluexp.netapp.com/astra-register["Astra Control Service Konto"^]. Nachdem Sie das Formular ausgefüllt, übermittelt und ein BlueXP Konto erstellt haben, erhalten Sie eine Willkommens-E-Mail für Astra Control Service.
-* *Bestätigen Sie, dass sich Ihre Astra Trident-Version innerhalb eines Fensters mit vier Versionen befindet*: Sie können ein direktes Upgrade auf Astra Trident 23.10 mit Astra Control Provisioner durchführen, wenn Ihr Astra Trident sich innerhalb eines Fensters mit vier Versionen von Version 23.10 befindet. Sie können beispielsweise direkt von Astra Trident 22.10 auf 23.10 aktualisieren.
+* *Wenn Sie Astra Trident installiert haben, bestätigen Sie, dass seine Version innerhalb eines Fensters mit vier Versionen ist*: Sie können ein direktes Upgrade auf Astra Trident 23.10 mit Astra Control Provisioner durchführen, wenn Ihr Astra Trident innerhalb eines Fensters mit vier Versionen von Version 23.10 ist. Sie können beispielsweise direkt von Astra Trident 22.10 auf 23.10 aktualisieren.
 
 
 .Astra Control Provisioner nur Benutzer
 --
 * *Bewirke eine Astra Control Center Lizenz*: Du benötigst eine link:../concepts/licensing.html["Astra Control Center-Lizenz"] Um Astra Control Provisioner zu aktivieren und auf die enthaltenen Funktionen zuzugreifen.
-* *Bestätigen Sie, dass sich Ihre Astra Trident-Version innerhalb eines Fensters mit vier Versionen befindet*: Sie können ein direktes Upgrade auf Astra Trident 23.10 mit Astra Control Provisioner durchführen, wenn Ihr Astra Trident sich innerhalb eines Fensters mit vier Versionen von Version 23.10 befindet. Sie können beispielsweise direkt von Astra Trident 22.10 auf 23.10 aktualisieren.
+* *Wenn Sie Astra Trident installiert haben, bestätigen Sie, dass seine Version innerhalb eines Fensters mit vier Versionen ist*: Sie können ein direktes Upgrade auf Astra Trident 23.10 mit Astra Control Provisioner durchführen, wenn Ihr Astra Trident innerhalb eines Fensters mit vier Versionen von Version 23.10 ist. Sie können beispielsweise direkt von Astra Trident 22.10 auf 23.10 aktualisieren.
 * *Sie können ein Astra Control Service-Konto für den Registrierungszugriff abrufen*: Sie benötigen Zugriff auf die Registrierung, um Astra Control Provisioner-Bilder herunterladen zu können. Um zu beginnen, füllen Sie die Registrierung für einen aus https://bluexp.netapp.com/astra-register["Astra Control Service Konto"^]. Nachdem Sie das Formular ausgefüllt, übermittelt und ein BlueXP Konto erstellt haben, erhalten Sie eine Willkommens-E-Mail für Astra Control Service.
 
 
@@ -194,21 +194,16 @@ WARNING: Verwenden Sie Helm nicht, um die Astra Control Provisioner zu aktiviere
 ====
 .Astra Trident Betreiber
 --
-. Falls Sie den Operator aus Ihrer ursprünglichen Implementierung entfernt haben, erstellen Sie den Astra Trident Orchestrator CRD erneut:
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html#step-1-download-the-trident-installer-package["Laden Sie das Astra Trident Installationsprogramm herunter und extrahieren Sie es"^].
+. Führen Sie diese Schritte aus, wenn Sie Astra Trident noch nicht installiert haben oder den Operator aus der ursprünglichen Astra Trident-Implementierung entfernt haben:
 +
-.. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html#step-1-download-the-trident-installer-package["Laden Sie das Installationsprogramm herunter, und extrahieren Sie es"^].
-.. Erstellen Sie das CRD erneut:
+.. Erstellen des CRD:
 +
 [source, console]
 ----
 kubectl create -f deploy/crds/trident.netapp.io_tridentorchestrators_crd_post1.16.yaml
 ----
-.. Erstellen Sie die `trident` Namensraum erneut, falls erforderlich:
-+
-[source, console]
-----
-kubectl create namespace trident
-----
+.. Erstellen Sie den Namespace für Trident (`kubectl create namespace trident`) Oder bestätigen Sie, dass der Namensraum Dreizack noch existiert (`kubectl get all -n trident`). Wenn der Namespace entfernt wurde, erstellen Sie ihn erneut.
 
 
 . Update von Astra Trident auf 23.10.0:
@@ -309,8 +304,9 @@ status:
 --
 .Tridentctl
 --
-. https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-tridentctl.html["Deinstallieren Sie Astra Trident aus dem Cluster, das ihn hostet"^].
-. Installieren Sie Astra Trident erneut mit aktivierter Astra Control Provisioner (`--enable-acp=true`):
+. https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html#step-1-download-the-trident-installer-package["Laden Sie das Astra Trident Installationsprogramm herunter und extrahieren Sie es"^].
+. https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-tridentctl.html["Wenn Sie bereits Astra Trident verwenden, deinstallieren Sie ihn aus dem Cluster, das ihn hostet"^].
+. Installieren Sie Astra Trident mit aktiviertem Astra Control Provisioner (`--enable-acp=true`):
 +
 [source, console]
 ----
