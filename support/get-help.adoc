@@ -27,8 +27,8 @@ Zunächst müssen Sie link:../get-started/setup_overview.html["Sie aktivieren de
 
 Diese Optionen stehen rund um die Uhr kostenlos zur Verfügung:
 
-* https://kb.netapp.com/Cloud/Astra/Control["*Knowledge Base* (Anmeldung erforderlich)"^]: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.
-* *Documentation Center*: Dies ist die doc-Site, die Sie gerade sehen.
+* https://kb.netapp.com/Cloud/Astra/Control["*Nutzung der Wissensdatenbank* (Anmeldung erforderlich)"^]: Suchen Sie nach Artikeln, FAQs oder Break Fix Informationen in Bezug auf Astra Control.
+* *Siehe die Produktdokumentation*: Dies ist die Dokumentseite, die Sie gerade sehen.
 * https://discord.gg/NetApp["* Hilfe erhalten Sie über Discord*"^]: Gehen Sie zum Astra in der Kategorie Pub, um sich mit Kollegen und Experten auszutauschen.
 * *Erstellen Sie einen Support Case*: Generieren Sie Support-Bundles, um NetApp Support für die Fehlerbehebung zur Verfügung zu stellen.
 * *Geben Sie Feedback zu Astra Control*: Senden Sie eine E-Mail an astra.feedback@netapp.com, um uns Ihre Gedanken, Ideen oder Bedenken mitzuteilen.
