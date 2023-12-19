@@ -22,11 +22,11 @@ Anhand der hier enthaltenen Informationen und Beispiele können Sie die Sicherhe
 
 == PSAs durch Astra Control Center durchgesetzt
 
-Astra Control Center ermöglicht die Durchsetzung einer Pod-Sicherheitsaufnahme, indem dem Namespace, auf dem Astra installiert ist, das folgende Label hinzugefügt wird (netapp-ACC oder benutzerdefinierter Namespace) und für Backups erstellte Namespaces.
+Astra Control Center ermöglicht es Ihnen link:../get-started/setup_overview.html#enable-psa["Aktivieren Sie die Durchsetzung"] Einer POD-Sicherheitsaufnahme durch Hinzufügen des folgenden Etiketts zum `netapp-acc-operator` Und `netapp-monitoring` Namespaces für Astra:
 
 [listing]
 ----
-pod-security.kubernetes.io/enforce: privileged
+pod-security.kubernetes.io/enforce=privileged
 ----
 
 

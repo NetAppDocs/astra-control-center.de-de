@@ -74,6 +74,24 @@ Sie sollten sicherstellen, dass die folgenden Voraussetzungen erfüllt sind, bev
 ----
 insecure-skip-tls-verify: true
 ----
+
+
+* [[enable-psa]]*PSA-Einschränkungen aktivieren*: Wenn in Ihrem Cluster die Durchsetzung von Pod-Sicherheitszulassung aktiviert ist, was standardmäßig für Cluster ab Kubernetes 1.25 gilt, müssen Sie die PSA-Einschränkungen für diese Namespaces aktivieren:
++
+** `netapp-acc-operator` Namespace:
++
+[listing]
+----
+kubectl label --overwrite ns netapp-acc-operator pod-security.kubernetes.io/enforce=privileged
+----
+** `netapp monitoring` Namespace:
++
+[listing]
+----
+kubectl label --overwrite ns netapp-monitoring pod-security.kubernetes.io/enforce=privileged
+----
+
+
 * *Anforderungen für Astra Trident*:
 +
 ** *Installieren Sie eine unterstützte Version*: Eine Version von Astra Trident link:../get-started/requirements.html#astra-trident-requirements["Unterstützt durch Astra Control Center"^] Installiert:
