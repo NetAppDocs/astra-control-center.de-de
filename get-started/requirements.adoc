@@ -199,7 +199,7 @@ NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster im
 | Quelle | Ziel | Port | Protokoll | Zweck 
 
 
-| Client-PC | Astra Control Center | 443 | HTTPS | UI/API-Zugriff - Stellen Sie sicher, dass dieser Port auf beiden Wegen zwischen dem Cluster geöffnet ist, der Astra Control Center hostet, und jedem verwalteten Cluster 
+| Client-PC | Astra Control Center | 443 | HTTPS | UI-/API-Zugriff – Stellen Sie sicher, dass dieser Port in beide Richtungen zwischen Astra Control Center und dem System offen ist, mit dem auf Astra Control Center zugegriffen wird 
 
 
 | Kennzahlenverbraucher | Astra Control Center Worker-Node | 9090 | HTTPS | Kennzahlen Datenkommunikation - sicherstellen, dass jeder verwaltete Cluster auf diesen Port auf dem Cluster zugreifen kann, das Astra Control Center hostet (Kommunikation in zwei Bereichen erforderlich) 
@@ -212,6 +212,10 @@ NOTE: Sie können Astra Control Center in einem Dual-Stack-Kubernetes-Cluster im
 
 
 | Astra Control Center | NetApp AutoSupport  | 443 | HTTPS | Kommunikation zwischen NetApp AutoSupport 
+
+
+| Astra Control Center | Gemanagter Kubernetes-Cluster | 443/6443
+*HINWEIS*: Der Port, den der verwaltete Cluster verwendet, kann je nach Cluster variieren. Informationen finden Sie in der Dokumentation des Anbieters der Cluster-Software. | HTTPS | Kommunikation mit dem verwalteten Cluster – Stellen Sie sicher, dass dieser Port auf beiden Wegen zwischen dem Cluster, der Astra Control Center hostet, und jedem verwalteten Cluster offen ist 
 |===
 
 
