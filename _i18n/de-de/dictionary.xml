@@ -2782,7 +2782,6 @@ Wenden Sie sich an den NetApp-Support, um Anweisungen zur Verwendung dieser Imag
   <block id="96e0534a032f957fed03525ccf5af5e8" category="paragraph">CRD:</block>
   <block id="d471227530b356aec7c6fbcaee9e9319" category="list-text">Bearbeiten Sie das TLS speichert CRD, um mit dem folgenden Befehl und Beispiel auf Ihren neuen geheimen Zertifikatnamen zu verweisen. Ersetzen Sie die Platzhalterwerte in Klammern &lt;&gt; durch die entsprechenden Informationen</block>
   <block id="61790943e1aa3906439ccf28814ccf38" category="cell">Azure Stack HCI 21H2 und 22H2 mit AKS 1.24.x und 1.25.x</block>
-  <block id="7a1e78fd1adb53e6f4397fb295df4f23" category="cell">4.11 bis 4.13</block>
   <block id="d7946d05be60978f2368ce8e5ce14e28" category="list-text">Longhorn 1.5.0 oder neuer</block>
   <block id="37cc34ea0413475a49903662efbf2810" category="inline-link">Longhorn-Dokumentation</block>
   <block id="44d4c1083bf8b94adeda91dc8c74c6a4" category="list-text">Erfordert die manuelle Erstellung eines VolumeSnapshotClass-Objekts. Siehe<block ref="51655f668612f34d87bb8550343c1042" category="inline-link-rx"></block> Weitere Anweisungen.</block>
@@ -3451,4 +3450,5 @@ Astra Control kann jetzt Applikationen managen, die von persistenten Volumes unt
   <block id="1351c5abff1fb0f0f349af5e26b94ac5" category="cell">443/6443
 *HINWEIS*: Der Port, den der verwaltete Cluster verwendet, kann je nach Cluster variieren. Informationen finden Sie in der Dokumentation des Anbieters der Cluster-Software.</block>
   <block id="3f55106e32511a9a3d0948154923bc88" category="cell">Kommunikation mit dem verwalteten Cluster – Stellen Sie sicher, dass dieser Port auf beiden Wegen zwischen dem Cluster, der Astra Control Center hostet, und jedem verwalteten Cluster offen ist</block>
+  <block id="89de75d28b7402eb7cc9790aa9e4f669" category="cell">4.11 bis 4.14</block>
 </blocks>
