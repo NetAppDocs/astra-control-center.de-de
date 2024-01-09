@@ -30,7 +30,8 @@ Eine Demonstration des Installationsvorgangs für Astra Control Center finden Si
 
 TIP: Astra Control Center kann in einer dritten Fehlerdomäne oder an einem sekundären Standort implementiert werden. Dies wird für Applikationsreplizierung und nahtlose Disaster Recovery empfohlen.
 
-* *Beachten Sie POD-Sicherheitsrichtlinien*: Wenn Sie POD-Sicherheitsrichtlinien in Ihrer Umgebung konfiguriert haben oder konfigurieren möchten, machen Sie sich mit POD-Sicherheitsrichtlinien vertraut und wie diese sich auf die Installation von Astra Control Center auswirken. Siehe link:../concepts/understand-pod-security.html["Pod-Sicherheitseinschränkungen"^].
+
+
 * *Gesunde Dienste sicherstellen*: Überprüfen Sie, ob alle API-Dienste in einem gesunden Zustand sind und verfügbar sind:
 +
 [source, console]
