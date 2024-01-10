@@ -81,6 +81,14 @@ Astra Control implementiert die Datensicherungsrichtlinien, indem Snapshots und 
 
 Sie können jederzeit einen On-Demand-Snapshot erstellen.
 
+.Über diese Aufgabe
+Astra Control unterstützt die Snapshot-Erstellung mithilfe von Storage-Klassen, die von den folgenden Treibern unterstützt werden:
+
+* `ontap-nas`
+* `ontap-san`
+* `ontap-san-economy`
+
+
 
 IMPORTANT: Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Treiber, Snapshots können nicht erstellt werden. Verwenden Sie eine alternative Storage-Klasse für Snapshots.
 
@@ -105,6 +113,17 @@ Buckets in Astra Control berichten nicht über die verfügbare Kapazität. Bevor
 
 Wenn Ihre App eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Fahrer, müssen Sie <<Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas,Aktivieren Sie Backup und Restore>> Funktionalität. Stellen Sie sicher, dass Sie einen definiert haben `backendType` Parameter in im https://docs.netapp.com/us-en/trident/trident-reference/objects.html#kubernetes-storageclass-objects["Kubernetes Storage-Objekt"^] Mit einem Wert von `ontap-nas-economy` Bevor Sie Schutzmaßnahmen durchführen.
 
+[NOTE]
+====
+Astra Control unterstützt die Backup-Erstellung mithilfe von Storage-Klassen, die von den folgenden Treibern unterstützt werden:
+
+* `ontap-nas`
+* `ontap-nas-economy`
+* `ontap-san`
+* `ontap-san-economy`
+
+
+====
 .Schritte
 . Wählen Sie *Anwendungen*.
 . Wählen Sie im Menü Optionen in der Spalte *Aktionen* für die gewünschte App die Option *Sichern* aus.

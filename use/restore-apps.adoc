@@ -24,6 +24,14 @@ Astra Control kann Ihre Applikation aus einem Snapshot oder einem Backup wiederh
 `oc adm policy add-scc-to-group anyuid system:serviceaccounts:wordpress`
 `oc adm policy add-scc-to-user privileged -z default -n wordpress`
 
+* *Unterstützte Storage Class Treiber*: Astra Control unterstützt die Wiederherstellung von Backups mit Speicherklassen, die von den folgenden Treibern unterstützt werden:
++
+** `ontap-nas`
+** `ontap-nas-economy`
+** `ontap-san`
+** `ontap-san-economy`
+
+
 * *(nur ontap-nas-Economy-Treiber) Backups und Wiederherstellungen*: Vor dem Backup oder der Wiederherstellung einer App, die eine von der unterstützte Storage-Klasse verwendet `ontap-nas-economy` Überprüfen Sie, ob der link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Das snapshot Verzeichnis auf dem ONTAP Storage-Backend ist verborgen"]. Das Ausblenden dieses Verzeichnisses kann zu einem Verlust des Zugriffs auf Ihre Anwendung führen, insbesondere wenn es NFSv3 verwendet.
 * *Helm bereitgestellte Apps*: Apps, die mit Helm 3 (oder von Helm 2 auf Helm 3 aktualisiert) bereitgestellt werden, werden vollständig unterstützt. Mit Helm 2 implementierte Apps werden nicht unterstützt.
 
