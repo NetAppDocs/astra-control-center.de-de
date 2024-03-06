@@ -94,7 +94,7 @@ Stellen Sie sicher, dass Sie die folgenden Anforderungen für Astra Trident erf�
 *** `ontap-nas`
 *** `ontap-san`
 *** `ontap-san-economy` (App-Replizierung ist bei diesem Storage-Klassen-Typ nicht verfügbar)
-*** `ontap-nas-economy` (Snapshots, Replizierungsrichtlinien und Sicherungsrichtlinien stehen bei diesem Typ von Storage-Klassen nicht zur Verfügung.)
+*** `ontap-nas-economy` (Snapshots und Replizierungsrichtlinien sind bei diesem Typ der Storage-Klasse nicht verfügbar.)
 
 
 
