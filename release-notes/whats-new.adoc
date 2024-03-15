@@ -16,7 +16,7 @@ Wir freuen uns, die neueste Version des Astra Control Center ankündigen zu kön
 
 
 
-== 14. März 2023 (24.02.0)
+== 15. März 2023 (24.02.0)
 
 .Neue Funktionen und Support
 * *Versetzen Sie Astra Control Center ohne private Registrierung*: Sie müssen Astra Control Center-Images nicht mehr in eine private Registrierung verschieben oder als Teil Ihrer Astra Control-Umgebung verwenden.

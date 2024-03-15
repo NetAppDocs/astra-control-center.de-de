@@ -156,7 +156,7 @@ Antwort:
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 .. Wenn der `ADDRESS` Feld in der obigen Antwort weist nicht den FQDN der primären Astra Control Center-Instanz auf. Aktualisieren Sie die Konfiguration, um auf den Astra Control Center-DNS zu verweisen:
 +
@@ -379,7 +379,7 @@ Antwort:
 [listing]
 ----
 NAME  UUID                                 VERSION    ADDRESS                             READY
-astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-65 ocp-cluster-1.company.com           True
+astra 89f4fd47-0cf0-4c7a-a44e-43353dc96ba8 24.02.0-69 ocp-cluster-1.company.com           True
 ----
 * *Bereitstellungsstatus bestätigen*: Zeigt Informationen zur Astra Control Center-Bereitstellung an, um dies zu bestätigen `Deployment State` Ist `Deployed`.
 +
