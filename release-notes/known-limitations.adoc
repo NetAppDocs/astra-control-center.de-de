@@ -22,6 +22,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 .Einschränkungen bei der rollenbasierten Zugriffssteuerung (Role Based Access Control, RBAC
 * <<Benutzer mit rollenbasierten Bedingungen für die Namespace-Zugriffssteuerung können ein Cluster hinzufügen und aus dem Management wieder aufheben>>
 * <<Ein Mitglied mit Namespace-Einschränkungen kann nicht auf die geklonten oder wiederhergestellten Apps zugreifen, bis der Administrator den Namespace zu der Bedingung hinzufügt>>
+* <<Restriktive Rolleneinschränkungen können für Ressourcen auf Clustern ohne Konnektor ignoriert werden>>
 
 
 .Einschränkungen beim Applikationsmanagement
@@ -107,6 +108,14 @@ Alle `member` Benutzer mit rollenbasierter Zugriffssteuerung nach Namespace-Name
 
 
 
+== Restriktive Rolleneinschränkungen können für Ressourcen auf Clustern ohne Konnektor ignoriert werden
+
+* *Wenn die Ressourcen, auf die zugegriffen wird, zu Clustern gehören, auf denen der neueste Astra Connector installiert ist*: Wenn einem Benutzer über eine LDAP-Gruppenmitgliedschaft mehrere Rollen zugewiesen werden, werden die Einschränkungen der Rollen kombiniert. Wenn beispielsweise ein Benutzer mit einer lokalen Viewer-Rolle drei Gruppen Beitritt, die an die Mitgliedrolle gebunden sind, hat der Benutzer jetzt Zugriff auf die Viewer-Rolle auf die ursprünglichen Ressourcen sowie auf die Mitgliederrolle, die durch die Gruppenmitgliedschaft gewonnen wird.
+* *Wenn die Ressourcen, auf die zugegriffen wird, zu Clustern gehören, auf denen kein Astra Connector installiert ist*: Wenn einem Benutzer mehrere Rollen über eine LDAP-Gruppenmitgliedschaft zugewiesen werden, sind die Einschränkungen der freizügigsten Rolle die einzigen, die wirksam werden.
+
+
+
+
 == Mehrere Applikationen in einem einzelnen Namespace können nicht zusammen in einem anderen Namespace wiederhergestellt werden
 
 Wenn Sie mehrere Applikationen in einem einzigen Namespace managen (durch das Erstellen mehrerer App-Definitionen in Astra Control), können Sie nicht alle Applikationen auf einem anderen Single Namespace wiederherstellen. Jede Applikation muss ihrem eigenen separaten Namespace wiederhergestellt werden.
@@ -171,7 +180,7 @@ Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernete
 
 . Entfernen Sie alle vorhandenen Snapshot CRDs und alle vorhandenen Snapshot Controller.
 . https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Deinstallieren Sie Astra Trident"^].
-. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploying-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
+. https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#deploy-a-volume-snapshot-controller["Installieren Sie die Snapshot-CRDs und den Snapshot-Controller"^].
 . https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy.html["Installieren Sie die neueste Version von Astra Trident"^].
 . https://docs.netapp.com/us-en/trident/trident-use/vol-snapshots.html#step-1-create-a-volumesnapshotclass["Erstellen Sie eine VolumeSnapshotClass"^].
 
@@ -212,7 +221,7 @@ Wenn Sie Vorgänge auf Postgres-Pods durchführen, sollten Sie nicht direkt inne
 
 == Auf der Seite „Aktivität“ werden bis zu 100000 Ereignisse angezeigt
 
-Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab link:../rest-api/api-intro.html["Astra Control API"^].
+Auf der Seite Astra Control Activity können bis zu 100,000 Ereignisse angezeigt werden. Um alle protokollierten Ereignisse anzuzeigen, rufen Sie die Ereignisse mithilfe des ab https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API"^].
 
 
 

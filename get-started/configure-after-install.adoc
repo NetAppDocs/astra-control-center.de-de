@@ -83,7 +83,7 @@ kubectl delete limitrange cpu-limit-range -n [netapp-acc or custom namespace]
 
 == Fügen Sie ein benutzerdefiniertes TLS-Zertifikat hinzu
 
-Astra Control Center verwendet standardmäßig ein selbstsigniertes TLS-Zertifikat für Ingress-Controller-Datenverkehr (nur in bestimmten Konfigurationen) und die Web-UI-Authentifizierung mit Webbrowsern. Sie können das vorhandene selbst signierte TLS-Zertifikat entfernen und durch ein TLS-Zertifikat ersetzen, das von einer Zertifizierungsstelle (CA) signiert ist.
+Astra Control Center verwendet standardmäßig ein selbstsigniertes TLS-Zertifikat für Ingress-Controller-Datenverkehr (nur in bestimmten Konfigurationen) und die Web-UI-Authentifizierung mit Webbrowsern. Für den Produktionsbetrieb sollten Sie das vorhandene selbstsignierte TLS-Zertifikat entfernen und durch ein von einer Zertifizierungsstelle signiertes TLS-Zertifikat ersetzen.
 
 [NOTE]
 ====
@@ -181,6 +181,10 @@ Status:
 Events:                    <none>
 ----
 . Erstellen Sie die `certificate.yaml` Datei anhand des folgenden Beispiels, Ersetzen der Platzhalterwerte in Klammern <> durch entsprechende Informationen:
++
+
+NOTE: In diesem Beispiel wird der verwendet `dnsNames` Eigenschaft zur Angabe der Astra Control Center DNS-Adresse. Astra Control Center unterstützt nicht die Verwendung der CN-Eigenschaft (Common Name) zur Angabe der DNS-Adresse.
+
 +
 [source, yaml, subs="+quotes"]
 ----

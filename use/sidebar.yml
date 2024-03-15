@@ -50,13 +50,13 @@ entries:
   url: "/use/manage-backend.html"
 - title: Überwachen Sie laufende Aufgaben
   url: "/use/monitor-running-tasks.html"
-- title: Infrastruktur mit Cloud Insights und Fluentd überwachen
+- title: Managen Sie Astra Control-Anwendungen mit CRS
+  url: "/use/cr-manage-options.html"
+- title: Überwachung der Infrastruktur mit Prometheus und Fluentd
   url: "/use/monitor-protect.html"
 - title: Heben Sie das Management von Applikationen und Clustern auf
   url: "/use/unmanage.html"
 - title: Upgrade Astra Control Center
   url: "/use/upgrade-acc.html"
-- title: Astra Control Provisioner Aktivieren
-  url: "/use/enable-acp.html"
 - title: Deinstallieren Sie Astra Control Center
   url: "/use/uninstall_acc.html"

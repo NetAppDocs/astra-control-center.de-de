@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install_acc.html 
-keywords: astra installation, install astra control center, how to install astra control, deploy, download from netapp support 
+keywords: astra installation, install astra control center, how to install astra control, deploy, service mesh 
 summary: Um Astra Control Center zu installieren, nachdem Sie einige Umgebungsvoraussetzungen erfüllt haben, laden Sie das Paket herunter und installieren Sie es gemäß den beschriebenen Schritten. 
 ---
 = Installieren Sie das Astra Control Center mithilfe des Standardprozesses
@@ -12,16 +12,8 @@ summary: Um Astra Control Center zu installieren, nachdem Sie einige Umgebungsvo
 
 
 [role="lead"]
-Laden Sie zum Installieren des Astra Control Center das Installationspaket von der NetApp Support Site herunter und führen Sie die folgenden Schritte aus. Mit diesem Verfahren können Sie Astra Control Center in Internet-angeschlossenen oder luftgekapderten Umgebungen installieren.
+Um Astra Control Center zu installieren, laden Sie die Installationsabbilder herunter und führen Sie die folgenden Schritte aus. Mit diesem Verfahren können Sie Astra Control Center in Internet-angeschlossenen oder luftgekapderten Umgebungen installieren.
 
-.Für andere Installationsverfahren erweitern
-[%collapsible]
-====
-* *Installation mit Red hat OpenShift OperatorHub*: Verwenden Sie diese link:../get-started/acc_operatorhub_install.html["Alternativverfahren"] So installieren Sie Astra Control Center unter Verwendung von OperatorHub auf OpenShift.
-* *In der öffentlichen Cloud mit Cloud Volumes ONTAP-Backend installieren*: Verwenden link:../get-started/install_acc-cvo.html["Derartige Verfahren"] Zur Installation von Astra Control Center in Amazon Web Services (AWS), Google Cloud Platform (GCP) oder Microsoft Azure mit einem Cloud Volumes ONTAP Storage-Back-End
-
-
-====
 Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter https://www.youtube.com/watch?v=eurMV80b0Ks&list=PLdXI3bZJEw7mJz13z7YdiGCS6gNQgV_aN&index=5["Dieses Video"^].
 
 .Bevor Sie beginnen
@@ -39,13 +31,17 @@ TIP: Astra Control Center kann in einer dritten Fehlerdomäne oder an einem seku
 kubectl get apiservices
 ----
 * *Stellen Sie einen routingfähigen FQDN sicher*: Der Astra FQDN, den Sie verwenden möchten, kann zum Cluster weitergeleitet werden. Das bedeutet, dass Sie entweder einen DNS-Eintrag in Ihrem internen DNS-Server haben oder eine bereits registrierte Core URL-Route verwenden.
-* *Configure cert Manager*: Wenn ein cert Manager bereits im Cluster existiert, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"^] Damit Astra Control Center nicht versucht, seinen eigenen Cert Manager zu installieren. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
+* *Configure cert Manager*: Wenn ein cert Manager bereits im Cluster existiert, müssen Sie einige durchführen link:../get-started/cert-manager-prereqs.html["Erforderliche Schritte"] Damit Astra Control Center nicht versucht, seinen eigenen Cert Manager zu installieren. Standardmäßig installiert Astra Control Center während der Installation einen eigenen Cert-Manager.
+* *(nur ONTAP-SAN-Treiber) Aktivieren Sie Multipath*: Wenn Sie einen ONTAP-SAN-Treiber verwenden, stellen Sie sicher, dass Multipath auf allen Kubernetes-Clustern aktiviert ist.
+
+
+Sie sollten auch Folgendes berücksichtigen:
+
 * *Zugriff auf die NetApp Astra Control Image Registry*:
-Sie haben die Möglichkeit, Installations-Images und Funktionserweiterungen für Astra Control, wie z. B. Astra Control Provisioner, aus der NetApp-Image-Registrierung zu beziehen.
 +
-.Für Schritte erweitern
-[%collapsible]
-====
+Sie haben die Möglichkeit, Installations-Images und Funktionserweiterungen für Astra Control, wie z. B. Astra Control Provisioner, aus der NetApp-Image-Registrierung zu beziehen.
+
++
 .. Notieren Sie Ihre Astra Control Account-ID, die Sie zur Anmeldung in der Registrierung benötigen.
 +
 Ihre Konto-ID wird in der Web-UI des Astra Control Service angezeigt. Wählen Sie das Symbol oben rechts auf der Seite aus, wählen Sie *API Access* aus und notieren Sie sich Ihre Konto-ID.
@@ -59,14 +55,15 @@ docker login cr.astra.netapp.io -u <account-id> -p <api-token>
 ----
 
 
-====
-* *Betrachten Sie ein Service-Mesh*: Es wird dringend empfohlen, die Kommunikationskanäle des Astra Control-Host-Clusters mit einem zu sichern link:requirements.html#service-mesh-requirements["Unterstütztes Service-Mesh"^].
+* *Installieren Sie ein Service-Mesh für sichere Kommunikation*: Es wird dringend empfohlen, die Kommunikationskanäle des Host-Clusters Astra Control mit einem zu sichern link:requirements.html#service-mesh-requirements["Unterstütztes Service-Mesh"].
 +
-.Istio Service Mesh-Details
-[%collapsible]
-====
+
+IMPORTANT: Die Integration von Astra Control Center mit einem Service-Mesh ist nur während des Astra Control Center möglich link:../get-started/acc_operatorhub_install.html["Installation"] Und nicht unabhängig von diesem Prozess. Ein Wechsel von einer vernetzten in eine nicht vernetzte Umgebung wird nicht unterstützt.
+
++
 Für die Nutzung von Istio Service Mesh müssen Sie Folgendes tun:
 
++
 ** Fügen Sie ein hinzu `istio-injection:enabled` <<Komplette Astra Control Center und Bedienerinstallation,Etikett>> In den Astra Namespace vor der Implementierung von Astra Control Center.
 ** Verwenden Sie die `Generic` <<generic-ingress,Einstellung für Eindringen>> Und bieten eine alternative Ingress für <<Eindringen für den Lastenausgleich einrichten,Externe Lastverteilung>>.
 ** Für Red hat OpenShift-Cluster müssen Sie definieren `NetworkAttachmentDefinition` In allen zugehörigen Astra Control Center-Namespaces (`netapp-acc-operator`, `netapp-acc`, `netapp-monitoring` Für Anwendungscluster oder alle benutzerdefinierten Namespaces, die ersetzt wurden).
@@ -96,16 +93,13 @@ EOF
 ----
 
 
-====
-* *Nur ONTAP-SAN-Treiber*: Wenn Sie einen ONTAP-SAN-Treiber verwenden, stellen Sie sicher, dass Multipath auf allen Kubernetes-Clustern aktiviert ist.
 
 
 .Schritte
 Gehen Sie wie folgt vor, um Astra Control Center zu installieren:
 
 * <<Laden Sie das Astra Control Center herunter und extrahieren Sie es>>
-* <<Installieren Sie das NetApp Astra kubectl Plug-in>>
-* <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu>>
+* <<Führen Sie zusätzliche Schritte durch, wenn Sie eine lokale Registrierung verwenden>>
 * <<Einrichten von Namespace und Geheimdienstraum für Registrys mit auth Anforderungen>>
 * <<Installieren Sie den Operator Astra Control Center>>
 * <<Konfigurieren Sie Astra Control Center>>
@@ -122,29 +116,39 @@ IMPORTANT: Löschen Sie den Operator Astra Control Center nicht (z. B. `kubectl 
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-Sie können das Bundle von Astra Control Center von der NetApp Support-Website herunterladen oder das Bundle mithilfe von Docker aus der Image-Registrierung des Astra Control Service abrufen.
+Laden Sie die Bilder des Astra Control Center von einem der folgenden Standorte herunter:
+
+* *Astra Control Service Image Registry*: Verwenden Sie diese Option, wenn Sie keine lokale Registrierung mit den Astra Control Center Images verwenden oder wenn Sie diese Methode dem Bundle-Download von der NetApp Support-Website vorziehen.
+* *NetApp Support-Seite*: Verwenden Sie diese Option, wenn Sie eine lokale Registrierung mit den Astra Control Center-Images verwenden.
+
 
 [role="tabbed-block"]
 ====
+.Astra Control-Image-Registrierung
+--
+. Melden Sie sich beim Astra Control Service an.
+. Wählen Sie im Dashboard *Deploy a self-Managed Instance of Astra Control* aus.
+. Folgen Sie den Anweisungen, um sich bei der Astra Control-Image-Registrierung anzumelden, das Astra Control Center-Installationsabbild zu ziehen und das Image zu extrahieren.
+
+
+--
 .NetApp Support Website
 --
 . Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`) Vom https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^].
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Bündels zu überprüfen.
 +
-.Erweitern Sie, um Details anzuzeigen
-[%collapsible]
-=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
++
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
++
 Die Ausgabe wird angezeigt `Verified OK` Nach erfolgreicher Überprüfung.
 
-=====
 . Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:
 +
 [source, console]
@@ -154,25 +158,23 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 
 --
-.Astra Control-Image-Registrierung
---
-. Melden Sie sich beim Astra Control Service an.
-. Wählen Sie im Dashboard *Deploy a self-Managed Instance of Astra Control* aus.
-. Folgen Sie den Anweisungen, um sich bei der Astra Control-Image-Registrierung anzumelden, das Astra Control Center-Installationsabbild zu ziehen und das Image zu extrahieren.
-
-
---
 ====
 
 
-== Installieren Sie das NetApp Astra kubectl Plug-in
+== Führen Sie zusätzliche Schritte durch, wenn Sie eine lokale Registrierung verwenden
 
-Sie können das NetApp Astra kubectl Befehlszeilenschnittstelle-Plug-in verwenden, um Images in ein lokales Docker Repository zu verschieben.
+Wenn Sie planen, das Astra Control Center Bundle in Ihre lokale Registry zu schieben, müssen Sie das NetApp Astra kubectl Kommandozeilen-Plugin verwenden.
+
+
+
+=== Installieren Sie das NetApp Astra kubectl Plug-in
+
+Führen Sie diese Schritte aus, um das neueste NetApp Astra kubectl Kommandozeilen-Plugin zu installieren.
 
 .Bevor Sie beginnen
 NetApp bietet Plug-ins-Binärdateien für verschiedene CPU-Architekturen und Betriebssysteme. Sie müssen wissen, welche CPU und welches Betriebssystem Sie haben, bevor Sie diese Aufgabe ausführen.
 
-Wenn Sie das Plugin bereits von einer früheren Installation installiert haben, link:../use/upgrade-acc.html#remove-the-netapp-astra-kubectl-plugin-and-install-it-again["Stellen Sie sicher, dass Sie über die neueste Version verfügen"^] Bevor Sie diese Schritte ausführen.
+Wenn Sie das Plugin bereits von einer früheren Installation installiert haben, link:../use/upgrade-acc.html#remove-the-netapp-astra-kubectl-plugin-and-install-it-again["Stellen Sie sicher, dass Sie über die neueste Version verfügen"] Bevor Sie diese Schritte ausführen.
 
 .Schritte
 . Listen Sie die verfügbaren NetApp Astra kubectl Plugin-Binärdateien auf:
@@ -195,27 +197,26 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 
 
 
-== Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu
+=== Fügen Sie die Bilder zu Ihrer Registrierung hinzu
 
-. Führen Sie die entsprechende Schrittfolge für Ihre Container-Engine durch:
-
-
+. Wenn Sie planen, das Astra Control Center-Paket in Ihre lokale Registrierung zu übertragen, führen Sie die entsprechende Schrittfolge für Ihre Container-Engine aus:
++
 [role="tabbed-block"]
 ====
 .Docker
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
+.. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
-** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
-** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
-** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
-** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
+*** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
+*** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
+*** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
+*** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
 +
 [source, console]
 ----
@@ -228,19 +229,19 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .Podman
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Melden Sie sich bei Ihrer Registrierung an:
+.. Melden Sie sich bei Ihrer Registrierung an:
 +
 [source, console]
 ----
 podman login <YOUR_REGISTRY>
 ----
-. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
+.. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -251,7 +252,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -270,7 +271,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -286,12 +287,20 @@ NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registri
 +
 [listing]
 ----
-https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/24.02.0-65/image:version
 ----
 
 
 --
 ====
+. Telefonbuch ändern:
++
+[source, console]
+----
+cd manifests
+----
+
+
 
 
 == Einrichten von Namespace und Geheimdienstraum für Registrys mit auth Anforderungen
@@ -308,9 +317,6 @@ IMPORTANT: Bevor Sie die Installation abschließen, vergewissern Sie sich, dass 
 
 . Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, müssen Sie Folgendes tun:
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 .. Erstellen Sie die `netapp-acc-operator` Namespace:
 +
 [source, console]
@@ -320,10 +326,15 @@ kubectl create ns netapp-acc-operator
 .. Erstellen Sie ein Geheimnis für das `netapp-acc-operator` Namespace. Fügen Sie Docker-Informationen hinzu und führen Sie den folgenden Befehl aus:
 +
 
-NOTE: Platzhalter `your_registry_path` Sollte die Position der Bilder, die Sie früher hochgeladen haben, entsprechen (z. B. `[Registry_URL]/netapp/astra/astracc/23.10.0-68`).
+NOTE: Platzhalter `your_registry_path` Sollte die Position der Bilder, die Sie früher hochgeladen haben, entsprechen (z. B. `[Registry_URL]/netapp/astra/astracc/24.02.0-65`).
 
 +
-[source, console]
+[source, Astra_registry]
+----
+kubectl create secret docker-registry astra-registry-cred -n netapp-acc-operator --docker-server=cr.astra.netapp.io --docker-username=[astra_account_id] --docker-password=[astra_api_token]
+----
++
+[source, local_registry]
 ----
 kubectl create secret docker-registry astra-registry-cred -n netapp-acc-operator --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
 ----
@@ -337,28 +348,28 @@ NOTE: Wenn Sie den Namespace löschen, nachdem das Geheimnis generiert wurde, er
 ----
 kubectl create ns [netapp-acc or custom namespace]
 ----
-.. Erstellen Sie ein Geheimnis für das `netapp-acc` (Oder Name des benutzerdefinierten Namespace). Fügen Sie Docker-Informationen hinzu und führen Sie den folgenden Befehl aus:
+.. Erstellen Sie ein Geheimnis für das `netapp-acc` (Oder Name des benutzerdefinierten Namespace). Fügen Sie Docker-Informationen hinzu, und führen Sie je nach Registrierungseinstellung einen der entsprechenden Befehle aus:
 +
-[source, console]
+[source, Astra_registry]
+----
+kubectl create secret docker-registry astra-registry-cred -n [netapp-acc or custom namespace] --docker-server=cr.astra.netapp.io --docker-username=[astra_account_id] --docker-password=[astra_api_token]
+----
++
+[source, local_registry]
 ----
 kubectl create secret docker-registry astra-registry-cred -n [netapp-acc or custom namespace] --docker-server=[your_registry_path] --docker-username=[username] --docker-password=[token]
 ----
 
 
-====
 
 
 
 
 == Installieren Sie den Operator Astra Control Center
 
-. Telefonbuch ändern:
+. (Nur lokale Registrierungsstellen) Wenn Sie eine lokale Registrierung verwenden, führen Sie die folgenden Schritte aus:
 +
-[source, console]
-----
-cd manifests
-----
-. Bearbeiten Sie die YAML-Implementierung des Astra Control Center-Bedieners (`astra_control_center_operator_deploy.yaml`) Zu Ihrem lokalen Register und Geheimnis zu verweisen.
+.. Astra Control Center Operator Deployment YAML öffnen:
 +
 [source, console]
 ----
@@ -368,21 +379,17 @@ vim astra_control_center_operator_deploy.yaml
 
 NOTE: Ein YAML-Beispiel mit Anmerkungen folgt diesen Schritten.
 
-+
 .. Wenn Sie eine Registrierung verwenden, für die eine Authentifizierung erforderlich ist, ersetzen Sie die Standardzeile von `imagePullSecrets: []` Mit folgenden Optionen:
 +
 [source, console]
 ----
 imagePullSecrets: [{name: astra-registry-cred}]
 ----
-.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
-.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `acc-operator-controller-manager` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
+.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder zu Ihrer Registrierung hinzu,Vorheriger Schritt>>.
+.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `acc-operator-controller-manager` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder zu Ihrer Registrierung hinzu,Vorheriger Schritt>>.
 
 
 +
-.Erweitern für Beispiel astra_control_Center_Operator_deploy.yaml
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 apiVersion: apps/v1
@@ -424,7 +431,7 @@ spec:
           value: "2"
         - name: ACCOP_HELM_INSTALLTIMEOUT
           value: 5m
-        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.10.72*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:24.02.64*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -453,7 +460,6 @@ spec:
         runAsUser: 65532
       terminationGracePeriodSeconds: 10
 ----
-====
 . Installieren Sie den Astra Control Center-Operator:
 +
 [source, console]
@@ -504,7 +510,7 @@ NOTE: Ein YAML-Beispiel mit Anmerkungen folgt diesen Schritten.
 
 . Ändern oder bestätigen Sie die folgenden Einstellungen:
 +
-.<code> </code>
+.AccountName
 [%collapsible]
 ====
 |===
@@ -515,32 +521,34 @@ NOTE: Ein YAML-Beispiel mit Anmerkungen folgt diesen Schritten.
 |===
 ====
 +
-.<code> Verrauses </code>
+.AstraVersion
 [%collapsible]
 ====
 |===
 | Einstellung | Anleitung | Typ | Beispiel 
 
 
-| `astraVersion` | Die zu implementierende Version des Astra Control Center: Für diese Einstellung ist keine Aktion erforderlich, da der Wert bereits ausgefüllt wird. | Zeichenfolge | `23.10.0-68` 
+| `astraVersion` | Die zu implementierende Version des Astra Control Center: Für diese Einstellung ist keine Aktion erforderlich, da der Wert bereits ausgefüllt wird. | Zeichenfolge | `24.02.0-65` 
 |===
 ====
 +
-.<code> </code>
+.AstraAddress
 [%collapsible]
 ====
 |===
 | Einstellung | Anleitung | Typ | Beispiel 
 
 
-| `astraAddress` | Ändern Sie das `astraAddress` Zeichenfolge an den FQDN (empfohlen) oder die IP-Adresse, die Sie in Ihrem Browser verwenden möchten, um auf Astra Control Center zuzugreifen. Diese Adresse legt fest, wie Astra Control Center in Ihrem Rechenzentrum zu finden ist und ist die gleiche FQDN- oder IP-Adresse, die Sie von Ihrem Load Balancer bereitgestellt haben, wenn Sie fertig sind link:requirements.html["Anforderungen des Astra Control Centers"^]. HINWEIS: Nicht verwenden `http://` Oder `https://` In der Adresse. Kopieren Sie diesen FQDN zur Verwendung in einem <<Melden Sie sich in der UI des Astra Control Center an,Später Schritt>>. | Zeichenfolge | `astra.example.com` 
+| `astraAddress` | Ändern Sie das `astraAddress` Zeichenfolge an den FQDN (empfohlen) oder die IP-Adresse, die Sie in Ihrem Browser verwenden möchten, um auf Astra Control Center zuzugreifen. Diese Adresse legt fest, wie Astra Control Center in Ihrem Rechenzentrum zu finden ist und ist die gleiche FQDN- oder IP-Adresse, die Sie von Ihrem Load Balancer bereitgestellt haben, wenn Sie fertig sind link:requirements.html["Anforderungen des Astra Control Centers"].
+
+HINWEIS: Nicht verwenden `http://` Oder `https://` In der Adresse. Kopieren Sie diesen FQDN zur Verwendung in einem <<Melden Sie sich in der UI des Astra Control Center an,Später Schritt>>. | Zeichenfolge | `astra.example.com` 
 |===
 ====
 +
-.<code> </code>
+.AutoSupport
 [%collapsible]
 ====
-Anhand Ihrer Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der pro-aktiven Support-Applikation von NetApp, dem NetApp Active IQ und dem Sendeort von Daten teilnehmen. Eine Internetverbindung ist erforderlich (Port 442), und alle Supportdaten werden anonymisiert.
+Durch Ihre Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der proaktiven Support-Applikation von NetApp, NetApp Active IQ, teilnehmen und an welchen Orten Daten gesendet werden. Eine Internetverbindung ist erforderlich (Port 442), und alle Supportdaten werden anonymisiert.
 
 |===
 | Einstellung | Nutzung | Anleitung | Typ | Beispiel 
@@ -553,7 +561,7 @@ Anhand Ihrer Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der pro-aktive
 |===
 ====
 +
-.<code> </code>
+.E-Mail
 [%collapsible]
 ====
 |===
@@ -564,7 +572,7 @@ Anhand Ihrer Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der pro-aktive
 |===
 ====
 +
-.<code> </code>
+.Vorname
 [%collapsible]
 ====
 |===
@@ -575,7 +583,7 @@ Anhand Ihrer Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der pro-aktive
 |===
 ====
 +
-.<code> </code>
+.Nachname
 [%collapsible]
 ====
 |===
@@ -586,7 +594,7 @@ Anhand Ihrer Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der pro-aktive
 |===
 ====
 +
-.<code> </code> für die-Abteilung
+.ImageRegistry
 [%collapsible]
 ====
 Ihre Auswahl in diesem Abschnitt definiert die Container-Image-Registry, die die Astra-Anwendungsabbilder, den Astra Control Center Operator und das Astra Control Center Helm Repository hostet.
@@ -595,27 +603,30 @@ Ihre Auswahl in diesem Abschnitt definiert die Container-Image-Registry, die die
 | Einstellung | Nutzung | Anleitung | Typ | Beispiel 
 
 
-| `imageRegistry.name` | Erforderlich | Der Name der Bildregistrierung, in der Sie die Bilder in geschoben haben <<Installieren Sie den Operator Astra Control Center,Vorheriger Schritt>>. Verwenden Sie es nicht `http://` Oder `https://` Im Registrierungsnamen. | Zeichenfolge | `example.registry.com/astra` 
+| `imageRegistry.name` | Erforderlich | Der Name der Astra Control-Image-Registrierung, die alle Images hostet, die für die Bereitstellung von Astra Control Center erforderlich sind. Der Wert wird vorausgefüllt, und es ist keine Aktion erforderlich, es sei denn, Sie haben eine lokale Registrierung konfiguriert. Ersetzen Sie bei einer lokalen Registrierung diesen vorhandenen Wert durch den Namen der Bildregistrierung, in die Sie die Bilder in der verschoben haben <<Installieren Sie den Operator Astra Control Center,Vorheriger Schritt>>. Verwenden Sie es nicht `http://` Oder `https://` Im Registrierungsnamen. | Zeichenfolge | `cr.astra.netapp.io` (Standard)
+`example.registry.com/astra` (Beispiel für eine lokale Registrierung) 
 
 
-| `imageRegistry.secret` | Erforderlich, wenn der von Ihnen eingegebene String eingegeben wird `imageRegistry.name' requires a secret.
+| `imageRegistry.secret` | Optional | Der Name des Kubernetes Secret, das zur Authentifizierung mit der Bildregistrierung verwendet wird. Der Wert wird vorausgefüllt, und es ist keine Aktion erforderlich, es sei denn, Sie haben eine lokale Registrierung und den String konfiguriert, den Sie für diese Registrierung in eingegeben haben `imageRegistry.name` Erfordert ein Geheimnis.
 
-IMPORTANT: If you are using a registry that does not require authorization, you must delete this `secret` Zeile in `imageRegistry` Oder die Installation schlägt fehl. | Der Name des Kubernetes Secret, das zur Authentifizierung mit der Bildregistrierung verwendet wird. | Zeichenfolge | `astra-registry-cred` 
+WICHTIG: Wenn Sie eine lokale Registrierung verwenden, die keine Autorisierung erfordert, müssen Sie diese löschen `secret` Zeile in `imageRegistry` Oder die Installation schlägt fehl. | Zeichenfolge | `astra-registry-cred` 
 |===
 ====
 +
-.<code> </code>
+.Storage Class
 [%collapsible]
 ====
 |===
 | Einstellung | Anleitung | Typ | Beispiel 
 
 
-| `storageClass` | Ändern Sie das `storageClass` Wert von `ontap-gold` Je nach Installationsanforderungen zu einer anderen Ressource für Astra Trident Storage Class wechseln. Führen Sie den Befehl aus `kubectl get sc` So ermitteln Sie Ihre vorhandenen konfigurierten Speicherklassen. In die Manifest-Datei muss eine der Astra Trident-basierten Storage-Klassen eingegeben werden (`astra-control-center-<version>.manifest`) Und wird für Astra PVS verwendet. Wenn er nicht festgelegt ist, wird die Standard-Speicherklasse verwendet. HINWEIS: Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist. | Zeichenfolge | `ontap-gold` 
+| `storageClass` | Ändern Sie das `storageClass` Wert von `ontap-gold` Auf eine andere Ressource von storageClass, wie von Ihrer Installation gefordert. Führen Sie den Befehl aus `kubectl get sc` So ermitteln Sie Ihre vorhandenen konfigurierten Speicherklassen. In die Manifestdatei muss eine für die Astra Control Provisioner konfigurierte Storage-Klasse eingegeben werden (`astra-control-center-<version>.manifest`) Und wird für Astra PVS verwendet. Wenn er nicht festgelegt ist, wird die Standard-Speicherklasse verwendet.
+
+HINWEIS: Wenn eine Standard-Storage-Klasse konfiguriert ist, stellen Sie sicher, dass diese die einzige Storage-Klasse mit der Standardbeschriftung ist. | Zeichenfolge | `ontap-gold` 
 |===
 ====
 +
-.<code> MITTIRMIT </code>
+.VolumeReclaimPolicy
 [%collapsible]
 ====
 |===
@@ -630,7 +641,7 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 |===
 ====
 +
-.<code> VerrungenTypoetin </code>
+.Typ
 [#generic-ingress%collapsible]
 ====
 |===
@@ -639,18 +650,18 @@ IMPORTANT: If you are using a registry that does not require authorization, you 
 
 | `ingressType` | Verwenden Sie einen der folgenden Eingangstypen:
 
- `Generic`* (`ingressType: "Generic"`) (Standard)
-Verwenden Sie diese Option, wenn Sie einen anderen Ingress-Controller verwenden oder Ihren eigenen Ingress-Controller verwenden möchten. Nach der Implementierung des Astra Control Center müssen Sie den konfigurieren link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eingangs-Controller"^] Um Astra Control Center mit einer URL zu zeigen.
+*Allgemein* (`ingressType: "Generic"`) (Standard)
+Verwenden Sie diese Option, wenn Sie einen anderen Ingress-Controller verwenden oder Ihren eigenen Ingress-Controller verwenden möchten. Nachdem Astra Control Center bereitgestellt ist, müssen Sie das konfigurieren link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eingangs-Controller"] Um Astra Control Center mit einer URL zu zeigen.
 
-WICHTIG: Wenn Sie ein Service-Mesh mit Astra Control Center verwenden möchten, müssen Sie auswählen `Generic` Als Eindringen Typ und richten Sie Ihre eigenen link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eingangs-Controller"^].
+WICHTIG: Wenn Sie ein Service-Mesh mit Astra Control Center verwenden möchten, müssen Sie auswählen `Generic` Als Eindringen Typ und richten Sie Ihre eigenen link:../get-started/install_acc.html#set-up-ingress-for-load-balancing["Eingangs-Controller"].
 
 
-*`AccTraefik`* (`ingressType: "AccTraefik"`)
+*AccTraefik* (`ingressType: "AccTraefik"`)
 Verwenden Sie diese Option, wenn Sie keinen Ingress-Controller konfigurieren möchten. Dies implementiert das Astra Control Center `traefik` Gateway als Service des Typs Kubernetes Load Balancer:
 
 Astra Control Center nutzt einen Service vom Typ „loadbalancer“ (`svc/traefik` Im Astra Control Center Namespace) und erfordert, dass ihm eine zugängliche externe IP-Adresse zugewiesen wird. Wenn in Ihrer Umgebung Load Balancer zugelassen sind und Sie noch keine konfiguriert haben, können Sie MetalLB oder einen anderen externen Service Load Balancer verwenden, um dem Dienst eine externe IP-Adresse zuzuweisen. In der Konfiguration des internen DNS-Servers sollten Sie den ausgewählten DNS-Namen für Astra Control Center auf die Load-Balanced IP-Adresse verweisen.
 
-HINWEIS: Weitere Informationen zum Servicetyp "loadbalancer" und Ingress finden Sie unter link:../get-started/requirements.html["Anforderungen"^]. | Zeichenfolge  a| 
+HINWEIS: Weitere Informationen zum Servicetyp "loadbalancer" und Ingress finden Sie unter link:../get-started/requirements.html["Anforderungen"]. | Zeichenfolge  a| 
 ** `Generic` (Dies ist der Standardwert)
 ** `AccTraefik`
 
@@ -658,7 +669,7 @@ HINWEIS: Weitere Informationen zum Servicetyp "loadbalancer" und Ingress finden 
 |===
 ====
 +
-.<code>scaleSize</code>
+.Skalengröße
 [%collapsible]
 ====
 |===
@@ -673,7 +684,7 @@ HINWEIS: Weitere Informationen zum Servicetyp "loadbalancer" und Ingress finden 
 |===
 ====
 +
-.<code> ChereRessourcenScaleCaleCTORATE </code>
+.AstraResourcesScaler
 [%collapsible]
 ====
 |===
@@ -688,7 +699,7 @@ HINWEIS: Weitere Informationen zum Servicetyp "loadbalancer" und Ingress finden 
 |===
 ====
 +
-.<code>additionalValues</code>
+.Zusätzliche Werte
 [%collapsible]
 ====
 
@@ -703,25 +714,9 @@ additionalValues:
       readinessProbe:
         initialDelaySeconds: 180
 ----
-** Für die Kommunikation zwischen Astral Control Center und Cloud Insights ist die Überprüfung des TLS-Zertifikats standardmäßig deaktiviert. Sie können die TLS-Zertifizierungsüberprüfung für die Kommunikation zwischen Cloud Insights und dem Astra Control Center Host-Cluster und dem verwalteten Cluster aktivieren, indem Sie den folgenden Abschnitt in hinzufügen `additionalValues`.
-
-
-[listing]
-----
-  additionalValues:
-    netapp-monitoring-operator:
-      config:
-        ciSkipTlsVerify: false
-    cloud-insights-service:
-      config:
-        ciSkipTlsVerify: false
-    telemetry-service:
-      config:
-        ciSkipTlsVerify: false
-----
 ====
 +
-.<code> Team </code>
+.crds
 [%collapsible]
 ====
 Ihre Auswahl in diesem Abschnitt legt fest, wie Astra Control Center mit CRDs umgehen soll.
@@ -741,9 +736,7 @@ Ihre Auswahl in diesem Abschnitt legt fest, wie Astra Control Center mit CRDs um
 
 IMPORTANT: Stellen Sie sicher, dass Sie die richtige Storage-Klasse und den richtigen Ingress-Typ für Ihre Konfiguration ausgewählt haben, bevor Sie die Installation abschließen.
 
-.Erweitern für Beispiel astra_Control_Center.yaml
-[%collapsible]
-====
+.Beispiel für astra_Control_Center.yaml
 [listing, subs="+quotes"]
 ----
 apiVersion: astra.netapp.io/v1
@@ -760,7 +753,7 @@ spec:
   firstName: "SRE"
   lastName: "Admin"
   imageRegistry:
-    name: "[your_registry_path]"
+    name: "[cr.astra.netapp.io or your_registry_path]"
     secret: "astra-registry-cred"
   storageClass: "ontap-gold"
   volumeReclaimPolicy: "Retain"
@@ -777,7 +770,6 @@ spec:
     externalTraefik: false
     externalCertManager: false
 ----
-====
 
 
 == Komplette Astra Control Center und Bedienerinstallation
@@ -821,7 +813,7 @@ kubectl apply -f astra_control_center.yaml -n [netapp-acc or custom namespace]
 
 
 
-IMPORTANT: Der Fahrer des Astra Control Center überprüft automatisch die Umgebungsanforderungen. Fehlt link:../get-started/requirements.html["Anforderungen"^] Kann dazu führen, dass Ihre Installation fehlschlägt oder Astra Control Center nicht ordnungsgemäß funktioniert. Siehe <<Überprüfen Sie den Systemstatus,Nächster Abschnitt>> So prüfen Sie, ob Warnmeldungen zur automatischen Systemprüfung vorliegen.
+IMPORTANT: Der Fahrer des Astra Control Center überprüft automatisch die Umgebungsanforderungen. Fehlt link:../get-started/requirements.html["Anforderungen"] Kann dazu führen, dass Ihre Installation fehlschlägt oder Astra Control Center nicht ordnungsgemäß funktioniert. Siehe <<Überprüfen Sie den Systemstatus,Nächster Abschnitt>> So prüfen Sie, ob Warnmeldungen zur automatischen Systemprüfung vorliegen.
 
 
 
@@ -843,7 +835,7 @@ NOTE: Zusätzliche Warnmeldungen werden auch in den Bedienerprotokollen des Astr
 . Beheben Sie alle Probleme mit Ihrer Umgebung, die durch automatisierte Anforderungsprüfungen gemeldet wurden.
 +
 
-NOTE: Sie können Probleme beheben, indem Sie sicherstellen, dass Ihre Umgebung den erfüllt link:../get-started/requirements.html["Anforderungen"^] Für Astra Control Center.
+NOTE: Sie können Probleme beheben, indem Sie sicherstellen, dass Ihre Umgebung den erfüllt link:../get-started/requirements.html["Anforderungen"] Für Astra Control Center.
 
 . Vergewissern Sie sich, dass alle Systemkomponenten erfolgreich installiert wurden.
 +
@@ -860,96 +852,111 @@ Jeder Pod sollte einen Status von haben `Running`. Es kann mehrere Minuten dauer
 ====
 [listing, subs="+quotes"]
 ----
-NAME                                          READY   STATUS      RESTARTS     AGE
-acc-helm-repo-6cc7696d8f-pmhm8                1/1     Running     0            9h
-activity-597fb656dc-5rd4l                     1/1     Running     0            9h
-activity-597fb656dc-mqmcw                     1/1     Running     0            9h
-api-token-authentication-62f84                1/1     Running     0            9h
-api-token-authentication-68nlf                1/1     Running     0            9h
-api-token-authentication-ztgrm                1/1     Running     0            9h
-asup-669d4ddbc4-fnmwp                         1/1     Running     1 (9h ago)   9h
-authentication-78789d7549-lk686               1/1     Running     0            9h
-bucketservice-65c7d95496-24x7l                1/1     Running     3 (9h ago)   9h
-cert-manager-c9f9fbf9f-k8zq2                  1/1     Running     0            9h
-cert-manager-c9f9fbf9f-qjlzm                  1/1     Running     0            9h
-cert-manager-cainjector-dbbbd8447-b5qll       1/1     Running     0            9h
-cert-manager-cainjector-dbbbd8447-p5whs       1/1     Running     0            9h
-cert-manager-webhook-6f97bb7d84-4722b         1/1     Running     0            9h
-cert-manager-webhook-6f97bb7d84-86kv5         1/1     Running     0            9h
-certificates-59d9f6f4bd-2j899                 1/1     Running     0            9h
-certificates-59d9f6f4bd-9d9k6                 1/1     Running     0            9h
-certificates-expiry-check-28011180--1-8lkxz   0/1     Completed   0            9h
-cloud-extension-5c9c9958f8-jdhrp              1/1     Running     0            9h
-cloud-insights-service-5cdd5f7f-pp8r5         1/1     Running     0            9h
-composite-compute-66585789f4-hxn5w            1/1     Running     0            9h
-composite-volume-68649f68fd-tb7p4             1/1     Running     0            9h
-credentials-dfc844c57-jsx92                   1/1     Running     0            9h
-credentials-dfc844c57-xw26s                   1/1     Running     0            9h
-entitlement-7b47769b87-4jb6c                  1/1     Running     0            9h
-features-854d8444cc-c24b7                     1/1     Running     0            9h
-features-854d8444cc-dv6sm                     1/1     Running     0            9h
-fluent-bit-ds-9tlv4                           1/1     Running     0            9h
-fluent-bit-ds-bpkcb                           1/1     Running     0            9h
-fluent-bit-ds-cxmwx                           1/1     Running     0            9h
-fluent-bit-ds-jgnhc                           1/1     Running     0            9h
-fluent-bit-ds-vtr6k                           1/1     Running     0            9h
-fluent-bit-ds-vxqd5                           1/1     Running     0            9h
-graphql-server-7d4b9d44d5-zdbf5               1/1     Running     0            9h
-identity-6655c48769-4pwk8                     1/1     Running     0            9h
-influxdb2-0                                   1/1     Running     0            9h
-keycloak-operator-55479d6fc6-slvmt            1/1     Running     0            9h
-krakend-f487cb465-78679                       1/1     Running     0            9h
-krakend-f487cb465-rjsxx                       1/1     Running     0            9h
-license-64cbc7cd9c-qxsr8                      1/1     Running     0            9h
-login-ui-5db89b5589-ndb96                     1/1     Running     0            9h
-loki-0                                        1/1     Running     0            9h
-metrics-facade-8446f64c94-x8h7b               1/1     Running     0            9h
-monitoring-operator-6b44586965-pvcl4          2/2     Running     0            9h
-nats-0                                        1/1     Running     0            9h
-nats-1                                        1/1     Running     0            9h
-nats-2                                        1/1     Running     0            9h
-nautilus-85754d87d7-756qb                     1/1     Running     0            9h
-nautilus-85754d87d7-q8j7d                     1/1     Running     0            9h
-openapi-5f9cc76544-7fnjm                      1/1     Running     0            9h
-openapi-5f9cc76544-vzr7b                      1/1     Running     0            9h
-packages-5db49f8b5-lrzhd                      1/1     Running     0            9h
-polaris-consul-consul-server-0                1/1     Running     0            9h
-polaris-consul-consul-server-1                1/1     Running     0            9h
-polaris-consul-consul-server-2                1/1     Running     0            9h
-polaris-keycloak-0                            1/1     Running     2 (9h ago)   9h
-polaris-keycloak-1                            1/1     Running     0            9h
-polaris-keycloak-2                            1/1     Running     0            9h
-polaris-keycloak-db-0                         1/1     Running     0            9h
-polaris-keycloak-db-1                         1/1     Running     0            9h
-polaris-keycloak-db-2                         1/1     Running     0            9h
-polaris-mongodb-0                             1/1     Running     0            9h
-polaris-mongodb-1                             1/1     Running     0            9h
-polaris-mongodb-2                             1/1     Running     0            9h
-polaris-ui-66fb99479-qp9gq                    1/1     Running     0            9h
-polaris-vault-0                               1/1     Running     0            9h
-polaris-vault-1                               1/1     Running     0            9h
-polaris-vault-2                               1/1     Running     0            9h
-public-metrics-76fbf9594d-zmxzw               1/1     Running     0            9h
-storage-backend-metrics-7d7fbc9cb9-lmd25      1/1     Running     0            9h
-storage-provider-5bdd456c4b-2fftc             1/1     Running     0            9h
-task-service-87575df85-dnn2q                  1/1     Running     3 (9h ago)   9h
-task-service-task-purge-28011720--1-q6w4r     0/1     Completed   0            28m
-task-service-task-purge-28011735--1-vk6pd     1/1     Running     0            13m
-telegraf-ds-2r2kw                             1/1     Running     0            9h
-telegraf-ds-6s9d5                             1/1     Running     0            9h
-telegraf-ds-96jl7                             1/1     Running     0            9h
-telegraf-ds-hbp84                             1/1     Running     0            9h
-telegraf-ds-plwzv                             1/1     Running     0            9h
-telegraf-ds-sr22c                             1/1     Running     0            9h
-telegraf-rs-4sbg8                             1/1     Running     0            9h
-telemetry-service-fb9559f7b-mk9l7             1/1     Running     3 (9h ago)   9h
-tenancy-559bbc6b48-5msgg                      1/1     Running     0            9h
-traefik-d997b8877-7xpf4                       1/1     Running     0            9h
-traefik-d997b8877-9xv96                       1/1     Running     0            9h
-trident-svc-585c97548c-d25z5                  1/1     Running     0            9h
-vault-controller-88484b454-2d6sr              1/1     Running     0            9h
-vault-controller-88484b454-fc5cz              1/1     Running     0            9h
-vault-controller-88484b454-jktld              1/1     Running     0            9h
+acc-helm-repo-5bd77c9ddd-8wxm2             1/1     Running     0               1h
+activity-5bb474dc67-8l9ss                  1/1     Running     0               1h
+activity-5bb474dc67-qbrtq                  1/1     Running     0               1h
+api-token-authentication-6wbj2             1/1     Running     0               1h
+api-token-authentication-9pgw6             1/1     Running     0               1h
+api-token-authentication-tqf6d             1/1     Running     0               1h
+asup-5495f44dbd-z4kft                      1/1     Running     0               1h
+authentication-6fdd899858-5x45s            1/1     Running     0               1h
+bucketservice-84d47487d-n9xgp              1/1     Running     0               1h
+bucketservice-84d47487d-t5jhm              1/1     Running     0               1h
+cert-manager-5dcb7648c4-hbldc              1/1     Running     0               1h
+cert-manager-5dcb7648c4-nr9qf              1/1     Running     0               1h
+cert-manager-cainjector-59b666fb75-bk2tf   1/1     Running     0               1h
+cert-manager-cainjector-59b666fb75-pfnck   1/1     Running     0               1h
+cert-manager-webhook-c6f9b6796-ngz2x       1/1     Running     0               1h
+cert-manager-webhook-c6f9b6796-rwtbn       1/1     Running     0               1h
+certificates-5f5b7b4dd-52tnj               1/1     Running     0               1h
+certificates-5f5b7b4dd-gtjbx               1/1     Running     0               1h
+certificates-expiry-check-28477260-dz5vw   0/1     Completed   0               1h
+cloud-extension-6f58cc579c-lzfmv           1/1     Running     0               1h
+cloud-extension-6f58cc579c-zw2km           1/1     Running     0               1h
+cluster-orchestrator-79dd5c8d95-qjg92      1/1     Running     0               1h
+composite-compute-85dc84579c-nz82f         1/1     Running     0               1h
+composite-compute-85dc84579c-wx2z2         1/1     Running     0               1h
+composite-volume-bff6f4f76-789nj           1/1     Running     0               1h
+composite-volume-bff6f4f76-kwnd4           1/1     Running     0               1h
+credentials-79fd64f788-m7m8f               1/1     Running     0               1h
+credentials-79fd64f788-qnc6c               1/1     Running     0               1h
+entitlement-f69cdbd77-4p2kn                1/1     Running     0               1h
+entitlement-f69cdbd77-hswm6                1/1     Running     0               1h
+features-7b9585444c-7xd7m                  1/1     Running     0               1h
+features-7b9585444c-dcqwc                  1/1     Running     0               1h
+fluent-bit-ds-crq8m                        1/1     Running     0               1h
+fluent-bit-ds-gmgq8                        1/1     Running     0               1h
+fluent-bit-ds-gzr4f                        1/1     Running     0               1h
+fluent-bit-ds-j6sf6                        1/1     Running     0               1h
+fluent-bit-ds-v4t9f                        1/1     Running     0               1h
+fluent-bit-ds-x7j59                        1/1     Running     0               1h
+graphql-server-6cc684fb46-2x8lr            1/1     Running     0               1h
+graphql-server-6cc684fb46-bshbd            1/1     Running     0               1h
+hybridauth-84599f79fd-fjc7k                1/1     Running     0               1h
+hybridauth-84599f79fd-s9pmn                1/1     Running     0               1h
+identity-95df98cb5-dvlmz                   1/1     Running     0               1h
+identity-95df98cb5-krf59                   1/1     Running     0               1h
+influxdb2-0                                1/1     Running     0               1h
+keycloak-operator-6d4d688697-cfq8b         1/1     Running     0               1h
+krakend-5d5c8f4668-7bq8g                   1/1     Running     0               1h
+krakend-5d5c8f4668-t8hbn                   1/1     Running     0               1h
+license-689cdd4595-2gsc8                   1/1     Running     0               1h
+license-689cdd4595-g6vwk                   1/1     Running     0               1h
+login-ui-57bb599956-4fwgz                  1/1     Running     0               1h
+login-ui-57bb599956-rhztb                  1/1     Running     0               1h
+loki-0                                     1/1     Running     0               1h
+metrics-facade-846999bdd4-f7jdm            1/1     Running     0               1h
+metrics-facade-846999bdd4-lnsxl            1/1     Running     0               1h
+monitoring-operator-6c9d6c4b8c-ggkrl       2/2     Running     0               1h
+nats-0                                     1/1     Running     0               1h
+nats-1                                     1/1     Running     0               1h
+nats-2                                     1/1     Running     0               1h
+natssync-server-6df7d6cc68-9v2gd           1/1     Running     0               1h
+nautilus-64b7fbdd98-bsgwb                  1/1     Running     0               1h
+nautilus-64b7fbdd98-djlhw                  1/1     Running     0               1h
+openapi-864584bccc-75nlv                   1/1     Running     0               1h
+openapi-864584bccc-zh6bx                   1/1     Running     0               1h
+polaris-consul-consul-server-0             1/1     Running     0               1h
+polaris-consul-consul-server-1             1/1     Running     0               1h
+polaris-consul-consul-server-2             1/1     Running     0               1h
+polaris-keycloak-0                         1/1     Running     2 (1h ago)      1h
+polaris-keycloak-1                         1/1     Running     0               1h
+polaris-keycloak-db-0                      1/1     Running     0               1h
+polaris-keycloak-db-1                      1/1     Running     0               1h
+polaris-keycloak-db-2                      1/1     Running     0               1h
+polaris-mongodb-0                          1/1     Running     0               1h
+polaris-mongodb-1                          1/1     Running     0               1h
+polaris-mongodb-2                          1/1     Running     0               1h
+polaris-ui-66476dcf87-f6s8j                1/1     Running     0               1h
+polaris-ui-66476dcf87-ztjk7                1/1     Running     0               1h
+polaris-vault-0                            1/1     Running     0               1h
+polaris-vault-1                            1/1     Running     0               1h
+polaris-vault-2                            1/1     Running     0               1h
+public-metrics-bfc4fc964-x4m79             1/1     Running     0               1h
+storage-backend-metrics-7dbb88d4bc-g78cj   1/1     Running     0               1h
+storage-provider-5969b5df5-hjvcm           1/1     Running     0               1h
+storage-provider-5969b5df5-r79ld           1/1     Running     0               1h
+task-service-5fc9dc8d99-4q4f4              1/1     Running     0               1h
+task-service-5fc9dc8d99-8l5zl              1/1     Running     0               1h
+task-service-task-purge-28485735-fdzkd     1/1     Running     0               12m
+telegraf-ds-2rgm4                          1/1     Running     0               1h
+telegraf-ds-4qp6r                          1/1     Running     0               1h
+telegraf-ds-77frs                          1/1     Running     0               1h
+telegraf-ds-bc725                          1/1     Running     0               1h
+telegraf-ds-cvmxf                          1/1     Running     0               1h
+telegraf-ds-tqzgj                          1/1     Running     0               1h
+telegraf-rs-5wtd8                          1/1     Running     0               1h
+telemetry-service-6747866474-5djnc         1/1     Running     0               1h
+telemetry-service-6747866474-thb7r         1/1     Running     1 (1h ago)      1h
+tenancy-5669854fb6-gzdzf                   1/1     Running     0               1h
+tenancy-5669854fb6-xvsm2                   1/1     Running     0               1h
+traefik-8f55f7d5d-4lgfw                    1/1     Running     0               1h
+traefik-8f55f7d5d-j4wt6                    1/1     Running     0               1h
+traefik-8f55f7d5d-p6gcq                    1/1     Running     0               1h
+trident-svc-7cb5bb4685-54cnq               1/1     Running     0               1h
+trident-svc-7cb5bb4685-b28xh               1/1     Running     0               1h
+vault-controller-777b9bbf88-b5bqt          1/1     Running     0               1h
+vault-controller-777b9bbf88-fdfd8          1/1     Running     0               1h
 ----
 ====
 . (Optional) Sehen Sie sich den an `acc-operator` Protokolle zur Überwachung des Fortschritts:
@@ -960,9 +967,9 @@ kubectl logs deploy/acc-operator-controller-manager -n netapp-acc-operator -c ma
 ----
 +
 
-NOTE: `accHost` Die Cluster-Registrierung ist einer der letzten Vorgänge, und bei Ausfall wird die Implementierung nicht fehlschlagen. Sollten in den Protokollen ein Fehler bei der Cluster-Registrierung angegeben sein, können Sie die Registrierung erneut über das versuchen link:../get-started/setup_overview.html#add-cluster["Fügen Sie in der UI einen Cluster-Workflow hinzu"^] Oder API.
+NOTE: `accHost` Die Cluster-Registrierung ist einer der letzten Vorgänge, und bei Ausfall wird die Implementierung nicht fehlschlagen. Sollten in den Protokollen ein Fehler bei der Cluster-Registrierung angegeben sein, können Sie die Registrierung erneut über das versuchen link:../get-started/add-cluster.html["Fügen Sie in der UI einen Cluster-Workflow hinzu"] Oder API.
 
-. Wenn alle Pods ausgeführt werden, überprüfen Sie, ob die Installation erfolgreich war (`READY` Ist `True`) Und holen Sie sich das erste Setup-Passwort, das Sie verwenden, wenn Sie sich bei Astra Control Center:
+. Wenn alle Pods ausgeführt werden, überprüfen Sie, ob die Installation erfolgreich war (`READY` Ist `True`) Und erhalten Sie das erste Setup-Passwort, das Sie verwenden, wenn Sie sich bei Astra Control Center anmelden:
 +
 [source, console]
 ----
@@ -975,7 +982,7 @@ Antwort:
 [listing]
 ----
 NAME    UUID                                  VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  23.10.0-68   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f  24.02.0-65   10.111.111.111  True
 ----
 +
 
@@ -989,7 +996,7 @@ IMPORTANT: Den UUID-Wert kopieren. Das Passwort lautet `ACC-` Anschließend der 
 
 Sie können einen Kubernetes Ingress-Controller einrichten, der den externen Zugriff auf Services managt. Diese Verfahren enthalten Setup-Beispiele für einen Ingress-Controller, wenn Sie die Standardeinstellung von verwenden `ingressType: "Generic"` In der Astra Control Center Custom Resource (`astra_control_center.yaml`). Sie müssen diesen Vorgang nicht verwenden, wenn Sie angegeben haben `ingressType: "AccTraefik"` In der Astra Control Center Custom Resource (`astra_control_center.yaml`).
 
-Nachdem Astra Control Center bereitgestellt wurde, müssen Sie den Ingress-Controller so konfigurieren, dass Astra Control Center mit einer URL verfügbar ist.
+Nachdem Astra Control Center implementiert ist, müssen Sie den Ingress-Controller so konfigurieren, dass für das Astra Control Center eine URL verfügbar gemacht wird.
 
 Die Einstellungsschritte unterscheiden sich je nach Typ des Ingress-Controllers. Astra Control Center unterstützt viele Ingress-Controller-Typen. Diese Einrichtungsverfahren bieten Beispielschritte für einige gängige Typen von Ingress-Controllern.
 
@@ -998,9 +1005,10 @@ Die Einstellungsschritte unterscheiden sich je nach Typ des Ingress-Controllers.
 * Der https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class["Eingangsklasse"] Entsprechend der Eingangs-Steuerung sollte bereits erstellt werden.
 
 
-.Schritte für Istio Ingress
-[%collapsible]
-====
+
+
+=== Schritte für Istio Ingress
+
 . Konfigurieren Sie Istio Ingress.
 +
 
@@ -1089,10 +1097,10 @@ ingress istio astra.example.com 172.16.103.248  80, 443 1h
 . <<Konfigurieren Sie Astra Control Center,Astra Control Center-Installation abschließen>>.
 
 
-====
-.Schritte für Nginx Ingress Controller
-[%collapsible]
-====
+
+
+=== Schritte für Nginx Ingress Controller
+
 . Erstellen Sie ein Geheimnis des Typs `kubernetes.io/tls` Für einen privaten TLS-Schlüssel und ein Zertifikat in `netapp-acc` (Oder Custom-Name) Namespace wie in beschrieben https://kubernetes.io/docs/concepts/configuration/secret/#tls-secrets["TLS-Geheimnisse"].
 . Bereitstellung einer Ingress-Ressource in `netapp-acc` (Oder Custom-Name) Namespace unter Verwendung des v1-Ressourcentyps für ein Schema (`nginx-Ingress.yaml` Wird in diesem Beispiel verwendet):
 +
@@ -1132,10 +1140,10 @@ kubectl apply -f nginx-Ingress.yaml
 
 WARNING: NetApp empfiehlt die Installation des nginx Controllers als Bereitstellung statt als a `daemonSet`.
 
-====
-.Schritte für OpenShift-Eingangs-Controller
-[%collapsible]
-====
+
+
+=== Schritte für OpenShift-Eingangs-Controller
+
 . Beschaffen Sie Ihr Zertifikat, und holen Sie sich die Schlüssel-, Zertifikat- und CA-Dateien für die OpenShift-Route bereit.
 . Erstellen Sie die OpenShift-Route:
 +
@@ -1145,12 +1153,11 @@ oc create route edge --service=traefik --port=web -n [netapp-acc or custom names
 ----
 
 
-====
 
 
 == Melden Sie sich in der UI des Astra Control Center an
 
-Nach der Installation von Astra Control Center ändern Sie das Passwort für den Standardadministrator und melden sich im Astra Control Center UI Dashboard an.
+Nach der Installation von Astra Control Center ändern Sie das Passwort für den Standardadministrator und melden sich beim Astra Control Center UI Dashboard an.
 
 .Schritte
 . Geben Sie in einem Browser den FQDN ein (einschließlich `https://` Präfix), die Sie in verwendet haben `astraAddress` Im `astra_control_center.yaml` CR, wenn <<Konfigurieren Sie Astra Control Center,Sie haben das Astra Control Center installiert>>.
@@ -1170,7 +1177,7 @@ NOTE: Wenn Sie dreimal ein falsches Passwort eingeben, wird das Administratorkon
 
 NOTE: Wenn dies Ihre erste Anmeldung ist und Sie das Passwort vergessen haben und noch keine anderen administrativen Benutzerkonten erstellt wurden, kontaktieren Sie https://mysupport.netapp.com/site/["NetApp Support"] Für Unterstützung bei der Kennwortwiederherstellung.
 
-. (Optional) Entfernen Sie das vorhandene selbst signierte TLS-Zertifikat und ersetzen Sie es durch ein link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["Benutzerdefiniertes TLS-Zertifikat, signiert von einer Zertifizierungsstelle (CA)"^].
+. (Optional) Entfernen Sie das vorhandene selbst signierte TLS-Zertifikat und ersetzen Sie es durch ein link:../get-started/configure-after-install.html#add-a-custom-tls-certificate["Benutzerdefiniertes TLS-Zertifikat, signiert von einer Zertifizierungsstelle (CA)"].
 
 
 
@@ -1196,8 +1203,16 @@ kubectl get acc -n [netapp-acc or custom namespace] -o yaml
 
 
 
+== Alternative Installationsverfahren
+
+* *Installation mit Red hat OpenShift OperatorHub*: Verwenden Sie diese link:../get-started/acc_operatorhub_install.html["Alternativverfahren"] So installieren Sie Astra Control Center unter Verwendung von OperatorHub auf OpenShift.
+* *In der öffentlichen Cloud mit Cloud Volumes ONTAP-Backend installieren*: Verwenden link:../get-started/install_acc-cvo.html["Derartige Verfahren"] Zur Installation von Astra Control Center in Amazon Web Services (AWS), Google Cloud Platform (GCP) oder Microsoft Azure mit einem Cloud Volumes ONTAP Storage-Back-End
+
+
+
+
 == Wie es weiter geht
 
 * (Optional) Verarbeiten Sie abhängig von Ihrer Umgebung nach der Installation vollständig link:configure-after-install.html["Konfigurationsschritte"].
-* Führen Sie die Implementierung durch link:setup_overview.html["Setup-Aufgaben"].
+* link:add-license.html["Nachdem Sie Astra Control Center installiert haben, sich bei der UI einloggen und Ihr Passwort ändern, sollten Sie eine Lizenz einrichten, Cluster hinzufügen, die Authentifizierung aktivieren, den Storage managen und Buckets hinzufügen"].
 

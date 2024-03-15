@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-storage-backend.html 
+keywords: set up astra control, astra control license, add cluster, add storage backend, import storage, add bucket 
+summary: Nachdem Sie die Storage-Back-End-Authentifizierung aktiviert haben, sollten Sie ein zu verwaltendes Storage-Back-End auswählen. 
+---
+= Fügen Sie ein Storage-Back-End hinzu
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Nachdem Sie die Anmeldeinformationen oder Zertifikatauthentifizierungsinformationen eingerichtet haben, können Sie ein vorhandenes ONTAP-Storage-Back-End zu Astra Control Center hinzufügen, um seine Ressourcen zu managen.
+
+Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen.
+
+Das Hinzufügen und Managen von ONTAP Storage-Back-Ends in Astra Control Center ist optional, wenn Sie die NetApp SnapMirror Technologie verwenden, sofern Sie Astra Control Provisioner aktiviert haben.
+
+.Schritte
+. Wählen Sie im Dashboard im linken Navigationsbereich *Backend* aus.
+. Wählen Sie *Hinzufügen*.
+. Wählen Sie im Bereich vorhandene verwenden auf der Seite Speicher-Backend hinzufügen *ONTAP* aus.
+. Wählen Sie eine der folgenden Optionen:
++
+** *Administrator-Anmeldeinformationen verwenden*: Geben Sie die ONTAP Cluster Management IP-Adresse und die Admin-Anmeldeinformationen ein. Die Anmeldedaten müssen Cluster-weite Anmeldedaten aufweisen.
++
+
+NOTE: Der Benutzer, dessen Anmeldeinformationen Sie hier eingeben, muss über den verfügen `ontapi` Aktivieren der Zugriffsmethode für die Anmeldung beim Benutzer in ONTAP System Manager auf dem ONTAP Cluster. Wenn Sie Vorhaben, SnapMirror Replizierung zu verwenden, wenden Sie Benutzeranmeldeinformationen auf die Rolle „Admin“ an, die über die Zugriffsmethoden verfügt `ontapi` Und `http`, Auf Quell- und Ziel-ONTAP Clustern. Siehe https://docs.netapp.com/us-en/ontap-sm-classic/online-help-96-97/concept_cluster_user_accounts.html#users-list["Managen von Benutzerkonten in der ONTAP Dokumentation"^] Finden Sie weitere Informationen.
+
+** *Ein Zertifikat* verwenden: Das Zertifikat hochladen `.pem` Datei, dem Zertifikatschlüssel `.key` Datei und optional die Zertifizierungsdatei.
+
+
+. Wählen Sie *Weiter*.
+. Bestätigen Sie die Backend-Details und wählen Sie *Verwalten*.
+
+
+.Ergebnis
+Das Backend wird im angezeigt `online` Status in der Liste mit Zusammenfassungsinformationen.
+
+
+NOTE: Möglicherweise müssen Sie die Seite aktualisieren, damit das Backend angezeigt wird.

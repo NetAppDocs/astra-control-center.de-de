@@ -1,0 +1,55 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-cluster.html 
+keywords: set up astra control, add cluster 
+summary: Nachdem Sie Astra Control Center installiert, eine Lizenz eingerichtet und Ihre Umgebung vorbereitet haben, können Sie sofort Cluster zum Astra Control Management hinzufügen. 
+---
+= Fügen Sie einen Cluster hinzu
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Zum Management von Applikationen fügen Sie einen Kubernetes-Cluster hinzu und managen ihn als Computing-Ressource. Um Ihre Kubernetes-Applikationen zu ermitteln, müssen Sie einen Cluster hinzufügen, in dem Astra Control Center ausgeführt werden kann.
+
+
+TIP: Wir empfehlen, dass Astra Control Center den Cluster, der zuerst bereitgestellt wird, verwaltet, bevor Sie zum Management weitere Cluster zum Astra Control Center hinzufügen. Das Management des anfänglichen Clusters ist erforderlich, um Kubemetrics-Daten und Cluster-zugeordnete Daten zur Metriken und Fehlerbehebung zu senden.
+
+.Bevor Sie beginnen
+* Bevor Sie ein Cluster hinzufügen, überprüfen und führen Sie die erforderlichen Maßnahmen durch link:../get-started/prep-for-cluster-management.html["Erforderliche Aufgaben"].
+* Wenn Sie einen ONTAP SAN-Treiber verwenden, stellen Sie sicher, dass Multipath auf allen Kubernetes-Clustern aktiviert ist.
+
+
+.Schritte
+. Navigieren Sie entweder über das Dashboard oder über das Menü Cluster:
++
+** Wählen Sie in der Ressourcenübersicht aus *Dashboard* im Bereich Cluster die Option *Hinzufügen* aus.
+** Wählen Sie im linken Navigationsbereich *Cluster* und dann auf der Seite Cluster *Cluster hinzufügen* aus.
+
+
+. Laden Sie im Fenster *Cluster hinzufügen* ein `kubeconfig.yaml` Datei oder fügen Sie den Inhalt eines ein `kubeconfig.yaml` Datei:
++
+
+NOTE: Der `kubeconfig.yaml` Die Datei sollte *nur die Cluster-Anmeldedaten für einen Cluster* enthalten.
+
++
+
+IMPORTANT: Wenn Sie Ihre eigenen erstellen `kubeconfig` Datei, Sie sollten nur ein *ein*-Kontext-Element darin definieren. Siehe https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/["Kubernetes-Dokumentation"^] Weitere Informationen zum Erstellen `kubeconfig` Dateien: Wenn Sie ein kubeconfig für eine eingeschränkte Clusterrolle erstellt haben, die mit verwendet wird link:../get-started/add-cluster.html["Diesem Prozess dar"], Vergewissern Sie sich, dass in diesem Schritt kubeconfig hochgeladen oder eingefügt wird.
+
+. Geben Sie einen Namen für die Anmeldeinformationen an. Standardmäßig wird der Name der Anmeldeinformationen automatisch als Name des Clusters ausgefüllt.
+. Wählen Sie *Weiter*.
+. Wählen Sie die Standard-Storage-Klasse, die für diesen Kubernetes-Cluster verwendet werden soll, und wählen Sie *Next* aus.
++
+
+NOTE: Wählen Sie eine Storage-Klasse aus, die in der Astra Control Provisioner-Konfiguration und mit ONTAP Storage konfiguriert ist.
+
+. Überprüfen Sie die Informationen, und wenn alles gut aussieht, wählen Sie *Hinzufügen*.
+
+
+.Ergebnis
+Der Cluster wechselt in den *Entdeckungs*-Zustand und dann in *gesund*. Sie managen jetzt das Cluster mit dem Astra Control Center.
+
+
+IMPORTANT: Nachdem Sie einen Cluster hinzugefügt haben, der im Astra Control Center verwaltet werden soll, kann es in einigen Minuten dauern, bis der Monitoring-Operator implementiert ist. Bis dahin wird das Benachrichtigungssymbol rot und ein Ereignis *Überwachung Agent-Status-Prüfung fehlgeschlagen* protokolliert. Sie können dies ignorieren, da das Problem gelöst wird, wenn Astra Control Center den richtigen Status erhält. Wenn sich das Problem in wenigen Minuten nicht beheben lässt, wechseln Sie zum Cluster und führen Sie aus `oc get pods -n netapp-monitoring` Als Ausgangspunkt. Sie müssen in den Überwachungsprotokollen nachsehen, um das Problem zu beheben.

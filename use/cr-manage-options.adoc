@@ -1,0 +1,19 @@
+---
+sidebar: sidebar 
+permalink: use/cr-manage-options.html 
+keywords: custom resource, cr, manage app, astra 
+summary: 'Managen Sie Ihre Astra Control Applikationen mit benutzerdefinierten Kubernetes-Ressourcen (CR).' 
+---
+= [Tech Preview] Verwalten Sie Astra Control-Anwendungen mit CRS
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+[role="lead"]
+Managen Sie Ihre Astra Control Applikationen mit benutzerdefinierten Kubernetes-Ressourcen (CR). Folgende Optionen stehen zur Verfügung:
+
+* link:../use/manage-apps.html#define-an-application-using-a-kubernetes-custom-resource["Applikation mit benutzerdefinierten Kubernetes-Ressourcen definieren"]
+* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["Managen eines Buckets mithilfe einer benutzerdefinierten Ressource"]
+

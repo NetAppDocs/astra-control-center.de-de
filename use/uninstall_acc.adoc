@@ -17,8 +17,8 @@ Möglicherweise müssen Sie die Komponenten des Astra Control Center entfernen, 
 Wenn Sie Probleme mit der Deinstallation haben, lesen Sie <<Fehlerbehebung bei Deinstallationsproblemen>>.
 
 .Bevor Sie beginnen
-. link:../use/unmanage.html#unmanage-an-app["Heben Sie die Verwaltung aller Apps auf"^] Auf den Clustern.
-. link:../use/unmanage.html#unmanage-a-cluster["Heben Sie die Verwaltung aller Cluster auf"^].
+. link:../use/unmanage.html#unmanage-an-app["Heben Sie die Verwaltung aller Apps auf"] Auf den Clustern.
+. link:../use/unmanage.html#unmanage-a-cluster["Heben Sie die Verwaltung aller Cluster auf"].
 
 
 .Schritte

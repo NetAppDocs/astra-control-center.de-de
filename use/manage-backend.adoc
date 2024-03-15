@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: use/manage-backend.html 
 keywords: how to use astra control, what is astra storage, how to set up astra storage backend, ontap storage in astra, backend storage in astra 
-summary: 'Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen. Sie können Storage-Kapazität und -Integritätsdetails überwachen, beispielsweise die Performance, wenn Astra Control Center mit Cloud Insights verbunden ist.' 
+summary: 'Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen. Sie können Details zur Storage-Kapazität und zum Zustand überwachen.' 
 ---
 = Management des Storage-Backends
 :hardbreaks:
@@ -12,13 +12,13 @@ summary: 'Durch das Management von Storage-Clustern in Astra Control als Storage
 
 
 [role="lead"]
-Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen. Sie können Storage-Kapazität und -Integritätsdetails überwachen, beispielsweise die Performance, wenn Astra Control Center mit Cloud Insights verbunden ist.
+Durch das Management von Storage-Clustern in Astra Control als Storage-Backend können Sie Verbindungen zwischen persistenten Volumes (PVS) und dem Storage-Backend sowie zusätzliche Storage-Kennzahlen abrufen.
 
 Eine Anleitung zum Managen von Storage-Back-Ends mithilfe der Astra Control API finden Sie im link:https://docs.netapp.com/us-en/astra-automation/["Astra Automation und API-Informationen"^].
 
 Sie können die folgenden Aufgaben zur Verwaltung eines Storage-Backends ausführen:
 
-* link:../get-started/setup_overview.html#add-a-storage-backend["Fügen Sie ein Storage-Back-End hinzu"]
+* link:../get-started/add-storage-backend.html["Fügen Sie ein Storage-Back-End hinzu"]
 * <<Details zum Storage-Back-End>>
 * <<Bearbeiten Sie die Details der Storage-Back-End-Authentifizierung>>
 * <<Management eines erkannten Storage-Backends>>
@@ -53,19 +53,11 @@ Sie können Speicher-Backend-Informationen über das Dashboard oder über die Op
 
 Informationen zum Zustand, Kapazität und Performance des Backend (IOPS-Durchsatz und/oder Latenz)
 
-Sie sehen die Volumes, die die Kubernetes-Apps verwenden, die in einem ausgewählten Storage-Backend gespeichert sind. Mit Cloud Insights werden zusätzliche Informationen angezeigt. Siehe https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights-Dokumentation"^].
+Sie sehen die Volumes, die die Kubernetes-Apps verwenden, die in einem ausgewählten Storage-Backend gespeichert sind.
 
 .Schritte
 . Wählen Sie im linken Navigationsbereich *Backend* aus.
 . Wählen Sie das Storage-Back-End aus.
-+
-
-TIP: Wenn Sie eine Verbindung zum NetApp Cloud Insights hergestellt haben, werden auf der Seite „Back-Ends“ Auszüge aus Cloud Insights angezeigt.
-
-+
-image:../use/acc_backends_ci_connection2.png["Ein Screenshot der Seite „Back Ends“"]
-
-. Um direkt zu Cloud Insights zu gelangen, wählen Sie neben dem Kennzahlenbild das Symbol *Cloud Insights* aus.
 
 
 
@@ -80,7 +72,7 @@ Astra Control Center bietet zwei Arten der Authentifizierung eines ONTAP-Backend
 
 Sie können vorhandene Back-Ends aktualisieren, um von einem Authentifizierungstyp zu einer anderen zu wechseln. Es wird jeweils nur eine Authentifizierungsmethode unterstützt.
 
-Weitere Informationen zum Aktivieren der zertifikatbasierten Authentifizierung finden Sie unter link:../get-started/setup_overview.html#enable-authentication-on-the-ontap-storage-backend["Aktivieren Sie die Authentifizierung auf dem ONTAP Storage Back-End"].
+Weitere Informationen zum Aktivieren der zertifikatbasierten Authentifizierung finden Sie unter link:../get-started/enable-auth-ontap-backend.html["Aktivieren Sie die Authentifizierung auf dem ONTAP Storage Back-End"].
 
 .Schritte
 . Wählen Sie in der linken Navigationsleiste *Backend* aus.

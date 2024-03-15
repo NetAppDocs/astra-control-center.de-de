@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/manage-buckets.html 
-keywords: how to set up object storage in astra, how to set up astra buckets, s3, astra, setting up astra control, astra control center, kubernetes 
+keywords: object storage, astra, buckets, s3, cr, custom resource 
 summary: Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. 
 ---
 = Buckets verwalten
@@ -43,11 +43,12 @@ Anweisungen zum Verwalten von Buckets mithilfe der Astra Control API finden Sie 
 
 Sie können die folgenden Aufgaben zum Verwalten von Buckets ausführen:
 
-* link:../get-started/setup_overview.html#add-a-bucket["Fügen Sie einen Bucket hinzu"]
+* link:../get-started/add-bucket.html["Fügen Sie einen Bucket hinzu"]
 * <<Bearbeiten eines Buckets>>
 * <<Legen Sie den Standard-Bucket fest>>
 * <<Bucket-Anmeldedaten drehen oder entfernen>>
 * <<Entfernen Sie einen Bucket>>
+* link:../use/manage-buckets.html#manage-a-bucket-using-a-custom-resource["(Tech Preview) Verwalten Sie einen Bucket mithilfe einer benutzerdefinierten Ressource"]
 
 
 
@@ -152,6 +153,94 @@ NOTE: Astra Control stellt zunächst sicher, dass es keine Planungsrichtlinien g
 
 . Geben Sie „Entfernen“ ein, um die Aktion zu bestätigen.
 . Wählen Sie *Ja, entfernen Sie den Eimer*.
+
+
+
+
+== [Tech Preview] Verwalten Sie einen Bucket mithilfe einer benutzerdefinierten Ressource
+
+Sie können einen Bucket mithilfe einer benutzerdefinierten Astra Control-Ressource (CR) im Anwendungscluster hinzufügen. Das Hinzufügen von Objektspeicher-Bucket-Providern ist wichtig, wenn Sie Ihre Applikationen und Ihren persistenten Storage sichern möchten oder Applikationen über Cluster hinweg klonen möchten. Astra Control speichert diese Backups oder Klone in den von Ihnen definierten Objektspeicher-Buckets. Wenn Sie die benutzerdefinierte Ressourcenmethode verwenden, erfordert die Funktionalität von Anwendungs-Snapshots einen Bucket.
+
+Wenn Sie Ihre Applikationskonfiguration und Ihren persistenten Storage im selben Cluster klonen, benötigen Sie in Astra Control keinen Bucket.
+
+Die benutzerdefinierte Bucket-Ressource für Astra Control ist AppVault genannt. Dieser CR enthält die Konfigurationen, die für die Verwendung eines Eimers bei Schutzmaßnahmen erforderlich sind.
+
+.Bevor Sie beginnen
+* Stellen Sie sicher, dass ein Bucket vorhanden ist, der von den von Astra Control Center gemanagten Clustern erreichbar ist.
+* Stellen Sie sicher, dass Sie über Anmeldedaten für den Bucket verfügen.
+* Stellen Sie sicher, dass es sich bei dem Bucket um einen der folgenden Typen handelt:
++
+** NetApp ONTAP S3
+** NetApp StorageGRID S3
+** Microsoft Azure
+** Allgemein S3
+
+
+
+
+
+NOTE: Amazon Web Services (AWS) und Google Cloud Platform (GCP) verwenden den Bucket-Typ Generic S3.
+
+
+NOTE: Obwohl Astra Control Center Amazon S3 als Generic S3 Bucket-Provider unterstützt, unterstützt Astra Control Center unter Umständen nicht alle Objektspeicher-Anbieter, die die Unterstützung von Amazon S3 beanspruchen.
+
+.Schritte
+. Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie (z. B. `astra_appvault.yaml`).
+. Konfigurieren Sie die folgenden Attribute:
++
+** *metadata.name*: _(erforderlich)_ der Name der benutzerdefinierten AppVault-Ressource.
+** *Spec.prefix*: _(Optional)_ Ein Pfad, der den Namen aller im AppVault gespeicherten Entitäten vorangestellt ist.
+** *spec.providerConfig*: _(erforderlich)_ speichert die Konfiguration, die für den Zugriff auf AppVault unter Verwendung des angegebenen Anbieters erforderlich ist.
+** *spec.providerCredentials*: _(Optional)_ speichert Verweise auf alle Anmeldeinformationen, die für den Zugriff auf AppVault unter Verwendung des angegebenen Anbieters erforderlich sind.
++
+*** *spec.providerCredentials.valueFromSecret*: _(Optional)_ gibt an, dass der Wert der Zugangsdaten von einem Geheimschlüssel stammen soll.
++
+**** *Schlüssel*: _(erforderlich, wenn valueFromSecret verwendet wird)_ der gültige Schlüssel des zu wählenden Geheimnisses.
+**** *Name*: _(erforderlich, wenn valueFromSecret verwendet wird)_ Name des Geheimnisses, das den Wert für dieses Feld enthält. Muss sich im gleichen Namespace befinden.
+
+
+
+
+** *spec.providerType*: _(erforderlich)_ bestimmt, was das Backup bereitstellt, z. B. S3 oder Dateisystem.
++
+Beispiel YAML:
+
++
+[source, yaml]
+----
+apiVersion: astra.netapp.io/v1
+kind: AppVault
+metadata:
+  name: astra_appvault
+spec:
+  providerType: generic-s3
+  providerConfig:
+    path: testpath
+    endpoint: 192.168.1.100:80
+    bucketName: bucket1
+    secure: "false"
+  providerCredentials:
+    accessKeyID:
+      valueFromSecret:
+        name: s3-creds
+        key: accessKeyID
+    secretAccessKey:
+      valueFromSecret:
+        name: s3-creds
+        key: secretAccessKey
+----
+
+
+. Nachdem Sie das ausgefüllt haben `astra_appvault.yaml` Datei mit den richtigen Werten, CR anwenden:
++
+[source, console]
+----
+kubectl apply -f astra_appvault.yaml -n neptune-system
+----
++
+
+NOTE: Wenn Sie einen Bucket hinzufügen, markiert Astra Control einen Bucket mit der Standard-Bucket-Anzeige. Der erste von Ihnen erstellte Bucket wird der Standard-Bucket. Wenn Sie Buckets hinzufügen, können Sie sich später entscheiden link:../use/manage-buckets.html#set-the-default-bucket["Legen Sie einen weiteren Standard-Bucket fest"^].
+
 
 
 

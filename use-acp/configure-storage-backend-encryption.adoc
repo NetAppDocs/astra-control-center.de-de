@@ -32,10 +32,10 @@ Sie können die Kerberos-Verschlüsselung auf dem Storage-Datenverkehr zwischen 
 NOTE: Kerberos-Verschlüsselung für NFS-Datenverkehr mit lokalen ONTAP-Storage-Back-Ends wird nur mithilfe des unterstützt `ontap-nas` Storage-Treiber:
 
 .Bevor Sie beginnen
-* Stellen Sie sicher, dass Sie die Astra Control-Bereitstellung im verwalteten Cluster aktiviert haben. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Weitere Anweisungen.
+* Stellen Sie sicher, dass Sie es haben link:../get-started/enable-acp.html["Astra Control Provisioner wurde aktiviert"] Auf dem verwalteten Cluster.
 * Stellen Sie sicher, dass Sie Zugriff auf haben `tridentctl` Utility:
 * Stellen Sie sicher, dass Sie Administratorzugriff auf das ONTAP Storage Back-End haben.
-* Stellen Sie sicher, dass Sie den Namen des Volumes oder der Volumes kennen, die Sie über das ONTAP-Speicher-Back-End freigeben werden.
+* Stellen Sie sicher, dass Sie den Namen des Volumes oder der Volumes kennen, die Sie über das ONTAP Storage-Back-End freigeben werden.
 * Stellen Sie sicher, dass Sie die ONTAP-Storage-VM auf die Unterstützung der Kerberos-Verschlüsselung für NFS-Volumes vorbereitet haben. Siehe https://docs.netapp.com/us-en/ontap/nfs-config/create-kerberos-config-task.html["Aktivieren Sie Kerberos auf einer Daten-LIF"^] Weitere Anweisungen.
 * Stellen Sie sicher, dass alle NFSv4-Volumes, die Sie mit Kerberos-Verschlüsselung verwenden, korrekt konfiguriert sind. Weitere Informationen finden Sie im Abschnitt NetApp NFSv4-Domänenkonfiguration (Seite 13) des https://www.netapp.com/media/16398-tr-3580.pdf["NetApp Leitfaden zu NFSv4-Verbesserungen und Best Practices"^].
 
@@ -195,7 +195,7 @@ Sie sollten eine Ausgabe wie die folgende sehen:
 +
 [listing]
 ----
-NAME         PROVISIONER             AGE
+NAME            PROVISIONER             AGE
 ontap-nas-sc    csi.trident.netapp.io   15h
 ----
 
@@ -204,7 +204,7 @@ ontap-nas-sc    csi.trident.netapp.io   15h
 
 === Bereitstellen von Volumes
 
-Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
+Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Beachten Sie diese Anweisungen für https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
 
 
 
@@ -213,7 +213,7 @@ Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können
 Sie können die Kerberos-Verschlüsselung für den Storage-Datenverkehr zwischen dem gemanagten Cluster und einem einzelnen Azure NetApp Files Storage-Back-End oder einem virtuellen Pool von Azure NetApp Files Storage-Back-Ends aktivieren.
 
 .Bevor Sie beginnen
-* Stellen Sie sicher, dass Sie Astra Control Provisioner auf dem verwalteten Red hat OpenShift-Cluster aktiviert haben. Siehe link:../use/enable-acp.html["Astra Control Provisioner Aktivieren"^] Weitere Anweisungen.
+* Stellen Sie sicher, dass Sie Astra Control Provisioner auf dem verwalteten Red hat OpenShift-Cluster aktiviert haben. Siehe link:../get-started/enable-acp.html["Astra Control Provisioner Aktivieren"] Weitere Anweisungen.
 * Stellen Sie sicher, dass Sie Zugriff auf haben `tridentctl` Utility:
 * Stellen Sie sicher, dass Sie das Azure NetApp Files-Speicher-Back-End für die Kerberos-Verschlüsselung vorbereitet haben, indem Sie die Anforderungen beachten und die Anweisungen in befolgen https://learn.microsoft.com/en-us/azure/azure-netapp-files/configure-kerberos-encryption["Azure NetApp Files-Dokumentation"^].
 * Stellen Sie sicher, dass alle NFSv4-Volumes, die Sie mit Kerberos-Verschlüsselung verwenden, korrekt konfiguriert sind. Weitere Informationen finden Sie im Abschnitt NetApp NFSv4-Domänenkonfiguration (Seite 13) des https://www.netapp.com/media/16398-tr-3580.pdf["NetApp Leitfaden zu NFSv4-Verbesserungen und Best Practices"^].
@@ -389,4 +389,4 @@ anf-sc-nfs    csi.trident.netapp.io   15h
 
 === Bereitstellen von Volumes
 
-Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Anweisungen finden Sie unter https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].
+Nachdem Sie ein Storage-Back-End und eine Storage-Klasse erstellt haben, können Sie nun ein Volume bereitstellen. Beachten Sie diese Anweisungen für https://docs.netapp.com/us-en/trident/trident-use/vol-provision.html["Bereitstellen eines Volumes"^].

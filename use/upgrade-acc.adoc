@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: use/upgrade-acc.html 
-keywords: astra upgrade, upgrade astra control center, how to upgrade astra control, update 
+keywords: astra upgrade, upgrade astra control center, how to upgrade astra control, update, service mesh 
 summary: Zum Upgrade von Astra Control Center laden Sie das Paket herunter und führen Sie die beschriebenen Schritte aus. 
 ---
 = Upgrade Astra Control Center
@@ -12,100 +12,84 @@ summary: Zum Upgrade von Astra Control Center laden Sie das Paket herunter und f
 
 
 [role="lead"]
-Laden Sie zum Upgrade des Astra Control Center das Installationspaket von der NetApp Support Site herunter, und füllen Sie die folgenden Anweisungen aus. Mit diesem Verfahren können Sie das Astra Control Center in internetverbundenen oder luftgekapderten Umgebungen aktualisieren.
+Um Astra Control Center zu aktualisieren, laden Sie die Installations-Images herunter, und führen Sie diese Anweisungen aus. Mit diesem Verfahren können Sie das Astra Control Center in internetverbundenen oder luftgekapderten Umgebungen aktualisieren.
 
-Diese Anweisungen beschreiben den Upgrade-Prozess für Astra Control Center von der zweitneuesten Version auf diese aktuelle Version. Sie können kein direktes Upgrade von einer Version durchführen, die zwei oder mehr Versionen hinter der aktuellen Version enthält. Wenn Ihre installierte Astra Control Center-Version viele Versionen hinter der aktuellen Version zurückliegt, müssen Sie möglicherweise Kettenaktualisierungen auf neuere Versionen durchführen, bis Ihr installiertes Astra Control Center nur eine Version hinter der neuesten Version zurückliegt. Eine vollständige Liste der freigegebenen Versionen finden Sie im link:../release-notes/whats-new.html["Versionshinweise"^].
+Diese Anweisungen beschreiben den Upgrade-Prozess für Astra Control Center von der zweitneuesten Version auf diese aktuelle Version. Sie können kein direktes Upgrade von einer Version durchführen, die zwei oder mehr Versionen hinter der aktuellen Version enthält. Wenn Ihre installierte Astra Control Center-Version viele Versionen hinter der aktuellen Version zurückliegt, müssen Sie möglicherweise Kettenaktualisierungen auf neuere Versionen durchführen, bis Ihr installiertes Astra Control Center nur eine Version hinter der neuesten Version zurückliegt. Eine vollständige Liste der freigegebenen Versionen finden Sie im link:../release-notes/whats-new.html["Versionshinweise"].
 
 .Bevor Sie beginnen
-Stellen Sie vor dem Upgrade sicher, dass Ihre Umgebung weiterhin die Anforderungen erfüllt link:../get-started/requirements.html["Mindestanforderungen für die Implementierung des Astra Control Center"^]. Ihre Umgebung sollte Folgendes haben:
+Stellen Sie vor dem Upgrade sicher, dass Ihre Umgebung weiterhin die Anforderungen erfüllt link:../get-started/requirements.html["Mindestanforderungen für die Implementierung des Astra Control Center"]. Ihre Umgebung sollte Folgendes haben:
 
-* *A link:../get-started/requirements.html#astra-trident-requirements["Unterstützt"] Die Version Astra Trident*
+* *Ein aktiviert link:../get-started/requirements.html#astra-control-provisioner["Astra Control Provisioner"] Mit Astra Trident*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
-Bestimmen Sie die ausgeführte Trident-Version:
-
+.. Bestimmen Sie die Astra Trident-Version, die Sie ausführen:
++
 [source, console]
 ----
 kubectl get tridentversion -n trident
 ----
++
 
-NOTE: Führen Sie bei Bedarf ein Upgrade von Astra Trident durch. Verwenden Sie diese https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["Anweisungen"^].
+NOTE: Wenn Sie Astra Trident 23.01 oder eine frühere Version verwenden, verwenden Sie diese https://docs.netapp.com/us-en/trident/trident-managing-k8s/upgrade-trident.html["Anweisungen"^] Das Upgrade auf eine neuere Version von Astra Trident erfolgt vor dem Upgrade auf Astra Control Provisioner. Sie können ein direktes Upgrade auf Astra Control Provisioner 24.02 durchführen, wenn Ihr Astra Trident sich in einem Fenster mit vier Versionen von Version 24.02 befindet. Sie können beispielsweise direkt von Astra Trident 23.04 auf Astra Control Provisioner 24.02 aktualisieren.
 
-====
+.. Astra Control Provisioner überprüfen link:../get-started/faq.html#running-acp-check["Aktiviert"]. Astra Control Provisioner kann nicht mit Versionen von Astra Control Center vor 23.10 verwendet werden. Aktualisieren Sie die Astra Control Provisioner, damit die Version identisch mit der Version ist, mit der Sie gerade ein Upgrade durchführen, um auf die neuesten Funktionen zuzugreifen.
 
-
-
-IMPORTANT: Version 23.10 ist die letzte Version von Astra Control Center, die Astra Trident unterstützt. Es wird dringend empfohlen, dass Sie link:../use/enable-acp.html["Astra Control Provisioner aktivieren"] Zugriff auf Funktionen für erweitertes Management und Storage-Bereitstellung, die über die von Astra Trident hinausgehen Zur Nutzung dieser erweiterten Funktion müssen Sie sowohl ein Upgrade auf Astra Control Center 23.10 als auch Astra Control Provisioner aktivieren. Astra Control Provisioner ist nicht mit älteren Versionen von Astra Control Center möglich.
 
 * *Eine unterstützte Kubernetes-Distribution*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 Bestimmen Sie die Kubernetes-Version, die Sie ausführen:
 
++
 [source, console]
 ----
 kubectl get nodes -o wide
 ----
-====
 * *Ausreichende Clusterressourcen*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 Ermitteln der verfügbaren Clusterressourcen:
 
++
 [source, console]
 ----
 kubectl describe node <node name>
 ----
-====
-* *Eine Registrierung, mit der Sie Astra Control Center-Bilder per Push und Upload hochladen können*
 * *Eine Standard-Speicherklasse*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 Bestimmen Sie Ihre Standard-Storage-Klasse:
 
++
 [source, console]
 ----
 kubectl get storageclass
 ----
-====
 * *Gesunde und verfügbare API-Dienste*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 Stellen Sie sicher, dass alle API-Services in einem ordnungsgemäßen Zustand und verfügbar sind:
 
++
 [source, console]
 ----
 kubectl get apiservices
 ----
-====
+* *(nur lokale Registrierungen) Eine lokale Registrierung, mit der Sie Bilder aus dem Astra Control Center hochladen können*
 * *(nur OpenShift) gesunde und verfügbare Clusteroperatoren*
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 Stellen Sie sicher, dass alle Cluster Operator in einem ordnungsgemäßen Zustand und verfügbar sind.
 
++
 [source, console]
 ----
 kubectl get clusteroperators
 ----
-====
+
+
+Sie sollten auch Folgendes berücksichtigen:
+
+
+TIP: Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups und Snapshots nicht ausgeführt werden.
+
 * *Zugriff auf die NetApp Astra Control Image Registry*:
 Sie haben die Möglichkeit, Installations-Images und Funktionserweiterungen für Astra Control, wie z. B. Astra Control Provisioner, aus der NetApp-Image-Registrierung zu beziehen.
 +
-.Für Schritte erweitern
-[%collapsible]
-====
 .. Notieren Sie Ihre Astra Control Account-ID, die Sie zur Anmeldung in der Registrierung benötigen.
 +
 Ihre Konto-ID wird in der Web-UI des Astra Control Service angezeigt. Wählen Sie das Symbol oben rechts auf der Seite aus, wählen Sie *API Access* aus und notieren Sie sich Ihre Konto-ID.
@@ -119,7 +103,10 @@ docker login cr.astra.netapp.io -u <account-id> -p <api-token>
 ----
 
 
-====
+
+
+* *Istio Service-Mesh-Implementierungen*
+Wenn Sie während der Installation von Astra Control Center ein Istio-Service-Mesh installiert haben, enthält dieses Upgrade des Astra Control Center das Istio-Service-Mesh. Wenn Sie noch kein Service-Mesh haben, können Sie nur eines während eines installieren link:../get-started/install_acc.html["Erste Implementierung"] Astra Control Center integriert.
 
 
 .Über diese Aufgabe
@@ -129,8 +116,7 @@ Der Astra Control Center Upgrade-Prozess führt Sie durch die folgenden grundleg
 NOTE: Melden Sie sich von der Astra Control Center-Benutzeroberfläche ab, bevor Sie das Upgrade starten.
 
 * <<Laden Sie das Astra Control Center herunter und extrahieren Sie es>>
-* <<Entfernen Sie das NetApp Astra kubectl Plugin und installieren Sie es erneut>>
-* <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu>>
+* <<Führen Sie zusätzliche Schritte durch, wenn Sie eine lokale Registrierung verwenden>>
 * <<Installieren Sie den aktualisierten Astra Control Center-Operator>>
 * <<Upgrade Astra Control Center>>
 * <<Überprüfen Sie den Systemstatus>>
@@ -140,35 +126,42 @@ NOTE: Melden Sie sich von der Astra Control Center-Benutzeroberfläche ab, bevor
 IMPORTANT: Löschen Sie den Operator Astra Control Center nicht (z. B. `kubectl delete -f astra_control_center_operator_deploy.yaml`) Zu jeder Zeit während des Astra Control Center Upgrades oder Betrieb, um zu vermeiden, dass Pods gelöscht werden.
 
 
-TIP: Führen Sie Upgrades in einem Wartungsfenster durch, wenn Zeitpläne, Backups und Snapshots nicht ausgeführt werden.
-
-
 
 == Laden Sie das Astra Control Center herunter und extrahieren Sie es
 
-Sie können das Bundle von Astra Control Center von der NetApp Support-Website herunterladen oder das Bundle mithilfe von Docker aus der Image-Registrierung des Astra Control Service abrufen.
+Laden Sie die Bilder des Astra Control Center von einem der folgenden Standorte herunter:
+
+* *Astra Control Service Image Registry*: Verwenden Sie diese Option, wenn Sie keine lokale Registrierung mit den Astra Control Center Images verwenden oder wenn Sie diese Methode dem Bundle-Download von der NetApp Support-Website vorziehen.
+* *NetApp Support-Seite*: Verwenden Sie diese Option, wenn Sie eine lokale Registrierung mit den Astra Control Center-Images verwenden.
+
 
 [role="tabbed-block"]
 ====
+.Astra Control-Image-Registrierung
+--
+. Melden Sie sich beim Astra Control Service an.
+. Wählen Sie im Dashboard *Deploy a self-Managed Instance of Astra Control* aus.
+. Folgen Sie den Anweisungen, um sich bei der Astra Control-Image-Registrierung anzumelden, das Astra Control Center-Installationsabbild zu ziehen und das Image zu extrahieren.
+
+
+--
 .NetApp Support Website
 --
 . Laden Sie das Bundle mit Astra Control Center herunter (`astra-control-center-[version].tar.gz`) Vom https://mysupport.netapp.com/site/products/all/details/astra-control-center/downloads-tab["Download-Seite für Astra Control Center"^].
 . (Empfohlen, aber optional) Laden Sie das Zertifikaten- und Unterschriftenpaket für Astra Control Center herunter (`astra-control-center-certs-[version].tar.gz`) Um die Signatur des Bündels zu überprüfen.
 +
-.Erweitern Sie, um Details anzuzeigen
-[%collapsible]
-=====
 [source, console]
 ----
 tar -vxzf astra-control-center-certs-[version].tar.gz
 ----
++
 [source, console]
 ----
 openssl dgst -sha256 -verify certs/AstraControlCenter-public.pub -signature certs/astra-control-center-[version].tar.gz.sig astra-control-center-[version].tar.gz
 ----
++
 Die Ausgabe wird angezeigt `Verified OK` Nach erfolgreicher Überprüfung.
 
-=====
 . Extrahieren Sie die Bilder aus dem Astra Control Center Bundle:
 +
 [source, console]
@@ -178,20 +171,18 @@ tar -vxzf astra-control-center-[version].tar.gz
 
 
 --
-.Astra Control-Image-Registrierung
---
-. Melden Sie sich beim Astra Control Service an.
-. Wählen Sie im Dashboard *Deploy a self-Managed Instance of Astra Control* aus.
-. Folgen Sie den Anweisungen, um sich bei der Astra Control-Image-Registrierung anzumelden, das Astra Control Center-Installationsabbild zu ziehen und das Image zu extrahieren.
-
-
---
 ====
 
 
-== Entfernen Sie das NetApp Astra kubectl Plugin und installieren Sie es erneut
+== Führen Sie zusätzliche Schritte durch, wenn Sie eine lokale Registrierung verwenden
 
-Sie können das NetApp Astra kubectl Befehlszeilenschnittstelle-Plug-in verwenden, um Images in ein lokales Docker Repository zu verschieben.
+Wenn Sie planen, das Astra Control Center Bundle in Ihre lokale Registry zu schieben, müssen Sie das NetApp Astra kubectl Kommandozeilen-Plugin verwenden.
+
+
+
+=== Entfernen Sie das NetApp Astra kubectl Plugin und installieren Sie es erneut
+
+Sie müssen die neueste Version des NetApp Astra kubectl-Befehlszeilenplugins verwenden, um Bilder in ein lokales Docker-Repository zu verschieben.
 
 . Ermitteln Sie, ob das Plug-in installiert ist:
 +
@@ -229,27 +220,26 @@ cp kubectl-astra/<binary-name> /usr/local/bin/kubectl-astra
 
 
 
-== Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu
+=== Fügen Sie die Bilder zu Ihrer Registrierung hinzu
 
-. Führen Sie die entsprechende Schrittfolge für Ihre Container-Engine durch:
-
-
+. Wenn Sie planen, das Astra Control Center-Paket in Ihre lokale Registrierung zu übertragen, führen Sie die entsprechende Schrittfolge für Ihre Container-Engine aus:
++
 [role="tabbed-block"]
 ====
 .Docker
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
+.. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
-** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
-** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
-** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
-** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
+*** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
+*** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
+*** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
+*** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
 +
 [source, console]
 ----
@@ -262,19 +252,19 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .Podman
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Melden Sie sich bei Ihrer Registrierung an:
+.. Melden Sie sich bei Ihrer Registrierung an:
 +
 [source, console]
 ----
 podman login <YOUR_REGISTRY>
 ----
-. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
+.. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -285,7 +275,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -304,7 +294,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -320,37 +310,44 @@ NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registri
 +
 [listing]
 ----
-https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/24.02.0-65/image:version
 ----
 
 
 --
 ====
-
-
-== Installieren Sie den aktualisierten Astra Control Center-Operator
-
 . Telefonbuch ändern:
 +
 [source, console]
 ----
 cd manifests
 ----
-. Bearbeiten Sie die yaml-Implementierung des Astra Control Center-Bedieners (`astra_control_center_operator_deploy.yaml`) Zu Ihrem lokalen Register und Geheimnis zu verweisen.
+
+
+
+
+== Installieren Sie den aktualisierten Astra Control Center-Operator
+
+. (Nur lokale Registrierungsstellen) Wenn Sie eine lokale Registrierung verwenden, führen Sie die folgenden Schritte aus:
++
+.. Astra Control Center Operator Deployment YAML öffnen:
 +
 [source, console]
 ----
 vim astra_control_center_operator_deploy.yaml
 ----
 +
+
+NOTE: Ein YAML-Beispiel mit Anmerkungen folgt diesen Schritten.
+
 .. Wenn Sie eine Registrierung verwenden, die eine Authentifizierung erfordert, ersetzen oder bearbeiten Sie die Standardzeile von `imagePullSecrets: []` Mit folgenden Optionen:
 +
 [source, console]
 ----
 imagePullSecrets: [{name: astra-registry-cred}]
 ----
-.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
-.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `acc-operator` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>.
+.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `kube-rbac-proxy` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder zu Ihrer Registrierung hinzu,Vorheriger Schritt>>.
+.. Ändern `ASTRA_IMAGE_REGISTRY` Für das `acc-operator` Bild zum Registrierungspfad, in dem Sie die Bilder in ein geschoben haben <<Fügen Sie die Bilder zu Ihrer Registrierung hinzu,Vorheriger Schritt>>.
 .. Fügen Sie dem die folgenden Werte hinzu `env` Abschnitt:
 +
 [source, console]
@@ -361,9 +358,6 @@ imagePullSecrets: [{name: astra-registry-cred}]
 
 
 +
-.Beispiel für astra_Control_Center_Operator_deploy.yaml:
-[%collapsible]
-====
 [listing, subs="+quotes"]
 ----
 apiVersion: apps/v1
@@ -405,7 +399,7 @@ spec:
           value: "2"
         *- name: ACCOP_HELM_UPGRADETIMEOUT*
           *value: 300m*
-        *image: ASTRA_IMAGE_REGISTRY/acc-operator:23.10.72*
+        *image: ASTRA_IMAGE_REGISTRY/acc-operator:24.02.64*
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -434,7 +428,6 @@ spec:
         runAsUser: 65532
       terminationGracePeriodSeconds: 10
 ----
-====
 . Installieren Sie den aktualisierten Astra Control Center-Operator:
 +
 [source, console]
@@ -479,7 +472,15 @@ kubectl get pods -n netapp-acc-operator
 ----
 kubectl edit AstraControlCenter -n [netapp-acc or custom namespace]
 ----
-. Ändern Sie die Versionsnummer des Astra (`astraVersion` Innerhalb von `spec`) Zu der Version, auf die Sie aktualisieren:
++
+
+NOTE: Ein YAML-Beispiel mit Anmerkungen folgt diesen Schritten.
+
+. Ändern Sie die Versionsnummer des Astra (`astraVersion` Innerhalb von `spec`) Aus Richtung `23.10.0` Bis `24.02.0`:
++
+
+NOTE: Sie können kein direktes Upgrade von einer Version durchführen, die zwei oder mehr Versionen hinter der aktuellen Version enthält. Eine vollständige Liste der freigegebenen Versionen finden Sie im link:../release-notes/whats-new.html["Versionshinweise"].
+
 +
 [listing, subs="+quotes"]
 ----
@@ -487,13 +488,18 @@ spec:
   accountName: "Example"
   *astraVersion: "[Version number]"*
 ----
-. Überprüfen Sie, ob Ihr Image-Registrierungspfad mit dem von Ihnen gedrückten Registrierungspfad übereinstimmt <<Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu,Vorheriger Schritt>>. Aktualisierung `imageRegistry` Innerhalb von `spec` Wenn sich die Registrierung seit Ihrer letzten Installation geändert hat.
+. Ändern der Bildregistrierung:
++
+** (Nur lokale Registrierungen) Wenn Sie eine lokale Registrierung verwenden, überprüfen Sie, ob Ihr Pfad zur Bildregistrierung mit dem Registrierungspfad übereinstimmt, zu dem Sie die Bilder in einem verschoben haben <<Fügen Sie die Bilder zu Ihrer Registrierung hinzu,Vorheriger Schritt>>. Aktualisierung `imageRegistry` Innerhalb von `spec` Wenn sich die lokale Registrierung seit Ihrer letzten Installation geändert hat.
+** (Astra Control Image Registry) Verwenden Sie die Astra Control Image Registry (`cr.astra.netapp.io`) Du hast das aktualisierte Astra Control Bundle heruntergeladen.
 +
 [listing]
 ----
   imageRegistry:
-    name: "[your_registry_path]"
+    name: "[cr.astra.netapp.io or your_registry_path]"
 ----
+
+
 . Fügen Sie Folgendes zu Ihrem hinzu `crds` Konfiguration in `spec`:
 +
 [source, console]
@@ -536,7 +542,7 @@ Antwort:
 [listing]
 ----
 NAME    UUID                                      VERSION     ADDRESS         READY
-astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      23.10.0-68   10.111.111.111  True
+astra   9aa5fdae-4214-4cb7-9976-5d8b4c0ce27f      24.02.0-65   10.111.111.111  True
 ----
 +
 

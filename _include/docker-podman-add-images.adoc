@@ -1,30 +1,25 @@
-= Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu
+= 
 :allow-uri-read: 
 
 
-
-
-== Fügen Sie die Bilder Ihrer lokalen Registrierung hinzu
-
-. Führen Sie die entsprechende Schrittfolge für Ihre Container-Engine durch:
-
-
+. Wenn Sie planen, das Astra Control Center-Paket in Ihre lokale Registrierung zu übertragen, führen Sie die entsprechende Schrittfolge für Ihre Container-Engine aus:
++
 [role="tabbed-block"]
 ====
 .Docker
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten den sehen `acc.manifest.bundle.yaml` Datei und diese Verzeichnisse:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
+.. Übertragen Sie die Paketbilder im Astra Control Center-Bildverzeichnis in Ihre lokale Registrierung. Führen Sie die folgenden Ersetzungen durch, bevor Sie den ausführen `push-images` Befehl:
 +
-** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
-** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
-** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
-** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
+*** Ersetzen Sie <BUNDLE_FILE> durch den Namen der Astra Control Bundle-Datei (`acc.manifest.bundle.yaml`).
+*** <MY_FULL_REGISTRY_PATH> durch die URL des Docker Repositorys ersetzen, beispielsweise "https://<docker-registry>"[].
+*** Ersetzen Sie <MY_REGISTRY_USER> durch den Benutzernamen.
+*** Ersetzen Sie <MY_REGISTRY_TOKEN> durch ein autorisiertes Token für die Registrierung.
 +
 [source, console]
 ----
@@ -37,19 +32,19 @@ kubectl astra packages push-images -m <BUNDLE_FILE> -r <MY_FULL_REGISTRY_PATH> -
 --
 .Podman
 --
-. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
+.. Wechseln Sie in das Stammverzeichnis des Tarballs. Sie sollten diese Datei und das Verzeichnis sehen:
 +
 `acc/`
 `kubectl-astra/`
 `acc.manifest.bundle.yaml`
 
-. Melden Sie sich bei Ihrer Registrierung an:
+.. Melden Sie sich bei Ihrer Registrierung an:
 +
 [source, console]
 ----
 podman login <YOUR_REGISTRY>
 ----
-. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
+.. Vorbereiten und Ausführen eines der folgenden Skripts, das für die von Ihnen verwendete Podman-Version angepasst ist. Ersetzen Sie <MY_FULL_REGISTRY_PATH> durch die URL Ihres Repositorys, die alle Unterverzeichnisse enthält.
 +
 [source, subs="specialcharacters,quotes"]
 ----
@@ -60,7 +55,7 @@ podman login <YOUR_REGISTRY>
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -79,7 +74,7 @@ done
 ----
 export REGISTRY=<MY_FULL_REGISTRY_PATH>
 export PACKAGENAME=acc
-export PACKAGEVERSION=23.10.0-68
+export PACKAGEVERSION=24.02.0-65
 export DIRECTORYNAME=acc
 for astraImageFile in $(ls ${DIRECTORYNAME}/images/*.tar) ; do
 astraImage=$(podman load --input ${astraImageFile} | sed 's/Loaded image: //')
@@ -95,9 +90,16 @@ NOTE: Der Bildpfad, den das Skript erstellt, sollte abhängig von Ihrer Registri
 +
 [listing]
 ----
-https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/23.10.0-68/image:version
+https://downloads.example.io/docker-astra-control-prod/netapp/astra/acc/24.02.0-65/image:version
 ----
 
 
 --
 ====
+. Telefonbuch ändern:
++
+[source, console]
+----
+cd manifests
+----
+

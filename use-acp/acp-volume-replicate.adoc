@@ -25,7 +25,7 @@ Mit Astra Control Provisioner können Sie Spiegelungsbeziehungen zwischen einem 
 Stellen Sie sicher, dass die folgenden Voraussetzungen erfüllt sind, bevor Sie beginnen:
 
 .ONTAP Cluster
-* *Astra Control Provisioner*: Astra Control Provisioner Version 22.10 oder höher muss sowohl auf den Quell- als auch auf den Ziel-Kubernetes-Clustern vorhanden sein, die ONTAP als Backend verwenden.
+* *Astra Control Provisioner*: Astra Control Provisioner ab Version 23.10 oder höher link:../get-started/requirements.html["Astra Trident wird unterstützt"] Quell- und Ziel-Kubernetes-Cluster, die ONTAP als Backend nutzen, müssen vorhanden sein.
 * *Lizenzen*: Asynchrone Lizenzen von ONTAP SnapMirror, die das Datensicherungspaket verwenden, müssen sowohl auf den Quell- als auch auf den Ziel-ONTAP-Clustern aktiviert sein. Siehe https://docs.netapp.com/us-en/ontap/data-protection/snapmirror-licensing-concept.html["Übersicht über die SnapMirror Lizenzierung in ONTAP"^] Finden Sie weitere Informationen.
 
 

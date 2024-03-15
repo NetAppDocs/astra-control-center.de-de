@@ -50,7 +50,7 @@ NOTE: Bevor Sie das Management des Clusters aufheben, sollten Sie die dem Cluste
 Wenn Sie das Management eines Clusters aufheben:
 
 * Dadurch wird das Management des Clusters durch das Astra Control Center verhindert. Die Konfiguration des Clusters ändert sich nicht, und das Cluster wird nicht gelöscht.
-* Astra Trident wird nicht vom Cluster deinstalliert. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Erfahren Sie, wie Sie Astra Trident deinstallieren"^].
+* Astra Control Provisioner oder Astra Trident werden nicht aus dem Cluster deinstalliert. https://docs.netapp.com/us-en/trident/trident-managing-k8s/uninstall-trident.html["Erfahren Sie, wie Sie Astra Trident deinstallieren"^].
 
 
 .Schritte
@@ -64,4 +64,4 @@ Wenn Sie das Management eines Clusters aufheben:
 Der Status des Clusters ändert sich in *Entfernen*. Danach wird der Cluster aus der Seite *Cluster* entfernt und wird nicht mehr vom Astra Control Center verwaltet.
 
 
-IMPORTANT: *Wenn Astra Control Center und Cloud Insights nicht verbunden sind*, entfernt die Unverwaltung des Clusters alle Ressourcen, die zum Senden von Telemetriedaten installiert wurden. *Wenn Astra Control Center und Cloud Insights verbunden sind*, löscht die Entsteuerung des Clusters nur das `fluentbit` Und `event-exporter` Behälter.
+IMPORTANT: Wenn das Cluster nicht gemanagt wird, werden alle Ressourcen gelöscht, die zum Senden von Telemetriedaten installiert wurden.

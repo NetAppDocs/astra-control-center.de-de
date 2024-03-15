@@ -19,7 +19,6 @@ Die folgenden bekannten Probleme wirken sich auf die aktuelle Version aus:
 
 * <<App-Backups und Snapshots schlagen fehl, wenn die Volume-Snapshot-Klasse nach dem Management eines Clusters hinzugefügt wird>>
 * <<Das Verwalten eines Clusters mit Astra Control Center schlägt fehl, wenn die Datei kubeconfig mehr als einen Kontext enthält>>
-* <<Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen>>
 * <<Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist>>
 * <<Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl>>
 * <<Die Wiederherstellung aus einem Backup bei Verwendung der Kerberos-Verschlüsselung während der Übertragung kann fehlschlagen>>
@@ -40,58 +39,6 @@ Sie können ein kubeconfig nicht mit mehr als einem Cluster und Kontext darin ve
 
 
 
-== Ein Monitoring-Pod kann in Istio Umgebungen zum Absturz kommen
-
-Wenn Sie Astra Control Center mit Cloud Insights in einer Istio Umgebung koppeln, bietet die `telegraf-rs` Pod kann abstürzen. Führen Sie als Workaround die folgenden Schritte aus:
-
-. Suchen Sie den abgestürzten POD:
-+
-[listing]
-----
-kubectl -n netapp-monitoring get pod | grep Error
-----
-+
-Sie sollten eine Ausgabe wie die folgende sehen:
-
-+
-[listing]
-----
-NAME READY STATUS RESTARTS AGE
-telegraf-rs-fhhrh 1/2 Error 2 (26s ago) 32s
-----
-. Starten Sie den abgestürzten Pod neu, und ersetzen Sie ihn `<pod_name_from_output>` Mit dem Namen des betroffenen Pods:
-+
-[listing]
-----
-kubectl -n netapp-monitoring delete pod <pod_name_from_output>
-----
-+
-Sie sollten eine Ausgabe wie die folgende sehen:
-
-+
-[listing]
-----
-pod "telegraf-rs-fhhrh" deleted
-----
-. Überprüfen Sie, ob der Pod neu gestartet wurde und sich nicht im Fehlerzustand befindet:
-+
-[listing]
-----
-kubectl -n netapp-monitoring get pod
-----
-+
-Sie sollten eine Ausgabe wie die folgende sehen:
-
-+
-[listing]
-----
-NAME READY STATUS RESTARTS AGE
-telegraf-rs-rrnsb 2/2 Running 0 11s
-----
-
-
-
-
 == Das Management der App-Daten schlägt mit Fehler des internen Service (500) fehl, wenn Astra Trident offline ist
 
 Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder online geschaltet wird) und 500 interne Servicefehler auftreten, wenn versucht wird, das App-Datenmanagement zu managen, starten Sie alle Kubernetes-Nodes im App-Cluster neu, um die Funktionalität wiederherzustellen.
@@ -100,7 +47,7 @@ Wenn Astra Trident auf einem App-Cluster offline geschaltet wird (und wieder onl
 
 == Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl
 
-Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"^] Um das Snapshot-Verzeichnis auszublenden.
+Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"] Um das Snapshot-Verzeichnis auszublenden.
 
 
 

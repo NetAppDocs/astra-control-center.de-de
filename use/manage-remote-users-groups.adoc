@@ -74,9 +74,13 @@ NOTE: Die ausgewählte Rolle ist allen Benutzern in dieser Gruppe zugewiesen. We
 
 . Weisen Sie dieser Gruppe optional eine oder mehrere Namespace-Einschränkungen zu und wählen Sie *Rolle auf Einschränkungen beschränken* aus, um sie durchzusetzen. Sie können eine neue Namespace-Einschränkung hinzufügen, indem Sie *Bedingung hinzufügen* auswählen.
 +
+[NOTE]
+====
+** *Wenn die Ressourcen, auf die zugegriffen wird, zu Clustern gehören, auf denen der neueste Astra Connector installiert ist*: Wenn einem Benutzer über eine LDAP-Gruppenmitgliedschaft mehrere Rollen zugewiesen werden, werden die Einschränkungen der Rollen kombiniert. Wenn beispielsweise ein Benutzer mit einer lokalen Viewer-Rolle drei Gruppen Beitritt, die an die Mitgliedrolle gebunden sind, hat der Benutzer jetzt Zugriff auf die Viewer-Rolle auf die ursprünglichen Ressourcen sowie auf die Mitgliederrolle, die durch die Gruppenmitgliedschaft gewonnen wird.
+** *Wenn die Ressourcen, auf die zugegriffen wird, zu Clustern gehören, auf denen kein Astra Connector installiert ist*: Wenn einem Benutzer mehrere Rollen über eine LDAP-Gruppenmitgliedschaft zugewiesen werden, sind die Einschränkungen der freizügigsten Rolle die einzigen, die wirksam werden.
 
-NOTE: Wenn einem Benutzer mehrere Rollen durch die LDAP-Gruppenmitgliedschaft zugewiesen werden, sind die Einschränkungen in der am stärksten permissivsten Rolle die einzigen, die wirksam werden. Wenn z. B. ein Benutzer mit einer lokalen Viewer-Rolle drei Gruppen verbindet, die an die Rolle Mitglied gebunden sind, wird die Summe der Einschränkungen aus den Mitgliederrollen wirksam, und alle Einschränkungen aus der Viewer-Rolle werden ignoriert.
 
+====
 . Wählen Sie *Hinzufügen*.
 
 

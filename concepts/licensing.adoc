@@ -17,7 +17,7 @@ Bei der Bereitstellung von Astra Control Center wird es mit einer eingebetteten 
 Sie erhalten eine Lizenz auf eine der folgenden Arten:
 
 * Wenn Sie Astra Control Center evaluieren und andere Evaluierungsbedingungen als in der eingebetteten Evaluierungslizenz benötigen, wenden Sie sich an NetApp, um eine andere Evaluierungslizenzdatei zu anfordern.
-* link:https://mysupport.netapp.com/site/["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Melden Sie sich dazu auf der NetApp Support-Website an und navigieren Sie zu Ihren Softwarelizenzen im Menü „Systeme“.
+* https://mysupport.netapp.com/site/["Wenn Sie Astra Control Center bereits gekauft haben, generieren Sie Ihre NetApp Lizenzdatei (NLF)."^] Melden Sie sich dazu auf der NetApp Support-Website an und navigieren Sie zu Ihren Softwarelizenzen im Menü „Systeme“.
 
 
 Details zu Lizenzen, die für ONTAP Storage Back-Ends erforderlich sind, finden Sie unter link:../get-started/requirements.html["Unterstützte Storage-Back-Ends"].
@@ -60,6 +60,6 @@ NOTE: Red hat OpenShift Infrastruktur-Nodes nutzen keine Lizenzen in Astra Contr
 
 == Weitere Informationen
 
-* link:../get-started/setup_overview.html#add-a-license-for-astra-control-center["Fügen Sie beim ersten Einrichten des Astra Control Center eine Lizenz hinzu"]
+* link:../get-started/add-license.html["Fügen Sie beim ersten Einrichten des Astra Control Center eine Lizenz hinzu"]
 * link:../use/update-licenses.html["Aktualisieren einer vorhandenen Lizenz"]
 

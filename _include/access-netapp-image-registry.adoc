@@ -2,24 +2,17 @@
 :allow-uri-read: 
 
 
-* *Zugriff auf die NetApp Astra Control Image Registry*:
 Sie haben die Möglichkeit, Installations-Images und Funktionserweiterungen für Astra Control, wie z. B. Astra Control Provisioner, aus der NetApp-Image-Registrierung zu beziehen.
-+
-.Für Schritte erweitern
-[%collapsible]
-====
-.. Notieren Sie Ihre Astra Control Account-ID, die Sie zur Anmeldung in der Registrierung benötigen.
+
+. Notieren Sie Ihre Astra Control Account-ID, die Sie zur Anmeldung in der Registrierung benötigen.
 +
 Ihre Konto-ID wird in der Web-UI des Astra Control Service angezeigt. Wählen Sie das Symbol oben rechts auf der Seite aus, wählen Sie *API Access* aus und notieren Sie sich Ihre Konto-ID.
 
-.. Wählen Sie auf derselben Seite *API-Token generieren* aus und kopieren Sie die API-Token-Zeichenfolge in die Zwischenablage und speichern Sie sie in Ihrem Editor.
-.. Melden Sie sich in der Astra Control Registry an:
+. Wählen Sie auf derselben Seite *API-Token generieren* aus und kopieren Sie die API-Token-Zeichenfolge in die Zwischenablage und speichern Sie sie in Ihrem Editor.
+. Melden Sie sich in der Astra Control Registry an:
 +
 [source, console]
 ----
 docker login cr.astra.netapp.io -u <account-id> -p <api-token>
 ----
-
-
-====
 

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: get-started/add-license.html 
+keywords: set up astra control, astra control license 
+summary: Nachdem Sie Astra Control Center installiert haben, melden Sie sich an der Benutzeroberfläche an und ändern Ihr Passwort, Sie möchten eine Lizenz einrichten. 
+---
+= Fügen Sie eine Lizenz für Astra Control Center hinzu
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+[role="lead"]
+Wenn Sie Astra Control Center installieren, ist bereits eine eingebettete Evaluierungslizenz installiert. Wenn Sie Astra Control Center evaluieren, können Sie diesen Schritt überspringen.
+
+Über die Astra Control UI oder können Sie eine neue Lizenz hinzufügen https://docs.netapp.com/us-en/astra-automation["Astra Control API"^].
+
+Astra Control Center Lizenzen messen die CPU-Ressourcen mithilfe von Kubernetes-CPU-Einheiten und berücksichtigen die CPU-Ressourcen, die den Worker-Nodes aller gemanagten Kubernetes-Cluster zugewiesen sind. Lizenzen basieren auf der vCPU-Nutzung. Weitere Informationen zur Berechnung von Lizenzen finden Sie unter link:../concepts/licensing.html["Lizenzierung"].
+
+
+NOTE: Wenn Ihre Installation die Anzahl der lizenzierten CPU-Einheiten überschreitet, verhindert Astra Control Center die Verwaltung neuer Anwendungen. Bei Überschreitung der Kapazität wird eine Meldung angezeigt.
+
+
+NOTE: Informationen zum Aktualisieren einer vorhandenen Testversion oder einer vollständigen Lizenz finden Sie unter link:../use/update-licenses.html["Aktualisieren einer vorhandenen Lizenz"].
+
+.Bevor Sie beginnen
+* Zugriff auf eine neu installierte Astra Control Center-Instanz.
+* Berechtigungen für Administratorrollen.
+* A link:../concepts/licensing.html["NetApp Lizenzdatei"] (NLF).
+
+
+.Schritte
+. Melden Sie sich in der UI des Astra Control Center an.
+. Wählen Sie *Konto* > *Lizenz*.
+. Wählen Sie *Lizenz Hinzufügen*.
+. Rufen Sie die Lizenzdatei (NLF) auf, die Sie heruntergeladen haben.
+. Wählen Sie *Lizenz Hinzufügen*.
+
+
+Auf der Seite *Konto* > *Lizenz* werden Lizenzinformationen, Ablaufdatum, Lizenzseriennummer, Konto-ID und verwendete CPU-Einheiten angezeigt.
+
+
+NOTE: Wenn Sie über eine Evaluierungslizenz verfügen und keine Daten an AutoSupport senden, sollten Sie Ihre Konto-ID speichern, um Datenverlust im Falle eines Astra Control Center-Ausfalls zu vermeiden.
