@@ -2440,7 +2440,6 @@ Wenn Sie eine Backup- oder Snapshot-Operation mit zugeordneten Testsuiten starte
   <block id="6d71102c1ab33d36986e4d5b5545a278" category="list-text">Sie verwenden mehrere Kontexte und können nicht den Standard Astra Control kubeconfig verwenden, der während der Installation konfiguriert wurde, oder eine eingeschränkte Rolle mit einem einzelnen Kontext funktioniert nicht in Ihrer Umgebung</block>
   <block id="5a20342984ee9d605acb505095dbcd0a" category="list-text">Erstellen Sie eine der folgenden Clusterrollen mit ausreichenden Berechtigungen für ein Cluster, das von Astra Control gemanagt werden kann:</block>
   <block id="d2c5b496305d8a36011fc2b1e55dcde3" category="list-text">Erstellen Sie ein<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> Datei mit dem Namen, z. B.<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block>.</block>
-  <block id="27d0c41af3a1135b5aa66dad8883e300" category="list-text">(Nur für OpenShift-Cluster) Anhängen Sie am Ende des an<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> Datei oder nach dem<block ref="7da59f03b6be2daf1bf5fd19ecc78050" prefix=" " category="inline-code"></block> Abschnitt:</block>
   <block id="5e2febea168e23172b29251a6258dec8" category="admonition">Im Folgenden<block ref="d7d354d0f9d0780e168c895c92a32c24" prefix=" " category="inline-code"></block> Schritte sind ein allgemeines Kubernetes-Beispiel. Anweisungen zu Ihrer spezifischen Umgebung finden Sie in der Dokumentation zur Kubernetes-Distribution.</block>
   <block id="c1865e8db7245bcc1648e67fb250eba4" category="list-text">Erstellen und Anwenden des Token-Geheimnisses:</block>
   <block id="11afc91177361b2eafbbec4287518195" category="list-text">Erstellen Sie eine Geheimdatei mit dem Namen Token<block ref="7cdd7450df0359169a360b93d3cb369f" prefix=" " category="inline-code"></block>.</block>
@@ -3101,8 +3100,6 @@ Wenn Sie ein Zielvolume auf ein reguläres ReadWrite-Volume heraufstufen, könne
   <block id="29e638c426512b56521aa694976562ea" category="list-text">(Optional) Ein lokaler Registrierungspfad. Wenn Sie eine lokale Registrierung verwenden, wird Ihr<block ref="97e5914991475a979ee93ba0d709c399" category="inline-link-rx"></block> Kann in einer Registrierung oder in verschiedenen Registern gefunden werden, aber alle CSI-Images müssen sich in derselben Registrierung befinden.</block>
   <block id="4795c928314a82e5be360b646a3a3aac" category="list-text">Der Trident Namespace</block>
   <block id="804c8c9903e49e8cab0717f41b883f9a" category="list-text">Bilder ohne Registrierung</block>
-  <block id="c4ffea098f78924a9b9331b8f5e9c8b4" category="list-text">Bilder in einer Registrierung</block>
-  <block id="4847c552b2ff9251806e41c8fa907e19" category="list-text">Bilder in verschiedenen Registern</block>
   <block id="d75fdc8e85ddcd7e9dc9f367168dec11" category="paragraph">Verwenden Sie können<block ref="cd4140d3de30b520500459331d08d2bf" prefix=" " category="inline-code"></block> So prüfen Sie Installationsdetails wie Name, Namespace, Diagramm, Status, App-Version, Und Revisionsnummer.</block>
   <block id="d09a3f23170df63b9065e78b7eb80224" category="paragraph">Falls Sie Probleme bei der Implementierung von Trident mit Helm haben, führen Sie diesen Befehl aus, um Astra Trident vollständig zu deinstallieren:</block>
   <block id="3897d04922674a762953f58e38463cb0" category="inline-link">Astra Trident CRDs vollständig entfernen</block>
@@ -3282,7 +3279,6 @@ Wenn Sie während der Installation von Astra Control Center ein Istio-Service-Me
   <block id="45ff81bf0afcefe9451aab9b611c1934" category="open-title">Mit einem CR-System aus der Sicherung wiederherstellen</block>
   <block id="0291eb75f7d9f722c1c83050970a021f" category="list-text">Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie<block ref="5cdae9ef2c57d39bfd2be879e506f5ce" prefix=" " category="inline-code"></block>. Aktualisieren Sie die Werte in Klammern &lt;&gt;, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:</block>
   <block id="607cb816902b97513f9f07eaf1cf9526" category="list-text">&lt;CR_NAME&gt;: Der Name dieser CR-Operation; wählen Sie einen vernünftigen Namen für Ihre Umgebung.</block>
-  <block id="5e66a070c1e61232e4b5e2974f682cab" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Der Namespace, in dem Astra Connector installiert ist.</block>
   <block id="32c38c61b072ed7be99e03554fcc5dc7" category="list-text">&lt;APPVAULT_NAME&gt;: Der Name des AppVault, in dem der Backup-Inhalt gespeichert ist.</block>
   <block id="b6f7c06130923ff859915637bdd832de" category="list-text">&lt;BACKUP_PATH&gt;: Der Pfad innerhalb von AppVault, wo die Backup-Inhalte gespeichert werden. Beispiel:</block>
   <block id="98766ce59cde6328ee287141ac6463fc" category="list-text">&lt;SOURCE_NAMESPACE&gt;: Der Quell-Namespace des Wiederherstellungsvorgangs.</block>
@@ -3290,7 +3286,6 @@ Wenn Sie während der Installation von Astra Control Center ein Istio-Service-Me
   <block id="fb72d03a8b8ac14ae1e7d9aa1f047e05" category="list-text">Nachdem Sie das ausgefüllt haben<block ref="5cdae9ef2c57d39bfd2be879e506f5ce" prefix=" " category="inline-code"></block> Datei mit den richtigen Werten, CR anwenden:</block>
   <block id="4f6d84376015daa09c05aaa62c5169b3" category="open-title">Wiederherstellung aus dem Backup in den ursprünglichen Namespace mit einem CR</block>
   <block id="d21e7e879c0776ee09e7586ce29d2898" category="list-text">Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie<block ref="eb9b00b26a03b44f5f2897edcd77fbc2" prefix=" " category="inline-code"></block>. Aktualisieren Sie die Werte in Klammern &lt;&gt;, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:</block>
-  <block id="975fe7cbef6128bcc4889aaf1ca76c41" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Der Namespace, in dem Astra Connector installiert ist. Dies sollte der Namespace sein, in dem das Backup erstellt wurde.</block>
   <block id="5348fdd12f57331552ca99bd9874fb9e" category="list-text">Nachdem Sie das ausgefüllt haben<block ref="eb9b00b26a03b44f5f2897edcd77fbc2" prefix=" " category="inline-code"></block> Datei mit den richtigen Werten, CR anwenden:</block>
   <block id="59996d3ba6c2c9c9164c73f5f9dbaaef" category="section-title">[Tech Preview] Wiederherstellen von Snapshots mithilfe einer benutzerdefinierten Ressource (CR)</block>
   <block id="7708c3b204f347f9a3f6641e7484ab47" category="paragraph">Sie können Daten aus einem Snapshot mithilfe einer benutzerdefinierten Ressourcendatei (CR) entweder in einem anderen Namespace oder im ursprünglichen QuellNamespace wiederherstellen.</block>
@@ -3299,7 +3294,6 @@ Wenn Sie während der Installation von Astra Control Center ein Istio-Service-Me
   <block id="9698c53c78d261962a4a1c26b913eee1" category="list-text">Nachdem Sie das ausgefüllt haben<block ref="47c8c017693706f1deca4469c915fc62" prefix=" " category="inline-code"></block> Datei mit den richtigen Werten, CR anwenden:</block>
   <block id="b78248634602cda93bac3dff3aaa9393" category="open-title">Wiederherstellen von Snapshots in den ursprünglichen Namespace mit einem CR</block>
   <block id="c32ab7b52b53095f9f5158cc1e448576" category="list-text">Erstellen Sie die CR-Datei (Custom Resource) und benennen Sie sie<block ref="7789d21ba00a1b12ae9d85f219dabda2" prefix=" " category="inline-code"></block>. Aktualisieren Sie die Werte in Klammern &lt;&gt;, um sie an die Astra Control-Umgebung und die Cluster-Konfiguration anzupassen:</block>
-  <block id="ff573d7c36acef9cfb20b75cc375adb3" category="list-text">&lt;ASTRA_CONNECTOR_NAMESPACE&gt;: Der Namespace, in dem Astra Connector installiert ist. Dies sollte der Namespace sein, in dem der Snapshot erstellt wurde.</block>
   <block id="375b1db65557163f2d0e23f660a3d7f9" category="list-text">Nachdem Sie das ausgefüllt haben<block ref="7789d21ba00a1b12ae9d85f219dabda2" prefix=" " category="inline-code"></block> Datei mit den richtigen Werten, CR anwenden:</block>
   <block id="d6335a5aece4d08f612f786e74fdb995" category="summary">Managen Sie Ihre Astra Control Applikationen mit benutzerdefinierten Kubernetes-Ressourcen (CR).</block>
   <block id="7247d7030b66ad4ed4eaa523ed6676b0" category="doc">[Tech Preview] Verwalten Sie Astra Control-Anwendungen mit CRS</block>
@@ -3613,4 +3607,6 @@ Astra Control Provisioner wird automatisch im Rahmen des Imports und der Erkennu
   <block id="f768e6dcac13eb19534cf966f45963b6" category="cell"><block ref="f88ff30441dac38b9948d4f74cec7a17" prefix="" category="inline-code"></block></block>
   <block id="a4d0aec7cffdaed0bf8e97e7c30b486b" category="list-text">Geben Sie die Astra Control Center-Version ein, z. B. 24.02.0-69.</block>
   <block id="da65a49714e715e3103c6d4e4765ad79" category="section-title">15. März 2024 (24.02.0)</block>
+  <block id="3e10c4dd91af2dc1835b50343bc5fbd0" category="list-text">Bilder in einer oder mehreren Registern</block>
+  <block id="03af53c262f33cd7a040764e24c068eb" category="list-text">(Nur für OpenShift-Cluster) Anhängen Sie am Ende des an<block ref="b7bb4a27d91c967fbba0bb19f36a3533" prefix=" " category="inline-code"></block> Datei:</block>
 </blocks>
