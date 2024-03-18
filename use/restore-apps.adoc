@@ -130,7 +130,7 @@ Sie können Daten aus einem Backup mithilfe einer benutzerdefinierten Ressourcen
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 ** <SOURCE_NAMESPACE>: Der Quell-Namespace des Wiederherstellungsvorgangs.
 ** <DESTINATION_NAMESPACE>: Der Ziel-Namespace des Wiederherstellungsvorgangs.
@@ -201,7 +201,7 @@ kubectl apply -f astra-control-backup-restore-cr.yaml
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 +
 [source, yaml]
@@ -278,7 +278,7 @@ Sie können Daten aus einem Snapshot mithilfe einer benutzerdefinierten Ressourc
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 ** <SOURCE_NAMESPACE>: Der Quell-Namespace des Wiederherstellungsvorgangs.
 ** <DESTINATION_NAMESPACE>: Der Ziel-Namespace des Wiederherstellungsvorgangs.
@@ -349,7 +349,7 @@ kubectl apply -f astra-control-snapshot-restore-cr.yaml
 +
 [listing]
 ----
-minio_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
+ONTAP-S3_1343ff5e-4c41-46b5-af00/backups/schedule-20231213023800_94347756-9d9b-401d-a0c3
 ----
 +
 [source, yaml]
