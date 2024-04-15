@@ -14,7 +14,7 @@ summary: Hier ist ein Überblick über die verschiedenen Komponenten der Astra C
 [role="lead"]
 Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung.
 
-image:astra-architecture-diagram-v6.png["Ein Konzept, das die Astra Control Architektur und deren Komponenten beschreibt"]
+image:astra-architecture-diagram-v7.png["Ein Konzept, das die Astra Control Architektur und deren Komponenten beschreibt"]
 
 
 
