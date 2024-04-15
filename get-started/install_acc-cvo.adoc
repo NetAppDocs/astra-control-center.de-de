@@ -12,7 +12,7 @@ summary: Um Astra Control Center zu installieren, nachdem Sie einige Umgebungsvo
 
 
 [role="lead"]
-Mit Astra Control Center können Sie Ihre Applikationen in einer Hybrid-Cloud-Umgebung mit automatisierten Kubernetes-Clustern und Cloud Volumes ONTAP Instanzen managen. Astra Control Center kann auch in lokalen Kubernetes-Clustern oder in einem der selbst gemanagten Kubernetes-Cluster in der Cloud-Umgebung implementiert werden.
+Mit Astra Control Center können Sie Ihre Applikationen in einer Hybrid-Cloud-Umgebung mit automatisierten Kubernetes-Clustern und Cloud Volumes ONTAP Instanzen managen. Sie können Astra Control Center in Ihren lokalen Kubernetes-Clustern oder in einem der automatisierten Kubernetes-Cluster in der Cloud-Umgebung bereitstellen.
 
 Mit einer dieser Implementierungen können Sie Applikationsdatenmanagement-Vorgänge mithilfe von Cloud Volumes ONTAP als Storage-Backend durchführen. Außerdem können Sie einen S3-Bucket als Backup-Ziel konfigurieren.
 

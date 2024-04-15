@@ -18,10 +18,10 @@ Einen Vergleich zwischen Backups/Wiederherstellungen und Replikation finden Sie 
 
 Applikationen lassen sich in unterschiedlichen Szenarien replizieren, z. B. nur on-Premises, in Hybrid- und Multi-Cloud-Szenarien:
 
-* Standort A vor Ort zu Standort A
-* On-Premises-Standort A auf On-Premises-Standort B
-* On-Premises- und Cloud-Umgebungen mit Cloud Volumes ONTAP
-* Cloud mit Cloud Volumes ONTAP auf On-Premises-Umgebungen
+* Von Standort A zu Standort A
+* Von On-Premises-Standort A zu On-Premises-Standort B
+* Von On-Premises-Systemen in die Cloud mit Cloud Volumes ONTAP
+* Cloud mit Cloud Volumes ONTAP zu On-Premises-Systemen
 * Cloud mit Cloud Volumes ONTAP in die Cloud (zwischen verschiedenen Regionen desselben Cloud-Providers oder verschiedener Cloud-Provider)
 
 

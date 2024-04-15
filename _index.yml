@@ -1,7 +1,7 @@
 ---
 indexpage:
-  lead: Astra Control Center Software ermöglicht applikationskonsistentes Datenmanagement
-    von Kubernetes-Clustern in Ihrer lokalen Umgebung. Erstellen Sie einfach ein Backup
+  lead: Die Astra Control Center-Software bietet applikationskonsistentes Datenmanagement
+    für Kubernetes-Cluster in Ihrer lokalen Umgebung. Erstellen Sie einfach ein Backup
     von Kubernetes-Applikationen, migrieren Sie Daten in einen anderen Cluster und
     erstellen Sie sofort funktionsfähige Applikationsklone. Wenn Sie Kubernetes-Applikationen
     in einer Public Cloud managen möchten, besuchen Sie die Dokumentation für Astra
