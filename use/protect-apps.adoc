@@ -288,6 +288,52 @@ Astra Control erstellt ein Backup der App.
 ====
 
 
+=== [Tech Preview] Erstellen Sie ein geplantes Backup von Namespaces
+
+Sie können ein geplantes, automatisches Backup aller Namespaces in einem Cluster erstellen. Diese Workflows werden von NetApp als CR-Dateien bereitgestellt, die mit einem Python-Skript gekoppelt sind. Bei der Konfiguration und Installation der Workflows werden Namespace-Backups automatisch nach einem Zeitplan erstellt, den Sie während der Installation auswählen. Sie können alle Namespaces in einem Cluster mit dem vollständigen Cluster-Backup-Workflow oder nur bestimmte Namespaces mit dem Label-basierten Backup-Workflow schützen.
+
+Wenn ein neuer Namespace oder eine App, die in den Umfang Ihres Backup-Zeitplans fällt, zum Cluster hinzugefügt wird, wird dieser automatisch geschützt.
+
+.Beispiel: Vollständiges Cluster-Backup
+Wenn Sie beispielsweise den vollständigen Cluster-Backup-Workflow konfigurieren und installieren, werden alle Applikationen in einem Namespace regelmäßig und ohne weiteren Aufwand durch den Administrator gesichert. Der Namespace muss bei der Installation des Workflows nicht vorhanden sein; wenn ein Namespace in der Zukunft hinzugefügt wird, wird er geschützt.
+
+.Beispiel: Label-basiertes Backup
+Für eine größere Granularität können Sie den labelbasierten Workflow verwenden. Sie können beispielsweise diesen Workflow installieren und Ihren Benutzern mitteilen, je nach Schutzstufe eine von mehreren Labels auf alle Namespaces anzuwenden, die sie schützen möchten. Auf diese Weise können Benutzer den Namespace mit einem dieser Labels erstellen, ohne dass sie einen Administrator benachrichtigen müssen. Der neue Namespace und alle darin Apps werden automatisch geschützt.
+
+
+
+==== Erstellen Sie ein geplantes Backup aller Namespaces
+
+Sie können mithilfe des vollständigen Cluster-Backup-Workflows ein geplantes Backup aller Namespaces auf einem Cluster erstellen.
+
+.Schritte
+. Laden Sie die folgenden Dateien auf einen Computer herunter, der über Netzwerkzugriff auf den Cluster verfügt:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/components.yaml["Components.yaml CRD-Datei"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/fullcluster-backup/protectCluster.py["protectCluster.py Python-Skript"]
+
+
+. So konfigurieren und installieren Sie das Toolkit: https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/fullcluster-backup/README.md["Befolgen Sie die im Lieferumfang enthaltenen Anweisungen"^].
+
+
+
+
+==== Erstellen Sie ein geplantes Backup bestimmter Namespaces
+
+Sie können mithilfe des labelbasierten Backup-Workflows ein geplantes Backup bestimmter Namespaces anhand ihrer Labels erstellen.
+
+.Schritte
+. Laden Sie die folgenden Dateien auf einen Computer herunter, der über Netzwerkzugriff auf den Cluster verfügt:
++
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/components.yaml["Components.yaml CRD-Datei"]
+** https://raw.githubusercontent.com/NetApp/netapp-astra-toolkits/main/examples/labelbased-backup/protectCluster.py["protectCluster.py Python-Skript"]
+
+
+. So konfigurieren und installieren Sie das Toolkit: https://github.com/NetApp/netapp-astra-toolkits/blob/main/examples/labelbased-backup/README.md["Befolgen Sie die im Lieferumfang enthaltenen Anweisungen"^].
+
+
+
+
 == Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas
 
 Astra Control Provisioner bietet Backup- und Restore-Funktionen für Storage-Back-Ends, die das verwenden `ontap-nas-economy` Storage-Klasse.
