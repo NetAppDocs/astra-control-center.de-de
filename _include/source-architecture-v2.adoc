@@ -1,17 +1,7 @@
----
-sidebar: sidebar 
-permalink: concepts/architecture.html 
-keywords: what is astra, astra control, astra control architecture, astra control center, astra control service, kubernetes, netapp, clusters, astra trident, astra control provisioner 
-summary: Hier ist ein Überblick über die verschiedenen Komponenten der Astra Control-Umgebung. 
----
-= Architektur und Komponenten
-:hardbreaks:
+= Sorgen
 :allow-uri-read: 
-:icons: font
-:imagesdir: ../media/concepts/
 
 
-[role="lead"]
 Astra Control ist eine Kubernetes-Lösung für das übergreifende Lebenszyklusmanagement von Applikationsdaten. Sie vereinfacht den Betrieb zustandsbehafteter Applikationen und unterstützt Sie beim Speichern, Sichern und Verschieben Ihrer Kubernetes-Workloads zwischen Hybrid- und Multi-Cloud-Umgebungen.
 
 
