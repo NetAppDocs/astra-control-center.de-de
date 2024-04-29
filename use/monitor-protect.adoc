@@ -156,6 +156,9 @@ NOTE: Wenn mehrere Cluster-Daten erfasst wurden, werden die Metriken jedes Clust
 
 Sie können Protokolle (Kubernetes-Ereignisse) von einem System, das von Astra Control Center überwacht wird, an Ihren Fluentd-Endpunkt senden. Die Fluentd-Verbindung ist standardmäßig deaktiviert.
 
+
+NOTE: Fluentd-Verbindungen werden für Cluster, die mit deklarativen Kubernetes-Workflows verwaltet werden, nicht unterstützt. Sie können Fluentd nur mit Clustern verbinden, die mit nicht-Kubernetes-nativen Workflows verwaltet werden.
+
 image:fluentbit.png["Dies ist ein konzeptionelles Diagramm der Ereignisprotokolle von Astra nach Fluentd."]
 
 
