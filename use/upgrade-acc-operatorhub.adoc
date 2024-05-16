@@ -15,7 +15,7 @@ summary: Wenn Sie Red hat OpenShift verwenden, können Sie das Astra Control Cen
 Falls Sie Astra Control Center mit einem von Red hat zertifizierten Betreiber installiert haben, können Sie Astra Control Center über einen aktualisierten Operator aus dem OperatorHub aktualisieren. Gehen Sie wie folgt vor, um das Astra Control Center von zu aktualisieren https://catalog.redhat.com/software/operators/explore["Red Hat Ecosystem Catalog"^] Oder die Red hat OpenShift-Container-Plattform verwenden.
 
 .Bevor Sie beginnen
-* *Umweltvoraussetzungen erfüllen*: Bevor Sie ein Upgrade durchführen, stellen Sie sicher, dass Ihre Umgebung die erfüllt link:requirements.html["Mindestanforderungen für die Implementierung des Astra Control Center"].
+* *Umweltvoraussetzungen erfüllen*: Bevor Sie ein Upgrade durchführen, stellen Sie sicher, dass Ihre Umgebung die erfüllt link:../get-started/requirements.html["Mindestanforderungen für die Implementierung des Astra Control Center"].
 * *Stellen Sie sicher, dass Sie aktiviert haben link:../get-started/requirements.html#astra-control-provisioner["Astra Control Provisioner"] Mit Astra Trident*
 +
 .. Bestimmen Sie die Astra Trident-Version, die Sie ausführen:
