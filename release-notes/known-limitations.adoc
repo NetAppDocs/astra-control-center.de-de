@@ -35,6 +35,7 @@ Bekannte Einschränkungen identifizieren Plattformen, Geräte oder Funktionen, d
 * <<Mit Helm 2 implementierte Apps werden nicht unterstützt>>
 * <<Snapshots fehlschlagen bei Clustern mit Kubernetes 1.25 oder höher bei bestimmten Snapshot-Controller-Versionen möglicherweise>>
 * <<Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt>>
+* <<Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl>>
 
 
 .Allgemeine Einschränkungen
@@ -190,6 +191,12 @@ Führen Sie als Workaround beim Upgrade vorhandener Installationen von Kubernete
 == Backups und Snapshots werden während der Entfernung einer Astra Control Center-Instanz nicht aufbewahrt
 
 Wenn Sie über eine Evaluierungslizenz verfügen, sollten Sie Ihre Konto-ID speichern, um Datenverlust im Falle eines Ausfalls des Astra Control Center zu vermeiden, wenn Sie ASUPs nicht senden.
+
+
+
+== Vorgänge zur Wiederherstellung nach ontap-nas-Economy-Storage-Klassen schlagen fehl
+
+Wenn Sie eine in-Place-Wiederherstellung einer Anwendung durchführen (die App in ihren ursprünglichen Namespace wiederherstellen) und die Storage-Klasse der App den verwendet `ontap-nas-economy` Treiber, der Wiederherstellungsvorgang kann fehlschlagen, wenn das Snapshot-Verzeichnis nicht ausgeblendet ist. Befolgen Sie vor der Wiederherstellung vor Ort die Anweisungen unter link:../use/protect-apps.html#enable-backup-and-restore-for-ontap-nas-economy-operations["Backup und Restore für den wirtschaftlichen Betrieb von ontap-nas"] Um das Snapshot-Verzeichnis auszublenden.
 
 
 
