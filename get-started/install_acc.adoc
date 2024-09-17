@@ -548,7 +548,7 @@ HINWEIS: Nicht verwenden `http://` Oder `https://` In der Adresse. Kopieren Sie 
 .AutoSupport
 [%collapsible]
 ====
-Durch Ihre Auswahl in diesem Abschnitt wird bestimmt, ob Sie an der proaktiven Support-Applikation von NetApp, NetApp Active IQ, teilnehmen und an welchen Orten Daten gesendet werden. Eine Internetverbindung ist erforderlich (Port 442), und alle Supportdaten werden anonymisiert.
+Ihre Auswahl in diesem Abschnitt bestimmt, ob Sie an der proaktiven Support-Applikation von NetApp, Digital Advisor, teilnehmen und wo Daten gesendet werden. Eine Internetverbindung ist erforderlich (Port 442), und alle Supportdaten werden anonymisiert.
 
 |===
 | Einstellung | Nutzung | Anleitung | Typ | Beispiel 

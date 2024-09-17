@@ -187,7 +187,7 @@ Astra Control Center unterstützt Kubernetes-Cluster mit einer für die Astra Co
 
 In Astra Control Center sind begrenzte Monitoring- und Telemetriedaten (mit Kennzahlen von 7 Tagen) verfügbar und über offene metrische Endpunkte in native Kubernetes-Monitoring-Tools (z. B. Prometheus und Grafana) exportiert.
 
-Astra Control Center ist vollständig in das AutoSupport und Active IQ Ecosystem integriert, damit Benutzer und NetApp Support Fehlerbehebungs- und Verwendungsinformationen liefern können.
+Astra Control Center ist vollständig in das Ecosystem von AutoSupport und Active IQ Digital Advisor (auch als digitaler Berater bekannt) integriert, um Benutzern und NetApp-Support Fehlerbehebungs- und Verwendungsinformationen zu bieten.
 
 Sie können Astra Control Center mit einer eingebetteten 90-Tage-Evaluierungslizenz ausprobieren. Bei der Evaluierung von Astra Control Center können Sie Support über E-Mail- und Community-Optionen erhalten. Zudem haben Sie über das Dashboard für den Produktsupport Zugriff auf Knowledgebase-Artikel und -Dokumentation.
 

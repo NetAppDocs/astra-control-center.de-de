@@ -100,7 +100,7 @@ Dazu können Sie eine der folgenden Methoden verwenden:
 +
 ** Nutzung https://upload.netapp.com/sg["Hochladen von NetApp authentifizierten Dateien (Anmeldung erforderlich)"^].
 ** Befestigen Sie das Paket direkt am NSS-Gehäuse.
-** Nutzen Sie die NetApp Active IQ.
+** Verwenden Sie Digital Advisor.
 
 
 
