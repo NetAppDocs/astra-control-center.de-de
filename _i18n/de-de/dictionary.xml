@@ -1979,7 +1979,6 @@
   <block id="494f00c4b150eebe7f9548365d575840" category="list-text"><block ref="494f00c4b150eebe7f9548365d575840" category="inline-link-rx"></block></block>
   <block id="11c38116a632436215a6716507c1a287" category="list-text"><block ref="11c38116a632436215a6716507c1a287" category="inline-link-rx"></block></block>
   <block id="201e09e85ad81db8a19ef9f20c05d1a5" category="inline-link">Dieses Video</block>
-  <block id="259f3be9b6c8eefb44e844c2b70333dc" category="paragraph">Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter<block ref="cbbdec23221803dc148346abe5a297c0" category="inline-link-rx"></block>.</block>
   <block id="f7173fff9a92f2bab2648f86282ab07c" category="list-text">Replizieren von Applikationen auf ein Remote-System mit NetApp SnapMirror Technologie (Astra Control Center)</block>
   <block id="631928ccc601c8e49976a8d73af28304" category="list-text">Klonen von Applikationen von Staging hin zur Produktion</block>
   <block id="6ae1ccb3dd6df141f3444a3da56ae986" category="list-text">Geben Sie in einem Browser den FQDN ein (einschließlich<block ref="f8eae6750519389e078e1eb1bcb3d708" prefix=" " category="inline-code"></block> Präfix), die Sie in verwendet haben<block ref="d27903c79b643b2f565c31e894abb568" prefix=" " category="inline-code"></block> Im<block ref="70b058e54d2bda749060070a7f9c4e5c" prefix=" " category="inline-code"></block> CR, wenn <block ref="356be5820e2645bace29d82a8018f43d" category="inline-xref-macro-rx"></block>.</block>
@@ -3717,4 +3716,5 @@ Astra Control Provisioner wird automatisch im Rahmen des Imports und der Erkennu
   <block id="a9cf730f8ab04a5b52f1d19c74c1483c" category="paragraph">Astra Control Center ist vollständig in das Ecosystem von AutoSupport und Active IQ Digital Advisor (auch als digitaler Berater bekannt) integriert, um Benutzern und NetApp-Support Fehlerbehebungs- und Verwendungsinformationen zu bieten.</block>
   <block id="10c74eb5a029f34a100ad38aab60e5a3" category="paragraph">Ihre Auswahl in diesem Abschnitt bestimmt, ob Sie an der proaktiven Support-Applikation von NetApp, Digital Advisor, teilnehmen und wo Daten gesendet werden. Eine Internetverbindung ist erforderlich (Port 442), und alle Supportdaten werden anonymisiert.</block>
   <block id="3cf9bc07c0ae31018d3336b8f32de6c8" category="list-text">Verwenden Sie Digital Advisor.</block>
+  <block id="285c7fb54a928cf8e9ca78a83740ce60" category="paragraph">Eine Demonstration des Installationsvorgangs für Astra Control Center finden Sie unter<block ref="d97427b76746d487a682c110ed41c817" category="inline-link-rx"></block>.</block>
 </blocks>
